@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+#the_champ_error{
+	color: red;
+	margin: 7px 0;
+}
+.the_champ_login_container img{
+	cursor: pointer;
+	margin: 2px
+}
+.the_champ_sharing_container img{
+	cursor: pointer;
+	margin: 2px
+}
+.the_champ_error{
+	background-color: #FFFFE0;
+	border:1px solid #E6DB55;
+	padding:5px;
+	margin: 10px
+}
