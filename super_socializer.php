@@ -3,12 +3,15 @@
 Plugin Name: Super Socializer
 Plugin URI: https://www.facebook.com/SocializerChamp
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 1.0.0
+Version: 1.0.1
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
-define (THE_CHAMP_SS_VERSION, '1.0.0');
+define('THE_CHAMP_SS_VERSION', '1.0.1');
+if(get_option('the_champ_ss_version') != THE_CHAMP_SS_VERSION){
+	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
+}
 require 'library/twitteroauth.php';
 
 $theChampFacebookOptions = get_option('the_champ_facebook');
@@ -275,8 +278,8 @@ function the_champ_settings_saved_notification(){
  */
 function the_champ_facebook_notifications($fbOptions){
 	global $theChampLoginOptions;
+	$errorHtml = '';
 	if( isset($fbOptions['enable_fbfeed']) && $fbOptions['enable_fbfeed'] == 1 ){
-		$errorHtml = '';
 		if(!isset($theChampLoginOptions['fb_key']) || $theChampLoginOptions['fb_key'] == '' || !isset($theChampLoginOptions['providers']) || !in_array('facebook', $theChampLoginOptions['providers'])){
 			$errorHtml .= the_champ_error_message('Facebook Login, at "Social Login" page, must be enabled for Feed to work');
 		}

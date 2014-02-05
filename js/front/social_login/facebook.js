@@ -11,7 +11,7 @@ function checkLoginStatus(response){
 		theChampLoadingIcon();
 		loginUser();
 	}else {
-		FB.login(loginUser, {scope:'email'});
+		FB.login(loginUser, {scope:'email<?php echo isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1 ? ", publish_stream" : "" ?>'});
 	}
 }
 

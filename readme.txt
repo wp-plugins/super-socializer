@@ -3,8 +3,8 @@ Contributors: the_champ
 Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
-Tested up to: 3.8
-Stable tag: 1.0.0
+Tested up to: 3.8.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
@@ -164,6 +164,9 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 3. **Facebook Commenting**: Facebook commenting replaces the traditional comment form
 
 == Changelog ==
+= 1.0.1 =
+* Minor bug fixing in Facebook feed functionality
+
 = 1.0.0 =
 * First version of the plugin
 
@@ -171,3 +174,6 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 
 = 1.0.0 =
 * First version of the plugin
+
+= 1.0.1 =
+* Minor bug fixing in Facebook feed functionality
