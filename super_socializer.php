@@ -3,12 +3,12 @@
 Plugin Name: Super Socializer
 Plugin URI: https://www.facebook.com/SocializerChamp
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 1.0.1
+Version: 1.0.2
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
-define('THE_CHAMP_SS_VERSION', '1.0.1');
+define('THE_CHAMP_SS_VERSION', '1.0.2');
 if(get_option('the_champ_ss_version') != THE_CHAMP_SS_VERSION){
 	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
 }
