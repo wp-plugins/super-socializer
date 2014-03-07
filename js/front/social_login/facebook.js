@@ -1,4 +1,3 @@
-<script>
 // Login in the current user via Facebook and ask for email permission
 function theChampAuthUserFB() {
 	// Check if the current user is logged in and has authorized the app
@@ -11,7 +10,7 @@ function checkLoginStatus(response){
 		theChampLoadingIcon();
 		loginUser();
 	}else {
-		FB.login(loginUser, {scope:'email<?php echo isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1 ? ", publish_stream" : "" ?>'});
+		FB.login(loginUser, {scope:theChampFacebookScope});
 	}
 }
 
@@ -21,16 +20,11 @@ function loginUser(){
 		if(!response.id){
 			return;
 		}
-		<?php
-		if(the_champ_facebook_feed_enabled()){
-			?>
+		if(theChampFBFeedEnabled){
 			theChampFBFeedPost();
-			<?php
 		}
-		?>
 		theChampCallAjax(function(){
 			theChampAjaxUserAuth(response, 'facebook');
 		});
 	});
 }
-</script>

@@ -3,12 +3,12 @@
 Plugin Name: Super Socializer
 Plugin URI: https://www.facebook.com/SocializerChamp
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 1.0.2
+Version: 2.0.0
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
-define('THE_CHAMP_SS_VERSION', '1.0.2');
+define('THE_CHAMP_SS_VERSION', '2.0.0');
 if(get_option('the_champ_ss_version') != THE_CHAMP_SS_VERSION){
 	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
 }
@@ -76,8 +76,10 @@ function the_champ_connect(){
 				// generate unique ID
 				$uniqueId = mt_rand();
 				// save oauth token and secret in db temporarily
+				//echo $requestToken['oauth_token'];
 				update_user_meta($uniqueId, 'thechamp_twitter_oauthtoken', $requestToken['oauth_token']);
 				update_user_meta($uniqueId, 'thechamp_twitter_oauthtokensecret', $requestToken['oauth_token_secret']);
+				//die();
 				wp_redirect($connection->getAuthorizeURL($requestToken['oauth_token']));
 				die;
 			}
@@ -88,11 +90,6 @@ function the_champ_connect(){
 		global $wpdb;
 		$uniqueId = $wpdb->get_var($wpdb->prepare("SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'thechamp_twitter_oauthtoken' and meta_value = %s", $_REQUEST['oauth_token']));
 		$oauthTokenSecret = get_user_meta($uniqueId, 'thechamp_twitter_oauthtokensecret', true);
-		// delete temporary data
-		if(!empty($uniqueId)){
-			delete_user_meta($uniqueId, 'thechamp_twitter_oauthtokensecret');
-			delete_user_meta($uniqueId, 'thechamp_twitter_oauthtoken');
-		}
 		if(empty($uniqueId) || $oauthTokenSecret == ''){
 			// invalid request
 			wp_redirect(site_url());
@@ -104,6 +101,10 @@ function the_champ_connect(){
 		/* Create a TwitterOauth object with consumer/user tokens. */
 		$connection = new TwitterOAuth($theChampLoginOptions['twitter_key'], $theChampLoginOptions['twitter_secret'], $accessToken['oauth_token'], $accessToken['oauth_token_secret']);
 		$content = $connection->get('account/verify_credentials');
+		// delete temporary data
+		delete_user_meta($uniqueId, 'thechamp_twitter_oauthtokensecret');
+		delete_user_meta($uniqueId, 'thechamp_twitter_oauthtoken');
+		
 		if(is_object($content) && isset($content -> id)){
 			the_champ_user_auth($content, 'twitter');
 			the_champ_close_login_popup(the_champ_get_login_redirection_url());
@@ -198,6 +199,10 @@ function the_champ_frontend_scripts(){
 	}
 	</script>
 	<?php
+	// scripts used for common Social Login functionality
+	if(the_champ_social_login_enabled() && !is_user_logged_in()){
+		require 'js/front/social_login/common.js';
+	}
 	if(isset($theChampLoginOptions['email_required']) && $theChampLoginOptions['email_required'] == 1){
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
@@ -208,22 +213,49 @@ function the_champ_frontend_scripts(){
 	}
 	// Linkedin scripts
 	if(the_champ_social_login_provider_enabled('linkedin') && !is_user_logged_in()){
-		require 'js/front/social_login/linkedin.js';
+		?>
+		<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+		  api_key: <?php echo isset($theChampLoginOptions['li_key']) ? $theChampLoginOptions['li_key'] : '' ?>
+		  
+		  onLoad: theChampLinkedInOnLoad
+		</script>
+		<?php
+		wp_enqueue_script('the_champ_sl_linkedin', plugins_url('js/front/social_login/linkedin.js', __FILE__));
 	}
-	// scripts used for common Social Login functionality
-	if(the_champ_social_login_enabled() && !is_user_logged_in()){
-		require 'js/front/social_login/common.js';
+	// Vkontakte scripts
+	if(the_champ_social_login_provider_enabled('vkontakte') && !is_user_logged_in()){
+		require 'js/front/social_login/vkontakte.js';
 	}
 	// Facebook scripts
 	if(the_champ_facebook_plugin_enabled()){
 		require 'js/front/facebook/sdk.js';
 	}
 	if(the_champ_social_login_provider_enabled('facebook') && !is_user_logged_in()){
-		require 'js/front/social_login/facebook.js';
+		?>
+		<script>
+		var theChampFacebookScope = 'email<?php echo isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1 ? ", publish_stream" : "" ?>';
+		var theChampFBFeedEnabled = <?php echo the_champ_facebook_feed_enabled() ? 'true' : 'false' ?>;
+		</script>
+		<?php
+		wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__));
 	}
 	// Facebook commenting
 	if(the_champ_facebook_commenting_enabled()){
-		require 'js/front/facebook/commenting.js';
+		?>
+		<script>
+		var theChampFBCommentTitleEnable = <?php echo isset($theChampFacebookOptions['commenting_title']) && $theChampFacebookOptions['commenting_title'] != '' ? 'true' : 'false' ?>;
+		var theChampFBCommentTitle = '<?php echo $theChampFacebookOptions['commenting_title'] ?>';
+		var theChampFBCommentUrl = '<?php echo isset($theChampFacebookOptions['urlToComment']) && $theChampFacebookOptions['urlToComment'] != '' ? $theChampFacebookOptions["urlToComment"] : get_permalink(); ?>';
+		var theChampFBCommentColor = '<?php echo isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '' ? $theChampFacebookOptions["comment_color"] : ''; ?>';
+		var theChampFBCommentNumPosts = '<?php echo isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '' ? $theChampFacebookOptions["comment_numposts"] : ''; ?>';
+		var theChampFBCommentWidth = '<?php echo isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '' ? $theChampFacebookOptions["comment_width"] : ''; ?>'; 
+		var theChampFBCommentOrderby = '<?php echo isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '' ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'
+		var theChampFBCommentMobile = '<?php echo isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] != '' ? $theChampFacebookOptions["comment_mobile"] : ''; ?>';
+		var theChampFBAppID = '<?php echo isset($theChampLoginOptions['fb_key']) && $theChampLoginOptions['fb_key'] != '' ? $theChampLoginOptions['fb_key'] : '' ?>';
+		var theChampSiteUrl = '<?php echo site_url() ?>';
+		</script>
+		<?php
+		wp_enqueue_script('the_champ_fb_commenting', plugins_url('js/front/facebook/commenting.js', __FILE__));
 	}
 	// Facebook feed posts
 	if(the_champ_facebook_feed_enabled()){
@@ -291,8 +323,8 @@ function the_champ_facebook_notifications($fbOptions){
  * Display Social Login notifications
  */
 function the_champ_login_notifications($loginOptions){
+	$errorHtml = '';
 	if(isset($loginOptions['providers'])){
-		$errorHtml = '';
 		if(in_array('facebook', $loginOptions['providers']) && (!isset($loginOptions['fb_key']) || $loginOptions['fb_key'] == '')){
 			$errorHtml .= the_champ_error_message('Facebook App ID is required for Facebook Login to work');
 		}
@@ -304,6 +336,9 @@ function the_champ_login_notifications($loginOptions){
 		}
 		if(in_array('google', $loginOptions['providers']) && (!isset($loginOptions['google_key']) || $loginOptions['google_key'] == '')){
 			$errorHtml .= the_champ_error_message('Google Plus Client ID is required for Google Plus Login to work');
+		}
+		if(in_array('vkontakte', $loginOptions['providers']) && (!isset($loginOptions['vk_key']) || $loginOptions['vk_key'] == '')){
+			$errorHtml .= the_champ_error_message('Vkontakte Application ID is required for Vkontakte Login to work');
 		}
 	}
 	return $errorHtml;
@@ -375,10 +410,14 @@ function the_champ_options_init(){
 	register_setting('the_champ_facebook_options', 'the_champ_facebook', 'the_champ_validate_options');
 	register_setting('the_champ_login_options', 'the_champ_login', 'the_champ_validate_options');
 	register_setting('the_champ_sharing_options', 'the_champ_sharing', 'the_champ_validate_options');
+	// show option to disable sharing on particular page/post
+	foreach(array('post', 'page') as $type){
+        add_meta_box('the_champ_meta', 'Super Socializer', 'the_champ_sharing_meta_setup', $type);
+    }
+    // save sharing meta on post/page save
+    add_action('save_post', 'the_champ_save_sharing_meta');
 }
-if(!empty($GLOBALS['pagenow']) && ('options-general.php' === $GLOBALS['pagenow'] || 'options.php' === $GLOBALS['pagenow'])){
-	add_action('admin_init', 'the_champ_options_init');
-}
+add_action('admin_init', 'the_champ_options_init');
 
 /**
  * Include javascript files in admin.
@@ -407,6 +446,19 @@ function the_champ_admin_sharing_scripts(){
 function the_champ_admin_style(){
 	wp_enqueue_style('the_champ_admin_style', plugins_url('css/admin.css', __FILE__));
 }
+
+function the_champ_add_settings_link($links, $file){
+    static $plugin;
+    if(!$plugin){
+        $plugin = plugin_basename(__FILE__);
+	}
+    if ($file == $plugin){
+        $settingsLink = '<a href="options-general.php?page=the-champ">' . __('Settings') . '</a>';
+        array_unshift($links, $settingsLink); // before other links
+    }
+    return $links;
+}
+add_filter('plugin_action_links', 'the_champ_add_settings_link', 10, 2);
 
 /**
  * Return ajax response
@@ -533,7 +585,9 @@ function the_champ_default_options(){
 	
 	// login options
 	add_option('the_champ_facebook', array(
-	   'enable_fbcomments' => '1'
+	   'enable_fbcomments' => '1',
+	   'feedMessage' => 'Has just logged into %website-name%',
+	   'comment_lang' => get_locale(),
 	));
 	
 	// sharing options
@@ -594,4 +648,49 @@ if(is_multisite() && is_main_site()){
     add_action('update_option_the_champ_login', 'the_champ_update_old_blogs');
 	add_action('update_option_the_champ_facebook', 'the_champ_update_old_blogs');
 	add_action('update_option_the_champ_sharing', 'the_champ_update_old_blogs');
+}
+
+/**
+ * Register LoginRadius_settings and its sanitization callback.
+ */
+function the_champ_sharing_meta_setup(){
+	global $post;
+	$postType = $post->post_type;
+	$sharingMeta = get_post_meta($post->ID, '_the_champ_meta', true);
+	?>
+	<p>
+		<label for="the_champ_sharing">
+			<input type="checkbox" name="_the_champ_meta[sharing]" id="the_champ_sharing" value="1" <?php checked('1', @$sharingMeta['sharing']); ?> />
+			<?php _e('Disable Social Sharing on this '.$postType, 'TheChamp') ?>
+		</label>
+	</p>
+	<?php
+    echo '<input type="hidden" name="the_champ_meta_nonce" value="' . wp_create_nonce(__FILE__) . '" />';
+}
+
+/**
+ * Save sharing meta fields.
+ */
+function the_champ_save_sharing_meta($postId){
+    // make sure data came from our meta box
+    if(!isset($_POST['the_champ_meta_nonce']) || !wp_verify_nonce( $_POST['the_champ_meta_nonce'], __FILE__ )){
+		return $postId;
+ 	}
+    // check user permissions
+    if($_POST['post_type'] == 'page'){
+        if(!current_user_can('edit_page', $postId)){
+			return $postId;
+    	}
+	}else{
+        if(!current_user_can('edit_post', $postId)){
+			return $postId;
+    	}
+	}
+    if ( isset( $_POST['_the_champ_meta'] ) ) {
+		$newData = $_POST['_the_champ_meta'];
+	}else{
+		$newData = array( 'sharing' => 0 );
+	}
+	update_post_meta($postId, '_the_champ_meta', $newData);
+    return $postId;
 }

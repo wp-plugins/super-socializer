@@ -38,6 +38,8 @@ function the_champ_prepare_sharing_html(){
 					$sharingUrl = 'http://www.designfloat.com/submit.php?url='.get_permalink($post->ID).'&title=' . $post->post_title;
 				}elseif($provider == 'tumblr'){
 					$sharingUrl = 'http://www.tumblr.com/share?v=3&u='.urlencode(get_permalink($post->ID)).'&t=' . urlencode($post->post_title) . '&s=';
+				}elseif($provider == 'vkontakte'){
+					$sharingUrl = 'http://vkontakte.ru/share.php?&url='.urlencode(get_permalink($post->ID));
 				}
 				$html .= '<img alt="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" Title="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" src=\''.plugins_url('../images/sharing/'.str_replace(' ', '_', $provider).'.png', __FILE__).'\' onclick=\'theChampPopup("'.$sharingUrl.'")\' />';
 			}

@@ -113,7 +113,7 @@ function theChampCallAjax(callback){
  * Display loading image in place of Social Login interface
  */
 function theChampLoadingIcon(){
-	jQuery('.the_champ_login_container').html('<img src="<?php echo plugins_url('../../../images/ajax_loader.gif', __FILE__); ?>" />');
+	jQuery('.the_champ_login_container').html('<img id="the_champ_loading_image" src="<?php echo plugins_url('../../../images/ajax_loader.gif', __FILE__); ?>" />');
 }
 
 /**
@@ -133,7 +133,16 @@ function theChampAjaxUserAuth(response, provider){
 	  success: function(data, textStatus, XMLHttpRequest){
 		if(data.status == 1){
 			location.href = '<?php echo the_champ_get_login_redirection_url(); ?>';
+		}else if(data.message.match(/ask/) !== null){
+			//alert(typeof data.message.match(/ask/) +"\r\n"+ data.message.match(/ask/))
+			var keyArr = data.message.split('|');
+			location.href = '<?php echo site_url() ?>?theChampEmail=1&par=' + keyArr[1];
+		}else if(data.message == 'unverified'){
+			location.href = '<?php echo site_url() ?>?theChampUnverified=1';
 		}
+	  },
+	  error: function(a, b, c){
+			alert(JSON.stringify(a) + "\r\n" + JSON.stringify(b));
 	  }
 	});
 }
@@ -173,6 +182,45 @@ function theChampInitiateLogin(icon){
 		return false;
 	}else if(icon.title == 'Login with Google Plus'){
 		theChampInitializeGPLogin();
+	}else if(icon.title == 'Login with Vkontakte'){
+		theChampInitializeVKLogin();
+	}
+}
+
+/**
+ * Get elements by class name without jQuery
+ */
+function theChampGetElementsByClass(node, classname) {
+	if (node.getElementsByClassName) { // use native implementation if available
+		return node.getElementsByClassName(classname);
+	} else {
+		return (function getElementsByClass(searchClass,node) {
+			if ( node == null ) {
+				node = document;
+			}
+			var classElements = [],
+			els = node.getElementsByTagName("*"),
+			elsLen = els.length,
+			pattern = new RegExp("(^|\\s)"+searchClass+"(\\s|$)"), i, j;
+
+			for (i = 0, j = 0; i < elsLen; i++) {
+				if ( pattern.test(els[i].className) ) {
+					classElements[j] = els[i];
+					j++;
+				}
+			}
+			return classElements;
+		})(classname, node);
+	}
+}
+
+/**
+ * Display login icons
+ */
+function theChampDisplayLoginIcon(node, className){
+	var icons = theChampGetElementsByClass(node, className);
+	for(var i = 0; i < icons.length; i++){
+		icons[i].style.display = 'block';
 	}
 }
 </script>

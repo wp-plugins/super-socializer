@@ -179,6 +179,24 @@
 									</div>
 									</td>
 								</tr>
+								
+								<tr>
+									<th>
+									<img id="the_champ_fb_comment_lang_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+									<label for="the_champ_fbcomment_lang"><?php _e('Language', 'TheChamp'); ?></label>
+									</th>
+									<td>
+									<input id="the_champ_fbcomment_lang" name="the_champ_facebook[comment_lang]" type="text" value="<?php echo isset($theChampFacebookOptions['comment_lang']) ? $theChampFacebookOptions['comment_lang'] : '' ?>" />
+									</td>
+								</tr>
+								
+								<tr class="the_champ_help_content" id="the_champ_fb_comment_lang_help_cont">
+									<td colspan="2">
+									<div>
+									<?php echo sprintf(__('Enter the code of the language you want to use to display commenting. You can find the language codes at <a href="%s" target="_blank">this link</a>. Leave it empty for default language(English)', 'TheChamp'), 'http://www.facebook.com/translations/FacebookLocales.xml') ?>
+									</div>
+									</td>
+								</tr>
 							</table>
 							</div>
 						</div>
@@ -231,7 +249,7 @@
 								<tr class="the_champ_help_content" id="the_champ_fb_feed_message_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('Message for the feed post', 'TheChamp') ?>
+									<?php _e('Message for the feed post. %website-name% will be replaced with your website name in actual message.', 'TheChamp') ?>
 									</div>
 									<img src="<?php echo plugins_url('../images/snaps/feed_message.png', __FILE__); ?>" />
 									</td>

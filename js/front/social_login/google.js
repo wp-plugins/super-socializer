@@ -1,9 +1,13 @@
 <script>
 (function() {
    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-   po.src = 'https://apis.google.com/js/client:plusone.js';
+   po.src = 'https://apis.google.com/js/client:plusone.js?onload=theChampGoogleOnLoad';
    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 })();
+
+function theChampGoogleOnLoad(){
+	theChampDisplayLoginIcon(document, 'theChampGoogleButton');
+}
 
 function theChampInitializeGPLogin(){
 	gapi.auth.signIn({ 

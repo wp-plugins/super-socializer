@@ -40,14 +40,26 @@
 							<label><?php _e("Select providers", 'TheChamp'); ?></label>
 							</th>
 							<td>
-							<label for="the_champ_login_facebook"><?php _e("Facebook", 'TheChamp'); ?></label>
+							<div class="theChampSharingProviderContainer">
 							<input id="the_champ_login_facebook" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('facebook', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="facebook" />
-							<label for="the_champ_login_twitter"><?php _e("Twitter", 'TheChamp'); ?></label>
+							<label for="the_champ_login_facebook"><?php _e("Facebook", 'TheChamp'); ?></label>
+							</div>
+							<div class="theChampSharingProviderContainer">
 							<input id="the_champ_login_twitter" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="twitter" />
-							<label for="the_champ_login_linkedin"><?php _e("LinkedIn", 'TheChamp'); ?></label>
+							<label for="the_champ_login_twitter"><?php _e("Twitter", 'TheChamp'); ?></label>
+							</div>
+							<div class="theChampSharingProviderContainer">
 							<input id="the_champ_login_linkedin" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('linkedin', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="linkedin" />
-							<label for="the_champ_login_google"><?php _e("Google+", 'TheChamp'); ?></label>
+							<label for="the_champ_login_linkedin"><?php _e("LinkedIn", 'TheChamp'); ?></label>
+							</div>
+							<div class="theChampSharingProviderContainer">
 							<input id="the_champ_login_google" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('google', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="google" />
+							<label for="the_champ_login_google"><?php _e("Google+", 'TheChamp'); ?></label>
+							</div>
+							<div class="theChampSharingProviderContainer">
+							<input id="the_champ_login_vkontakte" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('vkontakte', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="vkontakte" />
+							<label for="the_champ_login_vkontakte"><?php _e("Vkontakte", 'TheChamp'); ?></label>
+							</div>
 							</td>
 						</tr>
 						
@@ -145,6 +157,24 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for GooglePlus Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get GooglePlus Client ID', 'TheChamp'), 'http://thechamplord.wordpress.com/2013/12/30/getting-google-plus-client-id/') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_slvk_id_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_vklogin_key"><?php _e("Vkontakte Application ID", 'TheChamp'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_vklogin_key" name="the_champ_login[vk_key]" type="text" value="<?php echo isset($theChampLoginOptions['vk_key']) ? $theChampLoginOptions['vk_key'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_slvk_id_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Vkontakte Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Vkontakte Application ID', 'TheChamp'), 'http://thechamplord.wordpress.com/2014/03/07/how-to-configure-vkontakte-application-and-get-application-id/') ?>
 							</div>
 							</td>
 						</tr>

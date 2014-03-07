@@ -1,7 +1,7 @@
 <script>
 function theChampFBFeedPost(){
 		var params = {};
-		params['message'] =  '<?php echo $theChampFacebookOptions['feedMessage'] ?>';
+		params['message'] =  '<?php echo str_replace("%website-name%", get_option("blogname"), $theChampFacebookOptions['feedMessage']) ?>';
 		<?php if(isset($theChampFacebookOptions['feed_name']) && $theChampFacebookOptions['feed_name'] != ''){ ?>
 		params['name'] = '<?php echo $theChampFacebookOptions['feed_name'] ?>';
 		<?php }
@@ -20,6 +20,7 @@ function theChampFBFeedPost(){
 		if(isset($theChampFacebookOptions['feed_caption']) && $theChampFacebookOptions['feed_caption'] != ''){ ?>
 		params['caption'] = '<?php echo $theChampFacebookOptions['feed_caption'] ?>';
 		<?php } ?>
+		params['actions'] = [{name: 'Via Super Socializer', link: 'http://wordpress.org/plugins/super-socializer/'}];
 		FB.api('/me/feed', 'post', params, function(response) {});
 }
 </script>

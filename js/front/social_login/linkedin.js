@@ -1,8 +1,4 @@
-<script type="text/javascript" src="http://platform.linkedin.com/in.js">
-  api_key: <?php echo isset($theChampLoginOptions['li_key']) ? $theChampLoginOptions['li_key'] : '' ?>
-</script>
-<script>
-<!-- LinkedIn login -->
+// LinkedIn login
 IN.Event.on(IN, 'auth', function(){
 	theChampLoadingIcon();
 	IN.API.Profile("me").
@@ -13,4 +9,7 @@ IN.Event.on(IN, 'auth', function(){
 		}
 	});
 });
-</script>
+
+function theChampLinkedInOnLoad(){
+	theChampDisplayLoginIcon(document, 'theChampLinkedinButton');
+}

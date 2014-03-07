@@ -108,6 +108,11 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_sharing_tumblr" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('tumblr', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="tumblr" />
 							<label for="the_champ_sharing_tumblr"><?php _e("Tumblr", 'TheChamp'); ?></label>
 							</div>
+							
+							<div class="theChampSharingProviderContainer">
+							<input id="the_champ_sharing_vk" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('vkontakte', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="vkontakte" />
+							<label for="the_champ_sharing_vk"><?php _e("Vkontakte", 'TheChamp'); ?></label>
+							</div>
 							</td>
 						</tr>
 						
@@ -222,6 +227,14 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<td colspan="2">
 							<div>
 							<?php _e('Specify the pages where you want to enable Sharing interface', 'TheChamp') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+							<div>
+							<?php _e('<strong>Note:</strong> To disable sharing on particular page/post, edit that page/post and check the <strong>"Disable Social Sharing on this page"</strong> option at the bottom in <strong>"Super Socializer"</strong> section', 'TheChamp') ?>
 							</div>
 							</td>
 						</tr>
