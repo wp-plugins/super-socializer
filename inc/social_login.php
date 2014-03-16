@@ -8,7 +8,7 @@
  */
 function the_champ_login_button($widget = false){
 	if(!the_champ_social_login_enabled()){
-		echo the_champ_error_message('Please enable Social Login from "Basic Configuration" section at "Super Sociallizer > Social Login" page in admin panel', true);
+		echo the_champ_error_message('Please enable Social Login from "Basic Configuration" section at "Super Socializer > Social Login" page in admin panel', true);
 	}elseif(!is_user_logged_in()){
 		global $theChampLoginOptions;
 		$html = '';
@@ -296,7 +296,7 @@ function the_champ_user_auth($profileData, $provider = 'facebook'){
 	}else{
 		$profileData['provider'] = 'facebook';
 		// social avatar url 
-		$profileData['avatar'] = "http://graph.facebook.com/" . $profileData['id'] . "/picture?type=square";
+		$profileData['avatar'] = "http://graph.facebook.com/" . $profileData['id'] . "/picture?type=large";
 	}
 	// authenticate user
 	// check if Social ID exists in database

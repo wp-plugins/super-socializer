@@ -11,7 +11,7 @@ window.fbAsyncInit = function() {
 	});
 	// Additional initialization code such as adding Event Listeners goes here
 	if ( typeof theChampDisplayLoginIcon == 'function' ) {
-		theChampDisplayLoginIcon(document, 'theChampFacebookButton');
+		theChampLoadEvent( function(){ theChampDisplayLoginIcon(document, 'theChampFacebookButton'); } );
 	}
 };
 // Load the SDK Asynchronously

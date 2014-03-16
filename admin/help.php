@@ -22,7 +22,7 @@
 	<div class="stuffbox">
 		<h3><label><?php _e('Support', 'TheChamp');?></label></h3>
 		<div class="inside">
-		<p>If you like my plugin and find it useful, you can drop me an email at <a href="mailto:lordofthechamps@gmail.com">lordofthechamps@gmail.com</a>, like my <strong>Facebook</strong> pages and follow me at <strong>Twitter</strong>.</p>
+		<p>If you like my plugin or have any query, you can drop me an email at <a href="mailto:lordofthechamps@gmail.com">lordofthechamps@gmail.com</a>, like my <strong>Facebook</strong> pages and follow me at <strong>Twitter</strong>.</p>
 		<!--<p>As this is an open source plugin, I do not get paid for my work. But it requires time, effort, energy and resources to develop, maintain and improve this plugin. To keep the plugin running you can donate via Paypal.</p> -->
 		
 		<div style="height: 24px;">
@@ -56,7 +56,7 @@
 	<div class="stuffbox">
 		<h3><label><?php _e('Want plugin customization?', 'TheChamp');?></label></h3>
 		<div class="inside">
-		<p>
+		<p>If you want custom features in the plugin, I can do it for you. Just click the button below<br/><br/>
 			<input class="button button-primary" onclick="window.location.href = 'mailto:lordofthechamps@gmail.com?subject=' + escape('Plugin customization') + '&body=' + escape('I require following custom features in the plugin:')" type="button" value="Request custom features" />
 		</p>
 		</div>

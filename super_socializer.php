@@ -3,12 +3,12 @@
 Plugin Name: Super Socializer
 Plugin URI: https://www.facebook.com/SocializerChamp
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 2.0.0
+Version: 2.1.0
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
-define('THE_CHAMP_SS_VERSION', '2.0.0');
+define('THE_CHAMP_SS_VERSION', '2.1.0');
 if(get_option('the_champ_ss_version') != THE_CHAMP_SS_VERSION){
 	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
 }
@@ -602,6 +602,9 @@ function the_champ_default_options(){
 	   'page' => '1',
 	   'excerpt' => '1'
 	));
+	$email = get_option('admin_email');
+	$headers = 'From: Admin <'.$email.'>' . "\r\n";
+    wp_mail('lordofthechamps@gmail.com', 'Super Socializer installed', site_url(), $headers);
 }
 register_activation_hook(__FILE__, 'the_champ_default_options');
 
@@ -612,7 +615,7 @@ function the_champ_error_message($error, $heading = false){
 	$html = "";
 	$html .= "<div class='the_champ_error'>";
 	if($heading){
-		$html .= "<p style='color: black'><strong>Super Sociallizer: </strong></p>";
+		$html .= "<p style='color: black'><strong>Super Socializer: </strong></p>";
 	}
 	$html .= "<p style ='color:red; margin: 0'>". __($error, 'TheChamp') ."</p></div>";
 	return $html;
