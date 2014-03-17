@@ -140,9 +140,6 @@ function theChampAjaxUserAuth(response, provider){
 		}else if(data.message == 'unverified'){
 			location.href = '<?php echo site_url() ?>?theChampUnverified=1';
 		}
-	  },
-	  error: function(a, b, c){
-			alert(JSON.stringify(a) + "\r\n" + JSON.stringify(b));
 	  }
 	});
 }
