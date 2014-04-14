@@ -24,7 +24,12 @@ theChampLoadEvent(function(){
 			theChampFBCommentingContent += ' data-mobile="'+theChampFBCommentMobile+'"';
 		}
 		theChampFBCommentingContent += ' ></div>';
-		commentForm.innerHTML = '<input onclick = "theChampToggleCommenting(this)" type="button" value="Switch to WordPress Commenting" id="the_champ_comment_toggle" /><div style="clear:both"></div>' + theChampFBCommentingContent;
+		if(!theChampForceFBComment){
+			var toggleButton = '<input onclick = "theChampToggleCommenting(this)" type="button" value="Switch to WordPress Commenting" id="the_champ_comment_toggle" /><div style="clear:both"></div>';
+		}else{
+			var toggleButton = '';
+		}
+		commentForm.innerHTML = toggleButton + theChampFBCommentingContent;
 	}
 	theChampInitiateFBCommenting();
 });
