@@ -45,6 +45,24 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 								<tr>
 									<th>
+									<img id="the_champ_force_fb_comment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+									<label for="the_champ_force_fb_comment"><?php _e('Keep only Facebook Commenting', 'TheChamp'); ?></label>
+									</th>
+									<td>
+									<input id="the_champ_force_fb_comment" name="the_champ_facebook[force_fb_comment]" type="checkbox" <?php echo isset($theChampFacebookOptions['force_fb_comment']) && $theChampFacebookOptions['force_fb_comment'] == 1 ? 'checked = "checked"' : '';?> value="1" />
+									</td>
+								</tr>
+								
+								<tr class="the_champ_help_content" id="the_champ_force_fb_comment_help_cont">
+									<td colspan="2">
+									<div>
+									<?php _e('If enabled, only Facebook commenting will be there without the option to switch to WordPress commenting', 'TheChamp') ?>
+									</div>
+									</td>
+								</tr>
+								
+								<tr>
+									<th>
 									<img id="the_champ_fb_comment_title_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 									<label for="the_champ_comment_title"><?php _e('Title', 'TheChamp'); ?></label>
 									</th>
