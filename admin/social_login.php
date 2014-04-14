@@ -1,3 +1,4 @@
+<?php defined('ABSPATH') or die("Cheating........Uh!!"); ?>
 <div id="fb-root"></div>
 
 <form action="options.php" method="post">
@@ -59,6 +60,10 @@
 							<div class="theChampSharingProviderContainer">
 							<input id="the_champ_login_vkontakte" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('vkontakte', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="vkontakte" />
 							<label for="the_champ_login_vkontakte"><?php _e("Vkontakte", 'TheChamp'); ?></label>
+							</div>
+							<div class="theChampSharingProviderContainer">
+							<input id="the_champ_login_instagram" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('instagram', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="instagram" />
+							<label for="the_champ_login_instagram"><?php _e("Instagram", 'TheChamp'); ?></label>
 							</div>
 							</td>
 						</tr>
@@ -181,6 +186,24 @@
 						
 						<tr>
 							<th>
+							<img id="the_champ_slinsta_id_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_insta_key"><?php _e("Instagram Client ID", 'TheChamp'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_insta_key" name="the_champ_login[insta_id]" type="text" value="<?php echo isset($theChampLoginOptions['insta_id']) ? $theChampLoginOptions['insta_id'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_slinsta_id_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Instagram Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Instagram Client ID', 'TheChamp'), 'http://thechamplord.wordpress.com/2014/04/14/how-to-configure-instagram-application-and-get-client-id/') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
 							<img id="the_champ_sl_footer_script_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							<label for="the_champ_login_footer_script"><?php _e("Include Javascript in website footer", 'TheChamp'); ?></label>
 							</th>
@@ -192,7 +215,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sl_footer_script_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('If enabled (recommended), all the Javascript code will be included in the footer of your website.<br/><strong>Note: It may break the functionality of the plugin if "wp_footer" and "login_footer" hooks do not exist in your Wordpress theme. In this case, keep this option disabled.</strong>', 'TheChamp') ?>
+							<?php _e('If enabled (recommended), all the Javascript code will be included in the footer of your website.<br/><strong>"wp_footer" and "login_footer" hooks should be there in your Wordpress theme for this to work, if you are not sure about this, keep this option unchecked.</strong>', 'TheChamp') ?>
 							</div>
 							</td>
 						</tr>
@@ -401,6 +424,32 @@
 							<td colspan="2">
 							<div>
 							<?php _e('User will be redirected to the selected page after Social Login', 'TheChamp') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_sl_register_redirect_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label><?php _e("Registration redirection", 'TheChamp'); ?></label>
+							</th>
+							<td id="the_champ_register_redirection_column">
+							<input id="the_champ_register_redirection_same" name="the_champ_login[register_redirection]" type="radio" <?php echo !isset($theChampLoginOptions['register_redirection']) || $theChampLoginOptions['register_redirection'] == 'same' ? 'checked = "checked"' : '';?> value="same" />
+							<label for="the_champ_register_redirection_same">Same page where user logged in</label><br/>
+							<input id="the_champ_register_redirection_home" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'homepage' ? 'checked = "checked"' : '';?> value="homepage" />
+							<label for="the_champ_register_redirection_home">Homepage</label><br/>
+							<input id="the_champ_register_redirection_account" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'account' ? 'checked = "checked"' : '';?> value="account" />
+							<label for="the_champ_register_redirection_account">Account dashboard</label><br/>
+							<input id="the_champ_register_redirection_custom" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
+							<label for="the_champ_register_redirection_custom">Custom Url</label><br/>
+							<input id="the_champ_register_redirection_url" name="the_champ_login[register_redirection_url]" type="text" value="<?php echo isset($theChampLoginOptions['register_redirection_url']) ? $theChampLoginOptions['register_redirection_url'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_sl_register_redirect_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('User will be redirected to the selected page after registration (first Social Login) through Social Login', 'TheChamp') ?>
 							</div>
 							</td>
 						</tr>

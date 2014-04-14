@@ -1,3 +1,4 @@
+<?php defined('ABSPATH') or die("Cheating........Uh!!"); ?>
 <div id="fb-root"></div>
 
 <h2>Super Socializer</h2>

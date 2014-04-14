@@ -1,10 +1,8 @@
-<div id="fb-root"></div>
-<script>
 window.fbAsyncInit = function() {
 	// init the FB JS SDK
 	FB.init({
-		appId      : '<?php echo isset($theChampLoginOptions["fb_key"]) && $theChampLoginOptions["fb_key"] != "" ? $theChampLoginOptions["fb_key"] : "" ?>', // App ID
-		channelUrl : '<?php echo site_url() ?>/channel.html', // Channel File
+		appId      : theChampFBKey, // App ID
+		channelUrl : theChampSiteUrl + '/channel.html', // Channel File
 		status     : true, // check login status
 		cookie     : true, // enable cookies to allow the server to access the session
 		xfbml      : true  // parse XFBMLw
@@ -19,7 +17,6 @@ window.fbAsyncInit = function() {
 	var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 	if (d.getElementById(id)) {return;}
 	js = d.createElement('script'); js.id = id; js.async = true;
-	js.src = '//connect.facebook.net/<?php echo isset($theChampFacebookOptions["comment_lang"]) && $theChampFacebookOptions["comment_lang"] != '' ? $theChampFacebookOptions["comment_lang"] : "en_US" ?>/all.js';
+	js.src = '//connect.facebook.net/' + theChampFBLang + '/all.js';
 	ref.parentNode.insertBefore(js, ref);
 }(document));
-</script>

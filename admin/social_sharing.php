@@ -1,3 +1,4 @@
+<?php defined('ABSPATH') or die("Cheating........Uh!!"); ?>
 <script>
 var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FILE__); ?>';
 </script>
@@ -113,6 +114,11 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_sharing_vk" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('vkontakte', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="vkontakte" />
 							<label for="the_champ_sharing_vk"><?php _e("Vkontakte", 'TheChamp'); ?></label>
 							</div>
+							
+							<div class="theChampSharingProviderContainer">
+							<input id="the_champ_sharing_pinterest" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('pinterest', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="pinterest" />
+							<label for="the_champ_sharing_pinterest"><?php _e("Pinterest", 'TheChamp'); ?></label>
+							</div>
 							</td>
 						</tr>
 						
@@ -136,7 +142,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 									foreach($theChampSharingOptions['horizontal_re_providers'] as $rearrange){
 										?>
 										<li title="<?php echo $rearrange ?>" id="the_champ_re_<?php echo str_replace(' ', '_', $rearrange) ?>" >
-										<img src="<?php echo plugins_url('../images/sharing/'. str_replace(' ', '_', $rearrange) . '.png', __FILE__) ?>" />
+										<i class="theChampSharingButton theChampSharing<?php echo str_replace(' ', '', $rearrange) ?>Button"></i>
 										<input type="hidden" name="the_champ_sharing[horizontal_re_providers][]" value="<?php echo $rearrange ?>">
 										</li>
 										<?php

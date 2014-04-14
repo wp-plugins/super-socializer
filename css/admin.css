@@ -52,6 +52,9 @@ div.stuffbox h3{
 	display: block;
 	margin: 0 2px
 }
+#the_champ_ss_rearrange{
+	margin: 0
+}
 .the_champ_left_column{
 	float:left;
 	width: 56% !important
@@ -78,3 +81,46 @@ div.stuffbox h3{
 input[type=text]{
 	width: 351px
 }
+.theChampLoginButton{
+	background: url('../images/login/login.png') no-repeat;
+	cursor: pointer
+}
+.theChampFacebookButton {
+	background-position: -0px -0px;
+	width: 32px;
+	height: 32px;
+}
+.theChampWordpressButton {
+	background-position: -0px -96px;
+	width: 32px;
+	height: 32px;
+}
+.theChampLinkedinButton {
+	background-position: -32px -32px;
+	width: 32px;
+	height: 32px;
+}
+.theChampTwitterButton {
+	background-position: -0px -64px;
+	width: 32px;
+	height: 32px;
+}
+.theChampSharingButton{
+	display: block;
+	background: url('../images/sharing/sharing.png') no-repeat;
+}
+.theChampSharingdeliciousButton { background-position: -0px -0px; width: 32px; height: 32px; }
+.theChampSharingdiggButton { background-position: -32px -0px; width: 32px; height: 32px; }
+.theChampSharingemailButton { background-position: -64px -0px; width: 32px; height: 32px; }
+.theChampSharingfacebookButton { background-position: -96px -0px; width: 32px; height: 32px; }
+.theChampSharingfloatitButton { background-position: -0px -32px; width: 32px; height: 32px; }
+.theChampSharinggoogleButton { background-position: -32px -32px; width: 32px; height: 32px; }
+.theChampSharinglinkedinButton { background-position: -64px -32px; width: 32px; height: 32px; }
+.theChampSharingpinterestButton { background-position: -0px -64px; width: 32px; height: 32px; }
+.theChampSharingprintButton { background-position: -32px -64px; width: 32px; height: 32px; }
+.theChampSharingredditButton { background-position: -64px -64px; width: 32px; height: 32px; }
+.theChampSharingstumbleuponButton { background-position: -96px -64px; width: 32px; height: 32px; }
+.theChampSharingtumblrButton { background-position: -0px -96px; width: 32px; height: 32px; }
+.theChampSharingtwitterButton { background-position: -32px -96px; width: 32px; height: 32px; }
+.theChampSharingvkontakteButton { background-position: -64px -96px; width: 32px; height: 32px; }
+.theChampSharingyahooButton { background-position: -96px -96px; width: 32px; height: 32px; }

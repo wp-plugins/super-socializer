@@ -1,4 +1,3 @@
-<script>
 (function() {
    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
    po.src = 'https://apis.google.com/js/client:plusone.js?onload=theChampGoogleOnLoad';
@@ -12,7 +11,7 @@ function theChampGoogleOnLoad(){
 function theChampInitializeGPLogin(){
 	gapi.auth.signIn({ 
 	  'callback': theChampGPSignInCallback, 
-	  'clientid': '<?php echo isset($theChampLoginOptions['google_key']) ? $theChampLoginOptions['google_key'] : '' ?>', 
+	  'clientid': theChampGoogleKey, 
 	  'cookiepolicy': 'single_host_origin', 
 	  'requestvisibleactions': 'http://schemas.google.com/AddActivity',
 	  'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
@@ -49,4 +48,3 @@ function theChampGetProfile(){
 	}
   });
 }
-</script>

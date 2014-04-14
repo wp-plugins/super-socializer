@@ -1,3 +1,4 @@
+<?php defined('ABSPATH') or die("Cheating........Uh!!"); ?>
 <div id="fb-root"></div>
 
 <form action="options.php" method="post">
@@ -268,7 +269,7 @@
 								<tr class="the_champ_help_content" id="the_champ_fb_feed_link_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('The link attached to this post (required parameter for this functionality to work)', 'TheChamp') ?>
+									<?php _e('The link attached to this feed (required parameter for this functionality to work)', 'TheChamp') ?>
 									</div>
 									</td>
 								</tr>
@@ -354,7 +355,6 @@
 									<label for="the_champ_fbfeed_description"><?php _e('Description', 'TheChamp'); ?></label>
 									</th>
 									<td>
-									<!--<input id="the_champ_fbfeed_description" name="the_champ_facebook[feed_description]" type="text" value="<?php echo isset($theChampFacebookOptions['feed_description']) ? $theChampFacebookOptions['feed_description'] : '' ?>" /> -->
 									<textarea rows="4" cols="40" id="the_champ_fbfeed_description" name="the_champ_facebook[feed_description]"><?php echo isset($theChampFacebookOptions['feed_description']) ? $theChampFacebookOptions['feed_description'] : '' ?></textarea>
 									</td>
 								</tr>

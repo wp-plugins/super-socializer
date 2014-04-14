@@ -1,4 +1,5 @@
 <?php 
+defined('ABSPATH') or die("Cheating........Uh!!");
 /**
  * Widget for Social Login
  */
@@ -14,7 +15,11 @@ class TheChampLoginWidget extends WP_Widget {
 	}
 	
 	/** This is rendered widget content */ 
-	function widget( $args, $instance ) { 
+	function widget( $args, $instance ) {
+		// if social login is disabled, return
+		if(!the_champ_social_login_enabled()){
+			return;
+		}
 		extract( $args ); 
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		echo $before_widget;
@@ -25,9 +30,8 @@ class TheChampLoginWidget extends WP_Widget {
 		if( !empty( $instance['before_widget_content'] ) ){ 
 			echo '<div>' . $instance['before_widget_content'] . '</div>';
 		}
-		
 		if(!is_user_logged_in()){
-				echo the_champ_login_button(true);
+			echo the_champ_login_button(true);
 		}else{
 			global $theChampLoginOptions, $user_ID;
 			$userInfo = get_userdata($user_ID);
@@ -41,7 +45,7 @@ class TheChampLoginWidget extends WP_Widget {
 			echo str_replace('-', ' ', $userInfo -> user_login);
 			echo '<br/><a href="' . wp_logout_url(home_url()) . '">' .__('Log Out', 'LoginRadius') . '</a></div></div>';
 		}
-		
+		echo '<div style="clear:both"></div>';
 		if( !empty( $instance['after_widget_content'] ) ){ 
 			echo '<div>' . $instance['after_widget_content'] . '</div>';
 		}
@@ -102,10 +106,14 @@ class TheChampSharingWidget extends WP_Widget {
 
 	/** This is rendered widget content */ 
 	function widget( $args, $instance ) { 
+		// return if sharing is disabled
+		if(!the_champ_social_sharing_enabled()){
+			return;
+		}
 		extract( $args );
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
-		echo "<div class='the_champ_sharing_container'>";
+		echo "<div class='the_champ_sharing_container' champ-data-href='".site_url()."'>";
 		
 		echo $before_widget;
 		
@@ -117,8 +125,7 @@ class TheChampSharingWidget extends WP_Widget {
 		if( !empty( $instance['before_widget_content'] ) ){ 
 			echo '<div>' . $instance['before_widget_content'] . '</div>'; 
 		}
-		
-		echo the_champ_prepare_sharing_html();
+		echo the_champ_prepare_sharing_html(site_url());
 
 		if( !empty( $instance['after_widget_content'] ) ){ 
 			echo '<div>' . $instance['after_widget_content'] . '</div>'; 
@@ -158,7 +165,7 @@ class TheChampSharingWidget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'after_widget_content' ); ?>"><?php _e( 'After widget content:', 'TheChamp' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'after_widget_content' ); ?>" name="<?php echo $this->get_field_name( 'after_widget_content' ); ?>" type="text" value="<?php echo $instance['after_widget_content']; ?>" /> 
 			<br /><br /><label for="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>"><?php _e( 'Hide for logged in users:', 'TheChamp' ); ?></label> 
-			<input type="checkbox" id="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>" name="<?php echo $this->get_field_name( 'hide_for_logged_in' ); ?>" type="text" value="1" <?php if($instance['hide_for_logged_in']==1) echo 'checked="checked"'; ?> /> 
+			<input type="checkbox" id="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>" name="<?php echo $this->get_field_name( 'hide_for_logged_in' ); ?>" type="text" value="1" <?php if(isset($instance['hide_for_logged_in'])  && $instance['hide_for_logged_in']==1) echo 'checked="checked"'; ?> /> 
 		</p> 
 <?php 
   } 

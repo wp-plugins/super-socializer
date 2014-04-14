@@ -1,8 +1,6 @@
-<div id="vk_api_transport"></div>
-<script>
 window.vkAsyncInit = function() {
     VK.init({
-        apiId: <?php echo isset($theChampLoginOptions["vk_key"]) && $theChampLoginOptions["vk_key"] != "" ? $theChampLoginOptions["vk_key"] : 0 ?>
+        apiId: theChampVkKey
     });
 	// callback
 	theChampDisplayLoginIcon(document, 'theChampVkontakteButton');
@@ -27,8 +25,7 @@ function theChampInitializeVKLogin(){
 				}
 			});
 		}else {
-			alert('Error in authentication');
+			// error handling
 		}
 	});
 }
-</script>
