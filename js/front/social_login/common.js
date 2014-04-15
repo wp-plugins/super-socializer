@@ -11,8 +11,6 @@ theChampLoadEvent(function(){
 				jQuery(this).remove();
 			}
 		});
-	}else{
-		alert('jQuery undefined');
 	}
 });
 if(theChampEmailPopup){
