@@ -119,7 +119,7 @@ function theChampInitiateLogin(icon){
 	}else if(icon.title == 'Login with Linkedin'){
 		IN.User.authorize();
 		return false;
-	}else if(icon.title == 'Login with Google Plus'){
+	}else if(icon.title == 'Login with Google'){
 		theChampInitializeGPLogin();
 	}else if(icon.title == 'Login with Vkontakte'){
 		theChampInitializeVKLogin();
