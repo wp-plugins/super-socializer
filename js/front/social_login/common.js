@@ -159,8 +159,12 @@ function theChampGetElementsByClass(node, classname) {
  * Display login icons
  */
 function theChampDisplayLoginIcon(node, className){
-	var icons = theChampGetElementsByClass(node, className);
-	for(var i = 0; i < icons.length; i++){
-		icons[i].style.display = 'block';
+	if(typeof jQuery != 'undefined'){
+		jQuery('.' + className).css('display', 'block');
+	}else{
+		var icons = theChampGetElementsByClass(node, className);
+		for(var i = 0; i < icons.length; i++){
+			icons[i].style.display = 'block';
+		}
 	}
 }
