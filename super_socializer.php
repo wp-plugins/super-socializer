@@ -3,13 +3,13 @@
 Plugin Name: Super Socializer
 Plugin URI: https://www.facebook.com/SocializerChamp
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 2.5.1
+Version: 2.5.2
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '2.5.1');
+define('THE_CHAMP_SS_VERSION', '2.5.2');
 if(get_option('the_champ_ss_version') != THE_CHAMP_SS_VERSION){
 	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
 }
@@ -224,7 +224,7 @@ function the_champ_frontend_scripts(){
 		<script> var theChampLoadingImgPath = '<?php echo $loadingImagePath ?>'; var theChampAjaxUrl = '<?php echo $theChampAjaxUrl ?>'; var theChampRedirectionUrl = '<?php echo $redirectionUrl ?>'; var theChampRegRedirectionUrl = '<?php echo $regRedirectionUrl ?>'; </script>
 		<?php
 		$userVerified = false;
-		$ajaxUrl = '';
+		$ajaxUrl = 'admin-ajax.php';
 		$notification = '';
 		if(isset($_GET['theChampVerified']) || isset($_GET['theChampUnverified'])){
 			$userVerified = true;
@@ -241,7 +241,7 @@ function the_champ_frontend_scripts(){
 		}
 		
 		$emailPopup = false;
-		$emailAjaxUrl = '';
+		$emailAjaxUrl = 'admin-ajax.php';
 		$emailPopupTitle = '';
 		$emailPopupErrorMessage = '';
 		$emailPopupUniqueId = '';
