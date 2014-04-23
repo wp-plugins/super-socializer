@@ -269,7 +269,8 @@ ul.the_champ_login_ul li{
 	margin: 0 !important;
 	border: 0 !important;
 	width: auto !important;
-	clear: none !important
+	clear: none !important;
+	list-style: none !important;
 }
 .theChampLoginButton{
 	display: block;
