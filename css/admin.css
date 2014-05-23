@@ -27,7 +27,7 @@ div.inside td, div.inside th{
 div.stuffbox h3{
 	border-bottom: 1px solid #eee
 }
-.theChampSharingProviderContainer{
+.theChampHorizontalSharingProviderContainer, .theChampVerticalSharingProviderContainer{
 	width: 165px;
 	float: left;
 }
@@ -46,13 +46,13 @@ div.stuffbox h3{
 	cursor: pointer;
 	vertical-align: middle
 }
-#the_champ_ss_rearrange li{
+#the_champ_ss_rearrange li, #the_champ_ss_vertical_rearrange li{
 	cursor: move;
 	float: left;
 	display: block;
 	margin: 0 2px
 }
-#the_champ_ss_rearrange{
+#the_champ_ss_rearrange, #the_champ_ss_vertical_rearrange{
 	margin: 0
 }
 .the_champ_left_column{
@@ -124,3 +124,7 @@ input[type=text]{
 .theChampSharingtwitterButton { background-position: -32px -96px; width: 32px; height: 32px; }
 .theChampSharingvkontakteButton { background-position: -64px -96px; width: 32px; height: 32px; }
 .theChampSharingyahooButton { background-position: -96px -96px; width: 32px; height: 32px; }
+
+#the_champ_troubleshoot_notification{
+	color: red
+}

@@ -17,6 +17,6 @@ function theChampGetHashValue(key){
 }
 var theChampInstagramHash = theChampGetHashValue('access_token');
 if(theChampInstagramHash != ''){
-	window.opener.location.href = theChampSiteUrl + '?theChampInstaToken=' + theChampInstagramHash + '&champ_redirect_to=' + theChampTwitterRedirect;
+	window.opener.location.href = theChampSiteUrl + '?SuperSocializerInstaToken=' + theChampInstagramHash + '&super_socializer_redirect_to=' + theChampTwitterRedirect;
 	window.close();
 }

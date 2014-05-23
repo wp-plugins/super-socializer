@@ -1,1 +1,1 @@
-<?php die("You are lost"); ?>
+<?php die("God bless you"); ?>

@@ -26,13 +26,12 @@ function theChampGPSignInCallback(authResult){
 			} else if (authResult['error']) {
 			  // There was an error, which means the user is not signed in.
 			  // As an example, you can handle by writing to the console:
-			  //console.log('There was an error: ' + authResult['error']);
-			  
+			  console.log('There was an error: ' + authResult['error']);
 			}
 		});
 	}else{
 		// handle error
-		//console.log('Sign-in state: ' + authResult['error']);
+		console.log('Sign-in state: ' + authResult['error']);
 	}
 }
 
@@ -44,7 +43,9 @@ function theChampGetProfile(){
 		// handle error
 		return;
 	}else if(profile.id){
-		theChampAjaxUserAuth(profile, 'google');
+		theChampCallAjax(function(){
+			theChampAjaxUserAuth(profile, 'google');
+		});
 	}
   });
 }

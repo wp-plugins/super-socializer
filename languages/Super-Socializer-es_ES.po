@@ -1,0 +1,1256 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Super Socializer 2.8.0\n"
+"POT-Creation-Date: 2014-05-23 18:59-0800\n"
+"PO-Revision-Date: 2014-05-23 19:00-0800\n"
+"Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
+"Language-Team: The Champ <lordofthechamps@gmail.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/donate.php:2 ../admin/donate.php:17
+msgid "Donate"
+msgstr "Donar"
+
+#: ../admin/donate.php:4
+msgid ""
+"If you like the plugin, want to get it improved and want to see it at the "
+"top of other plugins, please consider making a donation."
+msgstr ""
+"Si te gusta el plugin, lo quiere quitar mejorado y quieren ver en la parte "
+"superior de otros plugins, por favor considere hacer una donación."
+
+#: ../admin/facebook.php:11
+msgid "Facebook Commenting"
+msgstr "Comentarios Facebook"
+
+#: ../admin/facebook.php:12 ../admin/facebook.php:230
+msgid "Feed"
+msgstr "Alimentación"
+
+#: ../admin/facebook.php:18 ../admin/facebook.php:24
+msgid "Enable Facebook Commenting"
+msgstr "Habilitar Comentarios Facebook"
+
+#: ../admin/facebook.php:34
+msgid ""
+"After enabling this option, Facebook commenting will appear in place of "
+"Wordpress comment form at your website"
+msgstr ""
+"Después de habilitar esta opción, Comentarios Facebook aparecerá en lugar "
+"del formulario de comentarios de Wordpress en su sitio web."
+
+#: ../admin/facebook.php:44
+msgid "Facebook Commenting Options"
+msgstr "Opciones de Comentarios Facebook"
+
+#: ../admin/facebook.php:50
+msgid "Keep only Facebook Commenting"
+msgstr "Consérvese únicamente Facebook Comentando"
+
+#: ../admin/facebook.php:60
+msgid ""
+"If enabled, only Facebook commenting will be there without the option to "
+"switch to WordPress commenting"
+msgstr ""
+"Si está habilitado, sólo Facebook comentando estarán allí sin la opción de "
+"cambiar a WordPress comentar"
+
+#: ../admin/facebook.php:68 ../admin/social_login.php:239
+#: ../admin/social_sharing.php:114
+msgid "Title"
+msgstr "Titulo"
+
+#: ../admin/facebook.php:78
+msgid "Specify a title for commenting"
+msgstr "Especificar un título para comentarios"
+
+#: ../admin/facebook.php:87
+msgid "Url to comment on"
+msgstr "URL donde comentar"
+
+#: ../admin/facebook.php:97
+#, fuzzy
+msgid ""
+"The absolute URL that comments posted will be permanently associated with. "
+"Stories on Facebook about comments posted, will link to this URL.<br/>If "
+"left empty <strong>(Recommended)</strong>, url of the webpage will be used "
+"at which commenting is enabled."
+msgstr ""
+"La URL absoluta a la que los comentarios publicados en el plugin se "
+"asociarán permanentemente. Historias en Facebook acerca de los comentarios "
+"publicados en el plugin se enlazarán a esta URL.<br/> Si se deja en blanco "
+"<strong>(recomendado)</strong>, se utilizará la URL de la página web en la "
+"que se habilita comentar"
+
+#: ../admin/facebook.php:105
+msgid "Width"
+msgstr "Ancho"
+
+#: ../admin/facebook.php:115
+msgid ""
+"Leave empty for default value. <br/>The width (in pixels) of the Comments "
+"block. The mobile version of the Comments block ignores the width parameter, "
+"and instead has a fluid width of 100%."
+msgstr ""
+"Dejar en blanco para el valor por defecto. El ancho (en píxeles) del bloque "
+"de comentarios. La versión móvil del bloque de Comentarios ignora el "
+"parámetro de anchura, y en su lugar tiene una anchura fluída del 100%."
+
+#: ../admin/facebook.php:123
+msgid "Color Scheme"
+msgstr "Esquema de colores"
+
+#: ../admin/facebook.php:127
+msgid "Light"
+msgstr "Claro"
+
+#: ../admin/facebook.php:128
+msgid "Dark"
+msgstr "Obscuro"
+
+#: ../admin/facebook.php:136
+msgid "The color scheme used by the plugin. Can be \"light\" or \"dark\"."
+msgstr ""
+"El esquema de color usado por el plugin. Puede ser \"\"claro\"\" u "
+"\"\"obscuro\"\"."
+
+#: ../admin/facebook.php:144
+msgid "Number of posts"
+msgstr "Número de publicaciones"
+
+#: ../admin/facebook.php:154
+msgid ""
+"The number of comments to show by default. The minimum value is 1. Defaults "
+"to 10"
+msgstr ""
+"El número de comentarios para mostrar por defecto. El valor mínimo es 1. El "
+"valor predeterminado es 10"
+
+#: ../admin/facebook.php:162
+msgid "Order by"
+msgstr "Ordenar por"
+
+#: ../admin/facebook.php:166
+msgid "Social"
+msgstr "Social"
+
+#: ../admin/facebook.php:167
+msgid "Reverse Time"
+msgstr "Revertir tiempo"
+
+#: ../admin/facebook.php:168
+msgid "Time"
+msgstr "Tiempo"
+
+#: ../admin/facebook.php:176
+msgid "The order to use when displaying comments."
+msgstr "El orden a utilizar cuando se muestran los comentarios."
+
+#: ../admin/facebook.php:184
+msgid "Mobile"
+msgstr "Móvil "
+
+#: ../admin/facebook.php:188
+msgid "Auto Detect"
+msgstr "Auto detectar"
+
+#: ../admin/facebook.php:189
+msgid "True"
+msgstr "Verdadero"
+
+#: ../admin/facebook.php:190
+msgid "False"
+msgstr "Falso"
+
+#: ../admin/facebook.php:198
+msgid ""
+"A boolean value that specifies whether to show the mobile-optimized version "
+"or not."
+msgstr ""
+"Un valor booleano que especifica si se mostrará la versión optimizada para "
+"móviles o no. "
+
+#: ../admin/facebook.php:206
+msgid "Language"
+msgstr "Idioma"
+
+#: ../admin/facebook.php:216
+#, php-format
+msgid ""
+"Enter the code of the language you want to use to display commenting. You "
+"can find the language codes at <a href=\"%s\" target=\"_blank\">this link</"
+"a>. Leave it empty for default language(English)"
+msgstr ""
+"Introduzca el código del idioma que desea utilizar para mostrar los "
+"comentarios. Usted puede encontrar los códigos de idioma en <a href=\"%s\" "
+"target=\"_blank\"> este enlace </ a>. Déjelo vacío para el idioma "
+"predeterminado (Inglés)"
+
+#: ../admin/facebook.php:236
+msgid "Publish feed on user's timeline on Facebook login"
+msgstr ""
+"Publicar alimentación en la línea de tiempo del usuario al ingresar a "
+"Facebook"
+
+#: ../admin/facebook.php:246
+msgid ""
+"If enabled, a post will be published on the timeline of the user logging in"
+msgstr ""
+"\"Si está activado, un mensaje será publicado en la línea de tiempo del "
+"usuario que ingresa \""
+
+#: ../admin/facebook.php:256
+msgid "Facebook Feed Options"
+msgstr "Opciones de Alimentación en Facebook"
+
+#: ../admin/facebook.php:262
+msgid "Message"
+msgstr "Mensaje"
+
+#: ../admin/facebook.php:272
+msgid ""
+"Message for the feed post. %website-name% will be replaced with your website "
+"name in actual message."
+msgstr ""
+"Mensaje para la publicación de alimentación %web-name% se reemplazará por el "
+"nombre del sitio web en el mensaje real."
+
+#: ../admin/facebook.php:281
+msgid "Link (required)"
+msgstr "Enlace (requerido)"
+
+#: ../admin/facebook.php:291
+msgid ""
+"The link attached to this feed (required parameter for this functionality to "
+"work)"
+msgstr ""
+"El enlace adjunto a esta publicación (parámetro requerido para que esta "
+"función opere)"
+
+#: ../admin/facebook.php:299
+msgid "Picture"
+msgstr "Imagen"
+
+#: ../admin/facebook.php:309
+msgid ""
+"The URL of a picture attached to this post. The picture must be at least "
+"200px by 200px. (if this url is not specified, image from the url specified "
+"in Link parameter will be displayed in the post)"
+msgstr ""
+"La dirección URL de una imagen adjunta a esta publicación. La imagen debe "
+"ser de al menos 200px por 200px. (Si no se especifica esta url, la imagen de "
+"la URL especificada en el parámetro del enlace se mostrará en la publicación)"
+
+#: ../admin/facebook.php:318
+msgid "Source"
+msgstr "Fuente"
+
+#: ../admin/facebook.php:328
+msgid ""
+"The URL of a media file (either SWF or MP3) attached to this post. If SWF, "
+"you must also specify picture (in \"Picture\" parameter) to provide a "
+"thumbnail for the video."
+msgstr ""
+"La URL de un archivo multimedia (ya sea SWF o MP3) adjunto a este mensaje. "
+"Si SWF, también debe especificar la imagen (en el parámetro \"Imagen\") para "
+"proporcionar una imagen en miniatura para el vídeo."
+
+#: ../admin/facebook.php:336
+msgid "Name"
+msgstr " Nombre"
+
+#: ../admin/facebook.php:346
+msgid "The name of the link attachment"
+msgstr "El nombre del archivo adjunto  del enlace"
+
+#: ../admin/facebook.php:355
+msgid "Caption"
+msgstr "Leyenda"
+
+#: ../admin/facebook.php:365
+msgid ""
+"The caption of the link (appears beneath the link name). If not specified, "
+"this field is automatically populated with the URL of the link."
+msgstr ""
+"La leyenda del enlace (aparece debajo del nombre del enlace). Si no se "
+"especifica, este campo se rellena automáticamente con la URL del enlace."
+
+#: ../admin/facebook.php:374
+msgid "Description"
+msgstr "Descripción"
+
+#: ../admin/facebook.php:384
+msgid ""
+"The description of the link (appears beneath the link caption). If not "
+"specified, this field is automatically populated by information scraped from "
+"the link, typically the title of the page."
+msgstr ""
+"La  descripción del enlace (aparece bajo el texto del enlace). Si no se "
+"especifica, este campo se rellena automáticamente por información extraída "
+"desde el enlace, por lo general el título de la página."
+
+#: ../admin/facebook.php:398 ../admin/social_login.php:556
+#: ../admin/social_sharing.php:621
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: ../admin/help.php:4
+msgid "About"
+msgstr "Acerca de"
+
+#: ../admin/help.php:4
+msgid "Version"
+msgstr "Versión"
+
+#: ../admin/help.php:6
+msgid "by"
+msgstr "por"
+
+#: ../admin/help.php:7
+msgid ""
+"I am a tech enthusiast. I like to play with code and build great stuff (and "
+"like to call myself - The Champ....:) ). You can connect with me (and my "
+"upcoming work) via:"
+msgstr ""
+"Soy un entusiasta de la tecnología. Me gusta jugar con los códigos y "
+"construir grandes cosas (y me gusta decir que soy - El Champ .... :)). Puede "
+"conectar conmigo (y mi próximo trabajo) a través de:"
+
+#: ../admin/help.php:18
+msgid "Plugin Demo"
+msgstr "Demostración Plugin"
+
+#: ../admin/help.php:20
+msgid "You can see the plugin in action at following link"
+msgstr "Usted puede ver el plugin en acción en el siguiente enlace"
+
+#: ../admin/help.php:26
+msgid "Support"
+msgstr "Soporte"
+
+#: ../admin/help.php:28
+msgid ""
+"If you like my plugin or have any query, you can drop me an email at <a href="
+"\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>, like my "
+"<strong>Facebook</strong> pages and follow me at <strong>Twitter</strong>."
+msgstr ""
+"Si le gusta mi plugin y le resulta útil, puede enviarme un correo "
+"electrónico a lordofthechamps@gmail.com, dar Me Gusta a mis páginas Facebook "
+"y seguirme en Twitter"
+
+#: ../admin/help.php:30 ../admin/help.php:33 ../admin/help.php:34
+#: ../admin/help.php:35 ../admin/help.php:36 ../admin/help.php:37
+msgid "Rate 5-star"
+msgstr "Tasa de 5 estrellas"
+
+#: ../admin/help.php:45
+msgid "Plugin Fan Page"
+msgstr "Plugin de Página de fans"
+
+#: ../admin/help.php:54
+msgid "My Fan Page"
+msgstr "Mi página de fans"
+
+#: ../admin/help.php:73
+msgid "Want plugin customization?"
+msgstr "¿Quieres plugin de personalización?"
+
+#: ../admin/help.php:75
+msgid ""
+"If you want custom features in the plugin, I can do it for you. Just drop me "
+"an email at <a href=\"mailto:lordofthechamps@gmail.com"
+"\">lordofthechamps@gmail.com</a>"
+msgstr ""
+"Si quieres características personalizadas en el plugin, lo que puedo hacer "
+"por usted. Simplemente envíeme un correo electrónico a lordofthechamps@gmail."
+"com"
+
+#: ../admin/help.php:80
+msgid "White-Label"
+msgstr ""
+
+#: ../admin/help.php:82
+msgid ""
+"Remove the plugin credit links (\"Super Socializer by The Champ\") in just "
+"$15. Interested? Email me: <a href=\"mailto:lordofthechamps@gmail.com"
+"\">lordofthechamps@gmail.com</a>"
+msgstr ""
+"Quite los enlaces de crédito Programas (\"Super Socializer por The Champ \") "
+"en sólo $ 15. ¿Interesado? Reciba por email: lordofthechamps@gmail.com"
+
+#: ../admin/social_admin.php:10
+msgid "Welcome"
+msgstr "Bienvenida"
+
+#: ../admin/social_admin.php:12
+msgid "You are ready to Socialize your website."
+msgstr "Usted está listo para Socializar su sitio web."
+
+#: ../admin/social_admin.php:13
+msgid "Getting Started"
+msgstr "Para empezar"
+
+#: ../admin/social_admin.php:14
+msgid ""
+"Start configuring the options in the sections below the <strong>Super "
+"Socializer</strong> menu in the left pan. <strong>Social Sharing</strong> is "
+"enabled at your website by default."
+msgstr ""
+"Comience a configurar las opciones en las siguientes secciones del menú de "
+"Super Socializer en el panel izquierdo. Intercambio Social está habilitado "
+"en su sitio web por defecto."
+
+#: ../admin/social_admin.php:15
+msgid ""
+"In <strong>Facebook</strong> section, you can configure Facebook Commenting "
+"and Feed."
+msgstr ""
+"En la sección de Facebook, puede configurar Comentarios y Transmisiones "
+"Facebook."
+
+#: ../admin/social_admin.php:16
+msgid ""
+"In <strong>Social Login</strong> section, you can select Social ID provders "
+"and configure the Social Login options."
+msgstr ""
+"En la sección Social Login, puede seleccionar proveedores de Identificación "
+"Social y configurar las opciones de Social Login."
+
+#: ../admin/social_admin.php:17
+msgid ""
+"In <strong>Social Sharing</strong> section, you can choose the Social "
+"Networks for Sharing and configure the optons for sharing."
+msgstr ""
+"En la sección Uso compartido Social, puede elegir las Redes Sociales para "
+"compartir y configurar los opciones para compartir."
+
+#: ../admin/social_login.php:10 ../admin/social_login.php:18
+#: ../admin/social_sharing.php:15 ../admin/social_sharing.php:24
+msgid "Basic Configuration"
+msgstr "Configuración Básica"
+
+#: ../admin/social_login.php:11
+msgid "Social Login"
+msgstr "Social Login"
+
+#: ../admin/social_login.php:12 ../admin/social_sharing.php:17
+msgid "Shortcode & Widget"
+msgstr "Widgets y shortcodes"
+
+#: ../admin/social_login.php:24
+msgid "Enable Social Login"
+msgstr "Habilitar Social Login"
+
+#: ../admin/social_login.php:34
+msgid ""
+"Master control for Social Login. It must be checked to enable Social Login "
+"functionality"
+msgstr ""
+"Control Maestro para Social Login. Debe comprobarse para permitir la "
+"funcionalidad de Social Login"
+
+#: ../admin/social_login.php:42 ../admin/social_sharing.php:132
+#: ../admin/social_sharing.php:350
+msgid "Select providers"
+msgstr "Seleccionar proveedores"
+
+#: ../admin/social_login.php:47 ../admin/social_sharing.php:137
+#: ../admin/social_sharing.php:355
+msgid "Facebook"
+msgstr ""
+
+#: ../admin/social_login.php:51 ../admin/social_sharing.php:142
+#: ../admin/social_sharing.php:360
+msgid "Twitter"
+msgstr ""
+
+#: ../admin/social_login.php:55 ../admin/social_sharing.php:147
+#: ../admin/social_sharing.php:365
+msgid "LinkedIn"
+msgstr ""
+
+#: ../admin/social_login.php:59 ../admin/social_sharing.php:152
+#: ../admin/social_sharing.php:370
+msgid "Google+"
+msgstr ""
+
+#: ../admin/social_login.php:63 ../admin/social_sharing.php:202
+#: ../admin/social_sharing.php:420
+msgid "Vkontakte"
+msgstr ""
+
+#: ../admin/social_login.php:67
+msgid "Instagram"
+msgstr ""
+
+#: ../admin/social_login.php:75
+msgid "Select Social ID provider to enable in Social Login"
+msgstr ""
+"Seleccione un proveedor de Identificación Social para habilitarse en Social "
+"Login"
+
+#: ../admin/social_login.php:83
+msgid "Facebook App ID"
+msgstr "ID de App. Facebook"
+
+#: ../admin/social_login.php:93
+#, php-format
+msgid ""
+"Required for Facebook Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get Facebook App ID"
+msgstr ""
+"Necesario para que funcione Facebook Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\">en este enlace</a> para "
+"obtener ID de App. Facebook"
+
+#: ../admin/social_login.php:101
+msgid "Twitter Consumer Key"
+msgstr "Clave Consumidor Twitter"
+
+#: ../admin/social_login.php:111
+#, php-format
+msgid ""
+"Required for Twitter Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get Twitter Consumer Key"
+msgstr ""
+"Requerida para que funcione Twitter Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\"> en este enlace</a> para "
+"obtener su Clave Consumidor Twitter"
+
+#: ../admin/social_login.php:119
+msgid "Twitter Consumer Secret"
+msgstr "Twitter Secreto del Consumidor"
+
+#: ../admin/social_login.php:129
+#, php-format
+msgid ""
+"Required for Twitter Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get Twitter Consumer "
+"Secret"
+msgstr ""
+"Requerido para que funcione Twitter Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\">en este enlace</a> para "
+"obtener Twitter Secreto del Consumidor"
+
+#: ../admin/social_login.php:137
+msgid "LinkedIn API Key"
+msgstr "Clave LinkedIn API"
+
+#: ../admin/social_login.php:147
+#, php-format
+msgid ""
+"Required for LinkedIn Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get LinkedIn API Key"
+msgstr ""
+"Requerida para que funcione LinkedIn Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\">en este enlace</a> para "
+"obtener su Clave LinkedIn API"
+
+#: ../admin/social_login.php:155
+msgid "Google+ Client ID"
+msgstr "ID Cliente Google+"
+
+#: ../admin/social_login.php:165
+#, php-format
+msgid ""
+"Required for GooglePlus Social Login to work. Please follow the "
+"documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get "
+"GooglePlus Client ID"
+msgstr ""
+"Requerida para que funcione GooglePlus Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\">en este enlace</a> para "
+"obtener ID Cliente GooglePlus"
+
+#: ../admin/social_login.php:173
+msgid "Vkontakte Application ID"
+msgstr "ID de App. Vkontakte"
+
+#: ../admin/social_login.php:183
+#, php-format
+msgid ""
+"Required for Vkontakte Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get Vkontakte "
+"Application ID"
+msgstr ""
+"Requerida para que funcione Vkontakte Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\">en este enlace</a> para "
+"obtener ID de app Vkontakte"
+
+#: ../admin/social_login.php:191
+msgid "Instagram Client ID"
+msgstr "ID Cliente Instagram"
+
+#: ../admin/social_login.php:201
+#, php-format
+msgid ""
+"Required for Instagram Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get Instagram Client ID"
+msgstr ""
+"Requerida para que funcione Instagram Social Login. Por favor, siga la "
+"documentación <a href=\"%s\" target=\"_blank\">en este enlace</a> para "
+"obtener ID Cliente Instagram"
+
+#: ../admin/social_login.php:209
+msgid "Include Javascript in website footer"
+msgstr "Incluir Javascript en el pie de página del sitio web"
+
+#: ../admin/social_login.php:219
+msgid ""
+"If enabled (recommended), all the Javascript code will be included in the "
+"footer of your website.<br/><strong>\"wp_footer\" and \"login_footer\" hooks "
+"should be there in your Wordpress theme for this to work, if you are not "
+"sure about this, keep this option unchecked.</strong>"
+msgstr ""
+"Si está activada (recomendado), se incluirá todo el código Javascript en el "
+"pie de página de su sitio web. Nota: es posible que anule la funcionalidad "
+"del plugin si los ganchos \"\"wp_footer\"\" y \"\"login_footer\"\" no "
+"existen en su tema de Wordpress. En este caso, mantener esta opción "
+"desactivada."
+
+#: ../admin/social_login.php:233
+msgid "Login options"
+msgstr "Opciones Inicio de Sesión"
+
+#: ../admin/social_login.php:249
+msgid "Text to display above the Social Login interface"
+msgstr "Texto para mostrar por encima de la interfaz Social Login"
+
+#: ../admin/social_login.php:258
+msgid "Enable at login page"
+msgstr "Activar en la página de inicio de sesión"
+
+#: ../admin/social_login.php:268
+msgid "Social Login interface will get enabled at your Wordpress login page"
+msgstr ""
+"La interfaz Social Login se activará en su página de inicio de sesión "
+"Wordpress"
+
+#: ../admin/social_login.php:277
+msgid "Enable at register page"
+msgstr "Habilitar en página de registro"
+
+#: ../admin/social_login.php:287
+msgid ""
+"Social Login interface will get enabled at your Wordpress registration page"
+msgstr ""
+"La interfaz Social Login se habilitará en su página de registro Wordpress"
+
+#: ../admin/social_login.php:296
+msgid "Enable at comment form"
+msgstr "Habilitar en formulario de Comentario"
+
+#: ../admin/social_login.php:306
+#, fuzzy
+msgid "Social Login interface will get enabled at your Wordpress Comment form"
+msgstr ""
+"La interfaz Social Login se activará en su página de inicio de sesión "
+"Wordpress"
+
+#: ../admin/social_login.php:317
+msgid "Auto-approve comments made by Social Login users"
+msgstr ""
+"Auto-aprobar los comentarios realizados por los usuarios Social Iniciar "
+"sesión"
+
+#: ../admin/social_login.php:327
+msgid ""
+"If this option is enabled, and WordPress comment is made by Social Login "
+"user, comment will get approved immediately without keeping in moderation."
+msgstr ""
+"Si esta opción está activada, y WordPress comentario es hecho por Social "
+"Login usuario, comentario será aprobado inmediatamente sin tener en "
+"moderación."
+
+#: ../admin/social_login.php:328
+msgid "Note: This is not related to Facebook comments"
+msgstr "Nota: Esto no está relacionado con los comentarios de Facebook"
+
+#: ../admin/social_login.php:338
+msgid "Enable social avatar"
+msgstr "Habilitar avatar Social"
+
+#: ../admin/social_login.php:348
+msgid ""
+"Social profile pictures of the logged in user will be displayed as profile "
+"avatar"
+msgstr ""
+"Imágenes de Perfil Social del usuario registrado aparecerán como avatar del "
+"perfil"
+
+#: ../admin/social_login.php:358 ../super_socializer.php:273
+msgid "Email required"
+msgstr "Requiere E-mail"
+
+#: ../admin/social_login.php:368
+msgid ""
+"If enabled and Social ID provider does not provide user's email address on "
+"login, user will be asked to provide his/her email address. Otherwise, a "
+"dummy email will be generated"
+msgstr ""
+"Si lo habilita y el proveedor de Identificación Social no proporciona "
+"dirección de correo electrónico del usuario al iniciar sesión, se le pedirá "
+"al usuario proporcionar su dirección de correo electrónico  De lo contrario, "
+"un correo electrónico ficticio, se generará"
+
+#: ../admin/social_login.php:377
+msgid "Send username-password after user registration"
+msgstr "Enviar nombre de usuario/contraseña tras el registro del usuario"
+
+#: ../admin/social_login.php:387
+msgid ""
+"If enabled, an email will be sent to user after registration through Social "
+"Login, regarding his/her login credentials (username-password to be able to "
+"login via traditional login form)"
+msgstr ""
+"Si está habilitada, un correo electrónico será enviado al usuario después "
+"del registro a través de Social Login, con respecto a su / sus credenciales "
+"de inicio de sesión (nombre de usuario-contraseña para poder ingresar a "
+"través del formulario de inicio de sesión tradicional)"
+
+#: ../admin/social_login.php:395
+msgid "Login redirection"
+msgstr "Redireccionamiento de inicio de sesión"
+
+#: ../admin/social_login.php:399 ../admin/social_login.php:425
+msgid "Same page where user logged in"
+msgstr "La misma página donde el usuario ha iniciado sesión"
+
+#: ../admin/social_login.php:401 ../admin/social_login.php:427
+#: ../admin/social_sharing.php:279 ../admin/social_sharing.php:512
+msgid "Homepage"
+msgstr "Página de inicio"
+
+#: ../admin/social_login.php:403 ../admin/social_login.php:429
+msgid "Account dashboard"
+msgstr "Panel de cuenta"
+
+#: ../admin/social_login.php:405 ../admin/social_login.php:431
+msgid "Custom Url"
+msgstr "Url personalizada"
+
+#: ../admin/social_login.php:413
+msgid "User will be redirected to the selected page after Social Login"
+msgstr ""
+"El usuario será redirigido a la página seleccionada después de Social Login"
+
+#: ../admin/social_login.php:421
+msgid "Registration redirection"
+msgstr "redirección de registro"
+
+#: ../admin/social_login.php:439
+msgid ""
+"User will be redirected to the selected page after registration (first "
+"Social Login) through Social Login"
+msgstr ""
+"Usuario será redirigido a la página seleccionada después de Registrarse "
+"(primero Ingresa Social) a través de Social Login"
+
+#: ../admin/social_login.php:447
+msgid "Email popup options"
+msgstr "opciones emergentes de correo electrónico"
+
+#: ../admin/social_login.php:453
+msgid "Text on 'Email required' popup"
+msgstr "Texto en 'Email required' popup"
+
+#: ../admin/social_login.php:463
+msgid ""
+"This text will be displayed on email required popup. Leave empty if not "
+"required."
+msgstr ""
+"Este texto se mostrará en el correo electrónico popup necesario. Dejar en "
+"blanco si no es necesario."
+
+#: ../admin/social_login.php:472
+msgid "Error message for 'Email required' popup"
+msgstr ""
+"Mensaje de error para ventana emergente de \"\"Correo electrónico requerido'"
+
+#: ../admin/social_login.php:482
+msgid ""
+"This message will be displayed to user if it provides invalid or already "
+"registered email"
+msgstr ""
+"Este mensaje se mostrará al usuario si proporciona correo electrónico no "
+"válido o ya registrado"
+
+#: ../admin/social_login.php:491
+msgid "Email popup height"
+msgstr "email altura popup"
+
+#: ../admin/social_login.php:501
+msgid ""
+"If you are seeing vertical scrollbar in the \"Email required\" popup, you "
+"can increase the height of popup by specifying in this option. Leave empty "
+"for default."
+msgstr ""
+"Si usted está viendo la barra de desplazamiento vertical en el \"Correo "
+"electrónico requerido\" emergente, puede aumentar la altura del elemento "
+"emergente mediante la especificación de esta opción. Dejar en blanco para el "
+"defecto."
+
+#: ../admin/social_login.php:509
+msgid "Enable email verification"
+msgstr "Habilitar verificación de correo electrónico"
+
+#: ../admin/social_login.php:519
+msgid ""
+"If enabled, email provided by the user will be verified by sending a "
+"confirmation link to that email. User would not be able to login without "
+"verifying his/her email"
+msgstr ""
+"Si está activado, el correo electrónico proporcionado por el usuario se "
+"verificará mediante el envío de un enlace de confirmación a ese correo "
+"electrónico. El usuario no podrá iniciar sesión sin verificar su email"
+
+#: ../admin/social_login.php:533 ../admin/social_sharing.php:562
+msgid "Shortcode"
+msgstr "Shortcodes"
+
+#: ../admin/social_login.php:535
+msgid ""
+"Use <strong>[TheChamp-Login]</strong> Shortcode in the content of required "
+"page/post where you want to display Social Login interface."
+msgstr ""
+"Utilice <strong> [TheChamp-Login] </ strong> Código corto en el contenido de "
+"la página requerida / post en la que desea mostrar la interfaz Login Social."
+
+#: ../admin/social_login.php:536 ../admin/social_login.php:539
+#: ../admin/social_sharing.php:565 ../admin/social_sharing.php:570
+#: ../admin/social_sharing.php:575 ../admin/social_sharing.php:580
+#: ../admin/social_sharing.php:585
+msgid "Example"
+msgstr "ejemplo"
+
+#: ../admin/social_login.php:538
+#, fuzzy
+msgid ""
+"You can use \"style\" attribute in the Shortcode to style the rendered "
+"Social Login interface."
+msgstr ""
+"Usted puede utilizar el atributo \"style\" en el Código corto al estilo de "
+"la interfaz Uso compartido sociales prestados."
+
+#: ../admin/social_login.php:545 ../admin/social_sharing.php:591
+msgid "Widget"
+msgstr ""
+
+#: ../admin/social_login.php:547
+msgid ""
+"You can navigate to the <strong>Appearance</strong> > <strong>Widgets</"
+"strong> section in the left pan and drag <strong>Super Socializer - Login</"
+"strong> widget in the required area."
+msgstr ""
+"Usted puede navegar a la Apariencia <strong> </ strong >> <strong> "
+"Reproductores </ strong> en el platillo izquierdo y arrastre <strong> Súper "
+"Socializer - Login </ strong> de widget en el área requerida."
+
+#: ../admin/social_sharing.php:16
+msgid "Social Sharing"
+msgstr "Social Sharing"
+
+#: ../admin/social_sharing.php:18
+msgid "Troubleshooter"
+msgstr "Solucionador de problemas"
+
+#: ../admin/social_sharing.php:30
+msgid "Enable Social Sharing"
+msgstr "Habilitar Social Sharing"
+
+#: ../admin/social_sharing.php:40
+msgid ""
+"Master control for Social Sharing. It must be checked to enable Social "
+"Sharing functionality"
+msgstr ""
+"Control maestro para compartir en redes sociales. Esto debe estar marcado "
+"para habilitar la funcionalidad de Social Sharing "
+
+#: ../admin/social_sharing.php:48
+msgid "Delete all the options on plugin deletion"
+msgstr "Eliminar todas las opciones de plugin de eliminación"
+
+#: ../admin/social_sharing.php:58
+msgid ""
+"If enabled, plugin options will get deleted when plugin is deleted/"
+"uninstalled and you will need to reconfigure the options when you install "
+"the plugin next time."
+msgstr ""
+"Si se activa, las opciones del plugin será borrado cuando se elimina el "
+"plugin / desinstalado y tendrá que volver a configurar las opciones al "
+"instalar el plugin próxima vez."
+
+#: ../admin/social_sharing.php:72
+msgid ""
+"<strong>Note:</strong> To disable sharing on particular page/post, edit that "
+"page/post and check the <strong>\"Disable Social Sharing on this page\"</"
+"strong> option at the bottom in <strong>\"Super Socializer\"</strong> section"
+msgstr ""
+"<strong> Nota: </ strong> Para deshabilitar el uso compartido en concreto la "
+"página / post, edite la página / post y comprobar el <strong> \"Desactivar "
+"Intercambio Social en esta página \" </ strong> la opción en la parte "
+"inferior de <strong > \"Super Socializer \" </ strong>"
+
+#: ../admin/social_sharing.php:88
+msgid "Horizontal Sharing Interface Options"
+msgstr "Horizontales Opciones para compartir la interfaz de"
+
+#: ../admin/social_sharing.php:94
+msgid "Enable horizontal sharing interface"
+msgstr "Habilitar interfaz de intercambio horizontal"
+
+#: ../admin/social_sharing.php:104
+msgid "Master control to enable horizontal sharing"
+msgstr "Control maestro para permitir el intercambio horizontal"
+
+#: ../admin/social_sharing.php:124
+msgid "The text to display above the sharing interface"
+msgstr "El texto que se muestra por encima de la interfaz compartida "
+
+#: ../admin/social_sharing.php:157 ../admin/social_sharing.php:375
+msgid "Print"
+msgstr ""
+
+#: ../admin/social_sharing.php:162 ../admin/social_sharing.php:380
+msgid "Email"
+msgstr ""
+
+#: ../admin/social_sharing.php:167 ../admin/social_sharing.php:385
+msgid "Yahoo"
+msgstr ""
+
+#: ../admin/social_sharing.php:172 ../admin/social_sharing.php:390
+msgid "Reddit"
+msgstr ""
+
+#: ../admin/social_sharing.php:177 ../admin/social_sharing.php:395
+msgid "Digg"
+msgstr ""
+
+#: ../admin/social_sharing.php:182 ../admin/social_sharing.php:400
+msgid "Delicious"
+msgstr ""
+
+#: ../admin/social_sharing.php:187 ../admin/social_sharing.php:405
+msgid "StumbleUpon"
+msgstr ""
+
+#: ../admin/social_sharing.php:192 ../admin/social_sharing.php:410
+msgid "Float it"
+msgstr ""
+
+#: ../admin/social_sharing.php:197 ../admin/social_sharing.php:415
+msgid "Tumblr"
+msgstr ""
+
+#: ../admin/social_sharing.php:207 ../admin/social_sharing.php:425
+msgid "Pinterest"
+msgstr ""
+
+#: ../admin/social_sharing.php:215 ../admin/social_sharing.php:433
+msgid "Select the providers for sharing interface"
+msgstr "Seleccione los proveedores para compartir la interfaz"
+
+#: ../admin/social_sharing.php:223 ../admin/social_sharing.php:441
+msgid "Rearrange icons"
+msgstr "Reorganizar iconos"
+
+#: ../admin/social_sharing.php:246 ../admin/social_sharing.php:464
+msgid "Drag the icons to rearrange in desired order"
+msgstr "Arrastre los iconos para reorganizar estos con el fin deseado "
+
+#: ../admin/social_sharing.php:254
+msgid "Position with respect to content"
+msgstr "Posición con respecto al contenido"
+
+#: ../admin/social_sharing.php:258
+msgid "Top of the content"
+msgstr "Parte superior del contenido"
+
+#: ../admin/social_sharing.php:260
+msgid "Bottom of the content"
+msgstr "Parte inferior del contenido"
+
+#: ../admin/social_sharing.php:267
+msgid "Specify position of the sharing interface with respect to the content"
+msgstr ""
+"Especificar la posición de la interfaz compartir con respecto al contenido"
+
+#: ../admin/social_sharing.php:275 ../admin/social_sharing.php:508
+msgid "Sharing location"
+msgstr "Ubicación de uso compartido"
+
+#: ../admin/social_sharing.php:281 ../admin/social_sharing.php:514
+msgid "Posts"
+msgstr "Publicaciones"
+
+#: ../admin/social_sharing.php:283 ../admin/social_sharing.php:516
+msgid "Pages"
+msgstr "Páginas"
+
+#: ../admin/social_sharing.php:285 ../admin/social_sharing.php:518
+msgid "Excerpts"
+msgstr "Extractos"
+
+#: ../admin/social_sharing.php:287 ../admin/social_sharing.php:520
+msgid "Category Archives"
+msgstr "Archivos de la categoría"
+
+#: ../admin/social_sharing.php:294
+msgid "Specify the pages where you want to enable Sharing interface"
+msgstr ""
+"Especifique las páginas en las que desee habilitar la interfaz Uso compartido"
+
+#: ../admin/social_sharing.php:302 ../admin/social_sharing.php:535
+msgid "Show share counts"
+msgstr "conteos muestran acciones"
+
+#: ../admin/social_sharing.php:312 ../admin/social_sharing.php:545
+msgid "If enabled, share counts are displayed above sharing icons."
+msgstr ""
+"Si está habilitado, el recuento de acciones se muestran por encima de los "
+"iconos para compartir."
+
+#: ../admin/social_sharing.php:323
+msgid "Vertical (Floating) Sharing Interface Options"
+msgstr "Vertical (flotante) Opciones de interfaz compartir"
+
+#: ../admin/social_sharing.php:329
+msgid "Enable vertical (floating) sharing interface"
+msgstr "Habilitar vertical (flotante) interfaz compartida"
+
+#: ../admin/social_sharing.php:339
+msgid "Master control to enable vertical (floating) sharing widget"
+msgstr ""
+"Control maestro para permitir vertical (flotante) widget de intercambio"
+
+#: ../admin/social_sharing.php:472
+msgid "Left offset"
+msgstr "desplazamiento izquierda"
+
+#: ../admin/social_sharing.php:482
+msgid ""
+"Specify a number. Increase in number will shift sharing interface towards "
+"right and decrease will shift it towards left."
+msgstr ""
+"Especifique un número. Aumento del número cambiará interfaz compartida hacia "
+"la derecha y la disminución se desplazará hacia la izquierda."
+
+#: ../admin/social_sharing.php:490
+msgid "Top offset"
+msgstr "superior compensar"
+
+#: ../admin/social_sharing.php:500
+msgid ""
+"Specify a number. Increase in number will shift sharing interface towards "
+"bottom and decrease will shift it towards top."
+msgstr ""
+"Especifique un número. Aumento del número cambiará compartir la interfaz "
+"hacia la parte inferior y el descenso se desplazará hacia la parte superior."
+
+#: ../admin/social_sharing.php:527
+msgid "Specify the pages where you want to enable vertical Sharing interface"
+msgstr ""
+"Especifique las páginas en las que desee habilitar la interfaz Uso "
+"compartido verticales"
+
+#: ../admin/social_sharing.php:564
+msgid ""
+"You can use <strong>[TheChamp-Sharing]</strong> Shortcode in the content of "
+"required page/post where you want to display Social Sharing interface."
+msgstr ""
+"Usted puede utilizar <strong> [TheChamp-Sharing] </ strong> Código corto en "
+"el contenido de la página requerida / post en el que desea mostrar la "
+"interfaz Uso compartido Social."
+
+#: ../admin/social_sharing.php:567
+msgid "You can use following attributes in the Shortcode"
+msgstr "Puede utilizar los atributos siguientes en el Código corto"
+
+#: ../admin/social_sharing.php:569
+msgid ""
+"Use <strong>style</strong> attribute to style the rendered Social Sharing "
+"interface"
+msgstr ""
+"Utilice <strong>style</ strong> atributo de estilo de la interfaz Uso "
+"compartido sociales prestados"
+
+#: ../admin/social_sharing.php:574
+msgid ""
+"Use <strong>type</strong> attribute to specify the type (\"Horizontal\" or "
+"\"Vertical\") of Social Sharing interface. Default type is \"Horizontal\"."
+msgstr ""
+"Utilice <strong>type</ strong> atributo para especificar el tipo "
+"(\"horizontal \" o \"vertical \") de la interfaz Uso compartido Social. Tipo "
+"por defecto es \"horizontal \"."
+
+#: ../admin/social_sharing.php:578
+msgid "Left (Works with \"Vertical\" type interface only)"
+msgstr "Izquierda (Trabaja con interfaz tipo \"vertical \" solamente)"
+
+#: ../admin/social_sharing.php:579
+msgid ""
+"Use <strong>left</strong> attribute to specify the left offset (distance "
+"form the left side of the screen) of Social Sharing interface."
+msgstr ""
+"Uso <strong> left</strong> atributo para especificar el desplazamiento "
+"izquierda (distancia formar el lado izquierdo de la pantalla) de interfaz de "
+"uso compartido Social."
+
+#: ../admin/social_sharing.php:583
+msgid "Top (Works with \"Vertical\" type interface only)"
+msgstr "Top (Trabaja con \"vertical \" tipo de interfaz única)"
+
+#: ../admin/social_sharing.php:584
+msgid ""
+"Use <strong>top</strong> attribute to specify the top offset (distance form "
+"the top of the screen) of Social Sharing interface."
+msgstr ""
+"Utilice <strong>top</strong> atributo para especificar el desplazamiento "
+"superior (distancia forman la parte superior de la pantalla) de la interfaz "
+"Uso compartido Social."
+
+#: ../admin/social_sharing.php:593
+msgid ""
+"You can navigate to the <strong>Appearance</strong> > <strong>Widgets</"
+"strong> section in the left pan and drag <strong>Super Socializer - Sharing "
+"(Horizontal Widget)</strong> and <strong>Super Socializer - Sharing "
+"(Vertical Floating Widget)</strong> widgets in the required area."
+msgstr ""
+"Usted puede navegar a la <strong>Apariencia</ strong >> <strong> "
+"Reproductores </ strong> en el platillo izquierdo y arrastre <strong> Súper "
+"Socializer - Sharing (Horizontal Widget) </ strong> y <strong> Súper "
+"Socializer - Sharing (Vertical Floating Widget) </ strong> widgets en el "
+"área requerida."
+
+#: ../admin/social_sharing.php:603
+msgid "Facebook Sharing Troubleshooter"
+msgstr "Facebook Sharing Solucionador de problemas"
+
+#: ../admin/social_sharing.php:608
+msgid ""
+"If Facebook sharing is not working fine, click at the following link and "
+"enter the problematic url (where Facebook sharing is not working properly) "
+"of your website in the text field:"
+msgstr ""
+"Si Facebook compartir no está funcionando bien, haga clic en el siguiente "
+"enlace e introduzca la url problemático (donde compartir en Facebook no "
+"funciona correctamente) de su sitio web en el campo de texto:"
+
+#: ../helper.php:7
+msgid "Options saved successfully"
+msgstr "Opciones guardadas correctamente"
+
+#: ../helper.php:167
+msgid "Settings"
+msgstr "Configuración"
+
+#: ../inc/social_sharing.php:129
+msgid "Invalid request"
+msgstr "petición no válida"
+
+#: ../inc/social_sharing.php:134
+msgid "Providers not selected"
+msgstr "Los proveedores no seleccionados"
+
+#: ../inc/social_sharing.php:242
+msgid "Disable Horizontal Social Sharing on this "
+msgstr "Desactivar Horizontal Intercambio Social en esta"
+
+#: ../inc/social_sharing.php:247
+msgid "Disable Vertical Social Sharing on this "
+msgstr "Desactivar Vertical Intercambio Social en esta"
+
+#: ../inc/widget.php:11
+msgid "Super Socializer - Login"
+msgstr "Super Socializer - Login"
+
+#: ../inc/widget.php:13
+msgid ""
+"Let your website users login/register using their favorite Social ID "
+"Provider, such as Facebook, Twitter, Google+, LinkedIn"
+msgstr ""
+"Permita que sus usuarios del website se conecten/registren usando su "
+"proveedor de ID Social favorito, tales como Facebook, Twitter, Google+, "
+"LinkedIn"
+
+#: ../inc/widget.php:46
+msgid "Log Out"
+msgstr "Cerrar sesión"
+
+#: ../inc/widget.php:77 ../inc/widget.php:161
+msgid "Title:"
+msgstr "Titulo:"
+
+#: ../inc/widget.php:79 ../inc/widget.php:163
+msgid "Before widget content:"
+msgstr " Antes del contenido del widget:"
+
+#: ../inc/widget.php:81 ../inc/widget.php:165
+msgid "After widget content:"
+msgstr "Después del contenido del widget:"
+
+#: ../inc/widget.php:84 ../inc/widget.php:167 ../inc/widget.php:234
+msgid "Hide for logged in users:"
+msgstr "Ocultar para los usuarios registrados:"
+
+#: ../inc/widget.php:103
+msgid ""
+"Horizontal widget. Let your website users share content on popular Social "
+"networks like Facebook, Twitter, Tumblr, Google+ and many more"
+msgstr ""
+"Widget Horizontal. ​​Deje que sus usuarios del website compartan contenidos en "
+"las redes sociales populares como Facebook, Twitter, Tumblr, Google+ y "
+"muchos más "
+
+#: ../inc/widget.php:186
+msgid ""
+"Vertical floating widget. Let your website users share content on popular "
+"Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
+msgstr ""
+"Widget de flotación vertical. ​​Deje que sus usuarios del website compartan "
+"contenidos en las redes sociales populares como Facebook, Twitter, Tumblr, "
+"Google+ y muchos más "
+
+#: ../inc/widget.php:229
+msgid "Left Offset:"
+msgstr "Desplazamiento hacia la izquierda:"
+
+#: ../inc/widget.php:231
+msgid "Top Offset:"
+msgstr "Margen superior:"
+
+#: ../super_socializer.php:250
+msgid "Please verify your email address to login."
+msgstr ""
+"Verifique por favor su dirección de correo electrónico para iniciar sesión"
+
+#: ../super_socializer.php:250
+msgid "Your email has been verified. Now you can login to your account"
+msgstr "Su email ha sido verificado. Ahora puede acceder a su cuenta"
+
+#: ../super_socializer.php:254
+msgid "Notification"
+msgstr "Notificación"
+
+#: ../super_socializer.php:276
+msgid "Please check your email inbox to complete the registration."
+msgstr ""
+"Por favor revise su bandeja de entrada de correo electrónico para completar "
+"el registro"
+
+#~ msgid ""
+#~ "Social Login interface will get enabled at your Wordpress Comment form<br/"
+#~ "><strong>Note: Social Login at comment form of your website will not get "
+#~ "enabled if Facebook commenting is enabled.</strong>"
+#~ msgstr ""
+#~ "La interfaz Social Login se activará en tu formulario de Comentario "
+#~ "Wordpress Nota: Social Login en el formulario de comentarios de su sitio "
+#~ "web no se habilitará si Comentario Facebook está habilitado"

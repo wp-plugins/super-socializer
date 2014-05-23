@@ -4,15 +4,6 @@ if(theChampVerified){
 		tb_show(theChampPopupTitle, theChampAjaxUrl);
 	});
 }
-theChampLoadEvent(function(){
-	if(typeof jQuery != 'undefined'){
-		jQuery('.the_champ_login_container').each(function(){
-			if(!jQuery(this).find('a').length){
-				jQuery(this).remove();
-			}
-		});
-	}
-});
 if(theChampEmailPopup){
 	// show thickbox on window load
 	theChampLoadEvent(function(){
@@ -99,9 +90,9 @@ function theChampAjaxUserAuth(response, provider){
 			}
 		}else if(data.message.match(/ask/) !== null){
 			var keyArr = data.message.split('|');
-			redirect = theChampSiteUrl+'?theChampEmail=1&par=' + keyArr[1];
+			redirect = theChampSiteUrl+'?SuperSocializerEmail=1&par=' + keyArr[1];
 		}else if(data.message == 'unverified'){
-			redirect = theChampSiteUrl+'?theChampUnverified=1';
+			redirect = theChampSiteUrl+'?SuperSocializerUnverified=1';
 		}
 		location.href = redirect;
 	  }
@@ -115,7 +106,7 @@ function theChampInitiateLogin(icon){
 	if(icon.title == 'Login with Facebook'){
 		theChampAuthUserFB();
 	}else if(icon.title == 'Login with Twitter'){
-		theChampPopup(theChampSiteUrl+'?theChampAuth=Twitter&champ_redirect_to='+theChampTwitterRedirect);
+		theChampPopup(theChampSiteUrl+'?SuperSocializerAuth=Twitter&super_socializer_redirect_to='+theChampTwitterRedirect);
 	}else if(icon.title == 'Login with Linkedin'){
 		IN.User.authorize();
 		return false;
@@ -125,33 +116,6 @@ function theChampInitiateLogin(icon){
 		theChampInitializeVKLogin();
 	}else if(icon.title == 'Login with Instagram'){
 		theChampInitializeInstaLogin();
-	}
-}
-
-/**
- * Get elements by class name without jQuery
- */
-function theChampGetElementsByClass(node, classname) {
-	if (node.getElementsByClassName) { // use native implementation if available
-		return node.getElementsByClassName(classname);
-	} else {
-		return (function getElementsByClass(searchClass,node) {
-			if ( node == null ) {
-				node = document;
-			}
-			var classElements = [],
-			els = node.getElementsByTagName("*"),
-			elsLen = els.length,
-			pattern = new RegExp("(^|\\s)"+searchClass+"(\\s|$)"), i, j;
-
-			for (i = 0, j = 0; i < elsLen; i++) {
-				if ( pattern.test(els[i].className) ) {
-					classElements[j] = els[i];
-					j++;
-				}
-			}
-			return classElements;
-		})(classname, node);
 	}
 }
 

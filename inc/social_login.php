@@ -42,13 +42,13 @@ function the_champ_login_button($widget = false){
 				$html .= '</i></li>';
 			}
 		}
-		$concate = '<div style="clear:both"></div><a target="_blank" style="text-decoration:none; color: #00A0DA; font-size: 12px" href="http://wordpress.org/plugins/'. str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a> <span style="color: #000; font-size: 12px">'. str_replace($replace, $varby, '_y') .'</span> <a target="_blank" style="text-decoration:none; color: #00A0DA; font-size: 12px" href="http://'. str_replace($replace, $varby, 't3ec3am?l%rd.w%rd?!e99.c%m') .'">'. str_replace($replace, $varby, '43e 23am?') .'</a>';
+		$concate = '<div style="clear:both"></div><a target="_blank" style="display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/'. str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a> <span style="color: #000; font-size: 12px">'. str_replace($replace, $varby, '_y') .'</span> <a target="_blank" style="display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//'. str_replace($replace, $varby, 't3ec3am?l%rd.w%rd?!e99.c%m') .'">'. str_replace($replace, $varby, '43e 23am?') .'</a>';
 		$html .= $concate;
 		$html .= '</ul></div>';
 		if(!$widget){
 			$html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
 		}
-		if(!isset($concate) || strlen($concate) != 374){return;}
+		if(!isset($concate) || strlen($concate) != 420){return;}
 		if(!$widget){
 			echo $html;
 		}else{
@@ -318,7 +318,7 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 	}else{
 		$profileData['provider'] = 'facebook';
 		// social avatar url 
-		$profileData['avatar'] = "http://graph.facebook.com/" . $profileData['id'] . "/picture?type=square";
+		$profileData['avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=square";
 	}
 	// authenticate user
 	// check if Social ID exists in database
@@ -334,7 +334,7 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 				if(!in_array($profileData['provider'], array('twitter', 'instagram'))){
 					return array('status' => false, 'message' => 'unverified');
 				}
-				the_champ_close_login_popup(site_url().'?theChampUnverified=1');
+				the_champ_close_login_popup(site_url().'?SuperSocializerUnverified=1');
 			}
 			the_champ_login_user($existingUser[0] -> ID, $profileData['avatar']);
 			return array('status' => true, 'message' => '');
@@ -356,7 +356,7 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 				if(!in_array($profileData['provider'], array('twitter', 'instagram'))){
 					return array('status' => false, 'message' => 'ask email|' . $uniqueId);
 				}
-				the_champ_close_login_popup(site_url().'?theChampEmail=1&par='.$uniqueId);
+				the_champ_close_login_popup(site_url().'?SuperSocializerEmail=1&par='.$uniqueId);
 			}
 		}
 		// check if email exists in database
@@ -396,8 +396,9 @@ add_action('wp_ajax_nopriv_the_champ_user_auth', 'the_champ_user_auth_ajax');
  * Ask email in a popup
  */
 function the_champ_ask_email(){
-	?>
-	<div id="the_champ_error" style="margin: 2px 0px; height: 15px"></div>
+	global $theChampLoginOptions;
+	echo isset($theChampLoginOptions['email_popup_text']) && $theChampLoginOptions['email_popup_text'] != '' ? '<div style="margin-top: 5px">'.$theChampLoginOptions['email_popup_text'].'</div>' : ''; ?>
+	<div id="the_champ_error" style="margin: 2px 0px;"></div>
 	<div style="margin: 6px 0 15px 0;"><input placeholder="Email" type="text" id="the_champ_email" /></div>
 	<div>
 		<button type="button" id="save" onclick="the_champ_save_email(this)">Save</button>
@@ -448,7 +449,7 @@ function the_champ_save_email(){
 						}
 					}
 				}else{
-					the_champ_ajax_response(0, __(isset($theChampLoginOptions['email_error_message']) ? $theChampLoginOptions['email_error_message'] : '', 'TheChamp'));
+					the_champ_ajax_response(0, isset($theChampLoginOptions['email_error_message']) ? __($theChampLoginOptions['email_error_message'], 'Super-Socializer') : '');
 				}
 			}
 			// delete temporary data
@@ -465,7 +466,7 @@ add_action('wp_ajax_nopriv_the_champ_save_email', 'the_champ_save_email');
  */
 function the_champ_send_verification_email($receiverEmail, $verificationKey){
 	$subject = "[".htmlspecialchars(trim(get_option('blogname')))."] Email Verification";
-	$url = site_url()."?theChampKey=".$verificationKey;
+	$url = site_url()."?SuperSocializerKey=".$verificationKey;
 	$message = "Please click on the following link or paste it in browser to verify your email \r\n".$url;
 	wp_mail($receiverEmail, $subject, $message);
 }

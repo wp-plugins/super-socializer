@@ -90,30 +90,30 @@ class TheChampLoginWidget extends WP_Widget {
 add_action( 'widgets_init', create_function( '', 'return register_widget( "TheChampLoginWidget" );' )); 
 
 /**
- * Widget for Social Sharing
+ * Widget for Social Sharing (Horizontal widget)
  */
 class TheChampSharingWidget extends WP_Widget { 
 	/** constructor */ 
 	function TheChampSharingWidget() { 
 		parent::WP_Widget( 
 			'TheChampHorizontalSharing', //unique id 
-			'Super Socializer - Sharing', //title displayed at admin panel 
+			'Super Socializer - Sharing (Horizontal Widget)', //title displayed at admin panel 
 			//Additional parameters 
 			array(
-				'description' => __( 'Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more', 'TheChamp' )) 
+				'description' => __( 'Horizontal widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more', 'TheChamp' )) 
 			); 
 	}  
 
 	/** This is rendered widget content */ 
 	function widget( $args, $instance ) { 
 		// return if sharing is disabled
-		if(!the_champ_social_sharing_enabled()){
+		if(!the_champ_social_sharing_enabled() || !the_champ_horizontal_sharing_enabled()){
 			return;
 		}
 		extract( $args );
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
-		echo "<div class='the_champ_sharing_container' champ-data-href='".site_url()."'>";
+		echo "<div class='the_champ_sharing_container the_champ_horizontal_sharing' super-socializer-data-href='".site_url()."'>";
 		
 		echo $before_widget;
 		
@@ -167,7 +167,74 @@ class TheChampSharingWidget extends WP_Widget {
 			<br /><br /><label for="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>"><?php _e( 'Hide for logged in users:', 'TheChamp' ); ?></label> 
 			<input type="checkbox" id="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>" name="<?php echo $this->get_field_name( 'hide_for_logged_in' ); ?>" type="text" value="1" <?php if(isset($instance['hide_for_logged_in'])  && $instance['hide_for_logged_in']==1) echo 'checked="checked"'; ?> /> 
 		</p> 
-<?php 
-  } 
+	<?php 
+    } 
 } 
 add_action( 'widgets_init', create_function( '', 'return register_widget( "TheChampSharingWidget" );' ));
+
+/**
+ * Widget for Social Sharing (Vertical widget)
+ */
+class TheChampVerticalSharingWidget extends WP_Widget { 
+	/** constructor */ 
+	function TheChampVerticalSharingWidget() { 
+		parent::WP_Widget( 
+			'TheChampVerticalSharing', //unique id 
+			'Super Socializer - Sharing (Vertical Floating Widget)', //title displayed at admin panel 
+			//Additional parameters 
+			array(
+				'description' => __( 'Vertical floating widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more', 'TheChamp' )) 
+			); 
+	}  
+
+	/** This is rendered widget content */ 
+	function widget( $args, $instance ) { 
+		// return if sharing is disabled
+		if(!the_champ_social_sharing_enabled() || !the_champ_vertical_sharing_enabled()){
+			return;
+		}
+		extract( $args );
+		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
+		
+		echo "<div class='the_champ_sharing_container the_champ_vertical_sharing' style='".(isset($instance['left_offset']) && $instance['left_offset'] != '' ? 'left: '.$instance['left_offset'].'px;' : '').(isset($instance['top_offset']) && $instance['top_offset'] != '' ? 'top: '.$instance['top_offset'].'px;' : '')."' super-socializer-data-href='".site_url()."'>";
+		
+		//echo $before_widget;
+		echo the_champ_prepare_sharing_html(site_url(), 'vertical');
+		echo "</div>";
+		//echo $after_widget;
+	}  
+
+	/** Everything which should happen when user edit widget at admin panel */ 
+	function update( $new_instance, $old_instance ) { 
+		$instance = $old_instance; 
+		$instance['left_offset'] = $new_instance['left_offset'];  
+		$instance['top_offset'] = $new_instance['top_offset'];  
+		$instance['hide_for_logged_in'] = $new_instance['hide_for_logged_in'];  
+
+		return $instance; 
+	}  
+
+	/** Widget edit form at admin panel */ 
+	function form( $instance ) { 
+		/* Set up default widget settings. */ 
+		$defaults = array('left_offset' => '270', 'top_offset' => '100');
+
+		foreach( $instance as $key => $value ){
+			$instance[ $key ] = esc_attr( $value );
+		}
+		
+		$instance = wp_parse_args( (array)$instance, $defaults ); 
+		?> 
+		<p> 
+			<label for="<?php echo $this->get_field_id( 'left_offset' ); ?>"><?php _e( 'Left Offset:', 'TheChamp' ); ?></label> 
+			<input style="width: 200px" class="widefat" id="<?php echo $this->get_field_id( 'left_offset' ); ?>" name="<?php echo $this->get_field_name( 'left_offset' ); ?>" type="text" value="<?php echo $instance['left_offset']; ?>" />px<br/>
+			<label for="<?php echo $this->get_field_id( 'top_offset' ); ?>"><?php _e( 'Top Offset:', 'TheChamp' ); ?></label> 
+			<input style="width: 200px" class="widefat" id="<?php echo $this->get_field_id( 'top_offset' ); ?>" name="<?php echo $this->get_field_name( 'top_offset' ); ?>" type="text" value="<?php echo $instance['top_offset']; ?>" />px
+			
+			<br /><br /><label for="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>"><?php _e( 'Hide for logged in users:', 'TheChamp' ); ?></label> 
+			<input type="checkbox" id="<?php echo $this->get_field_id( 'hide_for_logged_in' ); ?>" name="<?php echo $this->get_field_name( 'hide_for_logged_in' ); ?>" type="text" value="1" <?php if(isset($instance['hide_for_logged_in'])  && $instance['hide_for_logged_in']==1) echo 'checked="checked"'; ?> /> 
+		</p> 
+	<?php 
+    } 
+} 
+add_action( 'widgets_init', create_function( '', 'return register_widget( "TheChampVerticalSharingWidget" );' ));

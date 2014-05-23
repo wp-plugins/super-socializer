@@ -123,6 +123,7 @@
     padding: 5px 8px 5px 10px;
     width: 95%;
 	border-color: #cccccc;
+	border-width: 1px;
 	color: #000;
 	background: none repeat scroll 0 0 #FFFFFF !important;
 	font-size: 16px !important;
@@ -132,7 +133,7 @@
 #the_champ_sharing_more_providers .footer-panel {
     background: none repeat scroll 0 0 #58B8F8;
     border-top: 1px solid #D7D7D7;
-    padding: 4px 0;
+    padding: 6px 0;
     width: 100%;
 	color: #fff
 }
@@ -147,7 +148,7 @@
 #the_champ_sharing_more_providers .footer-panel a {
     color: #fff;
     text-decoration: none;
-	font-weight: bold
+	font-weight: bold;
 }
 #the_champ_sharing_more_providers .all-services ul li a {
     border-radius: 3px;
@@ -277,7 +278,8 @@ ul.the_champ_login_ul li{
 	background: url('../images/login/login.png') no-repeat;
 	margin: 2px;
 	float: left;
-	cursor: pointer
+	cursor: pointer;
+	border: none
 }
 .theChampFacebookButton {
 	background-position: -0px -0px;
@@ -339,7 +341,8 @@ ul.the_champ_sharing_ul li{
 	background: url('../images/sharing/sharing.png') no-repeat;
 	margin: 2px;
 	float: left;
-	cursor: pointer
+	cursor: pointer;
+	border: none
 }
 .theChampSharingDeliciousButton { background-position: -0px -0px; width: 32px; height: 32px; }
 .theChampSharingDiggButton { background-position: -32px -0px; width: 32px; height: 32px; }
@@ -357,3 +360,18 @@ ul.the_champ_sharing_ul li{
 .theChampSharingTwitterButton { background-position: -32px -96px; width: 32px; height: 32px; }
 .theChampSharingVkontakteButton { background-position: -64px -96px; width: 32px; height: 32px; }
 .theChampSharingYahooButton { background-position: -96px -96px; width: 32px; height: 32px; }
+.the_champ_vertical_sharing{
+	margin-left: -208px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 4px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 1px 4px 1px rgba(0,0,0,0.1);
+	box-shadow: 0 1px 4px 1px rgba(0,0,0,0.1);
+	position: fixed;
+	overflow: visible;
+	z-index: 100;
+	display: block;
+	padding: 10px;
+	border-radius: 4px;
+	width: 35px;
+	opacity: 1
+}

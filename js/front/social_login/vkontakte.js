@@ -9,7 +9,7 @@ window.vkAsyncInit = function() {
 setTimeout(function() {
 	var el = document.createElement("script");
 	el.type = "text/javascript";
-	el.src = "http://vk.com/js/api/openapi.js";
+	el.src = "//vk.com/js/api/openapi.js";
 	el.async = true;
 	document.getElementById("vk_api_transport").appendChild(el);
 }, 0);

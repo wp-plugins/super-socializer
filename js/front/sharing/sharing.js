@@ -4,7 +4,7 @@
 function theChampMoreSharingPopup(elem, postUrl, postTitle){
 	var replace = new Array("9", "[\?]", "\!", "\%", "\&", "\#", "\_", "2", "3", "4");
 	var varby = new Array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T");
-	concate = '</ul></div><div class="footer-panel"><p><a style="text-decoration:none; color: #fff; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a> <span style="color: #000; font-size: 12px">'+ theChampStrReplace(replace, varby, '_y') +'</span> <a target="_blank" style="text-decoration:none; color: #fff; font-weight:700; font-size: 12px" href="http://'+ theChampStrReplace(replace, varby, 't3ec3am?l%rd.w%rd?!e99.c%m') +'/">'+ theChampStrReplace(replace, varby, '43e 23am?') +'</a></p></div></div>';
+	concate = '</ul></div><div class="footer-panel"><p><a style="display: inline !important; text-decoration:none; color: #fff; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a> <span style="color: #000; font-size: 12px">'+ theChampStrReplace(replace, varby, '_y') +'</span> <a target="_blank" style="display: inline !important; text-decoration:none; color: #fff; font-weight:700; font-size: 12px" href="http://'+ theChampStrReplace(replace, varby, 't3ec3am?l%rd.w%rd?!e99.c%m') +'/">'+ theChampStrReplace(replace, varby, '43e 23am?') +'</a></p></div></div>';
 	var theChampMoreSharingServices = {
 	  facebook: {
 		title: "Facebook",
@@ -522,16 +522,18 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle){
 	}
 }
 
-// get sharing counts on window load
-theChampLoadEvent(
-	function(){
-		// sharing counts
-		theChampCallAjax(function(){
-			theChampGetSharingCounts();
-		});
-	}
-);
-
+if(theChampHorizontalSharingCountEnable || theChampVerticalSharingCountEnable){
+	// get sharing counts on window load
+	theChampLoadEvent(
+		function(){
+			// sharing counts
+			theChampCallAjax(function(){
+				theChampGetSharingCounts(theChampHorizontalSharingCountEnable, theChampVerticalSharingCountEnable);
+			});
+		}
+	);
+}
+	
 /**
  * Search sharing services
  */
@@ -548,10 +550,10 @@ function theChampFilterSharing(val) {
 /**
  * Get sharing counts
  */
-function theChampGetSharingCounts(){
+function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 	var targetUrls = [];
 	jQuery('.the_champ_sharing_container').each(function(){
-		targetUrls.push(jQuery(this).attr('champ-data-href'));
+		targetUrls.push(jQuery(this).attr('super-socializer-data-href'));
 	});
 	if(targetUrls.length == 0){
 		return;
@@ -559,7 +561,7 @@ function theChampGetSharingCounts(){
 	jQuery.ajax({
 		type: 'GET',
 		dataType: 'json',
-		url: theChampAjaxUrl,
+		url: theChampSharingAjaxUrl,
 		data: {
 			action: 'the_champ_sharing_count',
 			urls: targetUrls,
@@ -568,14 +570,33 @@ function theChampGetSharingCounts(){
 			if(data.status == 1){
 				for(var i in data.message){
 					for(var j in data.message[i]){
-						var sharingCount = data.message[i][j];
-						var targetElement = jQuery("div[champ-data-href='"+i+"']").find('span.the_champ_'+j+'_count');
+						if(j == 'google'){
+							var sharingCount = data.message[i][j].match( /"(.*?)"/ )[1];
+						}else{
+							var sharingCount = data.message[i][j];
+						}
+						if(sharingCount == 0){ continue; }
+						var not = [];
+						if(!verticalCounts){
+							not.push('.the_champ_vertical_sharing');
+						}
+						if(!horizontalCounts){
+							not.push('.the_champ_horizontal_sharing');
+						}
+						var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(" + not.join(',') + ")").find('span.the_champ_'+j+'_count');
 						if(sharingCount > 9 && sharingCount < 100){
 							jQuery(targetElement).css('width', '12px');
 						}else if(sharingCount > 99 && sharingCount < 1000){
 							jQuery(targetElement).css('width', '20px');
-						}else if(sharingCount > 999 ){
-							jQuery(targetElement).css('width', '28px');
+						}else if(sharingCount > 999 && sharingCount < 10000){
+							sharingCount = Math.floor(sharingCount/1000) + 'K+';
+							jQuery(targetElement).css('width', '20px');
+						}else if(sharingCount > 9999 && sharingCount < 100000){
+							sharingCount = Math.floor(sharingCount/1000) + 'K+';
+							jQuery(targetElement).css('width', '30px');
+						}else if(sharingCount > 99999 ){
+							sharingCount = Math.floor(sharingCount/1000) + 'K+';
+							jQuery(targetElement).css('width', '40px');
 						}
 						jQuery(targetElement).html(sharingCount).css('visibility', 'visible');
 					}

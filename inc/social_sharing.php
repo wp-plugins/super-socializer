@@ -7,12 +7,16 @@ defined('ABSPATH') or die("Cheating........Uh!!");
 /**
  * Render sharing interface html.
  */
-function the_champ_prepare_sharing_html($postUrl){
+function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal'){
 	global $theChampSharingOptions, $post;
-	if(isset($theChampSharingOptions['horizontal_re_providers'])){
+	$html = '';
+	if(isset($theChampSharingOptions[$sharingType.'_re_providers'])){
 		$html = '<ul class="the_champ_sharing_ul">';
-		foreach($theChampSharingOptions['horizontal_re_providers'] as $provider){
-			$html .= '<li><span class="the_champ_share_count the_champ_'.$provider.'_count">&nbsp;</span>';
+		foreach($theChampSharingOptions[$sharingType.'_re_providers'] as $provider){
+			$html .= '<li>';
+			if(isset($theChampSharingOptions[$sharingType.'_counts'])){
+				$html .= '<span class="the_champ_share_count the_champ_'.$provider.'_count">&nbsp;</span>';
+			}
 			if($provider == 'print'){
 				$html .= '<i alt="Print" Title="Print" class="theChampSharingButton theChampSharing'. ucfirst($provider) .'Button" onclick=\'window.print()\'></i>';
 			}elseif($provider == 'email'){
@@ -21,7 +25,7 @@ function the_champ_prepare_sharing_html($postUrl){
 				if($provider == 'facebook'){
 					$sharingUrl = 'https://www.facebook.com/sharer/sharer.php?u=' . $postUrl;
 				}elseif($provider == 'twitter'){
-					$sharingUrl = 'https://twitter.com/share?url=' . $postUrl;
+					$sharingUrl = 'http://twitter.com/intent/tweet?text='.urlencode($post->post_title).'&url=' . $postUrl;
 				}elseif($provider == 'linkedin'){
 					$sharingUrl = 'http://www.linkedin.com/shareArticle?mini=true&url=' . $postUrl;
 				}elseif($provider == 'google'){
@@ -54,35 +58,59 @@ function the_champ_prepare_sharing_html($postUrl){
 			}
 			$html .= '</li>';
 		}
-		$html .= '<li><span class="the_champ_share_count">&nbsp;</span><i title="More" alt="More" class="theChampSharingButton theChampSharingMoreButton" onclick="theChampMoreSharingPopup(this, \''.$postUrl.'\', \''.$post->post_title.'\')" ></i></li></ul><div style="clear:both"></div>';
+		$html .= '<li>';
+		if(isset($theChampSharingOptions[$sharingType.'_counts'])){
+			$html .= '<span class="the_champ_share_count">&nbsp;</span>';
+		}
+		$html .= '<i style="display: inline !important; visibility: visible !important" title="More" alt="More" class="theChampSharingButton theChampSharingMoreButton" onclick="theChampMoreSharingPopup(this, \''.$postUrl.'\', \''.urlencode($post->post_title).'\')" ></i></li></ul><div style="clear:both"></div>';
 	}
 	return $html;
 }
 
+$theChampVerticalHomeCount = 0;
+$theChampVerticalExcerptCount = 0;
 /**
  * Enable sharing interface at selected areas.
  */
 function the_champ_render_sharing($content){
 	global $post;
 	$sharingMeta = get_post_meta($post->ID, '_the_champ_meta', true);
-	// if sharing is disabled on this page/post, return content unaltered
-	if(isset($sharingMeta['sharing']) && $sharingMeta['sharing'] == 1 && !is_front_page()){
-		return $content;
-	}
 	global $theChampSharingOptions;
 	$postUrl = get_permalink($post->ID);
-	$sharingDiv = the_champ_prepare_sharing_html($postUrl);
-	$horizontalDiv = "<div class='the_champ_sharing_container' champ-data-href='".$postUrl."'><div style='font-weight:bold'>".ucfirst($theChampSharingOptions['title'])."</div>".$sharingDiv."</div>";
-	// show horizontal sharing		
-	if((isset( $theChampSharingOptions['home']) && is_front_page()) || ( isset( $theChampSharingOptions['post'] ) && is_single() ) || ( isset( $theChampSharingOptions['page'] ) && is_page() ) || ( isset( $theChampSharingOptions['excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' )){	
-		if(isset($theChampSharingOptions['top'] ) && isset($theChampSharingOptions['bottom'])){
-			$content = $horizontalDiv.'<br/>'.$content.'<br/>'.$horizontalDiv;
-		}else{
-			if(isset($theChampSharingOptions['top'])){
-				$content = $horizontalDiv.$content;
+	if(isset($theChampSharingOptions['hor_enable']) && !(isset($sharingMeta['sharing']) && $sharingMeta['sharing'] == 1 && !is_front_page())){
+		$sharingDiv = the_champ_prepare_sharing_html($postUrl);
+		$horizontalDiv = "<div class='the_champ_sharing_container the_champ_horizontal_sharing' super-socializer-data-href='".$postUrl."'><div style='font-weight:bold'>".ucfirst($theChampSharingOptions['title'])."</div>".$sharingDiv."</div>";
+		// show horizontal sharing		
+		if((isset( $theChampSharingOptions['home']) && is_front_page()) || (isset( $theChampSharingOptions['category']) && is_category()) || ( isset( $theChampSharingOptions['post'] ) && is_single() ) || ( isset( $theChampSharingOptions['page'] ) && is_page() ) || ( isset( $theChampSharingOptions['excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' )){	
+			if(isset($theChampSharingOptions['top'] ) && isset($theChampSharingOptions['bottom'])){
+				$content = $horizontalDiv.'<br/>'.$content.'<br/>'.$horizontalDiv;
+			}else{
+				if(isset($theChampSharingOptions['top'])){
+					$content = $horizontalDiv.$content;
+				}elseif(isset($theChampSharingOptions['bottom'])){
+					$content = $content.$horizontalDiv;
+				}
 			}
-			elseif(isset($theChampSharingOptions['bottom'])){
-				$content = $content.$horizontalDiv;
+		}
+	}
+	if(isset($theChampSharingOptions['vertical_enable']) && !(isset($sharingMeta['vertical_sharing']) && $sharingMeta['vertical_sharing'] == 1 && !is_front_page())){
+		$sharingDiv = the_champ_prepare_sharing_html($postUrl, 'vertical');
+		$verticalDiv = "<div class='the_champ_sharing_container the_champ_vertical_sharing' style='".(isset($theChampSharingOptions['left_offset']) && $theChampSharingOptions['left_offset'] != '' ? 'left: '.$theChampSharingOptions['left_offset'].'px;' : '').(isset($theChampSharingOptions['top_offset']) && $theChampSharingOptions['top_offset'] != '' ? 'top: '.$theChampSharingOptions['top_offset'].'px;' : '')."' super-socializer-data-href='".$postUrl."'>".$sharingDiv."</div>";
+		// show vertical sharing
+		if((isset( $theChampSharingOptions['vertical_home']) && is_front_page()) || (isset( $theChampSharingOptions['vertical_category']) && is_category()) || ( isset( $theChampSharingOptions['vertical_post'] ) && is_single() ) || ( isset( $theChampSharingOptions['vertical_page'] ) && is_page() ) || ( isset( $theChampSharingOptions['vertical_excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' )){
+			if(is_front_page()){
+				global $theChampVerticalHomeCount, $theChampVerticalExcerptCount;
+				if(current_filter() == 'the_content'){
+					$var = 'theChampVerticalHomeCount';
+				}elseif(current_filter() == 'get_the_excerpt'){
+					$var = 'theChampVerticalExcerptCount';
+				}
+				if($$var == 0){
+					$content = $content.$verticalDiv;
+					$$var++;
+				}
+			}else{
+				$content = $content.$verticalDiv;
 			}
 		}
 	}
@@ -130,6 +158,9 @@ function the_champ_sharing_count(){
 				case 'stumbleupon':
 					$url = 'http://www.stumbleupon.com/services/1.01/badge.getinfo?url='. $targetUrl;
 					break;
+				case 'google':
+					$url = 'http://share.yandex.ru/gpp.xml?url='. $targetUrl;
+					break;
 				default:
 					$url = '';
 			}
@@ -140,7 +171,9 @@ function the_champ_sharing_count(){
 				if($provider == 'pinterest'){
 					$body = str_replace(array('theChamp(', ')'), '', $body);
 				}
-				$body = json_decode($body);
+				if($provider != 'google'){
+					$body = json_decode($body);
+				}
 				switch($provider){
 					case 'facebook':
 						if(!empty($body -> shares)){
@@ -180,6 +213,11 @@ function the_champ_sharing_count(){
 							$responseData[$targetUrl]['stumbleupon'] = $body -> result -> views;
 						}
 						break;
+					case 'google':
+						if(!empty($body)){
+							$responseData[$targetUrl]['google'] = $body;
+						}
+						break;
 				}
 			}
 		}
@@ -189,3 +227,53 @@ function the_champ_sharing_count(){
 
 add_action('wp_ajax_the_champ_sharing_count', 'the_champ_sharing_count');
 add_action('wp_ajax_nopriv_the_champ_sharing_count', 'the_champ_sharing_count');
+
+/**
+ * Register LoginRadius_settings and its sanitization callback.
+ */
+function the_champ_sharing_meta_setup(){
+	global $post;
+	$postType = $post->post_type;
+	$sharingMeta = get_post_meta($post->ID, '_the_champ_meta', true);
+	?>
+	<p>
+		<label for="the_champ_sharing">
+			<input type="checkbox" name="_the_champ_meta[sharing]" id="the_champ_sharing" value="1" <?php checked('1', @$sharingMeta['sharing']); ?> />
+			<?php _e('Disable Horizontal Social Sharing on this '.$postType, 'Super-Socializer') ?>
+		</label>
+		<br/>
+		<label for="the_champ_vertical_sharing">
+			<input type="checkbox" name="_the_champ_meta[vertical_sharing]" id="the_champ_vertical_sharing" value="1" <?php checked('1', @$sharingMeta['vertical_sharing']); ?> />
+			<?php _e('Disable Vertical Social Sharing on this '.$postType, 'Super-Socializer') ?>
+		</label>
+	</p>
+	<?php
+    echo '<input type="hidden" name="the_champ_meta_nonce" value="' . wp_create_nonce(__FILE__) . '" />';
+}
+
+/**
+ * Save sharing meta fields.
+ */
+function the_champ_save_sharing_meta($postId){
+    // make sure data came from our meta box
+    if(!isset($_POST['the_champ_meta_nonce']) || !wp_verify_nonce( $_POST['the_champ_meta_nonce'], __FILE__ )){
+		return $postId;
+ 	}
+    // check user permissions
+    if($_POST['post_type'] == 'page'){
+        if(!current_user_can('edit_page', $postId)){
+			return $postId;
+    	}
+	}else{
+        if(!current_user_can('edit_post', $postId)){
+			return $postId;
+    	}
+	}
+    if ( isset( $_POST['_the_champ_meta'] ) ) {
+		$newData = $_POST['_the_champ_meta'];
+	}else{
+		$newData = array( 'sharing' => 0, 'vertical_sharing' => 0 );
+	}
+	update_post_meta($postId, '_the_champ_meta', $newData);
+    return $postId;
+}
