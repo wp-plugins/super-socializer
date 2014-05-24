@@ -9,7 +9,7 @@ function the_champ_sharing_shortcode($params){
 		extract(shortcode_atts(array(
 			'style' => '',
 			'type' => 'horizontal',
-			'left' => '270',
+			'left' => '0',
 			'top' => '100',
 		), $params));
 		if(($type == 'horizontal' && !the_champ_horizontal_sharing_enabled()) || ($type == 'vertical' && !the_champ_vertical_sharing_enabled())){
@@ -18,12 +18,14 @@ function the_champ_sharing_shortcode($params){
 		global $post;
 		$targetUrl = get_permalink($post -> ID);
 		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing" super-socializer-data-href="'.$targetUrl.'" ';
+		$verticalOffsets = '';
+		if($type == 'vertical'){
+			$verticalOffsets = 'left: '.$left.'px; top: '.$top.'px;';
+		}
 		// style 
-		if($style != ""){
+		if($style != "" || $verticalOffsets != ''){
 			$html .= 'style="';
-			if($type == 'vertical'){
-				$html .= 'left: '.$left.'px; top: '.$top.'px;';
-			}
+			$html .= $verticalOffsets;
 			$html .= $style;
 			$html .= '"';
 		}

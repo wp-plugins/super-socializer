@@ -361,7 +361,6 @@ ul.the_champ_sharing_ul li{
 .theChampSharingVkontakteButton { background-position: -64px -96px; width: 32px; height: 32px; }
 .theChampSharingYahooButton { background-position: -96px -96px; width: 32px; height: 32px; }
 .the_champ_vertical_sharing{
-	margin-left: -208px;
 	background: #fff;
 	-webkit-box-shadow: 0 1px 4px 1px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0 1px 4px 1px rgba(0,0,0,0.1);

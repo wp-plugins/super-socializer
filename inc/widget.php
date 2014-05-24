@@ -217,7 +217,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 	/** Widget edit form at admin panel */ 
 	function form( $instance ) { 
 		/* Set up default widget settings. */ 
-		$defaults = array('left_offset' => '270', 'top_offset' => '100');
+		$defaults = array('left_offset' => '40', 'top_offset' => '100');
 
 		foreach( $instance as $key => $value ){
 			$instance[ $key ] = esc_attr( $value );

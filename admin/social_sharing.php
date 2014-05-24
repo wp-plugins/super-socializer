@@ -366,7 +366,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							</div>
 							
 							<div class="theChampVerticalSharingProviderContainer">
-							<input id="the_champ_vertical_sharing_google" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('google', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="google" />
+							<input id="the_champ_vertical_sharing_google" name="the_champ_sharing[vertical_providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('google', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="google" />
 							<label for="the_champ_vertical_sharing_google"><?php _e("Google+", 'Super-Socializer'); ?></label>
 							</div>
 							
@@ -401,7 +401,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							</div>
 							
 							<div class="theChampVerticalSharingProviderContainer">
-							<input id="the_champ_vertical_sharing_stumble" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('stumbleupon', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="stumbleupon" />
+							<input id="the_champ_vertical_sharing_stumble" name="the_champ_sharing[vertical_providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('stumbleupon', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="stumbleupon" />
 							<label for="the_champ_vertical_sharing_stumble"><?php _e("StumbleUpon", 'Super-Socializer'); ?></label>
 							</div>
 							
