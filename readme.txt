@@ -161,8 +161,10 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 
 == Screenshots ==
 1. **Social Login**: Social Login interface at Wordpress login form
-2. **Social Sharing**: Social Sharing enabled at blog post
-3. **Facebook Commenting**: Facebook commenting replaces the traditional comment form
+2. **Social Sharing (Horizontal Interface)**: Social Sharing enabled at blog post
+3. **Social Sharing (Floating/Vertical Interface)**: Social Sharing enabled at blog post
+4. **Social Sharing**: Around 90 social networks in Social Sharing
+5. **Facebook Commenting**: Facebook commenting in action
 
 == Changelog ==
 = 2.9.0 =
