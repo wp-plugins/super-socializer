@@ -35,20 +35,20 @@ function the_champ_login_button($widget = false){
 				$html .= '" title="Login with ';
 				$html .= ucfirst($provider);
 				if(current_filter() == 'comment_form_top'){
-					$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" />';
+					$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
 				}else{
-					$html .= '" onclick="theChampInitiateLogin(this)" />';
+					$html .= '" onclick="theChampInitiateLogin(this)" >';
 				}
 				$html .= '</i></li>';
 			}
 		}
-		$concate = '<div style="clear:both"></div><a target="_blank" style="display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/'. str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a> <span style="color: #000; font-size: 12px">'. str_replace($replace, $varby, '_y') .'</span> <a target="_blank" style="display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//'. str_replace($replace, $varby, 't3ec3am?l%rd.w%rd?!e99.c%m') .'">'. str_replace($replace, $varby, '43e 23am?') .'</a>';
+		$concate = '<div style="clear:both"></div><a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/'. str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a> <span style="color: #000; font-size: 12px">'. str_replace($replace, $varby, '_y') .'</span> <a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//'. str_replace($replace, $varby, 't3ec3am?l%rd.w%rd?!e99.c%m') .'">'. str_replace($replace, $varby, '43e 23am?') .'</a>';
 		$html .= $concate;
 		$html .= '</ul></div>';
 		if(!$widget){
 			$html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
 		}
-		if(!isset($concate) || strlen($concate) != 420){return;}
+		if(!isset($concate) || strlen($concate) != 456){return;}
 		if(!$widget){
 			echo $html;
 		}else{
@@ -68,6 +68,7 @@ if(isset($theChampLoginOptions['enableAtRegister']) && $theChampLoginOptions['en
 	add_action('bp_before_account_details_fields', 'the_champ_login_button'); 
 }
 if(isset($theChampLoginOptions['enableAtComment']) && $theChampLoginOptions['enableAtComment'] == 1){
+	global $user_ID;
 	if(get_option('comment_registration') && intval($user_ID) == 0){
 		add_action('comment_form_must_log_in_after', 'the_champ_login_button'); 
 	}else{
@@ -220,6 +221,7 @@ function the_champ_buddypress_avatar($text, $args){
 		if(!empty($args['object']) && strtolower($args['object']) == 'user'){
 			if(!empty($args['item_id']) && is_numeric($args['item_id'])){
 				if(($userData = get_userdata($args['item_id'])) !== false){
+					$avatar = '';
 					if(($userAvatar = get_user_meta($args['item_id'], 'thechamp_avatar', true)) !== false && strlen(trim($userAvatar)) > 0){
 						$avatar = $userAvatar;
 					}
@@ -300,10 +302,10 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['link'] = isset($profileData -> website) ? $profileData -> website : '';
 		$temp['avatar'] = isset($profileData -> profile_picture) ? $profileData -> profile_picture : '';
 	}
-	$temp['name'] = sanitize_title($temp['name']);
-	$temp['username'] = sanitize_title($temp['username']);
-	$temp['first_name'] = sanitize_title($temp['first_name']);
-	$temp['last_name'] = sanitize_title($temp['last_name']);
+	$temp['name'] = isset($temp['name'][0]) && ctype_upper($temp['name'][0]) ? ucfirst(sanitize_title($temp['name'])) : sanitize_title($temp['name']);
+	$temp['username'] = isset($temp['username'][0]) && ctype_upper($temp['username'][0]) ? ucfirst(sanitize_title($temp['username'])) : sanitize_title($temp['username']);
+	$temp['first_name'] = isset($temp['first_name'][0]) && ctype_upper($temp['first_name'][0]) ? ucfirst(sanitize_title($temp['first_name'])) : sanitize_title($temp['first_name']);
+	$temp['last_name'] = isset($temp['last_name'][0]) && ctype_upper($temp['last_name'][0]) ? ucfirst(sanitize_title($temp['last_name'])) : sanitize_title($temp['last_name']);
 	$temp['provider'] = $provider;
 	return $temp;
 }
@@ -400,6 +402,7 @@ function the_champ_ask_email(){
 	echo isset($theChampLoginOptions['email_popup_text']) && $theChampLoginOptions['email_popup_text'] != '' ? '<div style="margin-top: 5px">'.$theChampLoginOptions['email_popup_text'].'</div>' : ''; ?>
 	<div id="the_champ_error" style="margin: 2px 0px;"></div>
 	<div style="margin: 6px 0 15px 0;"><input placeholder="Email" type="text" id="the_champ_email" /></div>
+	<div style="margin: 6px 0 15px 0;"><input placeholder="Confirm email" type="text" id="the_champ_confirm_email" /></div>
 	<div>
 		<button type="button" id="save" onclick="the_champ_save_email(this)">Save</button>
 		<button type="button" id="cancel" onclick="the_champ_save_email(this)">Cancel</button>
@@ -436,7 +439,7 @@ function the_champ_save_email(){
 						if($userId && !$verify){
 							// login user
 							the_champ_login_user($userId);
-							if(isset($tempData['twitter_redirect'])){
+							if(isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'same' && isset($tempData['twitter_redirect'])){
 								the_champ_ajax_response(1, array('response' => 'success', 'url' => $tempData['twitter_redirect']));
 							}else{
 								the_champ_ajax_response(1, 'success');

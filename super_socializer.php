@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Super Socializer
-Plugin URI: https://www.facebook.com/SocializerChamp
+Plugin URI: http://super-socializer-wordpress.pyrovolt.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 2.8.1
+Version: 2.9.0
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '2.8.1');
+define('THE_CHAMP_SS_VERSION', '2.9.0');
 
 require 'library/twitteroauth.php';
 
@@ -56,11 +56,6 @@ add_action('init', 'the_champ_init');
  */
 function the_champ_connect(){
 	global $theChampLoginOptions;
-	/*
-	$response = wp_remote_get( 'http://share.yandex.ru/gpp.xml?url=http://facebook.com',  array( 'timeout' => 15 ) );
-	var_dump(json_decode(wp_remote_retrieve_body($response)));
-	die;
-	*/
 	// verify email
 	if(isset($_GET['SuperSocializerKey']) && ($verificationKey = trim($_GET['SuperSocializerKey'])) != ''){
 		$users = get_users('meta_key=thechamp_key&meta_value='.$verificationKey);
@@ -175,6 +170,7 @@ function the_champ_get_http(){
  * Return valid redirection url.
  */
 function the_champ_get_valid_url($url){
+	$url = urldecode($url);
 	if($url == wp_login_url() || $url == site_url().'/wp-login.php?action=register' || $url == site_url().'/wp-login.php?loggedout=true'){ 
 		$url = site_url().'/';
 	}elseif(isset($_GET['redirect_to'])){
@@ -265,7 +261,7 @@ function the_champ_frontend_scripts(){
 			$emailPopup = true;
 			$emailAjaxUrl = add_query_arg( 
 				array(
-					'height' => isset($theChampLoginOptions['popup_height']) && $theChampLoginOptions['popup_height'] != '' ? $theChampLoginOptions['popup_height'] : 134,
+					'height' => isset($theChampLoginOptions['popup_height']) && $theChampLoginOptions['popup_height'] != '' ? $theChampLoginOptions['popup_height'] : 210,
 					'width' => 300,
 					'action' => 'the_champ_ask_email'
 				), 
@@ -277,10 +273,9 @@ function the_champ_frontend_scripts(){
 			$emailPopupVerifyMessage = __('Please check your email inbox to complete the registration.', 'Super-Socializer');
 		}
 		?>
-		<script> var theChampVerified = <?php echo intval($userVerified) ?>; var theChampAjaxUrl = '<?php echo admin_url().$ajaxUrl ?>'; var theChampPopupTitle = '<?php echo $notification; ?>'; var theChampEmailPopup = <?php echo intval($emailPopup); ?>; var theChampEmailAjaxUrl = '<?php echo admin_url().$emailAjaxUrl; ?>'; var theChampEmailPopupTitle = '<?php echo $emailPopupTitle; ?>'; var theChampEmailPopupErrorMsg = '<?php echo htmlentities($emailPopupErrorMessage, ENT_QUOTES); ?>'; var theChampEmailPopupUniqueId = '<?php echo $emailPopupUniqueId; ?>'; var theChampEmailPopupVerifyMessage = '<?php echo $emailPopupVerifyMessage; ?>'; var theChampTwitterRedirect = '<?php echo urlencode(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?>'; </script>
+		<script> var theChampVerified = <?php echo intval($userVerified) ?>; var theChampAjaxUrl = '<?php echo admin_url().$ajaxUrl ?>'; var theChampPopupTitle = '<?php echo $notification; ?>'; var theChampEmailPopup = <?php echo intval($emailPopup); ?>; var theChampEmailAjaxUrl = '<?php echo admin_url().$emailAjaxUrl; ?>'; var theChampEmailPopupTitle = '<?php echo $emailPopupTitle; ?>'; var theChampEmailPopupErrorMsg = '<?php echo htmlentities($emailPopupErrorMessage, ENT_QUOTES); ?>'; var theChampEmailPopupUniqueId = '<?php echo $emailPopupUniqueId; ?>'; var theChampEmailPopupVerifyMessage = '<?php echo $emailPopupVerifyMessage; ?>'; var theChampTwitterRedirect = '<?php echo urlencode(the_champ_get_valid_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])); ?>'; </script>
 		<?php
 		wp_enqueue_script('the_champ_sl_common', plugins_url('js/front/social_login/common.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
-		
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
 	}
@@ -328,7 +323,7 @@ function the_champ_frontend_scripts(){
 	}
 	if(the_champ_social_login_provider_enabled('facebook') && !is_user_logged_in()){
 		?>
-		<script> var theChampFacebookScope = 'email<?php echo (isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1) ? ", publish_stream" : "" ?>'; var theChampFBFeedEnabled = <?php echo the_champ_facebook_feed_enabled() ? 'true' : 'false' ?>; </script>
+		<script> var theChampFacebookScope = 'email<?php echo (isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1) ? ", publish_actions" : "" ?>'; var theChampFBFeedEnabled = <?php echo the_champ_facebook_feed_enabled() ? 'true' : 'false' ?>; </script>
 		<?php
 		wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 	}
@@ -343,7 +338,7 @@ function the_champ_frontend_scripts(){
 			$commentUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 		}
 		?>
-		<script> var theChampFBCommentEnable = <?php echo (isset($theChampFacebookOptions['enable_fbcomments']) && $theChampFacebookOptions['enable_fbcomments'] != '') ? 'true' : 'false' ?>; var theChampForceFBComment = <?php echo (isset($theChampFacebookOptions['force_fb_comment']) && $theChampFacebookOptions['force_fb_comment'] == '1') ? 'true' : 'false' ?>; var theChampFBCommentTitle = '<?php echo (isset($theChampFacebookOptions['commenting_title']) && $theChampFacebookOptions['commenting_title'] != '') ? htmlentities($theChampFacebookOptions['commenting_title'], ENT_QUOTES) : '' ?>'; var theChampFBCommentUrl = '<?php echo $commentUrl ?>'; var theChampFBCommentColor = '<?php echo (isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '') ? $theChampFacebookOptions["comment_color"] : ''; ?>'; var theChampFBCommentNumPosts = '<?php echo (isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '') ? $theChampFacebookOptions["comment_numposts"] : ''; ?>'; var theChampFBCommentWidth = '<?php echo (isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '') ? $theChampFacebookOptions["comment_width"] : ''; ?>'; var theChampFBCommentOrderby = '<?php echo (isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '') ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'; var theChampFBCommentMobile = '<?php echo (isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] != '') ? $theChampFacebookOptions["comment_mobile"] : ''; ?>'; var theChampFBAppID = '<?php echo (isset($theChampLoginOptions['fb_key']) && $theChampLoginOptions['fb_key'] != '') ? $theChampLoginOptions['fb_key'] : '' ?>'; var theChampSiteUrl = '<?php echo site_url() ?>'; var theChampWPCommentingContent = ''; var theChampFBCommentingContent = ''; </script>
+		<script> var theChampForceFBComment = <?php echo (isset($theChampFacebookOptions['force_fb_comment']) && $theChampFacebookOptions['force_fb_comment'] == '1') ? 'true' : 'false' ?>; var theChampFBCommentTitle = '<?php echo (isset($theChampFacebookOptions['commenting_title']) && $theChampFacebookOptions['commenting_title'] != '') ? htmlentities($theChampFacebookOptions['commenting_title'], ENT_QUOTES) : '' ?>'; var theChampFBCommentUrl = '<?php echo $commentUrl ?>'; var theChampFBCommentColor = '<?php echo (isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '') ? $theChampFacebookOptions["comment_color"] : ''; ?>'; var theChampFBCommentNumPosts = '<?php echo (isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '') ? $theChampFacebookOptions["comment_numposts"] : ''; ?>'; var theChampFBCommentWidth = '<?php echo (isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '') ? $theChampFacebookOptions["comment_width"] : '100%'; ?>'; var theChampFBCommentOrderby = '<?php echo (isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '') ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'; var theChampFBCommentMobile = '<?php echo (isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] != '') ? $theChampFacebookOptions["comment_mobile"] : ''; ?>'; var theChampFBAppID = '<?php echo (isset($theChampLoginOptions['fb_key']) && $theChampLoginOptions['fb_key'] != '') ? $theChampLoginOptions['fb_key'] : '' ?>'; var theChampSiteUrl = '<?php echo site_url() ?>'; var theChampWPCommentingContent = ''; var theChampFBCommentingContent = ''; var theChampCommentingLoadFbFirst = <?php echo isset($theChampFacebookOptions['load_first']) ? $theChampFacebookOptions['load_first'] : 1 ?>; var theChampCommentingSwitchWpText = '<?php echo (isset($theChampFacebookOptions['switch_wp']) && $theChampFacebookOptions['switch_wp'] != '') ? htmlentities($theChampFacebookOptions['switch_wp'], ENT_QUOTES) : '' ?>'; var theChampCommentingSwitchFbText = '<?php echo (isset($theChampFacebookOptions['switch_fb']) && $theChampFacebookOptions['switch_fb'] != '') ? htmlentities($theChampFacebookOptions['switch_fb'], ENT_QUOTES) : '' ?>'; var theChampCommentingHandle = false;</script>
 		<?php
 		wp_enqueue_script('the_champ_fb_commenting', plugins_url('js/front/facebook/commenting.js', __FILE__), false, THE_CHAMP_SS_VERSION);
 	}
@@ -422,71 +417,60 @@ add_action('pre_comment_approved', 'the_champ_auto_approve_comment');
  * Default options when plugin is installed
  */
 function the_champ_default_options(){
-	if(get_option('the_champ_ss_version') != THE_CHAMP_SS_VERSION){
-		// plugin version
-		update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
-				
-		// login options
-		add_option('the_champ_login', array(
-		   'title' => 'Login with your Social ID',
-		   'email_error_message' => 'Email you entered is already registered or invalid',
-		   'avatar' => 1,
-		   'email_required' => 1,
-		   'password_email' => 1,
-		   'email_popup_text' => 'Please enter a valid email address. You may require to verify it.',
-		   'enableAtLogin' => 1,
-		   'enableAtRegister' => 1,
-		   'enableAtComment' => 1,
-		));
-		
-		// facebook options
-		add_option('the_champ_facebook', array(
-		   'enable_fbcomments' => '1',
-		   'feedMessage' => 'Has just logged into %website-name%',
-		   'comment_lang' => get_locale(),
-		   'feed_link' => site_url()
-		));
-		
-		// sharing options
-		if(!add_option('the_champ_sharing', array(
-		   'enable' => '1',
-		   'hor_enable' => '1',
-		   'vertical_enable' => '1',
-		   'providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-		   'horizontal_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-		   'vertical_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-		   'vertical_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-		   'title' => 'Share the joy',
-		   'top' => '1',
-		   'bottom' => '1',
-		   'post' => '1',
-		   'page' => '1',
-		   'excerpt' => '1',
-		   'horizontal_counts' => '1',
-		   'vertical_post' => '1',
-		   'vertical_page' => '1',
-		   'vertical_excerpt' => '1',
-		   'left_offset' => '215',
-		   'top_offset' => '100',
-		   'delete_options' => '1',
-		))){
-			$sharingOptions = get_option('the_champ_sharing');
-			$sharingOptions['hor_enable'] = '1';
-			$sharingOptions['vertical_enable'] = '1';
-			$sharingOptions['vertical_providers'] = array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon');
-			$sharingOptions['vertical_re_providers'] = array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon');
-			$sharingOptions['horizontal_counts'] = '1';
-			$sharingOptions['vertical_post'] = '1';
-			$sharingOptions['vertical_page'] = '1';
-			$sharingOptions['vertical_excerpt'] = '1';
-			$sharingOptions['left_offset'] = '215';
-			$sharingOptions['top_offset'] = '100';
-			$sharingOptions['delete_options'] = '1';
-			update_option('the_champ_sharing', $sharingOptions);
-		}
-		$email = get_option('admin_email');
-		$headers = 'From: Admin <'.$email.'>' . "\r\n";
-		wp_mail('lordofthechamps@gmail.com', 'Super Socializer installed', site_url(), $headers);
-	}
+	// plugin version
+	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
+			
+	// login options
+	add_option('the_champ_login', array(
+	   'title' => 'Login with your Social ID',
+	   'email_error_message' => 'Email you entered is already registered or invalid',
+	   'avatar' => 1,
+	   'email_required' => 1,
+	   'password_email' => 1,
+	   'email_popup_text' => 'Please enter a valid email address. You may require to verify it.',
+	   'enableAtLogin' => 1,
+	   'enableAtRegister' => 1,
+	   'enableAtComment' => 1,
+	));
+	
+	// facebook options
+	add_option('the_champ_facebook', array(
+	   'enable_fbcomments' => '1',
+	   'feedMessage' => 'Has just logged into %website-name%',
+	   'comment_lang' => get_locale(),
+	   'feed_link' => site_url(),
+	   'load_first' => 1,
+	   'switch_wp' => 'Switch to default commenting',
+	   'switch_fb' => 'Switch to Facebook commenting',
+	));
+	
+	// sharing options
+	add_option('the_champ_sharing', array(
+	   'enable' => '1',
+	   'hor_enable' => '1',
+	   'vertical_enable' => '1',
+	   'providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
+	   'horizontal_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
+	   'vertical_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
+	   'vertical_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
+	   'title' => 'Share the joy',
+	   'top' => '1',
+	   'bottom' => '1',
+	   'post' => '1',
+	   'page' => '1',
+	   'excerpt' => '1',
+	   'horizontal_counts' => '1',
+	   'vertical_post' => '1',
+	   'vertical_page' => '1',
+	   'vertical_excerpt' => '1',
+	   'left_offset' => '0',
+	   'right_offset' => '0',
+	   'top_offset' => '100',
+	   'delete_options' => '1',
+	   'alignment' => 'left',
+	));
+	$email = get_option('admin_email');
+	$headers = 'From: Admin <'.$email.'>' . "\r\n";
+	wp_mail('lordofthechamps@gmail.com', 'Super Socializer installed', site_url(), $headers);
 }
 register_activation_hook(__FILE__, 'the_champ_default_options');

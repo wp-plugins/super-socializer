@@ -50,7 +50,7 @@
 									<label for="the_champ_force_fb_comment"><?php _e('Keep only Facebook Commenting', 'Super-Socializer'); ?></label>
 									</th>
 									<td>
-									<input id="the_champ_force_fb_comment" name="the_champ_facebook[force_fb_comment]" type="checkbox" <?php echo isset($theChampFacebookOptions['force_fb_comment']) ? 'checked = "checked"' : '';?> value="1" />
+									<input onclick="theChampCommentingOptions(this)" id="the_champ_force_fb_comment" name="the_champ_facebook[force_fb_comment]" type="checkbox" <?php echo isset($theChampFacebookOptions['force_fb_comment']) ? 'checked = "checked"' : '';?> value="1" />
 									</td>
 								</tr>
 								
@@ -61,7 +61,64 @@
 									</div>
 									</td>
 								</tr>
+								<tbody id="the_champ_commenting_extra" <?php echo isset($theChampFacebookOptions['force_fb_comment']) ? 'style="display: none"' : ''; ?>>
+								<tr>
+									<th>
+									<img id="the_champ_fb_comment_load_first_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+									<label for="the_champ_fb_comment_load_first"><?php _e('Load first', 'Super-Socializer'); ?></label>
+									</th>
+									<td>
+									<select id="the_champ_fb_comment_load_first" name="the_champ_facebook[load_first]">
+										<option value="1" <?php echo isset($theChampFacebookOptions['load_first']) && $theChampFacebookOptions['load_first'] == '1' ? 'selected="selected"' : '' ?>><?php _e('Facebook Commenting', 'Super-Socializer') ?></option>
+										<option value="0" <?php echo isset($theChampFacebookOptions['load_first']) && $theChampFacebookOptions['load_first'] == '0' ? 'selected="selected"' : '' ?>><?php _e('Default Commenting', 'Super-Socializer') ?></option>
+									</select>
+									</td>
+								</tr>
 								
+								<tr class="the_champ_help_content" id="the_champ_fb_comment_load_first_help_cont">
+									<td colspan="2">
+									<div>
+									<?php _e('Selected commenting will be loaded first on the page', 'Super-Socializer') ?>
+									</div>
+									</td>
+								</tr>
+								
+								<tr>
+									<th>
+									<img id="the_champ_fb_comment_switch_wp_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+									<label for="the_champ_fb_comment_switch_wp"><?php _e('Text on "Switch to WordPress Commenting" button', 'Super-Socializer'); ?></label>
+									</th>
+									<td>
+									<input id="the_champ_fb_comment_switch_wp" name="the_champ_facebook[switch_wp]" type="text" value="<?php echo isset($theChampFacebookOptions['switch_wp']) ? $theChampFacebookOptions['switch_wp'] : '' ?>" />
+									</td>
+								</tr>
+								
+								<tr class="the_champ_help_content" id="the_champ_fb_comment_switch_wp_help_cont">
+									<td colspan="2">
+									<div>
+									<?php _e('This text will be display on the button to switch to WordPress comments', 'Super-Socializer') ?>
+									</div>
+									</td>
+								</tr>
+								
+								<tr>
+									<th>
+									<img id="the_champ_fb_comment_switch_fb_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+									<label for="the_champ_fb_comment_switch_fb"><?php _e('Text on "Switch to Facebook Commenting" button', 'Super-Socializer'); ?></label>
+									</th>
+									<td>
+									<input id="the_champ_fb_comment_switch_fb" name="the_champ_facebook[switch_fb]" type="text" value="<?php echo isset($theChampFacebookOptions['switch_fb']) ? $theChampFacebookOptions['switch_fb'] : '' ?>" />
+									</td>
+								</tr>
+								
+								<tr class="the_champ_help_content" id="the_champ_fb_comment_switch_fb_help_cont">
+									<td colspan="2">
+									<div>
+									<?php _e('This text will be displayed on the button to switch to Facebook comments', 'Super-Socializer') ?>
+									</div>
+									</td>
+								</tr>
+								</tbody>
 								<tr>
 									<th>
 									<img id="the_champ_fb_comment_title_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -112,7 +169,7 @@
 								<tr class="the_champ_help_content" id="the_champ_fb_comment_width_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('Leave empty for default value. <br/>The width (in pixels) of the Comments block. The mobile version of the Comments block ignores the width parameter, and instead has a fluid width of 100%.', 'Super-Socializer') ?>
+									<?php _e('Leave empty to auto-adjust the width. <br/>The width (in pixels) of the Comments block. The mobile version of the Comments block ignores the width parameter, and instead has a fluid width of 100%.', 'Super-Socializer') ?>
 									</div>
 									</td>
 								</tr>
@@ -226,6 +283,14 @@
 					
 					<div class="menu_containt_div" id="tabs-2">
 						<div class="the_champ_left_column">
+						
+						<div class="stuffbox">
+							<h3><label><?php _e('Important note', 'Super-Socializer');?></label></h3>
+							<div class="inside">
+								<?php echo sprintf(__('To use this feature follow the steps mentioned at <a href="%s" target="_blank">this link</a>', 'Super-Socializer'), 'http://thechamplord.wordpress.com/2014/06/17/enable-extended-permissions-in-facebook-app/'); ?>
+							</div>
+						</div>
+						
 						<div class="stuffbox">
 							<h3><label><?php _e('Feed', 'Super-Socializer');?></label></h3>
 							<div class="inside">

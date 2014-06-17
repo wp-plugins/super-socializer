@@ -345,3 +345,9 @@ if(is_multisite() && is_main_site()){
 	add_action('update_option_the_champ_facebook', 'the_champ_update_old_blogs');
 	add_action('update_option_the_champ_sharing', 'the_champ_update_old_blogs');
 }
+
+function the_champ_is_bp_active(){
+    global $loginRadiusLoginIsBpActive;
+	$loginRadiusLoginIsBpActive = true;
+}
+add_action('bp_include', 'the_champ_is_bp_active');

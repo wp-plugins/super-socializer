@@ -98,7 +98,7 @@
 						<tr>
 							<th>
 							<img id="the_champ_sltw_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label for="the_champ_twlogin_key"><?php _e("Twitter Consumer Key", 'Super-Socializer'); ?></label>
+							<label for="the_champ_twlogin_key"><?php _e("Twitter API Key", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_twlogin_key" name="the_champ_login[twitter_key]" type="text" value="<?php echo isset($theChampLoginOptions['twitter_key']) ? $theChampLoginOptions['twitter_key'] : '' ?>" />
@@ -108,7 +108,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sltw_key_help_cont">
 							<td colspan="2">
 							<div>
-							<?php echo sprintf(__('Required for Twitter Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Twitter Consumer Key', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/28/getting-twitter-consumer-key-and-secret/') ?>
+							<?php echo sprintf(__('Required for Twitter Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Twitter API Key', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/28/getting-twitter-consumer-key-and-secret/') ?>
 							</div>
 							</td>
 						</tr>
@@ -116,7 +116,7 @@
 						<tr>
 							<th>
 							<img id="the_champ_sltw_secret_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label for="the_champ_twlogin_secret"><?php _e("Twitter Consumer Secret", 'Super-Socializer'); ?></label>
+							<label for="the_champ_twlogin_secret"><?php _e("Twitter API Secret", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_twlogin_secret" name="the_champ_login[twitter_secret]" type="text" value="<?php echo isset($theChampLoginOptions['twitter_secret']) ? $theChampLoginOptions['twitter_secret'] : '' ?>" />
@@ -126,7 +126,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sltw_secret_help_cont">
 							<td colspan="2">
 							<div>
-							<?php echo sprintf(__('Required for Twitter Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Twitter Consumer Secret', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/28/getting-twitter-consumer-key-and-secret/') ?>
+							<?php echo sprintf(__('Required for Twitter Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Twitter API Secret', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/28/getting-twitter-consumer-key-and-secret/') ?>
 							</div>
 							</td>
 						</tr>
@@ -265,9 +265,8 @@
 						<tr class="the_champ_help_content" id="the_champ_sl_loginpage_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Social Login interface will get enabled at your Wordpress login page', 'Super-Socializer') ?>
+							<?php _e('Social Login interface will get enabled at the login page of your website', 'Super-Socializer') ?>
 							</div>
-							<img src="<?php echo plugins_url('../images/snaps/sl_wplogin.png', __FILE__); ?>" />
 							</td>
 						</tr>
 						
@@ -284,9 +283,8 @@
 						<tr class="the_champ_help_content" id="the_champ_sl_regpage_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Social Login interface will get enabled at your Wordpress registration page', 'Super-Socializer') ?>
+							<?php _e('Social Login interface will get enabled at the registration page of your website', 'Super-Socializer') ?>
 							</div>
-							<img src="<?php echo plugins_url('../images/snaps/sl_wpreg.png', __FILE__); ?>" />
 							</td>
 						</tr>
 						
@@ -538,6 +536,10 @@
 						<p><?php _e('You can use "style" attribute in the Shortcode to style the rendered Social Login interface.', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Login style="background-color:#000;"]</strong></p>
+						<p><?php _e('You can use shortcode in PHP file as following', 'Super-Socializer') ?></p>
+						<p><strong>&lt;?php echo do_shortcode('SHORTCODE') ?&gt;</strong></p>
+						<p><?php _e('Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Login style="background-color:#000;"]</strong>, so the final code looks like following', 'Super-Socializer') ?></p>
+						<p><strong>&lt;?php echo do_shortcode('[TheChamp-Login style="background-color:#000;"]') ?&gt;</strong></p>
 					</div>
 				</div>
 				

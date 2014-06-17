@@ -69,7 +69,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						<tr>
 							<td colspan="2">
 							<div>
-							<?php _e('<strong>Note:</strong> To disable sharing on particular page/post, edit that page/post and check the <strong>"Disable Social Sharing on this page"</strong> option at the bottom in <strong>"Super Socializer"</strong> section', 'Super-Socializer') ?>
+							<?php _e('<strong>Note:</strong> To disable sharing on particular page/post, edit that page/post and check the options at the bottom in <strong>"Super Socializer"</strong> section', 'Super-Socializer') ?>
 							</div>
 							<img style="box-shadow: 4px 4px 4px 4px #888888; margin: 8px 0" width="550" id="the_champ_sl_emailver_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/snaps/ss_disable_sharing.png', __FILE__) ?>" />
 							</td>
@@ -229,7 +229,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 									foreach($theChampSharingOptions['horizontal_re_providers'] as $rearrange){
 										?>
 										<li title="<?php echo $rearrange ?>" id="the_champ_re_horizontal_<?php echo str_replace(' ', '_', $rearrange) ?>" >
-										<i class="theChampSharingButton theChampSharing<?php echo str_replace(' ', '', $rearrange) ?>Button"></i>
+										<i class="theChampSharingButton theChampSharing<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Button"></i>
 										<input type="hidden" name="the_champ_sharing[horizontal_re_providers][]" value="<?php echo $rearrange ?>">
 										</li>
 										<?php
@@ -447,7 +447,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 									foreach($theChampSharingOptions['vertical_re_providers'] as $rearrange){
 										?>
 										<li title="<?php echo $rearrange ?>" id="the_champ_re_vertical_<?php echo str_replace(' ', '_', $rearrange) ?>" >
-										<i class="theChampSharingButton theChampSharing<?php echo str_replace(' ', '', $rearrange) ?>Button"></i>
+										<i class="theChampSharingButton theChampSharing<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Button"></i>
 										<input type="hidden" name="the_champ_sharing[vertical_re_providers][]" value="<?php echo $rearrange ?>">
 										</li>
 										<?php
@@ -468,6 +468,28 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						
 						<tr>
 							<th>
+							<img id="the_champ_ss_alignment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_alignment"><?php _e("Horizontal alignment", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<select onchange="theChampToggleOffset(this.value)" id="the_champ_ss_alignment" name="the_champ_sharing[alignment]">
+								<option value="left" <?php echo isset($theChampSharingOptions['alignment']) && $theChampSharingOptions['alignment'] == 'left' ? 'selected="selected"' : '' ?>><?php _e('Left', 'Super-Socializer') ?></option>
+								<option value="right" <?php echo isset($theChampSharingOptions['alignment']) && $theChampSharingOptions['alignment'] == 'right' ? 'selected="selected"' : '' ?>><?php _e('Right', 'Super-Socializer') ?></option>
+							</select>
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_alignment_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Horizontal alignment of the sharing interface', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tbody id="the_champ_ss_left_offset_rows" <?php echo (isset($theChampSharingOptions['alignment']) && $theChampSharingOptions['alignment'] == 'left') ? '' : 'style="display: none"' ?>>
+						<tr>
+							<th>
 							<img id="the_champ_ss_left_offset_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							<label for="the_champ_ss_left_offset"><?php _e("Left offset", 'Super-Socializer'); ?></label>
 							</th>
@@ -483,6 +505,27 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							</div>
 							</td>
 						</tr>
+						</tbody>
+						
+						<tbody id="the_champ_ss_right_offset_rows" <?php echo (isset($theChampSharingOptions['alignment']) && $theChampSharingOptions['alignment'] == 'right') ? '' : 'style="display: none"' ?>>
+						<tr>
+							<th>
+							<img id="the_champ_ss_right_offset_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_right_offset"><?php _e("Right offset", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input style="width: 100px" id="the_champ_ss_right_offset" name="the_champ_sharing[right_offset]" type="text" value="<?php echo isset($theChampSharingOptions['right_offset']) ? $theChampSharingOptions['right_offset'] : '' ?>" />px
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_right_offset_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Specify a number. Increase in number will shift sharing interface towards left and decrease will shift it towards right.', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						</tbody>
 						
 						<tr>
 							<th>
@@ -584,6 +627,10 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						<p><?php _e('Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Sharing interface.', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing type="vertical" top="200"]</strong></p>
+						<p><?php _e('You can use shortcode in PHP file as following', 'Super-Socializer') ?></p>
+						<p><strong>&lt;?php echo do_shortcode('SHORTCODE') ?&gt;</strong></p>
+						<p><?php _e('Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Sharing style="background-color:#000;"]</strong>, so the final code looks like following', 'Super-Socializer') ?></p>
+						<p><strong>&lt;?php echo do_shortcode('[TheChamp-Sharing style="background-color:#000;"]') ?&gt;</strong></p>
 					</div>
 				</div>
 				

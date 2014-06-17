@@ -4,7 +4,7 @@ Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 3.9.1
-Stable tag: 2.8.1
+Stable tag: 2.9.0
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
@@ -165,6 +165,17 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 3. **Facebook Commenting**: Facebook commenting replaces the traditional comment form
 
 == Changelog ==
+= 2.9.0 =
+* Facebook commenting is now responsive
+* Sharing interfaces are now responsive
+* Switching between Facebook and traditional commenting is smoother
+* Customizable text on buttons to switch commenting modes
+* Option to align floating sharing interface left/right
+* JS and CSS files minified
+* CSS improvements
+* Bugfix: When one logged in using Twitter from login page, it was redirected back to login page
+* Bugfix: WordPress usernames created from social profile of the users were in lowercase
+
 = 2.8.1 =
 * Bugfix: Google+ icon was showing up twice in Vertical sharing provider selection
 * Bugfix: Vertical sharing bar is not appearing if left offset is less than 200
@@ -262,3 +273,14 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 = 2.8.1 =
 * Bugfix: Google+ icon was showing up twice in Vertical sharing provider selection
 * Bugfix: Vertical sharing bar is not appearing if left offset is less than 200
+
+= 2.9.0 =
+* Facebook commenting is now responsive
+* Sharing interfaces are now responsive
+* Switching between Facebook and traditional commenting is smoother
+* Customizable text on buttons to switch commenting modes
+* Option to align floating sharing interface left/right
+* JS and CSS files minified
+* CSS improvements
+* Bugfix: When one logged in using Twitter from login page, it was redirected back to login page
+* Bugfix: WordPress usernames created from social profile of the users were in lowercase
