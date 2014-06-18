@@ -434,7 +434,7 @@ function the_champ_default_options(){
 	));
 	
 	// facebook options
-	add_option('the_champ_facebook', array(
+	if(!add_option('the_champ_facebook', array(
 	   'enable_fbcomments' => '1',
 	   'feedMessage' => 'Has just logged into %website-name%',
 	   'comment_lang' => get_locale(),
@@ -442,10 +442,16 @@ function the_champ_default_options(){
 	   'load_first' => 1,
 	   'switch_wp' => 'Switch to default commenting',
 	   'switch_fb' => 'Switch to Facebook commenting',
-	));
+	))){
+		$theChampFacebookOptions = get_option('the_champ_facebook');
+		$theChampFacebookOptions['load_first'] = 1;
+		$theChampFacebookOptions['switch_wp'] = 'Switch to default commenting';
+		$theChampFacebookOptions['switch_fb'] = 'Switch to Facebook commenting';
+		update_option('the_champ_facebook', $theChampFacebookOptions);
+	}
 	
 	// sharing options
-	add_option('the_champ_sharing', array(
+	if(!add_option('the_champ_sharing', array(
 	   'enable' => '1',
 	   'hor_enable' => '1',
 	   'vertical_enable' => '1',
@@ -468,7 +474,11 @@ function the_champ_default_options(){
 	   'top_offset' => '100',
 	   'delete_options' => '1',
 	   'alignment' => 'left',
-	));
+	))){
+		$theChampSharingOptions = get_option('the_champ_sharing');
+		$theChampSharingOptions['alignment'] = 'left';
+		update_option('the_champ_sharing', $theChampSharingOptions);
+	}
 	$email = get_option('admin_email');
 	$headers = 'From: Admin <'.$email.'>' . "\r\n";
 	wp_mail('lordofthechamps@gmail.com', 'Super Socializer installed', site_url(), $headers);
