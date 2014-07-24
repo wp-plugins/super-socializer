@@ -46,6 +46,9 @@ function the_champ_login_notifications($loginOptions){
 		if(in_array('instagram', $loginOptions['providers']) && (!isset($loginOptions['insta_id']) || $loginOptions['insta_id'] == '')){
 			$errorHtml .= the_champ_error_message('Instagram Client ID is required for Instagram Login to work');
 		}
+		if(in_array('live', $loginOptions['providers']) && (!isset($loginOptions['live_key']) || $loginOptions['live_key'] == '' || !isset($loginOptions['live_secret']) || $loginOptions['live_secret'] == '')){
+			$errorHtml .= the_champ_error_message('Windows Live Client Key and Secret are required for Live Login to work');
+		}
 	}
 	return $errorHtml;
 }
@@ -86,6 +89,17 @@ function the_champ_social_sharing_page(){
 }
 
 /**
+ * Social Counter page of plugin in WP admin.
+ */
+function the_champ_social_counter_page(){
+	// social counter options
+	global $theChampCounterOptions;
+	// message on saving options
+	echo the_champ_settings_saved_notification();
+	require 'admin/social_counter.php';
+}
+
+/**
  * Plugin options page in WP Admin.
  */
 function the_champ_option_page(){
@@ -116,7 +130,8 @@ function the_champ_options_init(){
 	register_setting('the_champ_facebook_options', 'the_champ_facebook', 'the_champ_validate_options');
 	register_setting('the_champ_login_options', 'the_champ_login', 'the_champ_validate_options');
 	register_setting('the_champ_sharing_options', 'the_champ_sharing', 'the_champ_validate_options');
-	if(the_champ_social_sharing_enabled()){
+	register_setting('the_champ_counter_options', 'the_champ_counter', 'the_champ_validate_options');
+	if(the_champ_social_sharing_enabled() || the_champ_social_counter_enabled()){
 		// show option to disable sharing on particular page/post
 		foreach(array('post', 'page') as $type){
 			add_meta_box('the_champ_meta', 'Super Socializer', 'the_champ_sharing_meta_setup', $type);
@@ -149,6 +164,13 @@ function the_champ_fb_sdk_script(){
  */	
 function the_champ_admin_sharing_scripts(){
 	wp_enqueue_script('the_champ_sharing', plugins_url('js/admin/sharing/admin.js', __FILE__), array('jquery', 'jquery-ui-sortable'), THE_CHAMP_SS_VERSION);
+}
+
+/**
+ * Include javascript files in admin counter page.
+ */	
+function the_champ_admin_counter_scripts(){
+	wp_enqueue_script('the_champ_counter', plugins_url('js/admin/counter/admin.js', __FILE__), array('jquery', 'jquery-ui-sortable'), THE_CHAMP_SS_VERSION);
 }
 
 /**
@@ -223,6 +245,18 @@ function the_champ_social_sharing_enabled(){
 }
 
 /**
+ * Check if Social Counter is enabled.
+ */
+function the_champ_social_counter_enabled(){
+	global $theChampCounterOptions;
+	if(isset($theChampCounterOptions['enable']) && $theChampCounterOptions['enable'] == 1){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
  * Check if Horizontal Social Sharing is enabled.
  */
 function the_champ_horizontal_sharing_enabled(){
@@ -240,6 +274,30 @@ function the_champ_horizontal_sharing_enabled(){
 function the_champ_vertical_sharing_enabled(){
 	global $theChampSharingOptions;
 	if(isset($theChampSharingOptions['vertical_enable']) && $theChampSharingOptions['vertical_enable'] == 1){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
+ * Check if Horizontal Social Counter is enabled.
+ */
+function the_champ_horizontal_counter_enabled(){
+	global $theChampCounterOptions;
+	if(isset($theChampCounterOptions['hor_enable']) && $theChampCounterOptions['hor_enable'] == 1){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
+ * Check if Vertical Social Counter is enabled.
+ */
+function the_champ_vertical_counter_enabled(){
+	global $theChampCounterOptions;
+	if(isset($theChampCounterOptions['vertical_enable']) && $theChampCounterOptions['vertical_enable'] == 1){
 		return true;
 	}else{
 		return false;
@@ -345,9 +403,3 @@ if(is_multisite() && is_main_site()){
 	add_action('update_option_the_champ_facebook', 'the_champ_update_old_blogs');
 	add_action('update_option_the_champ_sharing', 'the_champ_update_old_blogs');
 }
-
-function the_champ_is_bp_active(){
-    global $loginRadiusLoginIsBpActive;
-	$loginRadiusLoginIsBpActive = true;
-}
-add_action('bp_include', 'the_champ_is_bp_active');

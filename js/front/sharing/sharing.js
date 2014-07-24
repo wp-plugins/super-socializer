@@ -4,7 +4,7 @@
 function theChampMoreSharingPopup(elem, postUrl, postTitle){
 	var replace = new Array("9", "[\?]", "\!", "\%", "\&", "\#", "\_", "2", "3", "4");
 	var varby = new Array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T");
-	concate = '</ul></div><div class="footer-panel"><p><a style="display: inline !important; text-decoration:none; color: #fff; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a> <span style="color: #000; font-size: 12px">'+ theChampStrReplace(replace, varby, '_y') +'</span> <a target="_blank" style="display: inline !important; text-decoration:none; color: #fff; font-weight:700; font-size: 12px" href="http://'+ theChampStrReplace(replace, varby, 't3ec3am?l%rd.w%rd?!e99.c%m') +'/">'+ theChampStrReplace(replace, varby, '43e 23am?') +'</a></p></div></div>';
+	concate = '</ul></div><div class="footer-panel"><p><a style="text-decoration: none !important; background: none !important; display: inline !important; color: #fff; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a> <span style="width:auto;color: #000; font-size: 12px">'+ theChampStrReplace(replace, varby, '_y') +'</span> <a target="_blank" style="display: inline !important; text-decoration: none !important; background: none !important; color: #fff; font-weight:700; font-size: 12px" href="http://'+ theChampStrReplace(replace, varby, 't3ec3am?l%rd.w%rd?!e99.c%m') +'/">'+ theChampStrReplace(replace, varby, '43e 23am?') +'</a></p></div></div>';
 	var theChampMoreSharingServices = {
 	  facebook: {
 		title: "Facebook",
@@ -504,7 +504,7 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle){
 		}else{
 			theChampMoreSharingServicesHtml += 'onclick="theChampPopup(\'' + theChampMoreSharingServices[i].redirect_url + '\')" href="javascript:void(0)" ';
 		}
-		theChampMoreSharingServicesHtml += '"><i class="the_champ_sharing_service the_champ_sharing_service_' + theChampMoreSharingServices[i].class.toLowerCase().replace('_', '-') + '"></i>' + theChampMoreSharingServices[i].title + '</a></li>';
+		theChampMoreSharingServicesHtml += '"><i title="'+ theChampMoreSharingServices[i].title +'" class="the_champ_sharing_service the_champ_sharing_service_' + theChampMoreSharingServices[i].class.toLowerCase().replace('_', '-') + '"></i>' + theChampMoreSharingServices[i].title + '</a></li>';
 	}
 	theChampMoreSharingServicesHtml += concate;
 	

@@ -16,6 +16,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-2"><?php _e('Social Sharing', 'Super-Socializer') ?></a></li>
 				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-3"><?php _e('Shortcode & Widget', 'Super-Socializer') ?></a></li>
 				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-4"><?php _e('Troubleshooter', 'Super-Socializer') ?></a></li>
+				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-5"><?php _e('FAQ', 'Super-Socializer') ?></a></li>
 			</ul>
 			</h2>
 			<div class="menu_containt_div" id="tabs-1">
@@ -84,6 +85,95 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 			
 			<div class="menu_containt_div" id="tabs-2">
 				<div class="the_champ_left_column">
+				<div class="stuffbox">
+					<h3><label><?php _e('bit.ly url shortener', 'Super-Socializer');?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<th>
+							<img id="the_champ_ss_bitly_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_bitly_enable"><?php _e("Enable bit.ly url shortener for sharing", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_ss_bitly_enable" name="the_champ_sharing[bitly_enable]" type="checkbox" <?php echo isset($theChampSharingOptions['bitly_enable']) ? 'checked = "checked"' : '';?> value="1" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_bitly_enable_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Master control to enable bit.ly url shortening for sharing', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_ss_bitly_login_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_bitly_login"><?php _e("bit.ly username", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_ss_bitly_login" name="the_champ_sharing[bitly_username]" type="text" value="<?php echo isset($theChampSharingOptions['bitly_username']) ? $theChampSharingOptions['bitly_username'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_bitly_login_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Login to your bit.ly account and navigate to <a href="%s" target="_blank">this link</a> to get bit.ly username', 'Super-Socializer'), 'https://bitly.com/a/your_api_key') ?>
+							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_bitly_username.png', __FILE__); ?>" />
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_ss_bitly_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_bitly_key"><?php _e("bit.ly API Key", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_ss_bitly_key" name="the_champ_sharing[bitly_key]" type="text" value="<?php echo isset($theChampSharingOptions['bitly_key']) ? $theChampSharingOptions['bitly_key'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_bitly_key_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Login to your bit.ly account and navigate to <a href="%s" target="_blank">this link</a> to get your API key', 'Super-Socializer'), 'https://bitly.com/a/your_api_key') ?>
+							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_bitly_apikey.png', __FILE__); ?>" />
+							</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+				
+				<div class="stuffbox">
+					<h3><label><?php _e('Twitter username in sharing', 'Super-Socializer');?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<th>
+							<img id="the_champ_ss_twitter_username_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_twitter_username"><?php _e("Twitter username (without @)", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_ss_twitter_username" name="the_champ_sharing[twitter_username]" type="text" value="<?php echo isset($theChampSharingOptions['twitter_username']) ? $theChampSharingOptions['twitter_username'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_twitter_username_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Provided username will be appended after the content being shared as "via @USERNAME". Leave empty if you do not want any username in the content being shared.', 'Super-Socializer') ?>
+							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_twitter_username.png', __FILE__); ?>" />
+							</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+				
 				<div class="stuffbox">
 					<h3><label><?php _e('Horizontal Sharing Interface Options', 'Super-Socializer');?></label></h3>
 					<div class="inside">
@@ -468,6 +558,24 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						
 						<tr>
 							<th>
+							<img id="the_champ_ss_vertical_bg_color_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label><?php _e("Background Color", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input style="width: 100px" name="the_champ_sharing[vertical_bg]" type="text" value="<?php echo isset($theChampSharingOptions['vertical_bg']) ? $theChampSharingOptions['vertical_bg'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_vertical_bg_color_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Specify the color or hex code (example #cc78e0) for the background of vertical sharing bar. Leave empty for transparent. You can get the hex code of the required color from <a href="http://www.colorpicker.com/" target="_blank">this link</a>', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
 							<img id="the_champ_ss_alignment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							<label for="the_champ_ss_alignment"><?php _e("Horizontal alignment", 'Super-Socializer'); ?></label>
 							</th>
@@ -655,6 +763,22 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<?php _e('If Facebook sharing is not working fine, click at the following link and enter the problematic url (where Facebook sharing is not working properly) of your website in the text field:', 'Super-Socializer') ?><br/>
 							<a style="text-decoration: none" target="_blank" href="https://developers.facebook.com/tools/debug/">https://developers.facebook.com/tools/debug/</a>
 							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+				</div>
+				<?php include 'help.php'; ?>
+			</div>
+			
+			<div class="menu_containt_div" id="tabs-5">
+				<div class="the_champ_left_column">
+				<div class="stuffbox">
+					<h3><label><?php _e('How can I show share counts of my website rather than of individual pages/posts?', 'Super-Socializer') ?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<td><?php _e('Navigate to Appearance > Widgets section in the admin panel of your website and activate "Super Socializer - Sharing" widget in the desired area. This will display the sharing counts of the home/index page of your website. Do not forget to turn the sharing counts on from "Social Sharing" page in admin panel.', 'Super-Socializer') ?></td>
 						</tr>
 					</table>
 					</div>

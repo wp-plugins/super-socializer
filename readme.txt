@@ -4,13 +4,15 @@ Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 3.9.1
-Stable tag: 2.9.0
+Stable tag: 3.4.0
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
 
 == Description ==
 Super Socializer is a complete package to provide your website all the social features (Social Login, Sharing, Commenting, Feed and more) in a single plugin
+
+**English and Spanish translation included**
 
 Below is more detail about the features:
 
@@ -167,6 +169,18 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 5. **Facebook Commenting**: Facebook commenting in action
 
 == Changelog ==
+= 3.4.0 =
+* Added Social Counters (Facebook like, Twitter Tweet, Google +1 etc)
+* Updated StumbleUpon sharing icon
+* Added FAQ section at "Social Sharing" page
+* CSS improvements
+* Added hook "do_action('the_champ_user_successfully_created', $userId, $userdata)" after user creation
+* Added hook "apply_filters('the_champ_bypass_sharing', $post, $content)" before rendering sharing interface
+* Added option to specify background color of the vertical sharing bar
+* Added option to use bit.ly url shortening sevice in sharing
+* Added option to specify username in Twitter sharing
+* Bugfix: If used any other language than English in the FB comment title, undefined characters were being displayed at front end
+
 = 2.9.0 =
 * Facebook commenting is now responsive
 * Sharing interfaces are now responsive
@@ -286,3 +300,15 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * CSS improvements
 * Bugfix: When one logged in using Twitter from login page, it was redirected back to login page
 * Bugfix: WordPress usernames created from social profile of the users were in lowercase
+
+= 3.4.0 =
+* Added Social Counters (Facebook like, Twitter Tweet, Google +1 etc)
+* Updated StumbleUpon sharing icon
+* Added FAQ section at "Social Sharing" page
+* CSS improvements
+* Added hook "do_action('the_champ_user_successfully_created', $userId, $userdata)" after user creation
+* Added hook "apply_filters('the_champ_bypass_sharing', $post, $content)" before rendering sharing interface
+* Added option to specify background color of the vertical sharing bar
+* Added option to use bit.ly url shortening sevice in sharing
+* Added option to specify username in Twitter sharing
+* Bugfix: If used any other language than English in the FB comment title, undefined characters were being displayed at front end

@@ -36,6 +36,14 @@
 							</td>
 						</tr>
 						
+						<tr id="the_champ_sl_curl" style="display: none">
+							<td colspan="2">
+							<div>
+							<?php _e('Note: Twitter Social Login requires "cURL support = enabled" in your php.ini file.', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
 						<tr>
 							<th>
 							<img id="the_champ_sl_providers_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -47,7 +55,7 @@
 							<label for="the_champ_login_facebook"><?php _e("Facebook", 'Super-Socializer'); ?></label>
 							</div>
 							<div class="theChampHorizontalSharingProviderContainer">
-							<input id="the_champ_login_twitter" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="twitter" />
+							<input id="the_champ_login_twitter" onclick="theChampToggleCurlWarning(this)" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="twitter" />
 							<label for="the_champ_login_twitter"><?php _e("Twitter", 'Super-Socializer'); ?></label>
 							</div>
 							<div class="theChampHorizontalSharingProviderContainer">

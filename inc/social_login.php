@@ -33,7 +33,11 @@ function the_champ_login_button($widget = false){
 				$html .= 'alt="Login with ';
 				$html .= ucfirst($provider);
 				$html .= '" title="Login with ';
-				$html .= ucfirst($provider);
+				if($provider == 'live'){
+					$html .= 'Windows Live';
+				}else{
+					$html .= ucfirst($provider);
+				}
 				if(current_filter() == 'comment_form_top'){
 					$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
 				}else{
@@ -173,6 +177,8 @@ function the_champ_create_user($profileData, $verification = false){
 		if(!$verification){
 			the_champ_password_email($userId, $password);
 		}
+		// hook - user successfully created
+		do_action('the_champ_user_successfully_created', $userId, $userdata);
 		return $userId;
 	}
 	return false;

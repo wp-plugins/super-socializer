@@ -98,6 +98,7 @@
 									<div>
 									<?php _e('This text will be display on the button to switch to WordPress comments', 'Super-Socializer') ?>
 									</div>
+									<img width="562" src="<?php echo plugins_url('../images/snaps/switch_to_default_commenting.png', __FILE__); ?>" />
 									</td>
 								</tr>
 								
@@ -116,6 +117,7 @@
 									<div>
 									<?php _e('This text will be displayed on the button to switch to Facebook comments', 'Super-Socializer') ?>
 									</div>
+									<img width="562" src="<?php echo plugins_url('../images/snaps/switch_to_facebook_commenting.png', __FILE__); ?>" />
 									</td>
 								</tr>
 								</tbody>
