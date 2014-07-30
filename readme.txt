@@ -167,6 +167,8 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 3. **Social Sharing (Floating/Vertical Interface)**: Social Sharing enabled at blog post
 4. **Social Sharing**: Around 90 social networks in Social Sharing
 5. **Facebook Commenting**: Facebook commenting in action
+6. **Social Counter**: Horizontal Interface
+7. **Social Counter**: Floating/Vertical Interface
 
 == Changelog ==
 = 3.4.1 =
