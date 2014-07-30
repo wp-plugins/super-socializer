@@ -170,7 +170,7 @@
 							<td colspan="2">
 							<div>
 							<?php _e('Master control to enable horizontal counter', 'Super-Socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_horizontal_sharing.png', __FILE__); ?>" />
+							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_horizontal_counter.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -316,7 +316,7 @@
 							<td colspan="2">
 							<div>
 							<?php _e('Master control to enable vertical (floating) counter widget', 'Super-Socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_vertical_sharing.png', __FILE__); ?>" />
+							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_vertical_counter.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>

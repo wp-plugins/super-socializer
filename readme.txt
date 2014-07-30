@@ -4,7 +4,7 @@ Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 3.9.1
-Stable tag: 3.4.0
+Stable tag: 3.4.1
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
@@ -169,6 +169,10 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 5. **Facebook Commenting**: Facebook commenting in action
 
 == Changelog ==
+= 3.4.1 =
+* Updated screenshots in Social Counter section in admin panel
+* Minor CSS changes
+
 = 3.4.0 =
 * Added Social Counters (Facebook like, Twitter Tweet, Google +1 etc)
 * Updated StumbleUpon sharing icon
@@ -235,18 +239,18 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * Fixed the bug due to redeclaration of Twitter OAuth class
 
 = 1.0.1 =
-* Minor bug fixing in Facebook feed functionality
+* Minor bug fix in Facebook feed functionality
 
 = 1.0.0 =
-* First version of the plugin
+* Initial release of the plugin
 
 == Upgrade Notice ==
 
 = 1.0.0 =
-* First version of the plugin
+* Initial release of the plugin
 
 = 1.0.1 =
-* Minor bug fixing in Facebook feed functionality
+* Minor bug fix in Facebook feed functionality
 
 = 1.0.2 =
 * Fixed the bug due to redeclaration of Twitter OAuth class
@@ -312,3 +316,7 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * Added option to use bit.ly url shortening sevice in sharing
 * Added option to specify username in Twitter sharing
 * Bugfix: If used any other language than English in the FB comment title, undefined characters were being displayed at front end
+
+= 3.4.1 =
+* Updated screenshots in Social Counter section in admin panel
+* Minor CSS changes
