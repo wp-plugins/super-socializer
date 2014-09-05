@@ -403,3 +403,7 @@ if(is_multisite() && is_main_site()){
 	add_action('update_option_the_champ_facebook', 'the_champ_update_old_blogs');
 	add_action('update_option_the_champ_sharing', 'the_champ_update_old_blogs');
 }
+
+function the_champ_first_letter_uppercase($word){
+	return ucfirst($word);
+}

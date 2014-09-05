@@ -3,8 +3,8 @@ Contributors: the_champ, Spanish translator: Andrew Kurtis webhostinghub.com
 Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
-Tested up to: 3.9.1
-Stable tag: 3.4.1
+Tested up to: 4.0
+Stable tag: 3.4.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
@@ -171,6 +171,10 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 3.4.2 =
+* Verified compatibility with WordPress 4.0
+* [Bugfix] Fatal error at "Social Counter" page in admin panel
+
 = 3.4.1 =
 * Updated screenshots in Social Counter section in admin panel
 * Minor CSS changes
@@ -322,3 +326,7 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 = 3.4.1 =
 * Updated screenshots in Social Counter section in admin panel
 * Minor CSS changes
+
+= 3.4.2 =
+* Verified compatibility with WordPress 4.0
+* [Bugfix] Fatal error at "Social Counter" page in admin panel
