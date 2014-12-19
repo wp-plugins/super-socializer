@@ -3,13 +3,14 @@
 
 <div class="metabox-holder columns-2" id="post-body">
 		<div class="menu_div" id="tabs">
-					<?php require 'donate.php'; ?>
 					<form action="options.php" method="post">
 					<?php settings_fields('the_champ_facebook_options'); ?>
 					<h2 class="nav-tab-wrapper" style="height:36px">
 					<ul>
 						<li><a style="margin:0; height: 23px" class="nav-tab" href="#tabs-1"><?php _e('Facebook Commenting', 'Super-Socializer') ?></a></li>
 						<li><a style="margin:0; height: 23px" class="nav-tab" href="#tabs-2"><?php _e('Feed', 'Super-Socializer') ?></a></li>
+						<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-3"><?php _e('Shortcode', 'Super-Socializer') ?></a></li>
+						<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-4"><?php _e('FAQ', 'Super-Socializer') ?></a></li>
 					</ul>
 					</h2>					
 					<div class="menu_containt_div" id="tabs-1">
@@ -31,7 +32,7 @@
 								<tr class="the_champ_help_content" id="the_champ_fb_comment_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('After enabling this option, Facebook commenting will appear in place of Wordpress comment form at your website', 'Super-Socializer') ?>
+									<?php _e('After enabling this option, Facebook commenting will appear before Wordpress comment form at your website', 'Super-Socializer') ?>
 									</div>
 									<img width="562" src="<?php echo plugins_url('../images/snaps/FB_commenting.png', __FILE__); ?>" />
 									</td>
@@ -44,102 +45,6 @@
 							<h3><label><?php _e('Facebook Commenting Options', 'Super-Socializer');?></label></h3>
 							<div class="inside">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
-								<tr>
-									<th>
-									<img id="the_champ_force_fb_comment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_force_fb_comment"><?php _e('Keep only Facebook Commenting', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input onclick="theChampCommentingOptions(this)" id="the_champ_force_fb_comment" name="the_champ_facebook[force_fb_comment]" type="checkbox" <?php echo isset($theChampFacebookOptions['force_fb_comment']) ? 'checked = "checked"' : '';?> value="1" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_force_fb_comment_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('If enabled, only Facebook commenting will be there without the option to switch to WordPress commenting', 'Super-Socializer') ?>
-									</div>
-									</td>
-								</tr>
-								<tbody id="the_champ_commenting_extra" <?php echo isset($theChampFacebookOptions['force_fb_comment']) ? 'style="display: none"' : ''; ?>>
-								<tr>
-									<th>
-									<img id="the_champ_fb_comment_load_first_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fb_comment_load_first"><?php _e('Load first', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<select id="the_champ_fb_comment_load_first" name="the_champ_facebook[load_first]">
-										<option value="1" <?php echo isset($theChampFacebookOptions['load_first']) && $theChampFacebookOptions['load_first'] == '1' ? 'selected="selected"' : '' ?>><?php _e('Facebook Commenting', 'Super-Socializer') ?></option>
-										<option value="0" <?php echo isset($theChampFacebookOptions['load_first']) && $theChampFacebookOptions['load_first'] == '0' ? 'selected="selected"' : '' ?>><?php _e('Default Commenting', 'Super-Socializer') ?></option>
-									</select>
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_comment_load_first_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('Selected commenting will be loaded first on the page', 'Super-Socializer') ?>
-									</div>
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_comment_switch_wp_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fb_comment_switch_wp"><?php _e('Text on "Switch to WordPress Commenting" button', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fb_comment_switch_wp" name="the_champ_facebook[switch_wp]" type="text" value="<?php echo isset($theChampFacebookOptions['switch_wp']) ? $theChampFacebookOptions['switch_wp'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_comment_switch_wp_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('This text will be display on the button to switch to WordPress comments', 'Super-Socializer') ?>
-									</div>
-									<img width="562" src="<?php echo plugins_url('../images/snaps/switch_to_default_commenting.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_comment_switch_fb_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fb_comment_switch_fb"><?php _e('Text on "Switch to Facebook Commenting" button', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fb_comment_switch_fb" name="the_champ_facebook[switch_fb]" type="text" value="<?php echo isset($theChampFacebookOptions['switch_fb']) ? $theChampFacebookOptions['switch_fb'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_comment_switch_fb_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('This text will be displayed on the button to switch to Facebook comments', 'Super-Socializer') ?>
-									</div>
-									<img width="562" src="<?php echo plugins_url('../images/snaps/switch_to_facebook_commenting.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								</tbody>
-								<tr>
-									<th>
-									<img id="the_champ_fb_comment_title_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_comment_title"><?php _e('Title', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_comment_title" name="the_champ_facebook[commenting_title]" type="text" value="<?php echo isset($theChampFacebookOptions['commenting_title']) ? $theChampFacebookOptions['commenting_title'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_comment_title_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('Specify a title for commenting', 'Super-Socializer') ?>
-									</div>
-									<img width="562" src="<?php echo plugins_url('../images/snaps/comment_title.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								
 								<tr>
 									<th>
 									<img id="the_champ_fb_comment_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -171,7 +76,7 @@
 								<tr class="the_champ_help_content" id="the_champ_fb_comment_width_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('Leave empty to auto-adjust the width. <br/>The width (in pixels) of the Comments block. The mobile version of the Comments block ignores the width parameter, and instead has a fluid width of 100%.', 'Super-Socializer') ?>
+									<?php _e('Leave empty to auto-adjust the width. The width (in pixels) of the Comments block.', 'Super-Socializer') ?>
 									</div>
 									</td>
 								</tr>
@@ -200,7 +105,7 @@
 								<tr>
 									<th>
 									<img id="the_champ_fb_comment_numposts_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbcomment_numposts"><?php _e('Number of posts', 'Super-Socializer'); ?></label>
+									<label for="the_champ_fbcomment_numposts"><?php _e('Number of comments', 'Super-Socializer'); ?></label>
 									</th>
 									<td>
 									<input id="the_champ_fbcomment_numposts" name="the_champ_facebook[comment_numposts]" type="text" value="<?php echo isset($theChampFacebookOptions['comment_numposts']) ? $theChampFacebookOptions['comment_numposts'] : '' ?>" />
@@ -458,6 +363,60 @@
 						</div>
 						</div>
 						
+						<?php include 'help.php'; ?>
+					</div>
+			
+					<div class="menu_containt_div" id="tabs-3">
+						<div class="the_champ_left_column">
+						<div class="stuffbox">
+							<h3><label><?php _e('Shortcode', 'Super-Socializer');?></label></h3>
+							<div class="inside">
+								<p><?php _e('You can use <strong>[TheChamp-FB-Comments]</strong> Shortcode in the content of required page/post where you want to display Facebook Commenting interface.', 'Super-Socializer') ?></p>
+								<p><?php _e('Example', 'Super-Socializer') ?></p>
+								<p><strong>[TheChamp-FB-Comments]</strong></p>
+								<p><?php _e('You can use following attributes in the Shortcode', 'Super-Socializer') ?></p>
+								<strong style="font-size: 16px">Style</strong>
+								<p><?php _e('Use <strong>style</strong> attribute to style the rendered commenting interface', 'Super-Socializer') ?></p>
+								<p><?php _e('Example', 'Super-Socializer') ?></p>
+								<p><strong>[TheChamp-FB-Comments style="background-color:#000;"]</strong></p>
+								
+								<strong style="font-size: 16px">url</strong>
+								<p><?php _e('Use <strong>url</strong> attribute to specify the target url for comments. This defaults  to the page where shortcode is used.', 'Super-Socializer') ?></p>
+								<p><?php _e('Example', 'Super-Socializer') ?></p>
+								<p><strong>[TheChamp-FB-Comments url="http://mywebsite.com/page2"]</strong></p>
+								
+								<strong style="font-size: 16px"><?php _e('num_posts', 'Super-Socializer') ?></strong>
+								<p><?php _e('Use <strong>num_posts</strong> attribute to specify the number of comments to display.', 'Super-Socializer') ?></p>
+								<p><?php _e('Example', 'Super-Socializer') ?></p>
+								<p><strong>[TheChamp-FB-Comments num_posts="5"]</strong></p>
+								
+								<strong style="font-size: 16px"><?php _e('width', 'Super-Socializer') ?></strong>
+								<p><?php _e('Use <strong>width</strong> attribute to specify the width of commenting interface. Omit it for fluid width', 'Super-Socializer') ?></p>
+								<p><?php _e('Example', 'Super-Socializer') ?></p>
+								<p><strong>[TheChamp-FB-Comments width="200"]</strong></p>
+								<p><?php _e('You can use shortcode in PHP file as following', 'Super-Socializer') ?></p>
+								<p><strong>&lt;?php echo do_shortcode('SHORTCODE') ?&gt;</strong></p>
+								<p><?php _e('Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-FB-Comments style="background-color:#000;"]</strong>, so the final code looks like following', 'Super-Socializer') ?></p>
+								<p><strong>&lt;?php echo do_shortcode('[TheChamp-FB-Comments style="background-color:#000;"]') ?&gt;</strong></p>
+							</div>
+						</div>
+						</div>
+						<?php include 'help.php'; ?>
+					</div>
+					
+					<div class="menu_containt_div" id="tabs-4">
+						<div class="the_champ_left_column">
+						<div class="stuffbox">
+							<h3><label><?php _e('How can I disable FB comments at individual page/post?', 'Super-Socializer') ?></label></h3>
+							<div class="inside">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+								<tr>
+									<td><?php _e('Edit that page/post and check the option "Disable Facebook Comments on this post/page" at the bottom in "Super Socializer" section', 'Super-Socializer') ?></td>
+								</tr>
+							</table>
+							</div>
+						</div>
+						</div>
 						<?php include 'help.php'; ?>
 					</div>
 			<div class="the_champ_clear"></div>

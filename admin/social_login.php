@@ -2,7 +2,6 @@
 <div id="fb-root"></div>
 	<div class="metabox-holder">
 		<div class="menu_div" id="tabs">
-		<?php require 'donate.php'; ?>
 		<form action="options.php" method="post">
 		<?php settings_fields('the_champ_login_options'); ?>
 			<h2 class="nav-tab-wrapper" style="height:37px">
@@ -36,14 +35,6 @@
 							</td>
 						</tr>
 						
-						<tr id="the_champ_sl_curl" style="display: none">
-							<td colspan="2">
-							<div>
-							<?php _e('Note: Twitter Social Login requires "cURL support = enabled" in your php.ini file.', 'Super-Socializer') ?>
-							</div>
-							</td>
-						</tr>
-						
 						<tr>
 							<th>
 							<img id="the_champ_sl_providers_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -55,7 +46,7 @@
 							<label for="the_champ_login_facebook"><?php _e("Facebook", 'Super-Socializer'); ?></label>
 							</div>
 							<div class="theChampHorizontalSharingProviderContainer">
-							<input id="the_champ_login_twitter" onclick="theChampToggleCurlWarning(this)" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="twitter" />
+							<input id="the_champ_login_twitter" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="twitter" />
 							<label for="the_champ_login_twitter"><?php _e("Twitter", 'Super-Socializer'); ?></label>
 							</div>
 							<div class="theChampHorizontalSharingProviderContainer">
@@ -73,6 +64,10 @@
 							<div class="theChampHorizontalSharingProviderContainer">
 							<input id="the_champ_login_instagram" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('instagram', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="instagram" />
 							<label for="the_champ_login_instagram"><?php _e("Instagram", 'Super-Socializer'); ?></label>
+							</div>
+							<div class="theChampHorizontalSharingProviderContainer">
+							<input id="the_champ_login_xing" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('xing', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="xing" />
+							<label for="the_champ_login_xing"><?php _e("Xing", 'Super-Socializer'); ?></label>
 							</div>
 							</td>
 						</tr>
@@ -99,6 +94,10 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for Facebook Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Facebook App ID', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/16/getting-the-facebook-app-id/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Site URL</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -117,6 +116,10 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for Twitter Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Twitter API Key', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/28/getting-twitter-consumer-key-and-secret/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website</strong> and <strong>Callback URL</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -135,6 +138,10 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for Twitter Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Twitter API Secret', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/28/getting-twitter-consumer-key-and-secret/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website</strong> and <strong>Callback URL</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -153,6 +160,10 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for LinkedIn Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get LinkedIn API Key', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/01/26/getting-linkedin-api-key/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website URL</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -171,6 +182,10 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for GooglePlus Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get GooglePlus Client ID', 'Super-Socializer'), '//thechamplord.wordpress.com/2013/12/30/getting-google-plus-client-id/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>AUTHORIZED JAVASCRIPT ORIGINS</strong> and <strong>AUTHORIZED REDIRECT URI</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST']; ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -189,6 +204,10 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for Vkontakte Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Vkontakte Application ID', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/03/07/how-to-configure-vkontakte-application-and-get-application-id/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Site address</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -207,6 +226,54 @@
 							<td colspan="2">
 							<div>
 							<?php echo sprintf(__('Required for Instagram Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Instagram Client ID', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/04/14/how-to-configure-instagram-application-and-get-client-id/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website</strong> and <strong>OAuth redirect_uri</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_slxing_ck_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_slxing_ck"><?php _e("Xing Consumer Key", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_slxing_ck" name="the_champ_login[xing_ck]" type="text" value="<?php echo isset($theChampLoginOptions['xing_ck']) ? $theChampLoginOptions['xing_ck'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_slxing_ck_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Xing Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Xing Consumer Key', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/12/06/how-to-get-xing-consumer-key-and-secret/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Callback domain</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST']; ?></strong>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_slxing_cs_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_slxing_cs"><?php _e("Xing Consumer Secret", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_slxing_cs" name="the_champ_login[xing_cs]" type="text" value="<?php echo isset($theChampLoginOptions['xing_cs']) ? $theChampLoginOptions['xing_cs'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_slxing_cs_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Xing Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Xing Consumer Secret', 'Super-Socializer'), '//thechamplord.wordpress.com/2014/12/06/how-to-get-xing-consumer-key-and-secret/') ?>
+							<br/>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Callback domain</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
+							<br/>
+							<strong style="color: #14ACDF"><?php echo (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST']; ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -344,7 +411,7 @@
 							<label for="the_champ_login_avatar"><?php _e("Enable social avatar", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
-							<input id="the_champ_login_avatar" name="the_champ_login[avatar]" type="checkbox" <?php echo isset($theChampLoginOptions['avatar']) ? 'checked = "checked"' : '';?> value="1" />
+							<input id="the_champ_login_avatar" onclick="if(this.checked){jQuery('#the_champ_avatar_options').css('display', 'table-row-group')}else{ jQuery('#the_champ_avatar_options').css('display', 'none') }" name="the_champ_login[avatar]" type="checkbox" <?php echo isset($theChampLoginOptions['avatar']) ? 'checked = "checked"' : '';?> value="1" />
 							</td>
 						</tr>
 						
@@ -357,6 +424,26 @@
 							<img src="<?php echo plugins_url('../images/snaps/sl_wpavatar2.png', __FILE__); ?>" />
 							</td>
 						</tr>
+						<tbody id="the_champ_avatar_options" <?php echo !isset($theChampLoginOptions['avatar']) ? 'style = "display: none"' : '';?> >
+						<tr>
+							<th>
+							<img id="the_champ_sl_avatar_quality_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label><?php _e("Avatar quality", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_login_average_avatar" name="the_champ_login[avatar_quality]" type="radio" <?php echo !isset($theChampLoginOptions['avatar_quality']) || $theChampLoginOptions['avatar_quality'] == 'average' ? 'checked = "checked"' : '';?> value="average" /> <label for="the_champ_login_average_avatar"><?php _e("Average", 'Super-Socializer'); ?></label><br/>
+							<input id="the_champ_login_better_avatar" name="the_champ_login[avatar_quality]" type="radio" <?php echo isset($theChampLoginOptions['avatar_quality']) && $theChampLoginOptions['avatar_quality'] == 'better' ? 'checked = "checked"' : '';?> value="better" /> <label for="the_champ_login_better_avatar"><?php _e("Better", 'Super-Socializer'); ?></label>
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_sl_avatar_quality_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Choose avatar quality', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						</tbody>
 						
 						<tr>
 							<th>
@@ -407,6 +494,10 @@
 							<label for="the_champ_login_redirection_home"><?php _e('Homepage', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_login_redirection_account" name="the_champ_login[login_redirection]" type="radio" <?php echo isset($theChampLoginOptions['login_redirection']) && $theChampLoginOptions['login_redirection'] == 'account' ? 'checked = "checked"' : '';?> value="account" />
 							<label for="the_champ_login_redirection_account"><?php _e('Account dashboard', 'Super-Socializer') ?></label><br/>
+							<?php if($theChampIsBpActive){ ?>
+								<input id="the_champ_login_redirection_bp" name="the_champ_login[login_redirection]" type="radio" <?php echo isset($theChampLoginOptions['login_redirection']) && $theChampLoginOptions['login_redirection'] == 'bp_profile' ? 'checked = "checked"' : '';?> value="bp_profile" />
+								<label for="the_champ_login_redirection_bp"><?php _e('BuddyPress profile page', 'Super-Socializer') ?></label><br/>
+							<?php } ?>
 							<input id="the_champ_login_redirection_custom" name="the_champ_login[login_redirection]" type="radio" <?php echo isset($theChampLoginOptions['login_redirection']) && $theChampLoginOptions['login_redirection'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
 							<label for="the_champ_login_redirection_custom"><?php _e('Custom Url', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_login_redirection_url" name="the_champ_login[login_redirection_url]" type="text" value="<?php echo isset($theChampLoginOptions['login_redirection_url']) ? $theChampLoginOptions['login_redirection_url'] : '' ?>" />
@@ -428,11 +519,15 @@
 							</th>
 							<td id="the_champ_register_redirection_column">
 							<input id="the_champ_register_redirection_same" name="the_champ_login[register_redirection]" type="radio" <?php echo !isset($theChampLoginOptions['register_redirection']) || $theChampLoginOptions['register_redirection'] == 'same' ? 'checked = "checked"' : '';?> value="same" />
-							<label for="the_champ_register_redirection_same"><?php _e('Same page where user logged in', 'Super-Socializer') ?></label><br/>
+							<label for="the_champ_register_redirection_same"><?php _e('Same page from where user registered', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_register_redirection_home" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'homepage' ? 'checked = "checked"' : '';?> value="homepage" />
 							<label for="the_champ_register_redirection_home"><?php _e('Homepage', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_register_redirection_account" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'account' ? 'checked = "checked"' : '';?> value="account" />
 							<label for="the_champ_register_redirection_account"><?php _e('Account dashboard', 'Super-Socializer') ?></label><br/>
+							<?php if($theChampIsBpActive){ ?>
+								<input id="the_champ_register_redirection_bp" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'bp_profile' ? 'checked = "checked"' : '';?> value="bp_profile" />
+								<label for="the_champ_register_redirection_bp"><?php _e('BuddyPress profile page', 'Super-Socializer') ?></label><br/>
+							<?php } ?>
 							<input id="the_champ_register_redirection_custom" name="the_champ_login[register_redirection]" type="radio" <?php echo isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
 							<label for="the_champ_register_redirection_custom"><?php _e('Custom Url', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_register_redirection_url" name="the_champ_login[register_redirection_url]" type="text" value="<?php echo isset($theChampLoginOptions['register_redirection_url']) ? $theChampLoginOptions['register_redirection_url'] : '' ?>" />

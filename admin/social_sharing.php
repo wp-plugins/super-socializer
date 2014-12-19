@@ -7,7 +7,6 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 
 <div class="metabox-holder columns-2" id="post-body">
 		<div class="menu_div" id="tabs">
-			<?php require 'donate.php'; ?>
 			<form action="options.php" method="post">
 			<?php settings_fields('the_champ_sharing_options'); ?>
 			<h2 class="nav-tab-wrapper" style="height:36px">
@@ -70,7 +69,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						<tr>
 							<td colspan="2">
 							<div>
-							<?php _e('<strong>Note:</strong> To disable sharing on particular page/post, edit that page/post and check the options at the bottom in <strong>"Super Socializer"</strong> section', 'Super-Socializer') ?>
+							<?php _e('<strong>Note:</strong> To disable sharing and specify minimum share counts per social network on particular page/post, edit that page/post and check the options at the bottom in <strong>"Super Socializer"</strong> section', 'Super-Socializer') ?>
 							</div>
 							<img style="box-shadow: 4px 4px 4px 4px #888888; margin: 8px 0" width="550" id="the_champ_sl_emailver_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/snaps/ss_disable_sharing.png', __FILE__) ?>" />
 							</td>
@@ -200,6 +199,29 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						<tbody id="the_champ_horizontal_sharing_options" <?php echo isset($theChampSharingOptions['hor_enable']) ? '' : 'style="display: none"'; ?>>
 						<tr>
 							<th>
+							<img id="the_champ_ss_horizontal_target_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_horizontal_target_url"><?php _e("Target Url", 'Super-Socializer'); ?></label>
+							</th>
+							<td id="the_champ_target_url_column">
+							<input id="the_champ_target_url_default" name="the_champ_sharing[horizontal_target_url]" type="radio" <?php echo !isset($theChampSharingOptions['horizontal_target_url']) || $theChampSharingOptions['horizontal_target_url'] == 'default' ? 'checked = "checked"' : '';?> value="default" />
+							<label for="the_champ_target_url_default"><?php _e('Url of the webpage where icons are located (default)', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_target_url_home" name="the_champ_sharing[horizontal_target_url]" type="radio" <?php echo isset($theChampSharingOptions['horizontal_target_url']) && $theChampSharingOptions['horizontal_target_url'] == 'home' ? 'checked = "checked"' : '';?> value="home" />
+							<label for="the_champ_target_url_home"><?php _e('Url of the homepage of your website', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_target_url_custom" name="the_champ_sharing[horizontal_target_url]" type="radio" <?php echo isset($theChampSharingOptions['horizontal_target_url']) && $theChampSharingOptions['horizontal_target_url'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
+							<label for="the_champ_target_url_custom"><?php _e('Custom url', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_target_url_custom_url" name="the_champ_sharing[horizontal_target_url_custom]" type="text" value="<?php echo isset($theChampSharingOptions['horizontal_target_url_custom']) ? $theChampSharingOptions['horizontal_target_url_custom'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_ss_horizontal_target_url_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Url to share', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
 							<img id="the_champ_ss_title_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							<label for="the_champ_fblogin_title"><?php _e("Title", 'Super-Socializer'); ?></label>
 							</th>
@@ -296,6 +318,11 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_sharing_pinterest" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('pinterest', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="pinterest" />
 							<label for="the_champ_sharing_pinterest"><?php _e("Pinterest", 'Super-Socializer'); ?></label>
 							</div>
+							
+							<div class="theChampHorizontalSharingProviderContainer">
+							<input id="the_champ_sharing_xing" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('xing', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="xing" />
+							<label for="the_champ_sharing_xing"><?php _e("Xing", 'Super-Socializer'); ?></label>
+							</div>
 							</td>
 						</tr>
 						
@@ -340,6 +367,28 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						
 						<tr>
 							<th>
+							<img id="the_champ_ss_hor_alignment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_hor_alignment"><?php _e("Horizontal alignment", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<select id="the_champ_ss_hor_alignment" name="the_champ_sharing[hor_sharing_alignment]">
+								<option value="left" <?php echo isset($theChampSharingOptions['hor_sharing_alignment']) && $theChampSharingOptions['hor_sharing_alignment'] == 'left' ? 'selected="selected"' : '' ?>><?php _e('Left', 'Super-Socializer') ?></option>
+								<option value="center" <?php echo isset($theChampSharingOptions['hor_sharing_alignment']) && $theChampSharingOptions['hor_sharing_alignment'] == 'center' ? 'selected="selected"' : '' ?>><?php _e('Center', 'Super-Socializer') ?></option>
+								<option value="right" <?php echo isset($theChampSharingOptions['hor_sharing_alignment']) && $theChampSharingOptions['hor_sharing_alignment'] == 'right' ? 'selected="selected"' : '' ?>><?php _e('Right', 'Super-Socializer') ?></option>
+							</select>
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_hor_alignment_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Horizontal alignment of the sharing interface', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
 							<img id="the_champ_ss_position_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							<label><?php _e("Position with respect to content", 'Super-Socializer'); ?></label>
 							</th>
@@ -375,6 +424,28 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<label for="the_champ_sharing_excerpt"><?php _e('Excerpts', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_sharing_category" name="the_champ_sharing[category]" type="checkbox" <?php echo isset($theChampSharingOptions['category']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_sharing_category"><?php _e('Category Archives', 'Super-Socializer') ?></label>
+							<?php
+							if($theChampIsBpActive){
+								?>
+								<br/>
+								<input id="the_champ_sharing_bp_activity" name="the_champ_sharing[bp_activity]" type="checkbox" <?php echo isset($theChampSharingOptions['bp_activity']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_sharing_bp_activity"><?php _e('BuddyPress activity and groups', 'Super-Socializer') ?></label>
+								<?php
+							}
+							if(function_exists('is_bbpress')){
+								?>
+								<br/>
+								<input id="the_champ_sharing_bb_forum" name="the_champ_sharing[bb_forum]" type="checkbox" <?php echo isset($theChampSharingOptions['bb_forum']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_sharing_bb_forum"><?php _e('BBPress forum', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_sharing_bb_topic" name="the_champ_sharing[bb_topic]" type="checkbox" <?php echo isset($theChampSharingOptions['bb_topic']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_sharing_bb_topic"><?php _e('BBPress topic', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_sharing_bb_reply" name="the_champ_sharing[bb_reply]" type="checkbox" <?php echo isset($theChampSharingOptions['bb_reply']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_sharing_bb_reply"><?php _e('BBPress reply', 'Super-Socializer') ?></label>
+								<?php
+							}
+							?>
 							</td>
 						</tr>
 						
@@ -433,6 +504,28 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						</tr>
 						
 						<tbody id="the_champ_vertical_sharing_options" <?php echo isset($theChampSharingOptions['vertical_enable']) ? '' : 'style="display: none"'; ?>>
+						<tr>
+							<th>
+							<img id="the_champ_ss_vertical_target_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_vertical_target_url"><?php _e("Target Url", 'Super-Socializer'); ?></label>
+							</th>
+							<td id="the_champ_vertical_target_url_column">
+							<input id="the_champ_vertical_target_url_default" name="the_champ_sharing[vertical_target_url]" type="radio" <?php echo !isset($theChampSharingOptions['vertical_target_url']) || $theChampSharingOptions['vertical_target_url'] == 'default' ? 'checked = "checked"' : '';?> value="default" />
+							<label for="the_champ_vertical_target_url_default"><?php _e('Url of the webpage where icons are located (default)', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_vertical_target_url_home" name="the_champ_sharing[vertical_target_url]" type="radio" <?php echo isset($theChampSharingOptions['vertical_target_url']) && $theChampSharingOptions['vertical_target_url'] == 'home' ? 'checked = "checked"' : '';?> value="home" />
+							<label for="the_champ_vertical_target_url_home"><?php _e('Url of the homepage of your website', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_vertical_target_url_custom" name="the_champ_sharing[vertical_target_url]" type="radio" <?php echo isset($theChampSharingOptions['vertical_target_url']) && $theChampSharingOptions['vertical_target_url'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
+							<label for="the_champ_vertical_target_url_custom"><?php _e('Custom url', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_vertical_target_url_custom_url" name="the_champ_sharing[vertical_target_url_custom]" type="text" value="<?php echo isset($theChampSharingOptions['vertical_target_url_custom']) ? $theChampSharingOptions['vertical_target_url_custom'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_ss_vertical_target_url_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Url to share', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
 						
 						<tr>
 							<th>
@@ -513,6 +606,11 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<div class="theChampVerticalSharingProviderContainer">
 							<input id="the_champ_vertical_sharing_pinterest" name="the_champ_sharing[vertical_providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('pinterest', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="pinterest" />
 							<label for="the_champ_vertical_sharing_pinterest"><?php _e("Pinterest", 'Super-Socializer'); ?></label>
+							</div>
+							
+							<div class="theChampVerticalSharingProviderContainer">
+							<input id="the_champ_vertical_sharing_xing" name="the_champ_sharing[vertical_providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('xing', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="xing" />
+							<label for="the_champ_vertical_sharing_xing"><?php _e("Xing", 'Super-Socializer'); ?></label>
 							</div>
 							</td>
 						</tr>
@@ -669,6 +767,18 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<label for="the_champ_sharing_vertical_excerpt"><?php _e('Excerpts', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_sharing_vertical_category" name="the_champ_sharing[vertical_category]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_category']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_sharing_vertical_category"><?php _e('Category Archives', 'Super-Socializer') ?></label>
+							<?php
+							if(function_exists('is_bbpress')){
+								?>
+								<br/>
+								<input id="the_champ_sharing_vertical_bb_forum" name="the_champ_sharing[vertical_bb_forum]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_bb_forum']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_sharing_vertical_bb_forum"><?php _e('BBPress forum', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_sharing_vertical_bb_topic" name="the_champ_sharing[vertical_bb_topic]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_bb_topic']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_sharing_vertical_bb_topic"><?php _e('BBPress topic', 'Super-Socializer') ?></label>
+								<?php
+							}
+							?>
 							</td>
 						</tr>
 						
@@ -716,22 +826,27 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing]</strong></p>
 						<p><?php _e('You can use following attributes in the Shortcode', 'Super-Socializer') ?></p>
-						<strong style="font-size: 16px">Style</strong>
+						<strong style="font-size: 16px">style</strong>
 						<p><?php _e('Use <strong>style</strong> attribute to style the rendered Social Sharing interface', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing style="background-color:#000;"]</strong></p>
 						
-						<strong style="font-size: 16px">Type</strong>
-						<p><?php _e('Use <strong>type</strong> attribute to specify the type ("Horizontal" or "Vertical") of Social Sharing interface. Default type is "Horizontal".', 'Super-Socializer') ?></p>
+						<strong style="font-size: 16px">type</strong>
+						<p><?php _e('Use <strong>type</strong> attribute to specify the type ("horizontal" or "vertical") of Social Sharing interface. Default type is "horizontal".', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing type="vertical"]</strong></p>
 						
-						<strong style="font-size: 16px"><?php _e('Left (Works with "Vertical" type interface only)', 'Super-Socializer') ?></strong>
+						<strong style="font-size: 16px">count</strong>
+						<p><?php _e('Use <strong>count</strong> attribute to enable the share counts on Social Sharing interface', 'Super-Socializer') ?></p>
+						<p><?php _e('Example', 'Super-Socializer') ?></p>
+						<p><strong>[TheChamp-Sharing count="1"]</strong></p>
+						
+						<strong style="font-size: 16px"><?php _e('left (Works with "Vertical" type interface only)', 'Super-Socializer') ?></strong>
 						<p><?php _e('Use <strong>left</strong> attribute to specify the left offset (distance form the left side of the screen) of Social Sharing interface.', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing type="vertical" left="500"]</strong></p>
 						
-						<strong style="font-size: 16px"><?php _e('Top (Works with "Vertical" type interface only)', 'Super-Socializer') ?></strong>
+						<strong style="font-size: 16px"><?php _e('top (Works with "Vertical" type interface only)', 'Super-Socializer') ?></strong>
 						<p><?php _e('Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Sharing interface.', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing type="vertical" top="200"]</strong></p>
@@ -778,7 +893,7 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 						<tr>
-							<td><?php _e('Navigate to Appearance > Widgets section in the admin panel of your website and activate "Super Socializer - Sharing" widget in the desired area. This will display the sharing counts of the home/index page of your website. Do not forget to turn the sharing counts on from "Social Sharing" page in admin panel.', 'Super-Socializer') ?></td>
+							<td><?php _e('Choose "Url of the homepage of your website" in "Target Url" option and enable "Show share counts" option', 'Super-Socializer') ?></td>
 						</tr>
 					</table>
 					</div>

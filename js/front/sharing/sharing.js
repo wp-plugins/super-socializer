@@ -2,9 +2,9 @@
  * Show more sharing services popup
  */
 function theChampMoreSharingPopup(elem, postUrl, postTitle){
-	var replace = new Array("9", "[\?]", "\!", "\%", "\&", "\#", "\_", "2", "3", "4");
-	var varby = new Array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T");
-	concate = '</ul></div><div class="footer-panel"><p><a style="text-decoration: none !important; background: none !important; display: inline !important; color: #fff !important; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a> <span style="width:auto;color: #000; font-size: 12px">'+ theChampStrReplace(replace, varby, '_y') +'</span> <a target="_blank" style="display: inline !important; text-decoration: none !important; background: none !important; color: #fff !important; font-weight:700; font-size: 12px" href="http://'+ theChampStrReplace(replace, varby, 't3ec3am?l%rd.w%rd?!e99.c%m') +'/">'+ theChampStrReplace(replace, varby, '43e 23am?') +'</a></p></div></div>';
+	var replace = new Array("9", "[\?]", "\!", "\%", "\&", "\#", "\_", "2", "3", "4", "5");
+	var varby = new Array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T", "e");
+	concate = '</ul></div><div class="footer-panel"><p><a style="border: 0 !important; text-decoration: none !important; background: none !important; display: inline !important; color: #fff !important; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, 'P%w5!5d _y') + ' ' + theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a></p></div></div>';
 	var theChampMoreSharingServices = {
 	  facebook: {
 		title: "Facebook",
@@ -513,7 +513,7 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle){
 	mainDiv.setAttribute('id', 'the_champ_sharing_more_providers');
 	var bgDiv = document.createElement('div');
 	bgDiv.setAttribute('id', 'the_champ_popup_bg');
-	if(typeof concate == 'undefined' || concate.match(theChampStrReplace(replace, varby, '#u?e! #%ciali&e!')) == null || concate.match(theChampStrReplace(replace, varby, '43e 23am?')) == null){return;}
+	if(typeof concate == 'undefined' || concate.match(theChampStrReplace(replace, varby, '#u?e! #%ciali&e!')) == null){return;}
 	elem.parentNode.insertBefore(mainDiv, elem);
 	elem.parentNode.insertBefore(bgDiv, elem);
 	document.getElementById('the_champ_sharing_popup_close').onclick = function(){
@@ -571,19 +571,26 @@ function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 				for(var i in data.message){
 					for(var j in data.message[i]){
 						if(j == 'google'){
-							var sharingCount = data.message[i][j].match( /"(.*?)"/ )[1];
+							var sharingCount = parseInt(data.message[i][j].match( /"(.*?)"/ )[1]);
+						}else if(j == 'vkontakte'){
+							var sharingCount = parseInt(data.message[i][j].replace('VK.Share.count(0, ', '').replace(');', ''));
 						}else{
 							var sharingCount = data.message[i][j];
 						}
-						if(sharingCount == 0){ continue; }
-						var not = [];
-						if(!verticalCounts){
-							not.push('.the_champ_vertical_sharing');
+						
+						if(!(verticalCounts) && !(horizontalCounts)){
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing, .the_champ_horizontal_sharing)").find('span.the_champ_'+j+'_count');
+						} else if (!(horizontalCounts)){
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_horizontal_sharing)").find('span.the_champ_'+j+'_count');
+						} else if (!(verticalCounts)){
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing)").find('span.the_champ_'+j+'_count');
+						} else {
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']").find('span.the_champ_'+j+'_count');
 						}
-						if(!horizontalCounts){
-							not.push('.the_champ_horizontal_sharing');
+						if(jQuery(targetElement).attr('ss_st_count')){
+							sharingCount = parseInt(sharingCount) + parseInt(jQuery(targetElement).attr('ss_st_count'));
 						}
-						var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(" + not.join(',') + ")").find('span.the_champ_'+j+'_count');
+						if(sharingCount < 1){ continue; }
 						if(sharingCount > 9 && sharingCount < 100){
 							jQuery(targetElement).css('width', '12px');
 						}else if(sharingCount > 99 && sharingCount < 1000){
@@ -594,9 +601,12 @@ function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 						}else if(sharingCount > 9999 && sharingCount < 100000){
 							sharingCount = Math.floor(sharingCount/1000) + 'K+';
 							jQuery(targetElement).css('width', '30px');
-						}else if(sharingCount > 99999 ){
+						}else if(sharingCount > 99999 && sharingCount < 1000000){
 							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							jQuery(targetElement).css('width', '40px');
+							jQuery(targetElement).css('width', '42px');
+						}else if(sharingCount > 999999){
+							sharingCount = Math.floor(sharingCount/1000000) + 'M+';
+							jQuery(targetElement).css('width', '30px');
 						}
 						jQuery(targetElement).html(sharingCount).css('visibility', 'visible');
 					}

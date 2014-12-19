@@ -10,6 +10,7 @@ if(isset($theChampSharingOptions['delete_options'])){
 						'the_champ_login',
 						'the_champ_facebook',
 						'the_champ_sharing',
+						'the_champ_counter',
 						'the_champ_ss_version'
 					);
 	// For Single site

@@ -1,10 +1,10 @@
 ﻿=== Super Socializer ===
-Contributors: the_champ, Spanish translator: Andrew Kurtis webhostinghub.com
+Contributors: the_champ, Spanish translator: Andrew Kurtis http://webhostinghub.com, French Translator: Patrick Mac Cann http://pixxi.es, German Translator: Maximilian Kops http://maxkops.de, Hungarian Translator: László Tavaszi http://kerekmese.hu, Italian Translator: Beda http://bluewin.ch
 Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
-Tested up to: 4.0
-Stable tag: 3.4.2
+Tested up to: 4.1
+Stable tag: 4.0.0
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
@@ -12,7 +12,7 @@ A complete 360 degree solution to provide all the social features like Social Lo
 == Description ==
 Super Socializer is a complete package to provide your website all the social features (Social Login, Sharing, Commenting, Feed and more) in a single plugin
 
-**English and Spanish translation included**
+**Spanish, German, French, Hungarian and Italian translation included**
 
 Below is more detail about the features:
 
@@ -171,6 +171,30 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 4.0.0 =
+* Included Xing in Social Login
+* Included Xing in Social Sharing
+* Included Xing in Social Counter
+* Added option to specify target url in sharing and counter
+* Added option to specify minimum share count in sharing interface for individual pages/posts
+* Users can link their social accounts at profile page
+* Added option to redirect users to BuddyPress profile page after login and registration
+* Added option to left, right and center align horizontal sharing and counter interface
+* Added option to specify social avatar quality
+* Added options to enable sharing at BBPress forums, topics, replies and BuddyPress activity
+* Social Login app configuration steps simplified
+* Improved Print icon in sharing
+* Vkontakte share counts now supported
+* Included shortcode for Facebook Commenting
+* Added option to disable Facebook Comments on individual page/post
+* Added option to specify language for Social Counters
+* Included Stumbleupon badge in Social Counters
+* Included functionality to comment after clicking Facebook like/recommend
+* Included option to enable share counts in sharing shortcode and widget
+* Included French, Hungarian, German and Italian translation
+* Facebook Comments and default commenting works simultaneously without the need to toggle between them
+* [Bugfix] Share counts were not being displayed when bit.ly url shortner was enabled
+
 = 3.4.2 =
 * Verified compatibility with WordPress 4.0
 * [Bugfix] Fatal error at "Social Counter" page in admin panel
@@ -330,3 +354,27 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 = 3.4.2 =
 * Verified compatibility with WordPress 4.0
 * [Bugfix] Fatal error at "Social Counter" page in admin panel
+
+= 4.0.0 =
+* Included Xing in Social Login
+* Included Xing in Social Sharing
+* Included Xing in Social Counter
+* Added option to specify target url in sharing and counter
+* Added option to specify minimum share count in sharing interface for individual pages/posts
+* Users can link their social accounts at profile page
+* Added option to redirect users to BuddyPress profile page after login and registration
+* Added option to left, right and center align horizontal sharing and counter interface
+* Added option to specify social avatar quality
+* Added options to enable sharing at BBPress forums, topics, replies and BuddyPress activity
+* Social Login app configuration steps simplified
+* Improved Print icon in sharing
+* Vkontakte share counts now supported
+* Included shortcode for Facebook Commenting
+* Added option to disable Facebook Comments on individual page/post
+* Added option to specify language for Social Counters
+* Included Stumbleupon badge in Social Counters
+* Included functionality to comment after clicking Facebook like/recommend
+* Included option to enable share counts in sharing shortcode and widget
+* Included French, Hungarian, German and Italian translation
+* Facebook Comments and default commenting works simultaneously without the need to toggle between them
+* [Bugfix] Share counts were not being displayed when bit.ly url shortner was enabled

@@ -4,7 +4,6 @@
 
 <div class="metabox-holder columns-2" id="post-body">
 		<div class="menu_div" id="tabs">
-			<?php require 'donate.php'; ?>
 			<form action="options.php" method="post">
 			<?php settings_fields('the_champ_counter_options'); ?>
 			<h2 class="nav-tab-wrapper" style="height:36px">
@@ -127,6 +126,31 @@
 				</div>
 				
 				<div class="stuffbox">
+					<h3><label><?php _e('Language', 'Super-Socializer');?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<th>
+							<img id="the_champ_sc_language_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sc_language"><?php _e("Language", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_sc_language" name="the_champ_counter[language]" type="text" value="<?php echo isset($theChampCounterOptions['language']) ? $theChampCounterOptions['language'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_sc_language_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Enter the code of the language you want to use to render counters. You can find the language codes at <a href="%s" target="_blank">this link</a>. Leave it empty for default language(English)', 'Super-Socializer'), '//www.facebook.com/translations/FacebookLocales.xml') ?>
+							</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+						
+				<div class="stuffbox">
 					<h3><label><?php _e('Twitter username in tweet button', 'Super-Socializer');?></label></h3>
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
@@ -151,7 +175,7 @@
 					</table>
 					</div>
 				</div>
-				
+
 				<div class="stuffbox">
 					<h3><label><?php _e('Horizontal Counter Interface Options', 'Super-Socializer');?></label></h3>
 					<div class="inside">
@@ -178,6 +202,29 @@
 						<tbody id="the_champ_horizontal_counter_options" <?php echo isset($theChampCounterOptions['hor_enable']) ? '' : 'style="display: none"'; ?>>
 						<tr>
 							<th>
+							<img id="the_champ_sc_horizontal_target_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sc_target_url"><?php _e("Target Url", 'Super-Socializer'); ?></label>
+							</th>
+							<td id="the_champ_target_url_column">
+							<input id="the_champ_target_url_default" name="the_champ_counter[horizontal_target_url]" type="radio" <?php echo !isset($theChampCounterOptions['horizontal_target_url']) || $theChampCounterOptions['horizontal_target_url'] == 'default' ? 'checked = "checked"' : '';?> value="default" />
+							<label for="the_champ_target_url_default"><?php _e('Url of the webpage where icons are located (default)', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_target_url_home" name="the_champ_counter[horizontal_target_url]" type="radio" <?php echo isset($theChampCounterOptions['horizontal_target_url']) && $theChampCounterOptions['horizontal_target_url'] == 'home' ? 'checked = "checked"' : '';?> value="home" />
+							<label for="the_champ_target_url_home"><?php _e('Url of the homepage of your website', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_target_url_custom" name="the_champ_counter[horizontal_target_url]" type="radio" <?php echo isset($theChampCounterOptions['horizontal_target_url']) && $theChampCounterOptions['horizontal_target_url'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
+							<label for="the_champ_target_url_custom"><?php _e('Custom url', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_target_url_custom_url" name="the_champ_counter[horizontal_target_url_custom]" type="text" value="<?php echo isset($theChampCounterOptions['horizontal_target_url_custom']) ? $theChampCounterOptions['horizontal_target_url_custom'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_sc_horizontal_target_url_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Url to like/share/tweet and display like/share/tweet counts', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
 							<img id="the_champ_sc_title_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							<label for="the_champ_fblogin_title"><?php _e("Title", 'Super-Socializer'); ?></label>
 							</th>
@@ -202,12 +249,12 @@
 							<td>
 							<ul id="the_champ_sc_rearrange">
 							<?php
-							$counterProviders = array('facebook_like', 'facebook_recommend', 'twitter_tweet', 'linkedin_share', 'google_plusone', 'googleplus_share', 'pinterest_pin_it', 'reddit');
+							$counterProviders = array('facebook_like', 'facebook_recommend', 'twitter_tweet', 'linkedin_share', 'google_plusone', 'googleplus_share', 'pinterest_pin_it', 'xing', 'reddit', 'stumbleupon_badge');
 							// show selected providers
 							if(isset($theChampCounterOptions['horizontal_providers']) && is_array($theChampCounterOptions['horizontal_providers'])){
 								foreach($theChampCounterOptions['horizontal_providers'] as $selected){
 									$labelParts = explode('_', $selected);
-									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
+									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -223,7 +270,7 @@
 							if(is_array($remaining)){
 								foreach($remaining as $provider){
 									$labelParts = explode('_', $provider);
-									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
+									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -242,6 +289,28 @@
 							<td colspan="2">
 							<div>
 							<?php _e('Select the providers for counter interface. Drag them to rearrange.', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+							<img id="the_champ_sc_hor_alignment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sc_hor_alignment"><?php _e("Horizontal alignment", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<select id="the_champ_sc_hor_alignment" name="the_champ_counter[hor_counter_alignment]">
+								<option value="left" <?php echo isset($theChampCounterOptions['hor_counter_alignment']) && $theChampCounterOptions['hor_counter_alignment'] == 'left' ? 'selected="selected"' : '' ?>><?php _e('Left', 'Super-Socializer') ?></option>
+								<option value="center" <?php echo isset($theChampCounterOptions['hor_counter_alignment']) && $theChampCounterOptions['hor_counter_alignment'] == 'center' ? 'selected="selected"' : '' ?>><?php _e('Center', 'Super-Socializer') ?></option>
+								<option value="right" <?php echo isset($theChampCounterOptions['hor_counter_alignment']) && $theChampCounterOptions['hor_counter_alignment'] == 'right' ? 'selected="selected"' : '' ?>><?php _e('Right', 'Super-Socializer') ?></option>
+							</select>
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_sc_hor_alignment_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Horizontal alignment of the counter interface', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -283,6 +352,28 @@
 							<label for="the_champ_counter_excerpt"><?php _e('Excerpts', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_counter_category" name="the_champ_counter[category]" type="checkbox" <?php echo isset($theChampCounterOptions['category']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_counter_category"><?php _e('Category Archives', 'Super-Socializer') ?></label>
+							<?php
+							if($theChampIsBpActive){
+								?>
+								<br/>
+								<input id="the_champ_counter_bp_activity" name="the_champ_counter[bp_activity]" type="checkbox" <?php echo isset($theChampCounterOptions['bp_activity']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_bp_activity"><?php _e('BuddyPress activity and groups', 'Super-Socializer') ?></label>
+								<?php
+							}
+							if(function_exists('is_bbpress')){
+								?>
+								<br/>
+								<input id="the_champ_counter_bb_forum" name="the_champ_counter[bb_forum]" type="checkbox" <?php echo isset($theChampCounterOptions['bb_forum']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_bb_forum"><?php _e('BBPress forum', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_counter_bb_topic" name="the_champ_counter[bb_topic]" type="checkbox" <?php echo isset($theChampCounterOptions['bb_topic']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_bb_topic"><?php _e('BBPress topic', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_counter_bb_reply" name="the_champ_counter[bb_reply]" type="checkbox" <?php echo isset($theChampCounterOptions['bb_reply']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_bb_reply"><?php _e('BBPress reply', 'Super-Socializer') ?></label>
+								<?php
+							}
+							?>
 							</td>
 						</tr>
 						
@@ -322,6 +413,28 @@
 						</tr>
 						
 						<tbody id="the_champ_vertical_counter_options" <?php echo isset($theChampCounterOptions['vertical_enable']) ? '' : 'style="display: none"'; ?>>
+						<tr>
+							<th>
+							<img id="the_champ_sc_vertical_target_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sc_vertical_target_url"><?php _e("Target Url", 'Super-Socializer'); ?></label>
+							</th>
+							<td id="the_champ_vertical_target_url_column">
+							<input id="the_champ_vertical_target_url_default" name="the_champ_counter[vertical_target_url]" type="radio" <?php echo !isset($theChampCounterOptions['vertical_target_url']) || $theChampCounterOptions['vertical_target_url'] == 'default' ? 'checked = "checked"' : '';?> value="default" />
+							<label for="the_champ_vertical_target_url_default"><?php _e('Url of the webpage where icons are located (default)', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_vertical_target_url_home" name="the_champ_counter[vertical_target_url]" type="radio" <?php echo isset($theChampCounterOptions['vertical_target_url']) && $theChampCounterOptions['vertical_target_url'] == 'home' ? 'checked = "checked"' : '';?> value="home" />
+							<label for="the_champ_vertical_target_url_home"><?php _e('Url of the homepage of your website', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_vertical_target_url_custom" name="the_champ_counter[vertical_target_url]" type="radio" <?php echo isset($theChampCounterOptions['vertical_target_url']) && $theChampCounterOptions['vertical_target_url'] == 'custom' ? 'checked = "checked"' : '';?> value="custom" />
+							<label for="the_champ_vertical_target_url_custom"><?php _e('Custom url', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_vertical_target_url_custom_url" name="the_champ_counter[vertical_target_url_custom]" type="text" value="<?php echo isset($theChampCounterOptions['vertical_target_url_custom']) ? $theChampCounterOptions['vertical_target_url_custom'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_sc_vertical_target_url_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Url to like/share/tweet and display like/share/tweet counts', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
 						
 						<tr>
 							<th>
@@ -335,7 +448,7 @@
 							if(isset($theChampCounterOptions['vertical_providers']) && is_array($theChampCounterOptions['vertical_providers'])){
 								foreach($theChampCounterOptions['vertical_providers'] as $selected){
 									$labelParts = explode('_', $selected);
-									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
+									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -351,7 +464,7 @@
 							if(is_array($remaining)){
 								foreach($remaining as $provider){
 									$labelParts = explode('_', $provider);
-									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
+									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -487,6 +600,18 @@
 							<label for="the_champ_counter_vertical_excerpt"><?php _e('Excerpts', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_counter_vertical_category" name="the_champ_counter[vertical_category]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_category']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_counter_vertical_category"><?php _e('Category Archives', 'Super-Socializer') ?></label>
+							<?php
+							if(function_exists('is_bbpress')){
+								?>
+								<br/>
+								<input id="the_champ_counter_vertical_bb_forum" name="the_champ_counter[vertical_bb_forum]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_bb_forum']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_vertical_bb_forum"><?php _e('BBPress forum', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_counter_vertical_bb_topic" name="the_champ_counter[vertical_bb_topic]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_bb_topic']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_vertical_bb_topic"><?php _e('BBPress topic', 'Super-Socializer') ?></label>
+								<?php
+							}
+							?>
 							</td>
 						</tr>
 						
@@ -521,7 +646,7 @@
 						<p><strong>[TheChamp-Counter style="background-color:#000;"]</strong></p>
 						
 						<strong style="font-size: 16px">Type</strong>
-						<p><?php _e('Use <strong>type</strong> attribute to specify the type ("Horizontal" or "Vertical") of Social Counter interface. Default type is "Horizontal".', 'Super-Socializer') ?></p>
+						<p><?php _e('Use <strong>type</strong> attribute to specify the type ("horizontal" or "vertical") of Social Counter interface. Default type is "horizontal".', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Counter type="vertical"]</strong></p>
 						

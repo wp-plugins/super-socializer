@@ -9,15 +9,15 @@ defined('ABSPATH') or die("Cheating........Uh!!");
  */
 function the_champ_login_button($widget = false){
 	if(!is_user_logged_in() && the_champ_social_login_enabled()){
-		$replace = array("9", "?", "!", "%", "&", "#", "_", "2", "3", "4");
-		$varby = array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T");
+		$replace = array("9", "?", "!", "%", "&", "#", "_", "2", "3", "4", "5");
+		$varby = array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T", "e");
 		global $theChampLoginOptions;
 		$html = '';
 		$html .= the_champ_login_notifications($theChampLoginOptions);
 		if(!$widget){
-			$html .= '<div>';
+			$html .= '<div class="the_champ_outer_login_container">';
 			if(isset($theChampLoginOptions['title']) && $theChampLoginOptions['title'] != ''){
-				$html .= '<div>'. $theChampLoginOptions['title'] .'</div>';
+				$html .= '<div class="the_champ_social_login_title">'. $theChampLoginOptions['title'] .'</div>';
 			}
 		}
 		$html .= '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
@@ -38,7 +38,7 @@ function the_champ_login_button($widget = false){
 				}else{
 					$html .= ucfirst($provider);
 				}
-				if(current_filter() == 'comment_form_top'){
+				if(current_filter() == 'comment_form_top' || current_filter() == 'comment_form_must_log_in_after'){
 					$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
 				}else{
 					$html .= '" onclick="theChampInitiateLogin(this)" >';
@@ -46,13 +46,13 @@ function the_champ_login_button($widget = false){
 				$html .= '</i></li>';
 			}
 		}
-		$concate = '<div style="clear:both"></div><a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/'. str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a> <span style="color: #000; font-size: 12px">'. str_replace($replace, $varby, '_y') .'</span> <a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//'. str_replace($replace, $varby, 't3ec3am?l%rd.w%rd?!e99.c%m') .'">'. str_replace($replace, $varby, '43e 23am?') .'</a>';
+		$concate = '<div style="clear:both"></div><a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/' . str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, 'P%w5!5d _y') . ' ' . str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a>';
 		$html .= $concate;
 		$html .= '</ul></div>';
 		if(!$widget){
 			$html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
 		}
-		if(!isset($concate) || strlen($concate) != 456){return;}
+		if(!isset($concate) || strlen($concate) != 237){return;}
 		if(!$widget){
 			echo $html;
 		}else{
@@ -83,13 +83,23 @@ if(isset($theChampLoginOptions['enableAtComment']) && $theChampLoginOptions['ena
 /**
  * Login user to Wordpress.
  */
-function the_champ_login_user($userId, $avatar = ''){
-	if($avatar != ''){
-		update_user_meta($userId, 'thechamp_avatar', $avatar);
+function the_champ_login_user($userId, $profileData = array(), $socialId = '', $update = false){
+	if($update){
+		if(isset($profileData['avatar']) && $profileData['avatar'] != ''){
+			update_user_meta($userId, 'thechamp_avatar', $profileData['avatar']);
+		}
+		if(isset($profileData['large_avatar']) && $profileData['large_avatar'] != ''){
+			update_user_meta($userId, 'thechamp_large_avatar', $profileData['large_avatar']);
+		}
 	}
-	wp_clear_auth_cookie();
-	wp_set_auth_cookie($userId, true);
-	wp_set_current_user($userId);
+	if($socialId != ''){
+		update_user_meta($userId, 'thechamp_current_id', $socialId);
+	}
+	do_action('the_champ_login_user', $userId, $profileData, $socialId, $update);
+	$user = get_user_by( 'id', $userId );
+	wp_set_current_user($userId, $user -> user_login);
+	wp_set_auth_cookie($userId);
+	do_action('wp_login', $user -> user_login);
 }
 
 /**
@@ -137,7 +147,7 @@ function the_champ_create_user($profileData, $verification = false){
 	$lastName = $usernameFirstnameLastname[2];
 	// make username unique
 	$nameexists = true;
-	$index = 0;
+	$index = 1;
 	$username = str_replace(' ', '-', $username);
 	$userName = $username;
 	while($nameexists == true){
@@ -171,6 +181,9 @@ function the_champ_create_user($profileData, $verification = false){
 		if(isset($profileData['avatar']) && $profileData['avatar'] != ''){
 			update_user_meta($userId, 'thechamp_avatar', $profileData['avatar']);
 		}
+		if(isset($profileData['large_avatar']) && $profileData['large_avatar'] != ''){
+			update_user_meta($userId, 'thechamp_large_avatar', $profileData['large_avatar']);
+		}
 		if(!empty($profileData['provider'])){
 			update_user_meta($userId, 'thechamp_provider', $profileData['provider']);
 		}
@@ -178,7 +191,7 @@ function the_champ_create_user($profileData, $verification = false){
 			the_champ_password_email($userId, $password);
 		}
 		// hook - user successfully created
-		do_action('the_champ_user_successfully_created', $userId, $userdata);
+		do_action('the_champ_user_successfully_created', $userId, $userdata, $profileData);
 		return $userId;
 	}
 	return false;
@@ -199,6 +212,12 @@ function the_champ_password_email($userId, $password){
  * Replace default avatar with social avatar
  */
 function the_champ_social_avatar($avatar, $avuser, $size, $default, $alt = '') {
+	global $theChampLoginOptions;
+	if(isset($theChampLoginOptions['avatar_quality']) && $theChampLoginOptions['avatar_quality'] == 'better'){
+		$avatarType = 'thechamp_large_avatar';
+	}else{
+		$avatarType = 'thechamp_avatar';
+	}
 	$userId = 0;
 	if(is_numeric($avuser)){
 		if($avuser > 0){
@@ -209,7 +228,10 @@ function the_champ_social_avatar($avatar, $avuser, $size, $default, $alt = '') {
 			$userId = $avuser->user_id;
 		}
 	}
-	if(!empty($userId) && ($userAvatar = get_user_meta($userId, 'thechamp_avatar', true)) !== false && strlen(trim($userAvatar)) > 0){
+	if($avatarType == 'thechamp_large_avatar' && get_user_meta($userId, $avatarType, true) == ''){
+		$avatarType = 'thechamp_avatar';
+	}
+	if(!empty($userId) && ($userAvatar = get_user_meta($userId, $avatarType, true)) !== false && strlen(trim($userAvatar)) > 0){
 		return '<img alt="' . esc_attr($alt) . '" src="' . $userAvatar . '" class="avatar avatar-' . $size . ' " height="' . $size . '" width="' . $size . '" />';
 	}
 	return $avatar;
@@ -227,8 +249,17 @@ function the_champ_buddypress_avatar($text, $args){
 		if(!empty($args['object']) && strtolower($args['object']) == 'user'){
 			if(!empty($args['item_id']) && is_numeric($args['item_id'])){
 				if(($userData = get_userdata($args['item_id'])) !== false){
+					global $theChampLoginOptions;
+					if(isset($theChampLoginOptions['avatar_quality']) && $theChampLoginOptions['avatar_quality'] == 'better'){
+						$avatarType = 'thechamp_large_avatar';
+					}else{
+						$avatarType = 'thechamp_avatar';
+					}
+					if($avatarType == 'thechamp_large_avatar' && get_user_meta($args['item_id'], $avatarType, true) == ''){
+						$avatarType = 'thechamp_avatar';
+					}
 					$avatar = '';
-					if(($userAvatar = get_user_meta($args['item_id'], 'thechamp_avatar', true)) !== false && strlen(trim($userAvatar)) > 0){
+					if(($userAvatar = get_user_meta($args['item_id'], $avatarType, true)) !== false && strlen(trim($userAvatar)) > 0){
 						$avatar = $userAvatar;
 					}
 					if($avatar != ""){
@@ -261,6 +292,18 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['bio'] = isset($profileData -> description) ? $profileData -> description : '';
 		$temp['link'] = $temp['username'] != '' ? 'https://twitter.com/'.$temp['username'] : '';
 		$temp['avatar'] = isset($profileData -> profile_image_url) ? $profileData -> profile_image_url : '';
+		$temp['large_avatar'] = $temp['avatar'] != '' ? str_replace('_normal', '', $temp['avatar']) : '';
+	}elseif($provider == 'xing'){
+		$temp['id'] = isset($profileData -> id) ? $profileData -> id : '';
+	 	$temp['email'] = isset($profileData -> active_email) ? $profileData -> active_email : '';;
+		$temp['name'] = isset($profileData -> display_name) ? $profileData -> display_name : '';
+		$temp['username'] = '';
+		$temp['first_name'] = isset($profileData -> first_name) ? $profileData -> first_name : '';
+		$temp['last_name'] = isset($profileData -> last_name) ? $profileData -> last_name : '';
+		$temp['bio'] = '';
+		$temp['link'] = isset($profileData -> permalink) ? $profileData -> permalink : '';
+		$temp['avatar'] = isset($profileData -> photo_urls -> medium_thumb) ? $profileData -> photo_urls -> medium_thumb : '';
+		$temp['large_avatar'] = isset($profileData -> photo_urls -> size_original) ? $profileData -> photo_urls -> size_original : '';
 	}elseif($provider == 'linkedin'){
 		$temp['id'] = isset($profileData['id']) ? $profileData['id'] : '';
 		$temp['email'] = isset($profileData['emailAddress']) ? $profileData['emailAddress'] : '';
@@ -271,6 +314,7 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['bio'] = isset($profileData['headline']) ? $profileData['headline'] : '';
 		$temp['link'] = isset($profileData['publicProfileUrl']) ? $profileData['publicProfileUrl'] : '';
 		$temp['avatar'] = isset($profileData['pictureUrl']) ? $profileData['pictureUrl'] : '';
+		$temp['large_avatar'] = isset($profileData['pictureUrls']) && isset($profileData['pictureUrls']['values']) && isset($profileData['pictureUrls']['values'][0]) ? $profileData['pictureUrls']['values'][0] : '';
 	}elseif($provider == 'google'){
 		$temp['id'] = isset($profileData['id']) ? $profileData['id'] : '';
 		$temp['email'] = '';
@@ -282,11 +326,12 @@ function the_champ_format_profile_data($profileData, $provider){
 		}
 		$temp['name'] = isset($profileData['displayName']) ? $profileData['displayName'] : '';
 		$temp['username'] = '';
-		$temp['first_name'] = isset($profileData['name']['givenName']) ? $profileData['name']['givenName'] : '';
-		$temp['last_name'] = isset($profileData['name']['familyName']) ? $profileData['name']['familyName'] : '';
+		$temp['first_name'] = isset($profileData['name']) && isset($profileData['name']['givenName']) ? $profileData['name']['givenName'] : '';
+		$temp['last_name'] = isset($profileData['name']) && isset($profileData['name']['familyName']) ? $profileData['name']['familyName'] : '';
 		$temp['bio'] = '';
 		$temp['link'] = isset($profileData['url']) ? $profileData['url'] : '';
 		$temp['avatar'] = isset($profileData['image']['url']) ? $profileData['image']['url'] : '';
+		$temp['large_avatar'] = $temp['avatar'] != '' ? str_replace('?sz=50', '', $temp['avatar']) : '';
 	}elseif($provider == 'vkontakte'){
 		$temp['id'] = isset($profileData['uid']) ? $profileData['uid'] : '';
 		$temp['email'] = '';
@@ -297,6 +342,7 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['bio'] = '';
 		$temp['link'] = '';
 		$temp['avatar'] = isset($profileData['photo']) ? $profileData['photo'] : '';
+		$temp['large_avatar'] = isset($profileData['photo_big']) ? $profileData['photo_big'] : '';
 	}elseif($provider == 'instagram'){
 		$temp['id'] = isset($profileData -> id) ? $profileData -> id : '';
 		$temp['email'] = '';
@@ -308,6 +354,7 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['link'] = isset($profileData -> website) ? $profileData -> website : '';
 		$temp['avatar'] = isset($profileData -> profile_picture) ? $profileData -> profile_picture : '';
 	}
+	$temp = apply_filters('the_champ_hook_format_profile_data', $temp, $profileData, $provider);
 	$temp['name'] = isset($temp['name'][0]) && ctype_upper($temp['name'][0]) ? ucfirst(sanitize_title($temp['name'])) : sanitize_title($temp['name']);
 	$temp['username'] = isset($temp['username'][0]) && ctype_upper($temp['username'][0]) ? ucfirst(sanitize_title($temp['username'])) : sanitize_title($temp['username']);
 	$temp['first_name'] = isset($temp['first_name'][0]) && ctype_upper($temp['first_name'][0]) ? ucfirst(sanitize_title($temp['first_name'])) : sanitize_title($temp['first_name']);
@@ -320,13 +367,14 @@ function the_champ_format_profile_data($profileData, $provider){
  * User authentication after Social Login
  */
 function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedirect = ''){
-	global $theChampLoginOptions;
+	global $theChampLoginOptions, $user_ID;
 	if($provider != 'facebook'){
 		$profileData = the_champ_format_profile_data($profileData, $provider);
 	}else{
 		$profileData['provider'] = 'facebook';
 		// social avatar url 
 		$profileData['avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=square";
+		$profileData['large_avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=large";
 	}
 	// authenticate user
 	// check if Social ID exists in database
@@ -334,20 +382,63 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 		return array('status' => false, 'message' => '');
 	}
 	$existingUser = get_users('meta_key=thechamp_social_id&meta_value='.$profileData['id']);
+	// login redirection url
+	$loginUrl = '';
+	if(isset($theChampLoginOptions['login_redirection']) && $theChampLoginOptions['login_redirection'] == 'bp_profile'){
+		$loginUrl = 'bp';
+	}
 	if(count($existingUser) > 0){
 		// user exists in the database
 		if(isset($existingUser[0] -> ID)){
 			// check if account needs verification
 			if(get_user_meta($existingUser[0] -> ID, 'thechamp_key', true) != ''){
 				if(!in_array($profileData['provider'], array('twitter', 'instagram'))){
-					return array('status' => false, 'message' => 'unverified');
+					if(is_user_logged_in()){
+						wp_delete_user($existingUser[0] -> ID);
+						the_champ_link_account($socialId, $provider, $user_ID);
+						return array('status' => true, 'message' => 'linked');
+					}else{
+						return array('status' => false, 'message' => 'unverified');
+					}
 				}
-				the_champ_close_login_popup(site_url().'?SuperSocializerUnverified=1');
+				if(is_user_logged_in()){
+					wp_delete_user($existingUser[0] -> ID);
+					the_champ_link_account($profileData['id'], $profileData['provider'], $user_ID);
+					the_champ_close_login_popup(admin_url() . '/profile.php');	//** may be BP profile/custom profile page/wp profile page
+				}else{
+					the_champ_close_login_popup(site_url().'?SuperSocializerUnverified=1');
+				}
 			}
-			the_champ_login_user($existingUser[0] -> ID, $profileData['avatar']);
-			return array('status' => true, 'message' => '');
+			if(is_user_logged_in()){
+				return array('status' => false, 'message' => 'not linked');
+			}else{
+				the_champ_login_user($existingUser[0] -> ID, $profileData, $profileData['id'], true);
+				return array('status' => true, 'message' => '', 'url' => ($loginUrl == 'bp' ? bp_core_get_user_domain($existingUser[0] -> ID) : ''));
+			}
 		}
 	}else{
+		// check if id in linked accounts
+		global $wpdb;
+		$existingUserId = $wpdb -> get_var('SELECT user_id FROM ' . $wpdb -> prefix . 'usermeta WHERE meta_key = "thechamp_linked_accounts" and meta_value LIKE "%'. $profileData['id'] .'%"');
+		if($existingUserId){
+			if(is_user_logged_in()){
+				return array('status' => false, 'message' => 'not linked');
+			}else{
+				the_champ_login_user($existingUserId, $profileData, $profileData['id'], true);
+				return array('status' => true, 'message' => '', 'url' => ($loginUrl == 'bp' ? bp_core_get_user_domain($existingUserId) : ''));
+			}
+		}
+		// linking
+		if(is_user_logged_in()){
+			global $user_ID;
+			$providerExists = $wpdb -> get_var('SELECT user_id FROM ' . $wpdb -> prefix . 'usermeta WHERE user_id = '. $user_ID .' and meta_key = "thechamp_linked_accounts" and meta_value LIKE "%'. $profileData['provider'] .'%"');
+			if($providerExists){
+				return array('status' => false, 'message' => 'provider exists');
+			}else{
+				the_champ_link_account($profileData['id'], $profileData['provider'], $user_ID);
+				return array('status' => true, 'message' => 'linked');
+			}
+		}
 		// if email is blank
 		if(!isset($profileData['email']) || $profileData['email'] == ''){
 			if(!isset($theChampLoginOptions['email_required']) || $theChampLoginOptions['email_required'] != 1){
@@ -361,7 +452,7 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 				$serializedProfileData = maybe_serialize($profileData);
 				$uniqueId = mt_rand();
 				update_user_meta($uniqueId, 'the_champ_temp_data', $serializedProfileData);
-				if(!in_array($profileData['provider'], array('twitter', 'instagram'))){
+				if(!in_array($profileData['provider'], array('twitter', 'instagram', 'xing'))){
 					return array('status' => false, 'message' => 'ask email|' . $uniqueId);
 				}
 				the_champ_close_login_popup(site_url().'?SuperSocializerEmail=1&par='.$uniqueId);
@@ -370,17 +461,33 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 		// check if email exists in database
 		if(isset($profileData['email']) && $userId = email_exists($profileData['email'])){
 			// email exists in WP DB
-			the_champ_login_user($userId);
-			return array('status' => true, 'message' => '');
+			the_champ_login_user($userId, $profileData, '', true);
+			the_champ_link_account($profileData['id'], $profileData['provider'], $userId);
+			return array('status' => true, 'message' => '', 'url' => ($loginUrl == 'bp' ? bp_core_get_user_domain($userId) : ''));
 		}
 	}
 	// register user
 	$userId = the_champ_create_user($profileData);
 	if($userId){
-		the_champ_login_user($userId);
-		return array('status' => true, 'message' => 'register');
+		the_champ_login_user($userId, array(), $profileData['id'], false); 
+		if(isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'bp_profile'){
+			return array('status' => true, 'message' => 'register', 'url' => bp_core_get_user_domain($userId));
+		}else{
+			return array('status' => true, 'message' => 'register');
+		}
 	}
 	return array('status' => false, 'message' => '');
+}
+
+function the_champ_link_account($socialId, $provider, $userId){
+	$linkedAccounts = get_user_meta($userId, 'thechamp_linked_accounts', true);
+	if($linkedAccounts){
+		$linkedAccounts = maybe_unserialize($linkedAccounts);
+	}else{
+		$linkedAccounts = array();
+	}
+	$linkedAccounts[$provider] = $socialId;
+	update_user_meta($userId, 'thechamp_linked_accounts', maybe_serialize($linkedAccounts));
 }
 
 /**
@@ -388,14 +495,14 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
  */
 function the_champ_user_auth_ajax(){
 	if(isset($_POST['error'])){
-		the_champ_log_error($_POST['error']);
+		the_champ_log_error(esc_attr($_POST['error']));
 	}
 	if(!isset($_POST['profileData'])){
-		the_champ_ajax_response(0, 'Invalid request');
+		the_champ_ajax_response(array('status' => 0, 'message' => 'Invalid request'));
 	}
 	$profileData = $_POST['profileData'];
-	$response = the_champ_user_auth($profileData, $_POST['provider']);
-	the_champ_ajax_response(intval($response['status']), $response['message']);
+	$response = the_champ_user_auth($profileData, esc_attr($_POST['provider']), esc_attr(urldecode($_POST['redirectionUrl'])));
+	the_champ_ajax_response($response);
 }
 add_action('wp_ajax_the_champ_user_auth', 'the_champ_user_auth_ajax');
 add_action('wp_ajax_nopriv_the_champ_user_auth', 'the_champ_user_auth_ajax');
@@ -406,6 +513,9 @@ add_action('wp_ajax_nopriv_the_champ_user_auth', 'the_champ_user_auth_ajax');
 function the_champ_ask_email(){
 	global $theChampLoginOptions;
 	echo isset($theChampLoginOptions['email_popup_text']) && $theChampLoginOptions['email_popup_text'] != '' ? '<div style="margin-top: 5px">'.$theChampLoginOptions['email_popup_text'].'</div>' : ''; ?>
+	<style type="text/css">
+		div.tb-close-icon{ display: none }
+	</style>
 	<div id="the_champ_error" style="margin: 2px 0px;"></div>
 	<div style="margin: 6px 0 15px 0;"><input placeholder="Email" type="text" id="the_champ_email" /></div>
 	<div style="margin: 6px 0 15px 0;"><input placeholder="Confirm email" type="text" id="the_champ_confirm_email" /></div>
@@ -427,7 +537,7 @@ function the_champ_save_email(){
 		if(isset($_POST['id']) && ($id = trim($_POST['id'])) != ''){
 			if($elementId == 'save'){
 				global $theChampLoginOptions;
-				$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+				$email = isset($_POST['email']) ? trim(esc_attr($_POST['email'])) : '';
 				// validate email
 				if(is_email($email) && !email_exists($email)){
 					if(($tempData = get_user_meta($id, 'the_champ_temp_data', true)) != ''){
@@ -444,26 +554,28 @@ function the_champ_save_email(){
 						$userId = the_champ_create_user($tempData, $verify);
 						if($userId && !$verify){
 							// login user
-							the_champ_login_user($userId);
+							the_champ_login_user($userId, array(), $tempData['id']);
 							if(isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'same' && isset($tempData['twitter_redirect'])){
-								the_champ_ajax_response(1, array('response' => 'success', 'url' => $tempData['twitter_redirect']));
+								the_champ_ajax_response(array('status' => 1, 'message' => array('response' => 'success', 'url' => $tempData['twitter_redirect'])));
+							}elseif(isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'bp_profile'){
+								the_champ_ajax_response(array('status' => 1, 'message' => array('response' => 'success', 'url' => bp_core_get_user_domain($userId))));
 							}else{
-								the_champ_ajax_response(1, 'success');
+								the_champ_ajax_response(array('status' => 1, 'message' => 'success'));
 							}
 						}elseif($userId && $verify){
 							$verificationKey = $userId.time().mt_rand();
 							update_user_meta($userId, 'thechamp_key', $verificationKey);
 							the_champ_send_verification_email($email, $verificationKey);
-							the_champ_ajax_response(1, 'verify');
+							the_champ_ajax_response(array('status' => 1, 'message' => 'verify'));
 						}
 					}
 				}else{
-					the_champ_ajax_response(0, isset($theChampLoginOptions['email_error_message']) ? __($theChampLoginOptions['email_error_message'], 'Super-Socializer') : '');
+					the_champ_ajax_response(array('status' => 0, 'message' => isset($theChampLoginOptions['email_error_message']) ? __($theChampLoginOptions['email_error_message'], 'Super-Socializer') : ''));
 				}
 			}
 			// delete temporary data
 			delete_user_meta($id, 'the_champ_temp_data');
-			the_champ_ajax_response(1, 'cancelled');
+			the_champ_ajax_response(array('status' => 1, 'message' => 'cancelled'));
 		}
 	}
 	die;

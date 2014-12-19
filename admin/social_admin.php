@@ -3,8 +3,6 @@
 
 <h2>Super Socializer</h2>
 <div class="metabox-holder columns-2" id="post-body">
-	<?php require 'donate.php'; ?>
-	
 	<div class="the_champ_left_column">
 	<div class="stuffbox">
 		<h3><label><?php _e('Welcome', 'Super-Socializer');?></label></h3>
@@ -15,6 +13,7 @@
 		<p><?php _e('In <strong>Facebook</strong> section, you can configure Facebook Commenting and Feed.', 'Super-Socializer') ?></p>
 		<p><?php _e('In <strong>Social Login</strong> section, you can select Social ID provders and configure the Social Login options.', 'Super-Socializer') ?></p>
 		<p><?php _e('In <strong>Social Sharing</strong> section, you can choose the Social Networks for Sharing and configure the optons for sharing.', 'Super-Socializer') ?></p>
+		<p><?php _e('In <strong>Social Counter</strong> section, you can choose the like/+1 buttons and configure the options for the same', 'Super-Socializer') ?></p>
 		</div>
 	</div>
 	
