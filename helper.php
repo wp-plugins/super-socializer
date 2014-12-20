@@ -519,8 +519,10 @@ function the_champ_account_linking(){
 							$linkedProviders = array_keys($linkedAccounts);
 							$existingProviders = array_merge($existingProviders, $linkedProviders);
 						}
-						$existingProviders = array_diff($theChampLoginOptions['providers'], $existingProviders);
-                        if(count($existingProviders) > 0){
+						if(isset($theChampLoginOptions['providers'])){
+							$existingProviders = array_diff($theChampLoginOptions['providers'], $existingProviders);
+                        }
+						if(count($existingProviders) > 0){
                         ?>
                         <tr>
                             <td colspan="2"><strong><?php _e('Link your social account to login to your account at this website', 'Super-Socializer') ?></strong><br/>
@@ -590,7 +592,10 @@ function the_champ_account_linking(){
 		<?php
 	}
 }
-add_action('admin_notices', 'the_champ_account_linking');
+if(the_champ_social_login_enabled()){
+	add_action('admin_notices', 'the_champ_account_linking');
+	add_action('bp_setup_nav', 'the_champ_add_linking_tab', 100);
+}
 
 /**
  * Unlink the social account
@@ -610,13 +615,11 @@ function the_champ_unlink(){
 }
 add_action('wp_ajax_the_champ_unlink', 'the_champ_unlink');
 
-// show a tab for social account linking
-add_action('bp_setup_nav', 'the_champ_add_linking_tab', 100);
 function the_champ_add_linking_tab() {
 	global $bp, $user_ID;
 	bp_core_new_subnav_item( array(
 			'name' => 'Social Account Linking',
-			'slug' => 'thechamp-linking',
+			'slug' => 'account-linking',
 			'parent_url' => trailingslashit( bp_loggedin_user_domain() . 'profile' ),
 			'parent_slug' => 'profile',
 			'screen_function' => 'the_champ_bp_linking',
