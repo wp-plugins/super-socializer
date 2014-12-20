@@ -571,7 +571,7 @@ function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 				for(var i in data.message){
 					for(var j in data.message[i]){
 						if(j == 'google'){
-							var sharingCount = parseInt(data.message[i][j].match( /"(.*?)"/ )[1]);
+							var sharingCount = data.message[i][j].match( /"(.*?)"/ )[1];
 						}else if(j == 'vkontakte'){
 							var sharingCount = parseInt(data.message[i][j].replace('VK.Share.count(0, ', '').replace(');', ''));
 						}else{
