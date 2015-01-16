@@ -2,9 +2,7 @@
  * Show more sharing services popup
  */
 function theChampMoreSharingPopup(elem, postUrl, postTitle){
-	var replace = new Array("9", "[\?]", "\!", "\%", "\&", "\#", "\_", "2", "3", "4", "5");
-	var varby = new Array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T", "e");
-	concate = '</ul></div><div class="footer-panel"><p><a style="border: 0 !important; text-decoration: none !important; background: none !important; display: inline !important; color: #fff !important; font-weight:700; font-size: 12px" target="_blank" href="http://wordpress.org/plugins/'+ theChampStrReplace(replace, varby, '9u?e!-s%ciali&e!') +'/">'+ theChampStrReplace(replace, varby, 'P%w5!5d _y') + ' ' + theChampStrReplace(replace, varby, '#u?e! #%ciali&e!') +'</a></p></div></div>';
+	concate = '</ul></div><div class="footer-panel"><p></p></div></div>';
 	var theChampMoreSharingServices = {
 	  facebook: {
 		title: "Facebook",
@@ -513,7 +511,6 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle){
 	mainDiv.setAttribute('id', 'the_champ_sharing_more_providers');
 	var bgDiv = document.createElement('div');
 	bgDiv.setAttribute('id', 'the_champ_popup_bg');
-	if(typeof concate == 'undefined' || concate.match(theChampStrReplace(replace, varby, '#u?e! #%ciali&e!')) == null){return;}
 	elem.parentNode.insertBefore(mainDiv, elem);
 	elem.parentNode.insertBefore(bgDiv, elem);
 	document.getElementById('the_champ_sharing_popup_close').onclick = function(){

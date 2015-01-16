@@ -75,11 +75,4 @@
 		<p><?php _e('If you want custom features in the plugin, I can do it for you. Just drop me an email at <a href="mailto:lordofthechamps@gmail.com">lordofthechamps@gmail.com</a>', 'Super-Socializer'); ?></p>
 		</div>
 	</div>
-	
-	<div class="stuffbox">
-		<h3><label><?php _e('White-Label', 'Super-Socializer');?></label></h3>
-		<div class="inside">
-		<p><?php _e('Remove the plugin credit links ("Super Socializer by The Champ") in just $15. Interested? Email me: <a href="mailto:lordofthechamps@gmail.com">lordofthechamps@gmail.com</a>', 'Super-Socializer'); ?></p>
-		</div>
-	</div>
 </div>

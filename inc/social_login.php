@@ -9,8 +9,6 @@ defined('ABSPATH') or die("Cheating........Uh!!");
  */
 function the_champ_login_button($widget = false){
 	if(!is_user_logged_in() && the_champ_social_login_enabled()){
-		$replace = array("9", "?", "!", "%", "&", "#", "_", "2", "3", "4", "5");
-		$varby = array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T", "e");
 		global $theChampLoginOptions;
 		$html = '';
 		$html .= the_champ_login_notifications($theChampLoginOptions);
@@ -46,13 +44,10 @@ function the_champ_login_button($widget = false){
 				$html .= '</i></li>';
 			}
 		}
-		$concate = '<div style="clear:both"></div><a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/' . str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, 'P%w5!5d _y') . ' ' . str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a>';
-		$html .= $concate;
 		$html .= '</ul></div>';
 		if(!$widget){
 			$html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
 		}
-		if(!isset($concate) || strlen($concate) != 237){return;}
 		if(!$widget){
 			echo $html;
 		}else{

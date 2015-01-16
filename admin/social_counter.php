@@ -254,7 +254,7 @@
 							if(isset($theChampCounterOptions['horizontal_providers']) && is_array($theChampCounterOptions['horizontal_providers'])){
 								foreach($theChampCounterOptions['horizontal_providers'] as $selected){
 									$labelParts = explode('_', $selected);
-									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
+									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -270,7 +270,7 @@
 							if(is_array($remaining)){
 								foreach($remaining as $provider){
 									$labelParts = explode('_', $provider);
-									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
+									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -448,7 +448,7 @@
 							if(isset($theChampCounterOptions['vertical_providers']) && is_array($theChampCounterOptions['vertical_providers'])){
 								foreach($theChampCounterOptions['vertical_providers'] as $selected){
 									$labelParts = explode('_', $selected);
-									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
+									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>
@@ -464,7 +464,7 @@
 							if(is_array($remaining)){
 								foreach($remaining as $provider){
 									$labelParts = explode('_', $provider);
-									$labelParts = array_map(function($word) { return ucfirst($word); }, $labelParts);
+									$labelParts = array_map('the_champ_first_letter_uppercase', $labelParts);
 									$label = implode(' ', $labelParts);
 									?>
 									<li>

@@ -3,13 +3,13 @@
 Plugin Name: Super Socializer
 Plugin URI: http://super-socializer-wordpress.pyrovolt.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 4.0.1
+Version: 4.0.2
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '4.0.1');
+define('THE_CHAMP_SS_VERSION', '4.0.2');
 
 $theChampLoginOptions = get_option('the_champ_login');
 if(isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers'])){

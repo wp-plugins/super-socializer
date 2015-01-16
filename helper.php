@@ -642,3 +642,10 @@ function the_champ_bp_loaded(){
 	$theChampIsBpActive = true;
 }
 add_action('bp_include', 'the_champ_bp_loaded');
+
+/**
+ * Return the string after capitalizing first letter
+ */
+function the_champ_first_letter_uppercase($word){
+	return ucfirst($word);
+}
