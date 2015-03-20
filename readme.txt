@@ -177,7 +177,7 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * [Bugfix] Bit.ly service was being called on each page load. Now short urls are being cached.
 * [Bugfix] Names having cyrillic characters were not being displayed
 * [Bugfix] Could not FB comment using mobile, interface kept refreshing
-* [Bugfix] <div id="fb-root"></div> was being included in the <head> section of webpage
+* [Bugfix] "fb-root" div was being included in the 'head' section of webpage
 * [Bugfix] FB Commenting was not working with Disqus commenting
 * [Bugfix] Bitly url shortener was not working in sharing shortcode
 * [Bugfix] Removed {} (empty brackets) from front.css file
@@ -421,7 +421,7 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * [Bugfix] Bit.ly service was being called on each page load. Now short urls are being cached.
 * [Bugfix] Names having cyrillic characters were not being displayed
 * [Bugfix] Could not FB comment using mobile, interface kept refreshing
-* [Bugfix] <div id="fb-root"></div> was being included in the <head> section of webpage
+* [Bugfix] "fb-root" div was being included in the 'head' section of webpage
 * [Bugfix] FB Commenting was not working with Disqus commenting
 * [Bugfix] Bitly url shortener was not working in sharing shortcode
 * [Bugfix] Removed {} (empty brackets) from front.css file
