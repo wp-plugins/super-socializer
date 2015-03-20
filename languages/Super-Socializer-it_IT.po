@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Super Socializer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 21:30+0530\n"
-"PO-Revision-Date: 2014-12-19 21:31+0530\n"
+"POT-Creation-Date: 2015-03-20 05:55+0530\n"
+"PO-Revision-Date: 2015-03-20 05:57+0530\n"
 "Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
 "Language-Team: yoonect.com\n"
 "Language: it\n"
@@ -16,45 +16,45 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../super_socializer.php:186
+#: ../super_socializer.php:179
 #, php-format
 msgid "Enter exactly the following url in <strong>Website</strong> and <strong>Callback Url</strong> options in your Twitter app (see step 3 %s)"
 msgstr "Immettere esattamente il seguente URL nel <strong>Website</ strong> e <strong>Callback URL </ strong> opzioni vostra applicazione Twitter (vedi punto 3 %s)"
 
-#: ../super_socializer.php:189
+#: ../super_socializer.php:182
 msgid "Make sure cURL is enabled at your website server. You may need to contact the server administrator of your website to verify this"
 msgstr "Assicurarsi cURL è abilitato il server web. Potrebbe essere necessario contattare l'amministratore del server del tuo sito web per verificare questo"
 
-#: ../super_socializer.php:354
+#: ../super_socializer.php:348
 msgid "Please verify your email address to login."
 msgstr "Per favore verifica il tuo indirzzo e-mail per accedere."
 
-#: ../super_socializer.php:354
+#: ../super_socializer.php:348
 msgid "Your email has been verified. Now you can login to your account"
 msgstr "Il tuo indirizzo e-mail é stato verificato, adesso puoi accedere alla tua conta."
 
-#: ../super_socializer.php:358
+#: ../super_socializer.php:352
 msgid "Notification"
 msgstr "Notificazione"
 
-#: ../super_socializer.php:377
+#: ../super_socializer.php:371
 #: ../admin/social_login.php:451
 msgid "Email required"
 msgstr "Necessita Indirizzo di Posta Elettronica"
 
-#: ../super_socializer.php:380
+#: ../super_socializer.php:374
 msgid "Please check your email inbox to complete the registration."
 msgstr "Per favore controlla la tua casella di posta elettronica per completare la registrazione."
 
-#: ../super_socializer.php:393
+#: ../super_socializer.php:387
 msgid "Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
 msgstr "Seguire i passaggi 11 e 12 a pagina di configurazione app GooglePlus, per aprire"
 
-#: ../super_socializer.php:553
+#: ../super_socializer.php:547
 msgid "Email you entered is already registered or invalid"
 msgstr "E-mail inserito è già registrato o non valido"
 
-#: ../super_socializer.php:557
+#: ../super_socializer.php:551
 msgid "Please enter a valid email address. You might be required to verify it"
 msgstr "Si prega di inserire un indirizzo email valido. Potrebbe essere richiesto di verificarla"
 
@@ -62,39 +62,86 @@ msgstr "Si prega di inserire un indirizzo email valido. Potrebbe essere richiest
 msgid "Options saved successfully"
 msgstr "Opzioni salvate con successo"
 
-#: ../helper.php:189
+#: ../helper.php:135
+msgid "Click to show help"
+msgstr "Clicca per vedere help"
+
+#: ../helper.php:135
+msgid "Click to hide help"
+msgstr "Clicca per nascondere aiuto"
+
+#: ../helper.php:174
 msgid "Settings"
 msgstr "Configurazione"
 
-#: ../helper.php:492
+#: ../helper.php:466
 #, fuzzy
 msgid "Account linked successfully"
 msgstr "Opzioni salvate con successo"
 
-#: ../helper.php:498
+#: ../helper.php:472
 msgid "Account already exists or linked"
 msgstr "Account esistente o collegato già"
 
-#: ../helper.php:511
+#: ../helper.php:483
 #, fuzzy
 msgid "You are already connected with"
 msgstr "Sei pronto per socializzare il tuo sito web."
 
-#: ../helper.php:511
+#: ../helper.php:483
 msgid "as primary social network"
 msgstr "come rete sociale primaria"
 
-#: ../helper.php:526
+#: ../helper.php:500
 msgid "Link your social account to login to your account at this website"
 msgstr "Collega il tuo account sociale per accedere al proprio account su questo sito"
 
-#: ../helper.php:573
+#: ../helper.php:545
 msgid "Currently"
 msgstr "attualmente"
 
-#: ../helper.php:573
+#: ../helper.php:545
 msgid "Remove"
 msgstr "rimuovere"
+
+#: ../helper.php:636
+msgid "Disable Horizontal Social Sharing on this "
+msgstr "Disabilitare Condivisione Sociale orizzontale in questo"
+
+#: ../helper.php:641
+msgid "Disable Vertical Social Sharing on this "
+msgstr "Disabilitare Condivisione Sociale Verticale in questo"
+
+#: ../helper.php:646
+#, fuzzy
+msgid "Disable Horizontal Social Counter on this "
+msgstr "Disabilitare Contatore Sociale orizzontale in questo"
+
+#: ../helper.php:651
+#, fuzzy
+msgid "Disable Vertical Social Counter on this "
+msgstr "Disabilitare Contatore Sociale Verticale in questo"
+
+#: ../helper.php:656
+#, fuzzy
+msgid "Disable Facebook Comments on this "
+msgstr "Abilitare Commentando con Facebook"
+
+#: ../helper.php:665
+#, fuzzy
+msgid "Horizontal sharing"
+msgstr "Allineamento orizzontale"
+
+#: ../helper.php:671
+#: ../helper.php:690
+#, fuzzy
+msgid "Starting share count for "
+msgstr "Mostra la qunatitá di condivisioni"
+
+#: ../helper.php:684
+#, fuzzy
+msgid "Vertical sharing"
+msgstr "Condivisione Sociale"
 
 #: ../admin/help.php:4
 msgid "About"
@@ -153,18 +200,8 @@ msgstr "Voui una personalizzazione del plugin?"
 msgid "If you want custom features in the plugin, I can do it for you. Just drop me an email at <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>"
 msgstr "Se vuoi funzioni personalizzate nel plugin, posso farlo per te. Basta scrivermi una posta elettronica a <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>"
 
-#: ../admin/help.php:80
-msgid "White-Label"
-msgstr "Etichetta bianca"
-
-#: ../admin/help.php:82
-msgid "Remove the plugin credit links (\"Super Socializer by The Champ\") in just $15. Interested? Email me: <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>"
-msgstr ""
-"Rimuovere i collegamenti di credito (\"Super Socializzatore da Il Campione) per solo $15.\n"
-"Interssato? Scrivimi una posta elettronica: <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>"
-
 #: ../admin/social_counter.php:11
-#: ../admin/social_counter.php:19
+#: ../admin/social_counter.php:20
 #: ../admin/social_sharing.php:14
 #: ../admin/social_sharing.php:24
 #: ../admin/social_login.php:9
@@ -183,669 +220,464 @@ msgstr "Contatore Sociale"
 msgid "Shortcode & Widget"
 msgstr "Codice Corto & Widget"
 
-#: ../admin/social_counter.php:25
+#: ../admin/social_counter.php:14
+#: ../admin/social_sharing.php:18
+#: ../admin/social_commenting.php:12
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ../admin/social_counter.php:26
 #, fuzzy
 msgid "Enable Social Counter"
 msgstr "Abilitare il Contatore Sociale"
 
-#: ../admin/social_counter.php:35
+#: ../admin/social_counter.php:36
 msgid "Master control for Social Counter. It must be checked to enable Social Counter functionality"
 msgstr "Controllo Maestro per il Contatore Sociale. Dev'essere marcato per il buon funzionamento del Contatore Sociale"
 
-#: ../admin/social_counter.php:49
+#: ../admin/social_counter.php:50
 msgid "<strong>Note:</strong> To disable counter on particular page/post, edit that page/post and check the options at the bottom in <strong>\"Super Socializer\"</strong> section"
 msgstr "<strong>Nota:</strong> per disabilitare il Contatore in pagine o posts particolari, edita la pagina o il post in riguardo e controlla le opzioni al basso della sezione <strong>\"Super Socializzatore\"</strong>"
 
-#: ../admin/social_counter.php:66
+#: ../admin/social_counter.php:67
 #: ../admin/social_sharing.php:88
 msgid "bit.ly url shortener"
 msgstr "cortatore di url bit.ly"
 
-#: ../admin/social_counter.php:72
+#: ../admin/social_counter.php:73
 msgid "Enable bit.ly url shortener for tweet button"
 msgstr "Abilitare cortatore di url bit.ly per il bottone di Twitter"
 
-#: ../admin/social_counter.php:82
+#: ../admin/social_counter.php:83
 #: ../admin/social_sharing.php:104
 #, fuzzy
 msgid "Master control to enable bit.ly url shortening for sharing"
 msgstr "Controllo maestro per abilitare la cortazione di url bit.ly per la condivisione"
 
-#: ../admin/social_counter.php:90
+#: ../admin/social_counter.php:91
 #: ../admin/social_sharing.php:112
 msgid "bit.ly username"
 msgstr "nome d'utente di bit.ly"
 
-#: ../admin/social_counter.php:100
+#: ../admin/social_counter.php:101
 #: ../admin/social_sharing.php:122
 #, php-format
 msgid "Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank\">this link</a> to get bit.ly username"
 msgstr "Per ottenere il nome d'utente di bit.ly, accede alla tua conta di bit.ly e naviga fino a <a href=\"%s\" target=\"_blank\">questo collegamento</a>"
 
-#: ../admin/social_counter.php:109
+#: ../admin/social_counter.php:110
 #: ../admin/social_sharing.php:131
 #, fuzzy
 msgid "bit.ly API Key"
 msgstr "Chiave API bit.ly"
 
-#: ../admin/social_counter.php:119
+#: ../admin/social_counter.php:120
 #: ../admin/social_sharing.php:141
 #, fuzzy, php-format
 msgid "Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank\">this link</a> to get your API key"
 msgstr "Per ottenere la chiave API, accedi alla tua conta di bit.ly e naviga fino a <a href=\"%s\" target=\"_blank\">questo collegamento</a>"
 
-#: ../admin/social_counter.php:129
-#: ../admin/social_counter.php:135
-#: ../admin/facebook.php:170
+#: ../admin/social_counter.php:130
+#: ../admin/social_counter.php:136
+#: ../admin/social_commenting.php:187
 msgid "Language"
 msgstr "Lingua"
 
-#: ../admin/social_counter.php:145
+#: ../admin/social_counter.php:146
 #, fuzzy, php-format
 msgid "Enter the code of the language you want to use to render counters. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
 msgstr "Ingressa il codice della lingua che vuoi usare per mostrare i commentari. Poui incontrare i codici delle lingue a <a href=\"%s\" target=\"_blank\">questo collegamento</a>. Lascia in bianco per la lingua predefinita(inglese)"
 
-#: ../admin/social_counter.php:154
+#: ../admin/social_counter.php:155
 msgid "Twitter username in tweet button"
 msgstr "Il nome d'utente di Twitter nel bottone Twitter"
 
-#: ../admin/social_counter.php:160
+#: ../admin/social_counter.php:161
 #: ../admin/social_sharing.php:157
 msgid "Twitter username (without @)"
 msgstr "Nome d'utente di Twitter (senza @)"
 
-#: ../admin/social_counter.php:170
+#: ../admin/social_counter.php:171
 msgid "Provided username will be appended after the content being tweeted as \"via @USERNAME\". Leave empty if you do not want any username."
 msgstr "Il nome d'utente selezionato sará attacato al fondo del contenuto che se Tweetea attraverso \"di @USERNAME\". Lascia in bianco se non vuoi un nome d'utente."
 
-#: ../admin/social_counter.php:180
+#: ../admin/social_counter.php:181
 #, fuzzy
 msgid "Horizontal Counter Interface Options"
 msgstr "Opzioni dell'interfaccia del contatore orizzontale"
 
-#: ../admin/social_counter.php:186
+#: ../admin/social_counter.php:187
 #, fuzzy
 msgid "Enable horizontal counter interface"
 msgstr "Abilitare l'interfaccia del Contatore orizzontale."
 
-#: ../admin/social_counter.php:196
+#: ../admin/social_counter.php:197
 #, fuzzy
 msgid "Master control to enable horizontal counter"
 msgstr "Controllo maestro per abilitare il Contatore orizzontale"
 
-#: ../admin/social_counter.php:206
-#: ../admin/social_counter.php:419
+#: ../admin/social_counter.php:207
+#: ../admin/social_counter.php:422
 #: ../admin/social_sharing.php:203
-#: ../admin/social_sharing.php:510
+#: ../admin/social_sharing.php:517
 msgid "Target Url"
 msgstr "URL di destinazione"
 
-#: ../admin/social_counter.php:210
-#: ../admin/social_counter.php:423
+#: ../admin/social_counter.php:211
+#: ../admin/social_counter.php:426
 #: ../admin/social_sharing.php:207
-#: ../admin/social_sharing.php:514
+#: ../admin/social_sharing.php:521
 msgid "Url of the webpage where icons are located (default)"
 msgstr "URL della pagina web in cui si trovano le icone (di default)"
 
-#: ../admin/social_counter.php:212
-#: ../admin/social_counter.php:425
+#: ../admin/social_counter.php:213
+#: ../admin/social_counter.php:428
 #: ../admin/social_sharing.php:209
-#: ../admin/social_sharing.php:516
+#: ../admin/social_sharing.php:523
 msgid "Url of the homepage of your website"
 msgstr "Url della homepage del tuo sito web"
 
-#: ../admin/social_counter.php:214
-#: ../admin/social_counter.php:427
+#: ../admin/social_counter.php:215
+#: ../admin/social_counter.php:430
 #: ../admin/social_sharing.php:211
-#: ../admin/social_sharing.php:518
+#: ../admin/social_sharing.php:525
 #, fuzzy
 msgid "Custom url"
 msgstr "Url personalizzata"
 
-#: ../admin/social_counter.php:221
-#: ../admin/social_counter.php:434
+#: ../admin/social_counter.php:222
+#: ../admin/social_counter.php:437
 msgid "Url to like/share/tweet and display like/share/tweet counts"
 msgstr "Url per piace/share/Twitter e visualizzazione come/share/conteggi Tweet"
 
-#: ../admin/social_counter.php:229
+#: ../admin/social_counter.php:230
 #: ../admin/social_sharing.php:226
 #: ../admin/social_login.php:314
 msgid "Title"
 msgstr "Titolo"
 
-#: ../admin/social_counter.php:239
+#: ../admin/social_counter.php:240
 #, fuzzy
 msgid "The text to display above the counter interface"
 msgstr "Il testo che se mostrará sopra l'interfaccia del Contatore"
 
-#: ../admin/social_counter.php:247
-#: ../admin/social_counter.php:442
+#: ../admin/social_counter.php:248
+#: ../admin/social_counter.php:445
 #, fuzzy
 msgid "Select and rearrange providers"
 msgstr "Selezionare e riorganizzare i fornitori."
 
-#: ../admin/social_counter.php:291
-#: ../admin/social_counter.php:485
+#: ../admin/social_counter.php:292
+#: ../admin/social_counter.php:488
 #, fuzzy
 msgid "Select the providers for counter interface. Drag them to rearrange."
 msgstr "Selezziona i fornitori per l'interfaccia del Contatore. Trascinali per riorganizzarli. "
 
-#: ../admin/social_counter.php:299
-#: ../admin/social_counter.php:511
-#: ../admin/social_sharing.php:371
-#: ../admin/social_sharing.php:678
+#: ../admin/social_counter.php:300
+#: ../admin/social_counter.php:514
+#: ../admin/social_sharing.php:376
+#: ../admin/social_sharing.php:685
 #, fuzzy
 msgid "Horizontal alignment"
 msgstr "Allineamento orizzontale"
 
-#: ../admin/social_counter.php:303
-#: ../admin/social_counter.php:515
-#: ../admin/social_sharing.php:375
-#: ../admin/social_sharing.php:682
+#: ../admin/social_counter.php:304
+#: ../admin/social_counter.php:518
+#: ../admin/social_sharing.php:380
+#: ../admin/social_sharing.php:689
 msgid "Left"
 msgstr "Sinistra"
 
-#: ../admin/social_counter.php:304
-#: ../admin/social_sharing.php:376
+#: ../admin/social_counter.php:305
+#: ../admin/social_sharing.php:381
 msgid "Center"
 msgstr "centro"
 
-#: ../admin/social_counter.php:305
-#: ../admin/social_counter.php:516
-#: ../admin/social_sharing.php:377
-#: ../admin/social_sharing.php:683
+#: ../admin/social_counter.php:306
+#: ../admin/social_counter.php:519
+#: ../admin/social_sharing.php:382
+#: ../admin/social_sharing.php:690
 #, fuzzy
 msgid "Right"
 msgstr "Destra"
 
-#: ../admin/social_counter.php:313
-#: ../admin/social_counter.php:524
+#: ../admin/social_counter.php:314
+#: ../admin/social_counter.php:527
 #, fuzzy
 msgid "Horizontal alignment of the counter interface"
 msgstr "Allineamento orizzontale dell'interfaccia del Contatore"
 
-#: ../admin/social_counter.php:321
-#: ../admin/social_sharing.php:393
+#: ../admin/social_counter.php:322
+#: ../admin/social_sharing.php:398
 msgid "Position with respect to content"
 msgstr "Posizione al rispetto del contenuto"
 
-#: ../admin/social_counter.php:325
-#: ../admin/social_sharing.php:397
+#: ../admin/social_counter.php:326
+#: ../admin/social_sharing.php:402
 msgid "Top of the content"
 msgstr "Parte superiore del contenuto"
 
-#: ../admin/social_counter.php:327
-#: ../admin/social_sharing.php:399
+#: ../admin/social_counter.php:328
+#: ../admin/social_sharing.php:404
 msgid "Bottom of the content"
 msgstr "Parte inferiore del contenuto"
 
-#: ../admin/social_counter.php:334
+#: ../admin/social_counter.php:335
 #, fuzzy
 msgid "Specify position of the counter interface with respect to the content"
 msgstr "Specificare la posizione dell'interfaccia del Contatore al rispetto del contenuto"
 
-#: ../admin/social_counter.php:342
-#: ../admin/social_counter.php:590
+#: ../admin/social_counter.php:343
+#: ../admin/social_counter.php:593
 #, fuzzy
 msgid "Counter location"
 msgstr "Posizione del Contatore"
 
-#: ../admin/social_counter.php:346
-#: ../admin/social_counter.php:594
-#: ../admin/social_sharing.php:418
-#: ../admin/social_sharing.php:761
-#: ../admin/social_login.php:494
-#: ../admin/social_login.php:524
+#: ../admin/social_counter.php:347
+#: ../admin/social_counter.php:597
+#: ../admin/social_sharing.php:423
+#: ../admin/social_sharing.php:768
+#: ../admin/social_login.php:514
+#: ../admin/social_login.php:544
 msgid "Homepage"
 msgstr "Pagina d'inizio"
 
-#: ../admin/social_counter.php:348
-#: ../admin/social_counter.php:596
-#: ../admin/social_sharing.php:420
-#: ../admin/social_sharing.php:763
+#: ../admin/social_counter.php:349
+#: ../admin/social_counter.php:599
+#: ../admin/social_sharing.php:425
+#: ../admin/social_sharing.php:770
 msgid "Posts"
 msgstr "Pubblicazioni"
 
-#: ../admin/social_counter.php:350
-#: ../admin/social_counter.php:598
-#: ../admin/social_sharing.php:422
-#: ../admin/social_sharing.php:765
+#: ../admin/social_counter.php:351
+#: ../admin/social_counter.php:601
+#: ../admin/social_sharing.php:427
+#: ../admin/social_sharing.php:772
 msgid "Pages"
 msgstr "Pagine"
 
-#: ../admin/social_counter.php:352
-#: ../admin/social_counter.php:600
-#: ../admin/social_sharing.php:424
-#: ../admin/social_sharing.php:767
+#: ../admin/social_counter.php:353
+#: ../admin/social_counter.php:603
+#: ../admin/social_sharing.php:429
+#: ../admin/social_sharing.php:774
 msgid "Excerpts"
 msgstr "Estrazioni"
 
-#: ../admin/social_counter.php:354
-#: ../admin/social_counter.php:602
-#: ../admin/social_sharing.php:426
-#: ../admin/social_sharing.php:769
+#: ../admin/social_counter.php:355
+#: ../admin/social_counter.php:605
+#: ../admin/social_sharing.php:431
+#: ../admin/social_sharing.php:776
 msgid "Category Archives"
 msgstr "Archivi di categorie"
 
-#: ../admin/social_counter.php:360
-#: ../admin/social_sharing.php:432
+#: ../admin/social_counter.php:357
+#: ../admin/social_counter.php:607
+#: ../admin/social_sharing.php:433
+#: ../admin/social_sharing.php:778
+msgid "Archive Pages (Category, Tag, Author or Date based pages)"
+msgstr "Archive Pages (categoria, tag, autore o pagine data base)"
+
+#: ../admin/social_counter.php:363
+#: ../admin/social_sharing.php:439
 msgid "BuddyPress activity and groups"
 msgstr ""
 
-#: ../admin/social_counter.php:367
-#: ../admin/social_counter.php:608
-#: ../admin/social_sharing.php:439
-#: ../admin/social_sharing.php:775
+#: ../admin/social_counter.php:370
+#: ../admin/social_counter.php:613
+#: ../admin/social_sharing.php:446
+#: ../admin/social_sharing.php:784
 msgid "BBPress forum"
 msgstr ""
 
-#: ../admin/social_counter.php:370
-#: ../admin/social_counter.php:611
-#: ../admin/social_sharing.php:442
-#: ../admin/social_sharing.php:778
+#: ../admin/social_counter.php:373
+#: ../admin/social_counter.php:616
+#: ../admin/social_sharing.php:449
+#: ../admin/social_sharing.php:787
 msgid "BBPress topic"
 msgstr ""
 
-#: ../admin/social_counter.php:373
-#: ../admin/social_sharing.php:445
+#: ../admin/social_counter.php:376
+#: ../admin/social_sharing.php:452
 msgid "BBPress reply"
 msgstr ""
 
-#: ../admin/social_counter.php:383
+#: ../admin/social_counter.php:386
 #, fuzzy
 msgid "Specify the pages where you want to enable counter interface"
 msgstr "Specifica le pagine dove vuoi abilitare l'interfaccia del contatore"
 
-#: ../admin/social_counter.php:393
+#: ../admin/social_counter.php:396
 msgid "Vertical (Floating) counter interface Options"
 msgstr "Opzioni dell'interfaccia verticale (flottante) del Contatore"
 
-#: ../admin/social_counter.php:399
+#: ../admin/social_counter.php:402
 #, fuzzy
 msgid "Enable vertical (floating) counter interface"
 msgstr "Abilitare l'interfaccia verticale (flottante) del contatore"
 
-#: ../admin/social_counter.php:409
+#: ../admin/social_counter.php:412
 #, fuzzy
 msgid "Master control to enable vertical (floating) counter widget"
 msgstr "Controllo maestro per abilitare il widget contatore verticale (flottante) "
 
-#: ../admin/social_counter.php:493
-#: ../admin/social_sharing.php:660
+#: ../admin/social_counter.php:496
+#: ../admin/social_sharing.php:667
 msgid "Background Color"
 msgstr "Colore del fondo"
 
-#: ../admin/social_counter.php:503
+#: ../admin/social_counter.php:506
 msgid "Specify the color or hex code (example #cc78e0) for the background of vertical counter bar. Leave empty for transparent. You can get the hex code of the required color from <a href=\"http://www.colorpicker.com/\" target=\"_blank\">this link</a>"
 msgstr "Specifica il colore o il codigo hex (esempio #cc78e0) per il fondo della barra verticale del Contatore. Lascia in bianco per transparente. Puoi ottenere il codigo hex da <a href=\"http://www.colorpicker.com/\" target=\"_blank\">questo collegamento</a>"
 
-#: ../admin/social_counter.php:533
-#: ../admin/social_sharing.php:700
+#: ../admin/social_counter.php:536
+#: ../admin/social_sharing.php:707
 msgid "Left offset"
 msgstr "Compensazione a sinistra"
 
-#: ../admin/social_counter.php:543
+#: ../admin/social_counter.php:546
 msgid "Specify a number. Increase in number will shift counter interface towards right and decrease will shift it towards left."
 msgstr "Specifica un numero. Un numero piú grande muove l'interfaccia del Contatore alla destra, un numero piú piccolo lo muove alla sinistra."
 
-#: ../admin/social_counter.php:553
-#: ../admin/social_sharing.php:720
+#: ../admin/social_counter.php:556
+#: ../admin/social_sharing.php:727
 #, fuzzy
 msgid "Right offset"
 msgstr "Compensazione alla destra"
 
-#: ../admin/social_counter.php:563
+#: ../admin/social_counter.php:566
 #, fuzzy
 msgid "Specify a number. Increase in number will shift counter interface towards left and decrease will shift it towards right."
 msgstr "Specifica un numero. Un numero piú grande muove l'interfaccia del Contatore alla sinistra, un numero piú piccolo lo muove alla destra."
 
-#: ../admin/social_counter.php:572
-#: ../admin/social_sharing.php:739
+#: ../admin/social_counter.php:575
+#: ../admin/social_sharing.php:746
 msgid "Top offset"
 msgstr "Compensazione in cima"
 
-#: ../admin/social_counter.php:582
+#: ../admin/social_counter.php:585
 #, fuzzy
 msgid "Specify a number. Increase in number will shift counter interface towards bottom and decrease will shift it towards top."
 msgstr "Specifica un numero. Un numero piú grande muove l'interfaccia del Contatore verso il basso, un numero piú piccolo lo muove all'alto."
 
-#: ../admin/social_counter.php:621
+#: ../admin/social_counter.php:626
 msgid "Specify the pages where you want to enable vertical counter interface"
 msgstr "Specifica le pagine dove vuoi abilitare l'interfaccia del Contatore verticale"
 
-#: ../admin/social_counter.php:637
-#: ../admin/facebook.php:12
-#: ../admin/facebook.php:372
-#: ../admin/social_sharing.php:823
-#: ../admin/social_login.php:634
+#: ../admin/social_counter.php:642
+#: ../admin/social_sharing.php:832
+#: ../admin/social_commenting.php:11
+#: ../admin/social_commenting.php:211
+#: ../admin/social_login.php:654
 msgid "Shortcode"
 msgstr "Codice breve"
 
-#: ../admin/social_counter.php:639
+#: ../admin/social_counter.php:644
 msgid "You can use <strong>[TheChamp-Counter]</strong> Shortcode in the content of required page/post where you want to display Social Counter interface."
 msgstr "Puoi usare il Codice breve <strong>[TheChamp-Counter]</strong> nel contenuto delle pagine o dei posts dove vuoi che il Contatore Sociale apparesca."
 
-#: ../admin/social_counter.php:640
 #: ../admin/social_counter.php:645
 #: ../admin/social_counter.php:650
 #: ../admin/social_counter.php:655
 #: ../admin/social_counter.php:660
-#: ../admin/facebook.php:375
-#: ../admin/facebook.php:380
-#: ../admin/facebook.php:385
-#: ../admin/facebook.php:390
-#: ../admin/facebook.php:395
-#: ../admin/social_sharing.php:826
-#: ../admin/social_sharing.php:831
-#: ../admin/social_sharing.php:836
-#: ../admin/social_sharing.php:841
-#: ../admin/social_sharing.php:846
-#: ../admin/social_sharing.php:851
-#: ../admin/social_login.php:637
-#: ../admin/social_login.php:640
+#: ../admin/social_counter.php:665
+#: ../admin/social_sharing.php:835
+#: ../admin/social_sharing.php:840
+#: ../admin/social_sharing.php:845
+#: ../admin/social_sharing.php:850
+#: ../admin/social_sharing.php:855
+#: ../admin/social_sharing.php:860
+#: ../admin/social_commenting.php:214
+#: ../admin/social_commenting.php:219
+#: ../admin/social_commenting.php:224
+#: ../admin/social_commenting.php:229
+#: ../admin/social_commenting.php:234
+#: ../admin/social_login.php:657
+#: ../admin/social_login.php:660
 msgid "Example"
 msgstr "Esempio"
 
-#: ../admin/social_counter.php:642
-#: ../admin/facebook.php:377
-#: ../admin/social_sharing.php:828
+#: ../admin/social_counter.php:647
+#: ../admin/social_sharing.php:837
+#: ../admin/social_commenting.php:216
 msgid "You can use following attributes in the Shortcode"
 msgstr "Puoi usare i siguenti attributi nel Codigo breve"
 
-#: ../admin/social_counter.php:644
+#: ../admin/social_counter.php:649
 msgid "Use <strong>style</strong> attribute to style the rendered Social Counter interface"
 msgstr "Usa l'attributo <strong>style</strong> per cambiare il stilo del Contatore Sociale"
 
-#: ../admin/social_counter.php:649
+#: ../admin/social_counter.php:654
 #, fuzzy
 msgid "Use <strong>type</strong> attribute to specify the type (\"horizontal\" or \"vertical\") of Social Counter interface. Default type is \"horizontal\"."
 msgstr "Utilizza l'attributo <strong>type</strong> para specificare il tipo (\"horizontal\" o \"vertical\") del Contatore Sociale. Predefinito é \"horizontal\"."
 
-#: ../admin/social_counter.php:653
+#: ../admin/social_counter.php:658
 msgid "Left (Works with \"Vertical\" type interface only)"
 msgstr "Left (funziona solo con il tipo \"verticale\")"
 
-#: ../admin/social_counter.php:654
+#: ../admin/social_counter.php:659
 msgid "Use <strong>left</strong> attribute to specify the left offset (distance form the left side of the screen) of Social Counter interface."
 msgstr "Usa l'attributo <strong>left</strong> per specificare la compensazione a sinistra dell'interfaccia del Contatore (distanza del lato sinistro del schermo)."
 
-#: ../admin/social_counter.php:658
+#: ../admin/social_counter.php:663
 msgid "Top (Works with \"Vertical\" type interface only)"
 msgstr "Top (funziona solo con il tipo \"verticale\")"
 
-#: ../admin/social_counter.php:659
+#: ../admin/social_counter.php:664
 #, fuzzy
 msgid "Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Counter interface."
 msgstr "Usa l'attributo <strong>top</strong> per specificare la compensazione all'alto dell'interfaccia del Contatore (distanza del lato superiore del schermo)."
 
-#: ../admin/social_counter.php:662
-#: ../admin/facebook.php:397
-#: ../admin/social_sharing.php:853
-#: ../admin/social_login.php:642
+#: ../admin/social_counter.php:667
+#: ../admin/social_sharing.php:862
+#: ../admin/social_commenting.php:236
+#: ../admin/social_login.php:662
 #, fuzzy
 msgid "You can use shortcode in PHP file as following"
 msgstr "Puoi usare i Codici brevi nei documenti PHP como segue"
 
-#: ../admin/social_counter.php:664
+#: ../admin/social_counter.php:669
 msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Counter style=\"background-color:#000;\"]</strong>, so the final code looks like following"
 msgstr "Rimuovi <strong>SHORTCODE</strong> nel codice qui sopra con il Codice breve come: <strong>[TheChamp-Counter style=\"background-color:#000;\"]</strong>, il codigo finale si presenta come segue"
 
-#: ../admin/social_counter.php:670
-#: ../admin/social_sharing.php:861
-#: ../admin/social_login.php:650
+#: ../admin/social_counter.php:675
+#: ../admin/social_sharing.php:870
+#: ../admin/social_login.php:670
 msgid "Widget"
 msgstr "Widget"
 
-#: ../admin/social_counter.php:672
+#: ../admin/social_counter.php:677
 msgid "You can navigate to the <strong>Appearance</strong> > <strong>Widgets</strong> section in the left pan and drag <strong>Super Socializer - Counter (Horizontal Widget)</strong> and <strong>Super Socializer - Counter (Vertical Floating Widget)</strong> widgets in the required area."
 msgstr "Puoi navigare alla sezione <strong>Appearence</strong> > <strong>Widgets</strong> nella vaschetta sinistra e posizionare i widget <strong>Super Socializer - Counter (Horizontal Widget)</strong> e <strong>Super Socializer - Counter (Vertical Floating Widget)</strong> nell'area desiderata."
 
-#: ../admin/social_counter.php:681
-#: ../admin/facebook.php:424
-#: ../admin/social_sharing.php:907
-#: ../admin/social_login.php:661
-msgid "Save Changes"
-msgstr "Salvare le modifiche."
-
-#: ../admin/facebook.php:10
-msgid "Facebook Commenting"
-msgstr "Commentando con Facebook"
-
-#: ../admin/facebook.php:11
-#: ../admin/facebook.php:202
-msgid "Feed"
-msgstr "Feed di Notizie"
-
-#: ../admin/facebook.php:13
-#: ../admin/social_sharing.php:18
-msgid "FAQ"
-msgstr "FAQ"
-
-#: ../admin/facebook.php:19
-#: ../admin/facebook.php:25
-msgid "Enable Facebook Commenting"
-msgstr "Abilitare Commentando con Facebook"
-
-#: ../admin/facebook.php:35
+#: ../admin/social_counter.php:687
 #, fuzzy
-msgid "After enabling this option, Facebook commenting will appear before Wordpress comment form at your website"
-msgstr "Dopo d'abilitare questa opzione, Commentando con Facebook sará visualizzato in luogo del formulario di Commento di Wordpress nel tuo sito Web."
-
-#: ../admin/facebook.php:45
-msgid "Facebook Commenting Options"
-msgstr "Opzioni di Commentando con Facebook"
-
-#: ../admin/facebook.php:51
-msgid "Url to comment on"
-msgstr "Url per commentare"
-
-#: ../admin/facebook.php:61
-#, fuzzy
-msgid "The absolute URL that comments posted will be permanently associated with. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
-msgstr "La URL assoluta a la quale i commentari pubblicati saranno associati permanentemente. Storie in Facebook relazionati ai commentari pubblicati saranno redirezionati a questa URL.<br/>Se lasciato in bianco <strong>(raccomandato)</strong>, si utilizzará la URL della página web nella quale i commentari sono abilitati."
-
-#: ../admin/facebook.php:69
-msgid "Width"
-msgstr "Larghezza"
-
-#: ../admin/facebook.php:79
-msgid "Leave empty to auto-adjust the width. The width (in pixels) of the Comments block."
-msgstr "Lasciare vuoto per auto-regolare la larghezza. La larghezza (in pixel) del blocco commenti."
-
-#: ../admin/facebook.php:87
-msgid "Color Scheme"
-msgstr "Combinazione di colori"
-
-#: ../admin/facebook.php:91
-msgid "Light"
-msgstr "Chiaro"
-
-#: ../admin/facebook.php:92
-msgid "Dark"
-msgstr "Scuro"
-
-#: ../admin/facebook.php:100
-msgid "The color scheme used by the plugin. Can be \"light\" or \"dark\"."
-msgstr "La combinazione di colori usato dal plugin. Puó essere \"chiaro\" o \"scuro\"."
-
-#: ../admin/facebook.php:108
-#, fuzzy
-msgid "Number of comments"
-msgstr "Numero di pubblicazioni"
-
-#: ../admin/facebook.php:118
-msgid "The number of comments to show by default. The minimum value is 1. Defaults to 10"
-msgstr "Il numero di commentari a mostrare per impostazione predefinita. Il valore minimo é 1. Predefinito é 10"
-
-#: ../admin/facebook.php:126
-msgid "Order by"
-msgstr "Ordinare per"
-
-#: ../admin/facebook.php:130
-msgid "Social"
-msgstr "Sociale"
-
-#: ../admin/facebook.php:131
-msgid "Reverse Time"
-msgstr "Invertire il tempo"
-
-#: ../admin/facebook.php:132
-msgid "Time"
-msgstr "Tempo"
-
-#: ../admin/facebook.php:140
-msgid "The order to use when displaying comments."
-msgstr "L'ordine a usare quando si mostrano commentari."
-
-#: ../admin/facebook.php:148
-msgid "Mobile"
-msgstr "Mobile"
-
-#: ../admin/facebook.php:152
-msgid "Auto Detect"
-msgstr "Rilevare automaticamente"
-
-#: ../admin/facebook.php:153
-msgid "True"
-msgstr "Vero"
-
-#: ../admin/facebook.php:154
-msgid "False"
-msgstr "Falso"
-
-#: ../admin/facebook.php:162
-msgid "A boolean value that specifies whether to show the mobile-optimized version or not."
-msgstr "Un valore booleano che specifica se si mostrará la versione ottimizata per cellulari o no. "
-
-#: ../admin/facebook.php:180
-#, php-format
-msgid "Enter the code of the language you want to use to display commenting. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
-msgstr "Ingressa il codice della lingua che vuoi usare per mostrare i commentari. Poui incontrare i codici delle lingue a <a href=\"%s\" target=\"_blank\">questo collegamento</a>. Lascia in bianco per la lingua predefinita(inglese)"
-
-#: ../admin/facebook.php:195
-msgid "Important note"
-msgstr "Nota importante"
-
-#: ../admin/facebook.php:197
-#, php-format
-msgid "To use this feature follow the steps mentioned at <a href=\"%s\" target=\"_blank\">this link</a>"
-msgstr "Per usare questa funzione segui i passi menzionati a <a href=\"%s\" target=\"_blank\">questo collegamento</a>"
-
-#: ../admin/facebook.php:208
-msgid "Publish feed on user's timeline on Facebook login"
-msgstr "Pubblicare Feed di Notizie sulla linea temporale dell'utente dopo del suo accesso al Facebook"
-
-#: ../admin/facebook.php:218
-msgid "If enabled, a post will be published on the timeline of the user logging in"
-msgstr "Se abilitato, una pubblicazione sará pubblicata sulla linea temporale dell' utente che accede"
-
-#: ../admin/facebook.php:228
-msgid "Facebook Feed Options"
-msgstr "Opzioni di Feed di Notizie di Facebook"
-
-#: ../admin/facebook.php:234
-msgid "Message"
-msgstr "Messaggio"
-
-#: ../admin/facebook.php:244
-msgid "Message for the feed post. %website-name% will be replaced with your website name in actual message."
-msgstr "Messaggio per la pubblicazione del Feed di Notizie. %website-name% sará sostituito con il nome del tuo sito web nel messaggio attuale."
-
-#: ../admin/facebook.php:253
-msgid "Link (required)"
-msgstr "Collegamento (richiesto)"
-
-#: ../admin/facebook.php:263
-msgid "The link attached to this feed (required parameter for this functionality to work)"
-msgstr "Il collegamento allegato a questa Feed di Notizie (parametro richiesto per per fare funzionare questa funzionalitá) "
-
-#: ../admin/facebook.php:271
-msgid "Picture"
-msgstr "Immagine"
-
-#: ../admin/facebook.php:281
-msgid "The URL of a picture attached to this post. The picture must be at least 200px by 200px. (if this url is not specified, image from the url specified in Link parameter will be displayed in the post)"
-msgstr "La URL di una immagine allegata a questa pubblicazione. L'immagine dev'essere al minimo 200px per 200px. (se la url non é specificata, l'immagine della url specificata nei parametri del collegamento sará mostrata nella pubblicazione)"
-
-#: ../admin/facebook.php:290
-msgid "Source"
-msgstr "Fonte"
-
-#: ../admin/facebook.php:300
-msgid "The URL of a media file (either SWF or MP3) attached to this post. If SWF, you must also specify picture (in \"Picture\" parameter) to provide a thumbnail for the video."
-msgstr "La URL di un media file (SWF ó MP3) allegata a questa pubblicazione. Se é SWF, si deve specificare la immagine (nel parametro \"Immagine\") per dare una miniatura per il video."
-
-#: ../admin/facebook.php:308
-msgid "Name"
-msgstr "Nome"
-
-#: ../admin/facebook.php:318
-msgid "The name of the link attachment"
-msgstr "Il nome dell'attacamento del collegamento"
-
-#: ../admin/facebook.php:327
-msgid "Caption"
-msgstr "Didascalia"
-
-#: ../admin/facebook.php:337
-msgid "The caption of the link (appears beneath the link name). If not specified, this field is automatically populated with the URL of the link."
-msgstr "La didascalia del collegamento (apparesce sottostante al nome del collegamento). Se non é specificato, questo campo e automaticamente popolato con la URL del collegamento."
-
-#: ../admin/facebook.php:346
-msgid "Description"
-msgstr "Descrizione"
-
-#: ../admin/facebook.php:356
-msgid "The description of the link (appears beneath the link caption). If not specified, this field is automatically populated by information scraped from the link, typically the title of the page."
-msgstr "La descrizione del collegamento (apparesce sottostante della didascalia del collegamento). Se non é specificato, questo campo sará automaticamente popolato con la informazine presa del collegamento, tipicamente il titolo della pagina."
-
-#: ../admin/facebook.php:374
-#, fuzzy
-msgid "You can use <strong>[TheChamp-FB-Comments]</strong> Shortcode in the content of required page/post where you want to display Facebook Commenting interface."
-msgstr "Puoi usare il Codice breve <strong>[TheChamp-Counter]</strong> nel contenuto delle pagine o dei posts dove vuoi che il Contatore Sociale apparesca."
-
-#: ../admin/facebook.php:379
-#, fuzzy
-msgid "Use <strong>style</strong> attribute to style the rendered commenting interface"
-msgstr "Utilizza l'attributo <strong>style</strong> per stilizzare l'interfaccia di condivisione sociale"
-
-#: ../admin/facebook.php:384
-#, fuzzy
-msgid "Use <strong>url</strong> attribute to specify the target url for comments. This defaults  to the page where shortcode is used."
-msgstr "Usa l'attributo <strong>left</strong> per specificare la compensazione a sinistra dell'interfaccia del Contatore (distanza del lato sinistro del schermo)."
-
-#: ../admin/facebook.php:388
-msgid "num_posts"
-msgstr ""
-
-#: ../admin/facebook.php:389
-#, fuzzy
-msgid "Use <strong>num_posts</strong> attribute to specify the number of comments to display."
-msgstr "Usa l'attributo <strong>style</strong> per cambiare il stilo del Contatore Sociale"
-
-#: ../admin/facebook.php:393
-#, fuzzy
-msgid "width"
-msgstr "Larghezza"
-
-#: ../admin/facebook.php:394
-#, fuzzy
-msgid "Use <strong>width</strong> attribute to specify the width of commenting interface. Omit it for fluid width"
-msgstr "Usa l'attributo <strong>top</strong> per specificare la posizione dell'interfaccia di condivisione sociale in relazione al margine superiore dello schermo."
-
-#: ../admin/facebook.php:399
-#, fuzzy
-msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-FB-Comments style=\"background-color:#000;\"]</strong>, so the final code looks like following"
-msgstr "Rimuovi <strong>SHORTCODE</strong> nel codice qui sopra con il Codice breve come: <strong>[TheChamp-Counter style=\"background-color:#000;\"]</strong>, il codigo finale si presenta come segue"
-
-#: ../admin/facebook.php:410
-#, fuzzy
-msgid "How can I disable FB comments at individual page/post?"
+msgid "How can I show like counts of my website rather than of individual pages/posts?"
 msgstr "Como posso mostrare la quantitá di condivisoni del mio sito web invece di solo pagine uniche?"
 
-#: ../admin/facebook.php:414
-msgid "Edit that page/post and check the option \"Disable Facebook Comments on this post/page\" at the bottom in \"Super Socializer\" section"
+#: ../admin/social_counter.php:691
+#, fuzzy
+msgid "Choose \"Url of the homepage of your website\" in \"Target Url\" option"
+msgstr "Opzione Scegli \"Url della homepage del tuo sito web \" in 'opzione \"Target URL \" e attivare \"Mostra condividere conta \""
+
+#: ../admin/social_counter.php:698
+#, fuzzy
+msgid "How can I disable social counter on particular page/post?"
+msgstr "Como posso mostrare la quantitá di condivisoni del mio sito web invece di solo pagine uniche?"
+
+#: ../admin/social_counter.php:702
+#: ../admin/social_sharing.php:916
+#: ../admin/social_sharing.php:929
+#, fuzzy
+msgid "Edit that page/post and check the options at the bottom in \"Super Socializer\" section"
 msgstr "Modifica la pagina / posta e selezionare l'opzione \"Disabilita Facebook Commenti su questo post/pagina \" in fondo in sezione \"Super Socializer\""
+
+#: ../admin/social_counter.php:715
+#: ../admin/social_sharing.php:940
+#: ../admin/social_commenting.php:277
+#: ../admin/social_login.php:681
+msgid "Save Changes"
+msgstr "Salvare le modifiche."
 
 #: ../admin/social_sharing.php:15
 msgid "Social Sharing"
@@ -901,7 +733,7 @@ msgid "Master control to enable horizontal sharing"
 msgstr "Controllo maestro per abilitare la condivisione orizzontale"
 
 #: ../admin/social_sharing.php:218
-#: ../admin/social_sharing.php:525
+#: ../admin/social_sharing.php:532
 msgid "Url to share"
 msgstr "Url per condividere"
 
@@ -910,265 +742,415 @@ msgid "The text to display above the sharing interface"
 msgstr "Il testo a mostrare sopra l'interfaccia di condivisione"
 
 #: ../admin/social_sharing.php:244
-#: ../admin/social_sharing.php:533
+#: ../admin/social_sharing.php:540
 #: ../admin/social_login.php:41
 msgid "Select providers"
 msgstr "Selezionare fornitori"
 
 #: ../admin/social_sharing.php:249
-#: ../admin/social_sharing.php:538
+#: ../admin/social_sharing.php:545
 #: ../admin/social_login.php:46
 msgid "Facebook"
 msgstr "Facebook"
 
 #: ../admin/social_sharing.php:254
-#: ../admin/social_sharing.php:543
+#: ../admin/social_sharing.php:550
 #: ../admin/social_login.php:50
 msgid "Twitter"
 msgstr "Twitter"
 
 #: ../admin/social_sharing.php:259
-#: ../admin/social_sharing.php:548
+#: ../admin/social_sharing.php:555
 #: ../admin/social_login.php:54
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
 #: ../admin/social_sharing.php:264
-#: ../admin/social_sharing.php:553
+#: ../admin/social_sharing.php:560
 #: ../admin/social_login.php:58
 msgid "Google+"
 msgstr "Google+"
 
 #: ../admin/social_sharing.php:269
-#: ../admin/social_sharing.php:558
+#: ../admin/social_sharing.php:565
 msgid "Print"
 msgstr "Stampare"
 
 #: ../admin/social_sharing.php:274
-#: ../admin/social_sharing.php:563
+#: ../admin/social_sharing.php:570
 msgid "Email"
 msgstr "Email"
 
 #: ../admin/social_sharing.php:279
-#: ../admin/social_sharing.php:568
+#: ../admin/social_sharing.php:575
 msgid "Yahoo"
 msgstr "Yahoo"
 
 #: ../admin/social_sharing.php:284
-#: ../admin/social_sharing.php:573
+#: ../admin/social_sharing.php:580
 msgid "Reddit"
 msgstr "Reddit"
 
 #: ../admin/social_sharing.php:289
-#: ../admin/social_sharing.php:578
+#: ../admin/social_sharing.php:585
 msgid "Digg"
 msgstr "Digg"
 
 #: ../admin/social_sharing.php:294
-#: ../admin/social_sharing.php:583
+#: ../admin/social_sharing.php:590
 msgid "Delicious"
 msgstr "Delicious"
 
 #: ../admin/social_sharing.php:299
-#: ../admin/social_sharing.php:588
+#: ../admin/social_sharing.php:595
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
 #: ../admin/social_sharing.php:304
-#: ../admin/social_sharing.php:593
+#: ../admin/social_sharing.php:600
 msgid "Float it"
 msgstr "Float it"
 
 #: ../admin/social_sharing.php:309
-#: ../admin/social_sharing.php:598
+#: ../admin/social_sharing.php:605
 msgid "Tumblr"
 msgstr "Tumblr"
 
 #: ../admin/social_sharing.php:314
-#: ../admin/social_sharing.php:603
+#: ../admin/social_sharing.php:610
 #: ../admin/social_login.php:62
 msgid "Vkontakte"
 msgstr "Vkontakte"
 
 #: ../admin/social_sharing.php:319
-#: ../admin/social_sharing.php:608
+#: ../admin/social_sharing.php:615
 msgid "Pinterest"
 msgstr "Pinterest"
 
 #: ../admin/social_sharing.php:324
-#: ../admin/social_sharing.php:613
+#: ../admin/social_sharing.php:620
 #: ../admin/social_login.php:70
 msgid "Xing"
 msgstr ""
 
-#: ../admin/social_sharing.php:332
-#: ../admin/social_sharing.php:621
+#: ../admin/social_sharing.php:329
+msgid "Whatsapp"
+msgstr ""
+
+#: ../admin/social_sharing.php:337
+#: ../admin/social_sharing.php:628
 msgid "Select the providers for sharing interface"
 msgstr "Seleziona i fornitori per l'interfaccia di condivisione"
 
-#: ../admin/social_sharing.php:340
-#: ../admin/social_sharing.php:629
+#: ../admin/social_sharing.php:345
+#: ../admin/social_sharing.php:636
 msgid "Rearrange icons"
 msgstr "riorganizzare gli iconi"
 
-#: ../admin/social_sharing.php:363
-#: ../admin/social_sharing.php:652
+#: ../admin/social_sharing.php:368
+#: ../admin/social_sharing.php:659
 msgid "Drag the icons to rearrange in desired order"
 msgstr "Arrastra gli iconi per riordinare nell'ordine desiderato"
 
-#: ../admin/social_sharing.php:385
-#: ../admin/social_sharing.php:691
+#: ../admin/social_sharing.php:390
+#: ../admin/social_sharing.php:698
 #, fuzzy
 msgid "Horizontal alignment of the sharing interface"
 msgstr "Allineamento orizzontale dell'interfaccia di condivisione"
 
-#: ../admin/social_sharing.php:406
+#: ../admin/social_sharing.php:411
 msgid "Specify position of the sharing interface with respect to the content"
 msgstr "Specifica la posizione dell'interfaccia al rispetto del contenuto"
 
-#: ../admin/social_sharing.php:414
-#: ../admin/social_sharing.php:757
+#: ../admin/social_sharing.php:419
+#: ../admin/social_sharing.php:764
 msgid "Sharing location"
 msgstr "Posto di condivisione"
 
-#: ../admin/social_sharing.php:455
+#: ../admin/social_sharing.php:462
 msgid "Specify the pages where you want to enable Sharing interface"
 msgstr "Specifica le pagine dove vuoi abilitare l'interfaccia di condivisione"
 
-#: ../admin/social_sharing.php:463
-#: ../admin/social_sharing.php:796
+#: ../admin/social_sharing.php:470
+#: ../admin/social_sharing.php:805
 msgid "Show share counts"
 msgstr "Mostra la qunatitá di condivisioni"
 
-#: ../admin/social_sharing.php:473
-#: ../admin/social_sharing.php:806
+#: ../admin/social_sharing.php:480
+#: ../admin/social_sharing.php:815
 msgid "If enabled, share counts are displayed above sharing icons."
 msgstr "Sé é abilitato, la quantitá di condivisioni sará mostrato sopra gli iconi di condivisione"
 
-#: ../admin/social_sharing.php:484
+#: ../admin/social_sharing.php:491
 msgid "Vertical (Floating) Sharing Interface Options"
 msgstr "Opzioni verticali (fluotante) dell'interfaccia di condivisione"
 
-#: ../admin/social_sharing.php:490
+#: ../admin/social_sharing.php:497
 msgid "Enable vertical (floating) sharing interface"
 msgstr "Abilitare l'interfaccia di condivisione verticale (fluotante)"
 
-#: ../admin/social_sharing.php:500
+#: ../admin/social_sharing.php:507
 msgid "Master control to enable vertical (floating) sharing widget"
 msgstr "Controllo maestro per abilitare il widget di condivisione verticale (fluotante)"
 
-#: ../admin/social_sharing.php:670
+#: ../admin/social_sharing.php:677
 msgid "Specify the color or hex code (example #cc78e0) for the background of vertical sharing bar. Leave empty for transparent. You can get the hex code of the required color from <a href=\"http://www.colorpicker.com/\" target=\"_blank\">this link</a>"
 msgstr "Specifica il colore ó il codice hex (esempio #cc78e0) per il fondo dell'area di condivisione verticale. Lascia vuoto per transparente. Puoi ottenere il codice hex del colore necessitato a <a href=\"http://www.colorpicker.com/\" target=\"_blank\">questo collegamento</a>"
 
-#: ../admin/social_sharing.php:710
+#: ../admin/social_sharing.php:717
 msgid "Specify a number. Increase in number will shift sharing interface towards right and decrease will shift it towards left."
 msgstr "Specifica un numero. Un numero piú alto muove l'interfaccia di condivisione verso destra e un numero minore lo muove verso sinistra."
 
-#: ../admin/social_sharing.php:730
+#: ../admin/social_sharing.php:737
 #, fuzzy
 msgid "Specify a number. Increase in number will shift sharing interface towards left and decrease will shift it towards right."
 msgstr "Specifica un numero. Un numero piú alto muove l'interfaccia di condivisione verso sinistra e un numero minore lo muove verso destra."
 
-#: ../admin/social_sharing.php:749
+#: ../admin/social_sharing.php:756
 msgid "Specify a number. Increase in number will shift sharing interface towards bottom and decrease will shift it towards top."
 msgstr "Specifica un numero. Un numero piú alto muove l'interfaccia di condivisione verso il basso e un numero minore lo muove verso l'alto."
 
-#: ../admin/social_sharing.php:788
+#: ../admin/social_sharing.php:797
 msgid "Specify the pages where you want to enable vertical Sharing interface"
 msgstr "Specifica le pagine dove vuoi abilitare l'interfaccia di condivisione verticale"
 
-#: ../admin/social_sharing.php:825
+#: ../admin/social_sharing.php:834
 msgid "You can use <strong>[TheChamp-Sharing]</strong> Shortcode in the content of required page/post where you want to display Social Sharing interface."
 msgstr "Puoi utilizzare il codice breve <strong>[TheChamp-Sharing]</strong> nel contenuto della pagina o del post dove vuoi che si mostra l'iterfaccia di condivisione sociale"
 
-#: ../admin/social_sharing.php:830
+#: ../admin/social_sharing.php:839
 msgid "Use <strong>style</strong> attribute to style the rendered Social Sharing interface"
 msgstr "Utilizza l'attributo <strong>style</strong> per stilizzare l'interfaccia di condivisione sociale"
 
-#: ../admin/social_sharing.php:835
+#: ../admin/social_sharing.php:844
 msgid "Use <strong>type</strong> attribute to specify the type (\"horizontal\" or \"vertical\") of Social Sharing interface. Default type is \"horizontal\"."
 msgstr "Utilizza l'attributo <strong>type</strong> per specificare il tipo (\"horizontal\" o \"vertical\") dell'interfaccia di condivisione sociale. Predefinito é \"horizontal\"."
 
-#: ../admin/social_sharing.php:840
+#: ../admin/social_sharing.php:849
 #, fuzzy
 msgid "Use <strong>count</strong> attribute to enable the share counts on Social Sharing interface"
 msgstr "Utilizza l'attributo <strong>style</strong> per stilizzare l'interfaccia di condivisione sociale"
 
-#: ../admin/social_sharing.php:844
+#: ../admin/social_sharing.php:853
 #, fuzzy
 msgid "left (Works with \"Vertical\" type interface only)"
 msgstr "Left (funziona solo con il tipo \"verticale\")"
 
-#: ../admin/social_sharing.php:845
+#: ../admin/social_sharing.php:854
 msgid "Use <strong>left</strong> attribute to specify the left offset (distance form the left side of the screen) of Social Sharing interface."
 msgstr "Usa l'attributo <strong>left</strong> per specificare la posizione dell'interfaccia di condivisione sociale in relazione al margine sinistro dello schermo."
 
-#: ../admin/social_sharing.php:849
+#: ../admin/social_sharing.php:858
 #, fuzzy
 msgid "top (Works with \"Vertical\" type interface only)"
 msgstr "Top (funziona solo con il tipo \"verticale\")"
 
-#: ../admin/social_sharing.php:850
+#: ../admin/social_sharing.php:859
 msgid "Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Sharing interface."
 msgstr "Usa l'attributo <strong>top</strong> per specificare la posizione dell'interfaccia di condivisione sociale in relazione al margine superiore dello schermo."
 
-#: ../admin/social_sharing.php:855
+#: ../admin/social_sharing.php:864
 msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Sharing style=\"background-color:#000;\"]</strong>, so the final code looks like following"
 msgstr "Rimpiazza <strong>SHORTCODE</strong> nel codice antecedente con il codice breve necessario come <strong>[TheChamp-Sharing style=\"background-color:#000;\"]</strong>, il codice finale si presenterá come segue"
 
-#: ../admin/social_sharing.php:863
+#: ../admin/social_sharing.php:872
 msgid "You can navigate to the <strong>Appearance</strong> > <strong>Widgets</strong> section in the left pan and drag <strong>Super Socializer - Sharing (Horizontal Widget)</strong> and <strong>Super Socializer - Sharing (Vertical Floating Widget)</strong> widgets in the required area."
 msgstr "Puoi navigare alla sezione <strong>Apparenza</strong> > <strong>Widgets</strong>nella vaschetta di sinistra e muovere i widget <strong>Super-Socializer - Sharing (Horizontal Widget)</strong> e <strong>Super Socializer - Sharing (Vertical Floating Widget)strong> nell'area necessitata."
 
-#: ../admin/social_sharing.php:873
+#: ../admin/social_sharing.php:882
 msgid "Facebook Sharing Troubleshooter"
 msgstr "Soluzionatore di problemi della condivisone Facebook"
 
-#: ../admin/social_sharing.php:878
+#: ../admin/social_sharing.php:887
 msgid "If Facebook sharing is not working fine, click at the following link and enter the problematic url (where Facebook sharing is not working properly) of your website in the text field:"
 msgstr "Se la condivisione di Facebook non funziona bene, fai un clic sul collegamento che segue e ingressa il url problematico (dove la condivisione di Facebook non funziona bene) del tuo sito web nell'area di testo:"
 
-#: ../admin/social_sharing.php:892
+#: ../admin/social_sharing.php:901
 msgid "How can I show share counts of my website rather than of individual pages/posts?"
 msgstr "Como posso mostrare la quantitá di condivisoni del mio sito web invece di solo pagine uniche?"
 
-#: ../admin/social_sharing.php:896
+#: ../admin/social_sharing.php:905
 msgid "Choose \"Url of the homepage of your website\" in \"Target Url\" option and enable \"Show share counts\" option"
 msgstr "Opzione Scegli \"Url della homepage del tuo sito web \" in 'opzione \"Target URL \" e attivare \"Mostra condividere conta \""
 
-#: ../admin/social_admin.php:8
-msgid "Welcome"
-msgstr "Benvenuto"
-
-#: ../admin/social_admin.php:10
-msgid "You are ready to Socialize your website."
-msgstr "Sei pronto per socializzare il tuo sito web."
-
-#: ../admin/social_admin.php:11
-msgid "Getting Started"
-msgstr "Iniziando"
-
-#: ../admin/social_admin.php:12
-msgid "Start configuring the options in the sections below the <strong>Super Socializer</strong> menu in the left pan. <strong>Social Sharing</strong> is enabled at your website by default."
-msgstr "Comincia configurando le opzioni nelle sezioni sotto il menu <strong>Super Socializzatore</strong> nella vaschetta di sinistra. <strong>Condivisione Sociale</strong> é impostazione predefinita abilitata nella tuo sito web."
-
-#: ../admin/social_admin.php:13
-msgid "In <strong>Facebook</strong> section, you can configure Facebook Commenting and Feed."
-msgstr "Nella sezione <strong>Facebook</strong>, puoi configurare i commentari e il Feed di Notizie di Facebook."
-
-#: ../admin/social_admin.php:14
-msgid "In <strong>Social Login</strong> section, you can select Social ID provders and configure the Social Login options."
-msgstr "Nella sezione <strong>Accesso Sociale</strong>, puoi selezionare i provedori delle ID sociali e configurare le opzioni dell'Accesso Sociale."
-
-#: ../admin/social_admin.php:15
-msgid "In <strong>Social Sharing</strong> section, you can choose the Social Networks for Sharing and configure the optons for sharing."
-msgstr "Nella sezione <strong>Condiviosione Sociale</strong>, puoi scegliere la Rete Sociale per la condivisione e configurare le sue opzioni."
-
-#: ../admin/social_admin.php:16
+#: ../admin/social_sharing.php:912
 #, fuzzy
-msgid "In <strong>Social Counter</strong> section, you can choose the like/+1 buttons and configure the options for the same"
-msgstr "Nella sezione <strong>Condiviosione Sociale</strong>, puoi scegliere la Rete Sociale per la condivisione e configurare le sue opzioni."
+msgid "How can I disable sharing on particular page/post?"
+msgstr "Como posso mostrare la quantitá di condivisoni del mio sito web invece di solo pagine uniche?"
+
+#: ../admin/social_sharing.php:925
+msgid "How can I specify minimum sharing count for sharing networks?"
+msgstr "Come faccio a specificare conteggio minimo sharing per la condivisione di reti?"
+
+#: ../admin/social_commenting.php:10
+msgid "Facebook Commenting"
+msgstr "Commentando con Facebook"
+
+#: ../admin/social_commenting.php:18
+#: ../admin/social_commenting.php:24
+msgid "Enable Facebook Commenting"
+msgstr "Abilitare Commentando con Facebook"
+
+#: ../admin/social_commenting.php:34
+#, fuzzy
+msgid "After enabling this option, Facebook commenting will appear before Wordpress comment form at your website"
+msgstr "Dopo d'abilitare questa opzione, Commentando con Facebook sará visualizzato in luogo del formulario di Commento di Wordpress nel tuo sito Web."
+
+#: ../admin/social_commenting.php:44
+msgid "Facebook Commenting Options"
+msgstr "Opzioni di Commentando con Facebook"
+
+#: ../admin/social_commenting.php:50
+msgid "Keep only Facebook Commenting"
+msgstr "Conservare solo i Commenti di Facebook"
+
+#: ../admin/social_commenting.php:60
+#, fuzzy
+msgid "If enabled, only Facebook commenting would be visible without default comment form"
+msgstr "Se abilitato, solo Commentando con Facebook sará visualizzato, senza la opzione di cambiare ai Commenti WordPress"
+
+#: ../admin/social_commenting.php:68
+msgid "Url to comment on"
+msgstr "Url per commentare"
+
+#: ../admin/social_commenting.php:78
+#, fuzzy
+msgid "The absolute URL that comments posted will be permanently associated with. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
+msgstr "La URL assoluta a la quale i commentari pubblicati saranno associati permanentemente. Storie in Facebook relazionati ai commentari pubblicati saranno redirezionati a questa URL.<br/>Se lasciato in bianco <strong>(raccomandato)</strong>, si utilizzará la URL della página web nella quale i commentari sono abilitati."
+
+#: ../admin/social_commenting.php:86
+msgid "Width"
+msgstr "Larghezza"
+
+#: ../admin/social_commenting.php:96
+msgid "Leave empty to auto-adjust the width. The width (in pixels) of the Comments block."
+msgstr "Lasciare vuoto per auto-regolare la larghezza. La larghezza (in pixel) del blocco commenti."
+
+#: ../admin/social_commenting.php:104
+msgid "Color Scheme"
+msgstr "Combinazione di colori"
+
+#: ../admin/social_commenting.php:108
+msgid "Light"
+msgstr "Chiaro"
+
+#: ../admin/social_commenting.php:109
+msgid "Dark"
+msgstr "Scuro"
+
+#: ../admin/social_commenting.php:117
+msgid "The color scheme used by the plugin. Can be \"light\" or \"dark\"."
+msgstr "La combinazione di colori usato dal plugin. Puó essere \"chiaro\" o \"scuro\"."
+
+#: ../admin/social_commenting.php:125
+#, fuzzy
+msgid "Number of comments"
+msgstr "Numero di pubblicazioni"
+
+#: ../admin/social_commenting.php:135
+msgid "The number of comments to show by default. The minimum value is 1. Defaults to 10"
+msgstr "Il numero di commentari a mostrare per impostazione predefinita. Il valore minimo é 1. Predefinito é 10"
+
+#: ../admin/social_commenting.php:143
+msgid "Order by"
+msgstr "Ordinare per"
+
+#: ../admin/social_commenting.php:147
+msgid "Social"
+msgstr "Sociale"
+
+#: ../admin/social_commenting.php:148
+msgid "Reverse Time"
+msgstr "Invertire il tempo"
+
+#: ../admin/social_commenting.php:149
+msgid "Time"
+msgstr "Tempo"
+
+#: ../admin/social_commenting.php:157
+msgid "The order to use when displaying comments."
+msgstr "L'ordine a usare quando si mostrano commentari."
+
+#: ../admin/social_commenting.php:165
+msgid "Mobile"
+msgstr "Mobile"
+
+#: ../admin/social_commenting.php:169
+msgid "Auto Detect"
+msgstr "Rilevare automaticamente"
+
+#: ../admin/social_commenting.php:170
+msgid "True"
+msgstr "Vero"
+
+#: ../admin/social_commenting.php:171
+msgid "False"
+msgstr "Falso"
+
+#: ../admin/social_commenting.php:179
+msgid "A boolean value that specifies whether to show the mobile-optimized version or not."
+msgstr "Un valore booleano che specifica se si mostrará la versione ottimizata per cellulari o no. "
+
+#: ../admin/social_commenting.php:197
+#, php-format
+msgid "Enter the code of the language you want to use to display commenting. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
+msgstr "Ingressa il codice della lingua che vuoi usare per mostrare i commentari. Poui incontrare i codici delle lingue a <a href=\"%s\" target=\"_blank\">questo collegamento</a>. Lascia in bianco per la lingua predefinita(inglese)"
+
+#: ../admin/social_commenting.php:213
+#, fuzzy
+msgid "You can use <strong>[TheChamp-FB-Comments]</strong> Shortcode in the content of required page/post where you want to display Facebook Commenting interface."
+msgstr "Puoi usare il Codice breve <strong>[TheChamp-Counter]</strong> nel contenuto delle pagine o dei posts dove vuoi che il Contatore Sociale apparesca."
+
+#: ../admin/social_commenting.php:218
+#, fuzzy
+msgid "Use <strong>style</strong> attribute to style the rendered commenting interface"
+msgstr "Utilizza l'attributo <strong>style</strong> per stilizzare l'interfaccia di condivisione sociale"
+
+#: ../admin/social_commenting.php:223
+#, fuzzy
+msgid "Use <strong>url</strong> attribute to specify the target url for comments. This defaults  to the page where shortcode is used."
+msgstr "Usa l'attributo <strong>left</strong> per specificare la compensazione a sinistra dell'interfaccia del Contatore (distanza del lato sinistro del schermo)."
+
+#: ../admin/social_commenting.php:227
+msgid "num_posts"
+msgstr ""
+
+#: ../admin/social_commenting.php:228
+#, fuzzy
+msgid "Use <strong>num_posts</strong> attribute to specify the number of comments to display."
+msgstr "Usa l'attributo <strong>style</strong> per cambiare il stilo del Contatore Sociale"
+
+#: ../admin/social_commenting.php:232
+#, fuzzy
+msgid "width"
+msgstr "Larghezza"
+
+#: ../admin/social_commenting.php:233
+#, fuzzy
+msgid "Use <strong>width</strong> attribute to specify the width of commenting interface. Omit it for fluid width"
+msgstr "Usa l'attributo <strong>top</strong> per specificare la posizione dell'interfaccia di condivisione sociale in relazione al margine superiore dello schermo."
+
+#: ../admin/social_commenting.php:238
+#, fuzzy
+msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-FB-Comments style=\"background-color:#000;\"]</strong>, so the final code looks like following"
+msgstr "Rimuovi <strong>SHORTCODE</strong> nel codice qui sopra con il Codice breve come: <strong>[TheChamp-Counter style=\"background-color:#000;\"]</strong>, il codigo finale si presenta come segue"
+
+#: ../admin/social_commenting.php:249
+#, fuzzy
+msgid "How can I disable FB comments at individual page/post?"
+msgstr "Como posso mostrare la quantitá di condivisoni del mio sito web invece di solo pagine uniche?"
+
+#: ../admin/social_commenting.php:253
+msgid "Edit that page/post and check the option \"Disable Facebook Comments on this post/page\" at the bottom in \"Super Socializer\" section"
+msgstr "Modifica la pagina / posta e selezionare l'opzione \"Disabilita Facebook Commenti su questo post/pagina \" in fondo in sezione \"Super Socializer\""
+
+#: ../admin/social_commenting.php:262
+msgid "How to enable only Facebook Comments without enabling default comment form?"
+msgstr "Come abilitare solo i commenti di Facebook senza abilitazione modulo dei commenti default?"
+
+#: ../admin/social_commenting.php:266
+msgid "Enable \"Keep only Facebook Commenting\" option from \"Facebook Commenting\" section."
+msgstr "Abilita \"Conservare soltanto Facebook Commentando\" opzione sezione \"Facebook Commentando\"."
 
 #: ../admin/social_login.php:10
 msgid "Social Login"
@@ -1308,8 +1290,8 @@ msgid "Include Javascript in website footer"
 msgstr "Includere Javascript nel pié del sito web"
 
 #: ../admin/social_login.php:294
-msgid "If enabled (recommended), all the Javascript code will be included in the footer of your website.<br/><strong>\"wp_footer\" and \"login_footer\" hooks should be there in your Wordpress theme for this to work, if you are not sure about this, keep this option unchecked.</strong>"
-msgstr "Se é attivato (raccomandato), tutto il codico Javascript sará incluso nel pié del suo sito web.<br/><strong>gli uncini \"wp_footer\" e \"login_footer\" devono essere presenti nel tuo tema di Wordpress per funzionare, se non sei sicuro su di questo, lascia questa opzione deselezionata.</strong> "
+msgid "If enabled (recommended), Javascript files will be included in the footer of your website."
+msgstr "Se abilitato (consigliato), file Javascript saranno inclusi nel footer del tuo sito web."
 
 #: ../admin/social_login.php:308
 msgid "Login options"
@@ -1393,144 +1375,148 @@ msgstr "Invia il codigo d'accesso dell'utente dopo la registrazione"
 msgid "If enabled, an email will be sent to user after registration through Social Login, regarding his/her login credentials (username-password to be able to login via traditional login form)"
 msgstr "Se abilitato, un email con la informazione d'accesso (codigo d'accesso dell'utente per accedere attraverso il formulario tradizionale) sará inviato all'utente dopo la registrazione attraverso dell' Accesso Sociale."
 
-#: ../admin/social_login.php:488
+#: ../admin/social_login.php:489
+msgid "Enable social account linking at BuddyPress profile page"
+msgstr "Abilita conto sociale di collegamento in profilo BuddyPress"
+
+#: ../admin/social_login.php:499
+msgid "Enable this option to show social account linking interface at BuddyPress profile page"
+msgstr "Attivare questa opzione per visualizzare account di social interfaccia per il collegamento al profilo BuddyPress"
+
+#: ../admin/social_login.php:508
 msgid "Login redirection"
 msgstr "Redirezionamento d'Accesso Sociale"
 
-#: ../admin/social_login.php:492
+#: ../admin/social_login.php:512
 msgid "Same page where user logged in"
 msgstr "La stessa pagina dove l'utente ha iniziato la sessione"
 
-#: ../admin/social_login.php:496
-#: ../admin/social_login.php:526
+#: ../admin/social_login.php:516
+#: ../admin/social_login.php:546
 msgid "Account dashboard"
 msgstr "Pannello della conta"
 
-#: ../admin/social_login.php:499
-#: ../admin/social_login.php:529
+#: ../admin/social_login.php:519
+#: ../admin/social_login.php:549
 msgid "BuddyPress profile page"
 msgstr "Pagina profilo BuddyPress"
 
-#: ../admin/social_login.php:502
-#: ../admin/social_login.php:532
+#: ../admin/social_login.php:522
+#: ../admin/social_login.php:552
 msgid "Custom Url"
 msgstr "Url personalizzata"
 
-#: ../admin/social_login.php:510
+#: ../admin/social_login.php:530
 msgid "User will be redirected to the selected page after Social Login"
 msgstr "L'utente sará redirezionato alla pagina selezionata dopo l'Accesso Sociale"
 
-#: ../admin/social_login.php:518
+#: ../admin/social_login.php:538
 msgid "Registration redirection"
 msgstr "Ridirezione di registrazione"
 
-#: ../admin/social_login.php:522
+#: ../admin/social_login.php:542
 #, fuzzy
 msgid "Same page from where user registered"
 msgstr "La stessa pagina dove l'utente ha iniziato la sessione"
 
-#: ../admin/social_login.php:540
+#: ../admin/social_login.php:560
 msgid "User will be redirected to the selected page after registration (first Social Login) through Social Login"
 msgstr "L'utente sará redirizionato alla pagina selezionata dopo di registrarse (primo ingresso sociale) attraverso dell' ingresso sociale"
 
-#: ../admin/social_login.php:548
+#: ../admin/social_login.php:568
 msgid "Email popup options"
 msgstr "opzioni emergenti di e-mail"
 
-#: ../admin/social_login.php:554
+#: ../admin/social_login.php:574
 msgid "Text on 'Email required' popup"
 msgstr "Testo dela finestra emergente \"indirizzo di e-mail necessario\""
 
-#: ../admin/social_login.php:564
+#: ../admin/social_login.php:584
 msgid "This text will be displayed on email required popup. Leave empty if not required."
 msgstr "Questo é il testo che si mostrará nella finestra emergente \"indirizzo di e-mail necessario'. Lasciare in bianco caso che non si necessita."
 
-#: ../admin/social_login.php:573
+#: ../admin/social_login.php:593
 msgid "Error message for 'Email required' popup"
 msgstr "Messaggio d'errore per la finestra emergente del \"E-mail neccessario'"
 
-#: ../admin/social_login.php:583
+#: ../admin/social_login.php:603
 msgid "This message will be displayed to user if it provides invalid or already registered email"
 msgstr "Questo messaggio si mostrará all'utente caso che ingressa un indirizzo d'e-mail invalido ó gia registrato"
 
-#: ../admin/social_login.php:592
+#: ../admin/social_login.php:612
 msgid "Email popup height"
 msgstr "altura finestra emergente dell'e-mail"
 
-#: ../admin/social_login.php:602
+#: ../admin/social_login.php:622
 msgid "If you are seeing vertical scrollbar in the \"Email required\" popup, you can increase the height of popup by specifying in this option. Leave empty for default."
 msgstr "Caso che vedi la barra di scorrimento verticale nella finestra emergente \"e-mail neccessario\", puoi aumentare la altura della finestra emergente specificandola in questa opzione. Lascia in bianco per l'impostazione predefinita."
 
-#: ../admin/social_login.php:610
+#: ../admin/social_login.php:630
 msgid "Enable email verification"
 msgstr "Abilitare la verificazione dell'indirizzo d'e-mail"
 
-#: ../admin/social_login.php:620
+#: ../admin/social_login.php:640
 msgid "If enabled, email provided by the user will be verified by sending a confirmation link to that email. User would not be able to login without verifying his/her email"
 msgstr "Se é attivato, l'indirizzo di e-mail ingressato dall'utente si verificará mediante l'invio di un collegamento di verificazione al indirizzo e-mail specificato. L'utente non sará capace di ingressare senza verificare l'indirizzo di e-mail"
 
-#: ../admin/social_login.php:636
+#: ../admin/social_login.php:656
 msgid "Use <strong>[TheChamp-Login]</strong> Shortcode in the content of required page/post where you want to display Social Login interface."
 msgstr "Utilizza il codice breve <strong> [TheChamp-Login]</strong>  nel contenuto della pagina/post dove voui che la interfaccia dell'ingresso sociale sia mostrata."
 
-#: ../admin/social_login.php:639
+#: ../admin/social_login.php:659
 msgid "You can use \"style\" attribute in the Shortcode to style the rendered Social Login interface."
 msgstr "Puoi utilizzare attributi \"style\" nel codice breve per stilizzare l'interfaccia dell'ingresso sociale"
 
-#: ../admin/social_login.php:644
+#: ../admin/social_login.php:664
 msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Login style=\"background-color:#000;\"]</strong>, so the final code looks like following"
 msgstr "Restituisci <strong>SHORTCODE</strong> nel codice antecedente con il codice breve necessitato come <strong>[TheChamp-Login style=\"background-color: #000;\"]</strong>, in questo caso il codice finale si presenterá come segue"
 
-#: ../admin/social_login.php:652
+#: ../admin/social_login.php:672
 msgid "You can navigate to the <strong>Appearance</strong> > <strong>Widgets</strong> section in the left pan and drag <strong>Super Socializer - Login</strong> widget in the required area."
 msgstr "Puoi navigare alla sezione <strong>Apparenza</strong> > <strong>Widgets</strong> nella vaschetta sinistra e trascinare <strong>Super Socializer - Login</strong> widget all'area necessaria."
 
-#: ../inc/social_sharing.php:463
+#: ../admin/admin.php:8
+msgid "Welcome"
+msgstr "Benvenuto"
+
+#: ../admin/admin.php:10
+msgid "You are ready to Socialize your website."
+msgstr "Sei pronto per socializzare il tuo sito web."
+
+#: ../admin/admin.php:11
+msgid "Getting Started"
+msgstr "Iniziando"
+
+#: ../admin/admin.php:12
+msgid "Start configuring the options in the sections below the <strong>Super Socializer</strong> menu in the left pan. <strong>Social Sharing</strong> is enabled at your website by default."
+msgstr "Comincia configurando le opzioni nelle sezioni sotto il menu <strong>Super Socializzatore</strong> nella vaschetta di sinistra. <strong>Condivisione Sociale</strong> é impostazione predefinita abilitata nella tuo sito web."
+
+#: ../admin/admin.php:13
+#, fuzzy
+msgid "In <strong>Social Commenting</strong> section, you can configure Social Commenting."
+msgstr "Nella sezione <strong>Facebook</strong>, puoi configurare i commentari e il Feed di Notizie di Facebook."
+
+#: ../admin/admin.php:14
+msgid "In <strong>Social Login</strong> section, you can select Social ID provders and configure the Social Login options."
+msgstr "Nella sezione <strong>Accesso Sociale</strong>, puoi selezionare i provedori delle ID sociali e configurare le opzioni dell'Accesso Sociale."
+
+#: ../admin/admin.php:15
+#, fuzzy
+msgid "In <strong>Social Sharing</strong> section, you can choose the Social Networks for Sharing and configure the options for sharing."
+msgstr "Nella sezione <strong>Condiviosione Sociale</strong>, puoi scegliere la Rete Sociale per la condivisione e configurare le sue opzioni."
+
+#: ../admin/admin.php:16
+#, fuzzy
+msgid "In <strong>Social Counter</strong> section, you can choose the like/+1 buttons and configure the options for the same"
+msgstr "Nella sezione <strong>Condiviosione Sociale</strong>, puoi scegliere la Rete Sociale per la condivisione e configurare le sue opzioni."
+
+#: ../inc/social_sharing.php:492
 msgid "Invalid request"
 msgstr "Domanda invalida"
 
-#: ../inc/social_sharing.php:470
+#: ../inc/social_sharing.php:499
 msgid "Providers not selected"
 msgstr "Fornitori non selezionati"
-
-#: ../inc/social_sharing.php:603
-msgid "Disable Horizontal Social Sharing on this "
-msgstr "Disabilitare Condivisione Sociale orizzontale in questo"
-
-#: ../inc/social_sharing.php:608
-msgid "Disable Vertical Social Sharing on this "
-msgstr "Disabilitare Condivisione Sociale Verticale in questo"
-
-#: ../inc/social_sharing.php:613
-#, fuzzy
-msgid "Disable Horizontal Social Counter on this "
-msgstr "Disabilitare Contatore Sociale orizzontale in questo"
-
-#: ../inc/social_sharing.php:618
-#, fuzzy
-msgid "Disable Vertical Social Counter on this "
-msgstr "Disabilitare Contatore Sociale Verticale in questo"
-
-#: ../inc/social_sharing.php:623
-#, fuzzy
-msgid "Disable Facebook Comments on this "
-msgstr "Abilitare Commentando con Facebook"
-
-#: ../inc/social_sharing.php:632
-#, fuzzy
-msgid "Horizontal sharing"
-msgstr "Allineamento orizzontale"
-
-#: ../inc/social_sharing.php:638
-#: ../inc/social_sharing.php:657
-#, fuzzy
-msgid "Starting share count for "
-msgstr "Mostra la qunatitá di condivisioni"
-
-#: ../inc/social_sharing.php:651
-#, fuzzy
-msgid "Vertical sharing"
-msgstr "Condivisione Sociale"
 
 #: ../inc/widget.php:11
 msgid "Super Socializer - Login"
@@ -1545,28 +1531,28 @@ msgid "Log Out"
 msgstr "Chiudere la sessione"
 
 #: ../inc/widget.php:77
-#: ../inc/widget.php:203
-#: ../inc/widget.php:473
+#: ../inc/widget.php:211
+#: ../inc/widget.php:497
 msgid "Title:"
 msgstr "Titolo:"
 
 #: ../inc/widget.php:79
-#: ../inc/widget.php:215
-#: ../inc/widget.php:483
+#: ../inc/widget.php:223
+#: ../inc/widget.php:507
 msgid "Before widget content:"
 msgstr "Prima del contenuto del widget:"
 
 #: ../inc/widget.php:81
-#: ../inc/widget.php:217
-#: ../inc/widget.php:485
+#: ../inc/widget.php:225
+#: ../inc/widget.php:509
 msgid "After widget content:"
 msgstr "Dopo del contenuto del widget:"
 
 #: ../inc/widget.php:84
-#: ../inc/widget.php:219
-#: ../inc/widget.php:364
-#: ../inc/widget.php:487
-#: ../inc/widget.php:620
+#: ../inc/widget.php:227
+#: ../inc/widget.php:380
+#: ../inc/widget.php:511
+#: ../inc/widget.php:652
 msgid "Hide for logged in users:"
 msgstr "Nascondere per gli utenti loggati:"
 
@@ -1575,62 +1561,190 @@ msgstr "Nascondere per gli utenti loggati:"
 msgid "Horizontal sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Widget orizzontale di condivisione. Lascia condividire gli utenti del tuo sito web contenuti nelle reti sociali populari come Facebook, Twitter, Tumblr, Google+ e molti in piú "
 
-#: ../inc/widget.php:205
-#: ../inc/widget.php:335
+#: ../inc/widget.php:213
+#: ../inc/widget.php:351
 #, fuzzy
 msgid "Show share counts:"
 msgstr "Mostra la qunatitá di condivisioni"
 
-#: ../inc/widget.php:207
-#: ../inc/widget.php:337
-#: ../inc/widget.php:475
-#: ../inc/widget.php:593
+#: ../inc/widget.php:215
+#: ../inc/widget.php:353
+#: ../inc/widget.php:499
+#: ../inc/widget.php:625
 msgid "Target Url:"
 msgstr "URL di destinazione:"
 
-#: ../inc/widget.php:209
-#: ../inc/widget.php:339
-#: ../inc/widget.php:477
-#: ../inc/widget.php:595
+#: ../inc/widget.php:217
+#: ../inc/widget.php:355
+#: ../inc/widget.php:501
+#: ../inc/widget.php:627
 msgid "Select"
 msgstr "selezionare"
 
-#: ../inc/widget.php:238
+#: ../inc/widget.php:246
 msgid "Vertical floating sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Widget verticale flottante di condivisione. Lascia condividire gli utenti del tuo sito web conenuti nelle reti popolari come Facebook, Twitter, Tumblr, Google+, e molti in piú"
 
-#: ../inc/widget.php:345
-#: ../inc/widget.php:601
+#: ../inc/widget.php:361
+#: ../inc/widget.php:633
 msgid "Alignment"
 msgstr "Allineamento"
 
-#: ../inc/widget.php:351
-#: ../inc/widget.php:607
+#: ../inc/widget.php:367
+#: ../inc/widget.php:639
 #, fuzzy
 msgid "Left Offset"
 msgstr "Compensazione a sinistra"
 
-#: ../inc/widget.php:355
-#: ../inc/widget.php:611
+#: ../inc/widget.php:371
+#: ../inc/widget.php:643
 #, fuzzy
 msgid "Right Offset"
 msgstr "Compensazione a destra"
 
-#: ../inc/widget.php:358
-#: ../inc/widget.php:614
+#: ../inc/widget.php:374
+#: ../inc/widget.php:646
 #, fuzzy
 msgid "Top Offset"
 msgstr "Compensazione superiore"
 
-#: ../inc/widget.php:383
+#: ../inc/widget.php:399
 #, fuzzy
 msgid "Horizontal counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Widget contatore orizzontale. Lascia condividire/piacere agli utenti del tuo sito web contenuti nelle reti popolari come Facebook, Twitter, Tumblr, Google+, e molti in piú"
 
-#: ../inc/widget.php:506
+#: ../inc/widget.php:530
 #, fuzzy
 msgid "Vertical floating counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Widget contatore verticale flottante. Lascia condividire/piacere agli utenti del tuo sito web conenuti nelle reti popolari come Facebook, Twitter, Tumblr, Google+, e molti in piú"
+
+#~ msgid "White-Label"
+#~ msgstr "Etichetta bianca"
+
+#~ msgid ""
+#~ "Remove the plugin credit links (\"Super Socializer by The Champ\") in "
+#~ "just $15. Interested? Email me: <a href=\"mailto:lordofthechamps@gmail.com"
+#~ "\">lordofthechamps@gmail.com</a>"
+#~ msgstr ""
+#~ "Rimuovere i collegamenti di credito (\"Super Socializzatore da Il "
+#~ "Campione) per solo $15.\n"
+#~ "Interssato? Scrivimi una posta elettronica: <a href=\"mailto:"
+#~ "lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>"
+
+#~ msgid "Feed"
+#~ msgstr "Feed di Notizie"
+
+#~ msgid "Important note"
+#~ msgstr "Nota importante"
+
+#~ msgid ""
+#~ "To use this feature follow the steps mentioned at <a href=\"%s\" target="
+#~ "\"_blank\">this link</a>"
+#~ msgstr ""
+#~ "Per usare questa funzione segui i passi menzionati a <a href=\"%s\" "
+#~ "target=\"_blank\">questo collegamento</a>"
+
+#~ msgid "Publish feed on user's timeline on Facebook login"
+#~ msgstr ""
+#~ "Pubblicare Feed di Notizie sulla linea temporale dell'utente dopo del suo "
+#~ "accesso al Facebook"
+
+#~ msgid ""
+#~ "If enabled, a post will be published on the timeline of the user logging "
+#~ "in"
+#~ msgstr ""
+#~ "Se abilitato, una pubblicazione sará pubblicata sulla linea temporale "
+#~ "dell' utente che accede"
+
+#~ msgid "Facebook Feed Options"
+#~ msgstr "Opzioni di Feed di Notizie di Facebook"
+
+#~ msgid "Message"
+#~ msgstr "Messaggio"
+
+#~ msgid ""
+#~ "Message for the feed post. %website-name% will be replaced with your "
+#~ "website name in actual message."
+#~ msgstr ""
+#~ "Messaggio per la pubblicazione del Feed di Notizie. %website-name% sará "
+#~ "sostituito con il nome del tuo sito web nel messaggio attuale."
+
+#~ msgid "Link (required)"
+#~ msgstr "Collegamento (richiesto)"
+
+#~ msgid ""
+#~ "The link attached to this feed (required parameter for this functionality "
+#~ "to work)"
+#~ msgstr ""
+#~ "Il collegamento allegato a questa Feed di Notizie (parametro richiesto "
+#~ "per per fare funzionare questa funzionalitá) "
+
+#~ msgid "Picture"
+#~ msgstr "Immagine"
+
+#~ msgid ""
+#~ "The URL of a picture attached to this post. The picture must be at least "
+#~ "200px by 200px. (if this url is not specified, image from the url "
+#~ "specified in Link parameter will be displayed in the post)"
+#~ msgstr ""
+#~ "La URL di una immagine allegata a questa pubblicazione. L'immagine "
+#~ "dev'essere al minimo 200px per 200px. (se la url non é specificata, "
+#~ "l'immagine della url specificata nei parametri del collegamento sará "
+#~ "mostrata nella pubblicazione)"
+
+#~ msgid "Source"
+#~ msgstr "Fonte"
+
+#~ msgid ""
+#~ "The URL of a media file (either SWF or MP3) attached to this post. If "
+#~ "SWF, you must also specify picture (in \"Picture\" parameter) to provide "
+#~ "a thumbnail for the video."
+#~ msgstr ""
+#~ "La URL di un media file (SWF ó MP3) allegata a questa pubblicazione. Se é "
+#~ "SWF, si deve specificare la immagine (nel parametro \"Immagine\") per "
+#~ "dare una miniatura per il video."
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "The name of the link attachment"
+#~ msgstr "Il nome dell'attacamento del collegamento"
+
+#~ msgid "Caption"
+#~ msgstr "Didascalia"
+
+#~ msgid ""
+#~ "The caption of the link (appears beneath the link name). If not "
+#~ "specified, this field is automatically populated with the URL of the link."
+#~ msgstr ""
+#~ "La didascalia del collegamento (apparesce sottostante al nome del "
+#~ "collegamento). Se non é specificato, questo campo e automaticamente "
+#~ "popolato con la URL del collegamento."
+
+#~ msgid "Description"
+#~ msgstr "Descrizione"
+
+#~ msgid ""
+#~ "The description of the link (appears beneath the link caption). If not "
+#~ "specified, this field is automatically populated by information scraped "
+#~ "from the link, typically the title of the page."
+#~ msgstr ""
+#~ "La descrizione del collegamento (apparesce sottostante della didascalia "
+#~ "del collegamento). Se non é specificato, questo campo sará "
+#~ "automaticamente popolato con la informazine presa del collegamento, "
+#~ "tipicamente il titolo della pagina."
+
+#~ msgid ""
+#~ "If enabled (recommended), all the Javascript code will be included in the "
+#~ "footer of your website.<br/><strong>\"wp_footer\" and \"login_footer\" "
+#~ "hooks should be there in your Wordpress theme for this to work, if you "
+#~ "are not sure about this, keep this option unchecked.</strong>"
+#~ msgstr ""
+#~ "Se é attivato (raccomandato), tutto il codico Javascript sará incluso nel "
+#~ "pié del suo sito web.<br/><strong>gli uncini \"wp_footer\" e "
+#~ "\"login_footer\" devono essere presenti nel tuo tema di Wordpress per "
+#~ "funzionare, se non sei sicuro su di questo, lascia questa opzione "
+#~ "deselezionata.</strong> "
 
 #, fuzzy
 #~ msgid ""
@@ -1666,16 +1780,6 @@ msgstr "Widget contatore verticale flottante. Lascia condividire/piacere agli ut
 #~ msgstr ""
 #~ "Se ti piace il plugin, ti piacerebbe che migliore e/o verlo in cima agli "
 #~ "altri plugins, per favore considera una donazione."
-
-#~ msgid "Keep only Facebook Commenting"
-#~ msgstr "Conservare solo i Commenti di Facebook"
-
-#~ msgid ""
-#~ "If enabled, only Facebook commenting will be there without the option to "
-#~ "switch to WordPress commenting"
-#~ msgstr ""
-#~ "Se abilitato, solo Commentando con Facebook sará visualizzato, senza la "
-#~ "opzione di cambiare ai Commenti WordPress"
 
 #~ msgid "Load first"
 #~ msgstr "Caricare prima"

@@ -6,7 +6,7 @@
  * The first PHP Library to support OAuth for Twitter's REST API.
  */
 
-require_once('OAuth.php');
+require_once('oauth.php');
 
 if (!class_exists('TwitterOAuth')) {
 	/**

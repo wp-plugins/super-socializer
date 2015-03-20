@@ -19,7 +19,18 @@ function the_champ_sharing_shortcode($params){
 			return;
 		}
 		global $post;
-		$targetUrl = $url ? $url : get_permalink($post -> ID);
+		if($url){
+			$targetUrl = $url;
+			$postId = 0;
+		}else{
+			$targetUrl = get_permalink($post -> ID);
+			$postId = $post -> ID;
+		}
+		// if bit.ly url shortener enabled, generate bit.ly short url
+		$shortUrl = '';
+		if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+			$shortUrl = the_champ_generate_sharing_bitly_url($targetUrl, $postId);
+		}
 		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing" super-socializer-data-href="'.$targetUrl.'" ';
 		$verticalOffsets = '';
 		if($type == 'vertical'){
@@ -34,7 +45,7 @@ function the_champ_sharing_shortcode($params){
 			$html .= '"';
 		}
 		$html .= '>';
-		$html .= the_champ_prepare_sharing_html($targetUrl, $type, $count);
+		$html .= the_champ_prepare_sharing_html($shortUrl == '' ? $targetUrl : $shortUrl, $type, $count);
 		$html .= '</div>';
 		if($count){
 			$html .= '<script>theChampLoadEvent(
@@ -68,7 +79,13 @@ function the_champ_counter_shortcode($params){
 			return;
 		}
 		global $post;
-		$targetUrl = $url ? $url : get_permalink($post -> ID);
+		if($url){
+			$targetUrl = $url;
+			$postId = 0;
+		}else{
+			$targetUrl = get_permalink($post -> ID);
+			$postId = $post -> ID;
+		}
 		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter" ';
 		$verticalOffsets = '';
 		if($type == 'vertical'){
@@ -87,7 +104,7 @@ function the_champ_counter_shortcode($params){
 		$counterUrl = $targetUrl;
 		// if bit.ly integration enabled, generate bit.ly short url
 		if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
-			$shortUrl = the_champ_generate_counter_bitly_url($targetUrl);
+			$shortUrl = the_champ_generate_counter_bitly_url($targetUrl, $postId);
 			if($shortUrl){
 				$counterUrl = $shortUrl;
 			}

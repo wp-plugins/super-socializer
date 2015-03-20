@@ -8,9 +8,8 @@
 					<h2 class="nav-tab-wrapper" style="height:36px">
 					<ul>
 						<li><a style="margin:0; height: 23px" class="nav-tab" href="#tabs-1"><?php _e('Facebook Commenting', 'Super-Socializer') ?></a></li>
-						<li><a style="margin:0; height: 23px" class="nav-tab" href="#tabs-2"><?php _e('Feed', 'Super-Socializer') ?></a></li>
-						<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-3"><?php _e('Shortcode', 'Super-Socializer') ?></a></li>
-						<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-4"><?php _e('FAQ', 'Super-Socializer') ?></a></li>
+						<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-2"><?php _e('Shortcode', 'Super-Socializer') ?></a></li>
+						<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-3"><?php _e('FAQ', 'Super-Socializer') ?></a></li>
 					</ul>
 					</h2>					
 					<div class="menu_containt_div" id="tabs-1">
@@ -45,6 +44,24 @@
 							<h3><label><?php _e('Facebook Commenting Options', 'Super-Socializer');?></label></h3>
 							<div class="inside">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+								<tr>
+									<th>
+									<img id="the_champ_force_fb_comment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+									<label for="the_champ_force_fb_comment"><?php _e('Keep only Facebook Commenting', 'Super-Socializer'); ?></label>
+									</th>
+									<td>
+									<input id="the_champ_force_fb_comment" name="the_champ_facebook[force_enable]" type="checkbox" <?php echo isset($theChampFacebookOptions['force_enable']) ? 'checked = "checked"' : '';?> value="1" />
+									</td>
+								</tr>
+
+								<tr class="the_champ_help_content" id="the_champ_force_fb_comment_help_cont">
+									<td colspan="2">
+									<div>
+									<?php _e('If enabled, only Facebook commenting would be visible without default comment form', 'Super-Socializer') ?>
+									</div>
+									</td>
+								</tr>
+
 								<tr>
 									<th>
 									<img id="the_champ_fb_comment_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -187,186 +204,8 @@
 						</div>
 						<?php include 'help.php'; ?>
 					</div>
-					
-					<div class="menu_containt_div" id="tabs-2">
-						<div class="the_champ_left_column">
-						
-						<div class="stuffbox">
-							<h3><label><?php _e('Important note', 'Super-Socializer');?></label></h3>
-							<div class="inside">
-								<?php echo sprintf(__('To use this feature follow the steps mentioned at <a href="%s" target="_blank">this link</a>', 'Super-Socializer'), 'http://thechamplord.wordpress.com/2014/06/17/enable-extended-permissions-in-facebook-app/'); ?>
-							</div>
-						</div>
-						
-						<div class="stuffbox">
-							<h3><label><?php _e('Feed', 'Super-Socializer');?></label></h3>
-							<div class="inside">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_enable_fbfeed"><?php _e("Publish feed on user's timeline on Facebook login", 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_enable_fbfeed" name="the_champ_facebook[enable_fbfeed]" type="checkbox" <?php echo isset($theChampFacebookOptions['enable_fbfeed']) ? 'checked = "checked"' : '';?> value="1" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_enable_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('If enabled, a post will be published on the timeline of the user logging in', 'Super-Socializer') ?>
-									</div>
-									<img src="<?php echo plugins_url('../images/snaps/feed_enable.png', __FILE__); ?>" />
-									</td>
-								</tr>
-							</table>
-							</div>
-						</div>
-						
-						<div class="stuffbox">
-							<h3><label><?php _e('Facebook Feed Options', 'Super-Socializer');?></label></h3>
-							<div class="inside">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_message_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_message"><?php _e('Message', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<textarea rows="4" cols="40" id="the_champ_fbfeed_message" name="the_champ_facebook[feedMessage]"><?php echo isset($theChampFacebookOptions['feedMessage']) ? $theChampFacebookOptions['feedMessage'] : '' ?></textarea>
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_message_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('Message for the feed post. %website-name% will be replaced with your website name in actual message.', 'Super-Socializer') ?>
-									</div>
-									<img src="<?php echo plugins_url('../images/snaps/feed_message.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_link_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_link"><?php _e('Link (required)', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fbfeed_link" name="the_champ_facebook[feed_link]" type="text" value="<?php echo isset($theChampFacebookOptions['feed_link']) ? $theChampFacebookOptions['feed_link'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_link_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('The link attached to this feed (required parameter for this functionality to work)', 'Super-Socializer') ?>
-									</div>
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_picture_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_picture"><?php _e('Picture', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fbfeed_picture" name="the_champ_facebook[feedPicture]" type="text" value="<?php echo isset($theChampFacebookOptions['feedPicture']) ? $theChampFacebookOptions['feedPicture'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_picture_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('The URL of a picture attached to this post. The picture must be at least 200px by 200px. (if this url is not specified, image from the url specified in Link parameter will be displayed in the post)', 'Super-Socializer') ?>
-									</div>
-									<img src="<?php echo plugins_url('../images/snaps/feed_picture.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_source_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_source"><?php _e('Source', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fbfeed_source" name="the_champ_facebook[feedSource]" type="text" value="<?php echo isset($theChampFacebookOptions['feedSource']) ? $theChampFacebookOptions['feedSource'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_source_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('The URL of a media file (either SWF or MP3) attached to this post. If SWF, you must also specify picture (in "Picture" parameter) to provide a thumbnail for the video.', 'Super-Socializer') ?>
-									</div>
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_name_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_name"><?php _e('Name', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fbfeed_name" name="the_champ_facebook[feed_name]" type="text" value="<?php echo isset($theChampFacebookOptions['feed_name']) ? $theChampFacebookOptions['feed_name'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_name_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('The name of the link attachment', 'Super-Socializer') ?>
-									</div>
-									<img src="<?php echo plugins_url('../images/snaps/feed_name.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_caption_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_caption"><?php _e('Caption', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<input id="the_champ_fbfeed_caption" name="the_champ_facebook[feed_caption]" type="text" value="<?php echo isset($theChampFacebookOptions['feed_caption']) ? $theChampFacebookOptions['feed_caption'] : '' ?>" />
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_caption_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('The caption of the link (appears beneath the link name). If not specified, this field is automatically populated with the URL of the link.', 'Super-Socializer') ?>
-									</div>
-									<img src="<?php echo plugins_url('../images/snaps/feed_caption.png', __FILE__); ?>" />
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_feed_desc_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbfeed_description"><?php _e('Description', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<textarea rows="4" cols="40" id="the_champ_fbfeed_description" name="the_champ_facebook[feed_description]"><?php echo isset($theChampFacebookOptions['feed_description']) ? $theChampFacebookOptions['feed_description'] : '' ?></textarea>
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_feed_desc_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('The description of the link (appears beneath the link caption). If not specified, this field is automatically populated by information scraped from the link, typically the title of the page.', 'Super-Socializer') ?>
-									</div>
-									<img src="<?php echo plugins_url('../images/snaps/feed_description.png', __FILE__); ?>" />
-									</td>
-								</tr>
-							</table>
-							</div>
-						</div>
-						</div>
-						
-						<?php include 'help.php'; ?>
-					</div>
 			
-					<div class="menu_containt_div" id="tabs-3">
+					<div class="menu_containt_div" id="tabs-2">
 						<div class="the_champ_left_column">
 						<div class="stuffbox">
 							<h3><label><?php _e('Shortcode', 'Super-Socializer');?></label></h3>
@@ -404,14 +243,28 @@
 						<?php include 'help.php'; ?>
 					</div>
 					
-					<div class="menu_containt_div" id="tabs-4">
+					<div class="menu_containt_div" id="tabs-3">
 						<div class="the_champ_left_column">
 						<div class="stuffbox">
 							<h3><label><?php _e('How can I disable FB comments at individual page/post?', 'Super-Socializer') ?></label></h3>
 							<div class="inside">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 								<tr>
-									<td><?php _e('Edit that page/post and check the option "Disable Facebook Comments on this post/page" at the bottom in "Super Socializer" section', 'Super-Socializer') ?></td>
+									<td><?php _e('Edit that page/post and check the option "Disable Facebook Comments on this post/page" at the bottom in "Super Socializer" section', 'Super-Socializer') ?>
+										<img style="box-shadow: 4px 4px 4px 4px #888888; margin: 8px 0" width="550" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/snaps/ss_disable_sharing.png', __FILE__) ?>" />
+									</td>
+								</tr>
+							</table>
+							</div>
+						</div>
+
+						<div class="stuffbox">
+							<h3><label><?php _e('How to enable only Facebook Comments without enabling default comment form?', 'Super-Socializer') ?></label></h3>
+							<div class="inside">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+								<tr>
+									<td><?php _e('Enable "Keep only Facebook Commenting" option from "Facebook Commenting" section.', 'Super-Socializer') ?>
+									</td>
 								</tr>
 							</table>
 							</div>

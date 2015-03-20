@@ -10,9 +10,9 @@
 		<p><?php _e('You are ready to Socialize your website.', 'Super-Socializer') ?></p>
 		<h4><?php _e('Getting Started', 'Super-Socializer') ?></h4>
 		<p><?php _e('Start configuring the options in the sections below the <strong>Super Socializer</strong> menu in the left pan. <strong>Social Sharing</strong> is enabled at your website by default.', 'Super-Socializer') ?></p>
-		<p><?php _e('In <strong>Facebook</strong> section, you can configure Facebook Commenting and Feed.', 'Super-Socializer') ?></p>
+		<p><?php _e('In <strong>Social Commenting</strong> section, you can configure Social Commenting.', 'Super-Socializer') ?></p>
 		<p><?php _e('In <strong>Social Login</strong> section, you can select Social ID provders and configure the Social Login options.', 'Super-Socializer') ?></p>
-		<p><?php _e('In <strong>Social Sharing</strong> section, you can choose the Social Networks for Sharing and configure the optons for sharing.', 'Super-Socializer') ?></p>
+		<p><?php _e('In <strong>Social Sharing</strong> section, you can choose the Social Networks for Sharing and configure the options for sharing.', 'Super-Socializer') ?></p>
 		<p><?php _e('In <strong>Social Counter</strong> section, you can choose the like/+1 buttons and configure the options for the same', 'Super-Socializer') ?></p>
 		</div>
 	</div>

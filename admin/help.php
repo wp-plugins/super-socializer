@@ -6,10 +6,10 @@
 		<p><strong>Super Socializer</strong> <?php _e('by', 'Super-Socializer') ?> <strong>The Champ</strong></p>
 		<p><?php _e('I am a tech enthusiast. I like to play with code and build great stuff (and like to call myself - The Champ....:) ). You can connect with me (and my upcoming work) via:', 'Super-Socializer') ?></p>
 		<div>
-			<a href="//thechamplord.wordpress.com" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampWordpressButton" title="WordPress Blog" /></a>
-			<a href="https://www.facebook.com/thechamp.lord" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampFacebookButton" title="Facebook" /></a>
-			<a href="https://twitter.com/l0rd_champ" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampTwitterButton" title="Twitter" /></a>
-			<a href="//www.linkedin.com/pub/champ-lord/8b/aa2/352" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampLinkedinButton" title="LinkedIn" /></a>
+			<a href="//thechamplord.wordpress.com" target="_blank" title="WordPress Blog"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampWordpressButton" /></a>
+			<a href="https://www.facebook.com/thechamp.lord" target="_blank" title="Facebook"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampFacebookButton" /></a>
+			<a href="https://twitter.com/l0rd_champ" target="_blank" title="Twitter"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampTwitterButton" ></a>
+			<a href="//www.linkedin.com/pub/champ-lord/8b/aa2/352" title="LinkedIn" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampLinkedinButton" ></a>
 		</div>
 		</div>
 	</div>

@@ -323,6 +323,11 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_sharing_xing" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('xing', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="xing" />
 							<label for="the_champ_sharing_xing"><?php _e("Xing", 'Super-Socializer'); ?></label>
 							</div>
+
+							<div class="theChampHorizontalSharingProviderContainer">
+							<input id="the_champ_sharing_whatsapp" name="the_champ_sharing[providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['providers']) && in_array('whatsapp', $theChampSharingOptions['providers']) ? 'checked = "checked"' : '';?> value="whatsapp" />
+							<label for="the_champ_sharing_whatsapp"><?php _e("Whatsapp", 'Super-Socializer'); ?></label>
+							</div>
 							</td>
 						</tr>
 						
@@ -423,7 +428,9 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_sharing_excerpt" name="the_champ_sharing[excerpt]" type="checkbox" <?php echo isset($theChampSharingOptions['excerpt']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_sharing_excerpt"><?php _e('Excerpts', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_sharing_category" name="the_champ_sharing[category]" type="checkbox" <?php echo isset($theChampSharingOptions['category']) ? 'checked = "checked"' : '';?> value="1" />
-							<label for="the_champ_sharing_category"><?php _e('Category Archives', 'Super-Socializer') ?></label>
+							<label for="the_champ_sharing_category"><?php _e('Category Archives', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_sharing_archive" name="the_champ_sharing[archive]" type="checkbox" <?php echo isset($theChampSharingOptions['archive']) ? 'checked = "checked"' : '';?> value="1" />
+							<label for="the_champ_sharing_archive"><?php _e('Archive Pages (Category, Tag, Author or Date based pages)', 'Super-Socializer') ?></label>
 							<?php
 							if($theChampIsBpActive){
 								?>
@@ -612,6 +619,11 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_vertical_sharing_xing" name="the_champ_sharing[vertical_providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('xing', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="xing" />
 							<label for="the_champ_vertical_sharing_xing"><?php _e("Xing", 'Super-Socializer'); ?></label>
 							</div>
+
+							<div class="theChampVerticalSharingProviderContainer">
+							<input id="the_champ_vertical_sharing_whatsapp" name="the_champ_sharing[vertical_providers][]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_providers']) && in_array('whatsapp', $theChampSharingOptions['vertical_providers']) ? 'checked = "checked"' : '';?> value="whatsapp" />
+							<label for="the_champ_vertical_sharing_whatsapp"><?php _e("Whatsapp", 'Super-Socializer'); ?></label>
+							</div>
 							</td>
 						</tr>
 						
@@ -766,7 +778,9 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 							<input id="the_champ_sharing_vertical_excerpt" name="the_champ_sharing[vertical_excerpt]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_excerpt']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_sharing_vertical_excerpt"><?php _e('Excerpts', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_sharing_vertical_category" name="the_champ_sharing[vertical_category]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_category']) ? 'checked = "checked"' : '';?> value="1" />
-							<label for="the_champ_sharing_vertical_category"><?php _e('Category Archives', 'Super-Socializer') ?></label>
+							<label for="the_champ_sharing_vertical_category"><?php _e('Category Archives', 'Super-Socializer') ?></label><br/>
+							<input id="the_champ_sharing_vertical_archive" name="the_champ_sharing[vertical_archive]" type="checkbox" <?php echo isset($theChampSharingOptions['vertical_archive']) ? 'checked = "checked"' : '';?> value="1" />
+							<label for="the_champ_sharing_vertical_archive"><?php _e('Archive Pages (Category, Tag, Author or Date based pages)', 'Super-Socializer') ?></label>
 							<?php
 							if(function_exists('is_bbpress')){
 								?>
@@ -894,6 +908,30 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 						<tr>
 							<td><?php _e('Choose "Url of the homepage of your website" in "Target Url" option and enable "Show share counts" option', 'Super-Socializer') ?></td>
+						</tr>
+					</table>
+					</div>
+				</div>
+
+				<div class="stuffbox">
+					<h3><label><?php _e('How can I disable sharing on particular page/post?', 'Super-Socializer') ?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<td><?php _e('Edit that page/post and check the options at the bottom in "Super Socializer" section', 'Super-Socializer') ?><br/>
+								<img style="box-shadow: 4px 4px 4px 4px #888888; margin: 8px 0" width="550" id="the_champ_sl_emailver_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/snaps/ss_disable_sharing.png', __FILE__) ?>" />
+							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+
+				<div class="stuffbox">
+					<h3><label><?php _e('How can I specify minimum sharing count for sharing networks?', 'Super-Socializer') ?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<td><?php _e('Edit that page/post and check the options at the bottom in "Super Socializer" section', 'Super-Socializer') ?></td>
 						</tr>
 					</table>
 					</div>

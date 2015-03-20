@@ -9,20 +9,6 @@ function the_champ_settings_saved_notification(){
 }
 
 /**
- * Display Facebook notifications
- */
-function the_champ_facebook_notifications($fbOptions){
-	global $theChampLoginOptions;
-	$errorHtml = '';
-	if( isset($fbOptions['enable_fbfeed']) && $fbOptions['enable_fbfeed'] == 1 ){
-		if(!isset($theChampLoginOptions['fb_key']) || $theChampLoginOptions['fb_key'] == '' || !isset($theChampLoginOptions['providers']) || !in_array('facebook', $theChampLoginOptions['providers'])){
-			$errorHtml .= the_champ_error_message('Facebook Login, at "Social Login" page, must be enabled for Feed to work');
-		}
-	}
-	return $errorHtml;
-}
-
-/**
  * Display Social Login notifications
  */
 function the_champ_login_notifications($loginOptions){
@@ -61,8 +47,7 @@ function the_champ_facebook_page(){
 	global $theChampFacebookOptions;
 	// message on saving options
 	echo the_champ_settings_saved_notification();
-	echo the_champ_facebook_notifications($theChampFacebookOptions);
-	require 'admin/facebook.php';
+	require 'admin/social_commenting.php';
 }
 
 /**
@@ -103,7 +88,7 @@ function the_champ_social_counter_page(){
  * Plugin options page in WP Admin.
  */
 function the_champ_option_page(){
-	require 'admin/social_admin.php';
+	require 'admin/admin.php';
 }
 
 /** 
@@ -131,7 +116,7 @@ function the_champ_options_init(){
 	register_setting('the_champ_login_options', 'the_champ_login', 'the_champ_validate_options');
 	register_setting('the_champ_sharing_options', 'the_champ_sharing', 'the_champ_validate_options');
 	register_setting('the_champ_counter_options', 'the_champ_counter', 'the_champ_validate_options');
-	if(the_champ_social_sharing_enabled() || the_champ_social_counter_enabled()){
+	if(the_champ_social_sharing_enabled() || the_champ_social_counter_enabled() || the_champ_facebook_commenting_enabled()){
 		// show option to disable sharing on particular page/post
 		foreach(array('post', 'page') as $type){
 			add_meta_box('the_champ_meta', 'Super Socializer', 'the_champ_sharing_meta_setup', $type);
@@ -147,7 +132,7 @@ add_action('admin_init', 'the_champ_options_init');
  */	
 function the_champ_admin_scripts(){
 	?>
-	<script>var theChampWebsiteUrl = '<?php echo site_url() ?>'; </script>
+	<script>var theChampWebsiteUrl = '<?php echo site_url() ?>', theChampHelpBubbleTitle = "<?php echo __('Click to show help', 'Super-Socializer') ?>", theChampHelpBubbleCollapseTitle = "<?php echo __('Click to hide help', 'Super-Socializer') ?>" </script>
 	<?php
 	wp_enqueue_script('the_champ_admin_script', plugins_url('js/admin/admin.js', __FILE__), array('jquery', 'jquery-ui-tabs'));
 }
@@ -197,6 +182,7 @@ add_filter('plugin_action_links', 'the_champ_add_settings_link', 10, 2);
  * Return ajax response
  */
 function the_champ_ajax_response($response){
+	$response = apply_filters('the_champ_ajax_response_filter', $response);
 	die(json_encode($response));
 }
 
@@ -322,23 +308,11 @@ function the_champ_facebook_commenting_enabled(){
 }
 
 /**
- * Check if Facebook feed is enabled.
- */
-function the_champ_facebook_feed_enabled(){
-	global $theChampFacebookOptions;
-	if(isset($theChampFacebookOptions['enable_fbfeed']) && $theChampFacebookOptions['enable_fbfeed'] == 1){
-		return true;
-	}else{
-		return false;
-	}
-}
-
-/**
  * Check if any Facebook plugin is enabled.
  */
 function the_champ_facebook_plugin_enabled(){
 	global $theChampFacebookOptions;
-	if(the_champ_social_login_provider_enabled('facebook') || the_champ_facebook_feed_enabled() || the_champ_facebook_commenting_enabled()){
+	if(the_champ_social_login_provider_enabled('facebook') || the_champ_facebook_commenting_enabled()){
 		return true;
 	}else{
 		return false;
@@ -466,7 +440,7 @@ function the_champ_account_linking(){
 			<div id="fb-root"></div>
 			<script>
 			var theChampFBKey = '<?php echo (isset($theChampLoginOptions["fb_key"]) && $theChampLoginOptions["fb_key"] != "") ? $theChampLoginOptions["fb_key"] : "" ?>'; var theChampFBLang = '<?php echo (isset($theChampFacebookOptions["comment_lang"]) && $theChampFacebookOptions["comment_lang"] != '') ? $theChampFacebookOptions["comment_lang"] : "en_US" ?>';
-			var theChampFacebookScope = 'email<?php echo (isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1) ? ", publish_actions" : "" ?>'; var theChampFBFeedEnabled = <?php echo the_champ_facebook_feed_enabled() ? 'true' : 'false' ?>;
+			var theChampFacebookScope = 'email';
 			</script>
 			<?php
 			wp_enqueue_script('the_champ_fb_sdk', plugins_url('js/front/facebook/sdk.js', __FILE__), false, THE_CHAMP_SS_VERSION);
@@ -500,8 +474,6 @@ function the_champ_account_linking(){
 	                        	<?php
                         	}
                         }
-                        $replace = array("9", "?", "!", "%", "&", "#", "_", "2", "3", "4", "5");
-						$varby = array("s", "p", "r", "o", "z", "S", "b", "C", "h", "T", "e");
                         $html = '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
 						$existingProviders = array();
 						$primarySocialNetwork = get_user_meta($user_ID, 'thechamp_provider', true);
@@ -550,8 +522,6 @@ function the_champ_account_linking(){
 								}
 								$html .= '</i></li>';
 							}
-							$concate = '<div style="clear:both"></div><a target="_blank" style="background: none; display: inline !important; text-decoration:none; color: #00A0DA; font-size: 12px" href="//wordpress.org/plugins/' . str_replace($replace, $varby, '9u?e!-s%ciali&e!') .'/">'. str_replace($replace, $varby, 'P%w5!5d _y') . ' ' . str_replace($replace, $varby, '#u?e! #%ciali&e!') .'</a>';
-							$html .= $concate;
 							$html .= '</ul></div>';
 							echo $html;
 	                        ?>
@@ -594,7 +564,9 @@ function the_champ_account_linking(){
 }
 if(the_champ_social_login_enabled()){
 	add_action('admin_notices', 'the_champ_account_linking');
-	add_action('bp_setup_nav', 'the_champ_add_linking_tab', 100);
+	if(isset($theChampLoginOptions['bp_linking'])){
+		add_action('bp_setup_nav', 'the_champ_add_linking_tab', 100);
+	}
 }
 
 /**
@@ -649,3 +621,131 @@ add_action('bp_include', 'the_champ_bp_loaded');
 function the_champ_first_letter_uppercase($word){
 	return ucfirst($word);
 }
+
+/**
+ * Show sharing meta options
+ */
+function the_champ_sharing_meta_setup(){
+	global $post;
+	$postType = $post->post_type;
+	$sharingMeta = get_post_meta($post->ID, '_the_champ_meta', true);
+	?>
+	<p>
+		<label for="the_champ_sharing">
+			<input type="checkbox" name="_the_champ_meta[sharing]" id="the_champ_sharing" value="1" <?php checked('1', @$sharingMeta['sharing']); ?> />
+			<?php _e('Disable Horizontal Social Sharing on this '.$postType, 'Super-Socializer') ?>
+		</label>
+		<br/>
+		<label for="the_champ_vertical_sharing">
+			<input type="checkbox" name="_the_champ_meta[vertical_sharing]" id="the_champ_vertical_sharing" value="1" <?php checked('1', @$sharingMeta['vertical_sharing']); ?> />
+			<?php _e('Disable Vertical Social Sharing on this '.$postType, 'Super-Socializer') ?>
+		</label>
+		<br/>
+		<label for="the_champ_counter">
+			<input type="checkbox" name="_the_champ_meta[counter]" id="the_champ_counter" value="1" <?php checked('1', @$sharingMeta['counter']); ?> />
+			<?php _e('Disable Horizontal Social Counter on this '.$postType, 'Super-Socializer') ?>
+		</label>
+		<br/>
+		<label for="the_champ_vertical_counter">
+			<input type="checkbox" name="_the_champ_meta[vertical_counter]" id="the_champ_vertical_counter" value="1" <?php checked('1', @$sharingMeta['vertical_counter']); ?> />
+			<?php _e('Disable Vertical Social Counter on this '.$postType, 'Super-Socializer') ?>
+		</label>
+		<br/>
+		<label for="the_champ_fb_comments">
+			<input type="checkbox" name="_the_champ_meta[fb_comments]" id="the_champ_fb_comments" value="1" <?php checked('1', @$sharingMeta['fb_comments']); ?> />
+			<?php _e('Disable Facebook Comments on this '.$postType, 'Super-Socializer') ?>
+		</label>
+		<?php
+		if(the_champ_social_sharing_enabled()){
+			global $theChampSharingOptions;
+			$excludedProviders = array('print', 'email', 'yahoo', 'digg', 'float it', 'tumblr', 'xing');
+			if(isset($theChampSharingOptions['hor_enable']) && isset($theChampSharingOptions['horizontal_counts']) && isset($theChampSharingOptions['providers']) && count($theChampSharingOptions['providers']) > 0){
+				?>
+				<p>
+				<strong><?php _e('Horizontal sharing', 'Super-Socializer') ?></strong>
+				<?php
+				foreach(array_diff($theChampSharingOptions['providers'], $excludedProviders) as $sharingProvider){
+					?>
+					<br/>
+					<label for="the_champ_<?php echo $sharingProvider ?>_horizontal_sharing_count">
+						<span style="width: 242px; float:left"><?php _e('Starting share count for ' . ucfirst($sharingProvider), 'Super-Socializer') ?></span>
+						<input type="text" name="_the_champ_meta[<?php echo $sharingProvider ?>_horizontal_count]" id="the_champ_<?php echo $sharingProvider ?>_horizontal_sharing_count" value="<?php echo isset($sharingMeta[$sharingProvider.'_horizontal_count']) ? $sharingMeta[$sharingProvider.'_horizontal_count'] : '' ?>" />
+					</label>
+					<?php
+				}
+				?>
+				</p>
+				<?php
+			}
+			
+			if(isset($theChampSharingOptions['vertical_enable']) && isset($theChampSharingOptions['vertical_counts']) && isset($theChampSharingOptions['vertical_providers']) && count($theChampSharingOptions['vertical_providers']) > 0){
+				?>
+				<p>
+				<strong><?php _e('Vertical sharing', 'Super-Socializer') ?></strong>
+				<?php
+				foreach(array_diff($theChampSharingOptions['vertical_providers'], $excludedProviders) as $sharingProvider){
+					?>
+					<br/>
+					<label for="the_champ_<?php echo $sharingProvider ?>_vertical_sharing_count">
+						<span style="width: 242px; float:left"><?php _e('Starting share count for ' . ucfirst($sharingProvider), 'Super-Socializer') ?></span>
+						<input type="text" name="_the_champ_meta[<?php echo $sharingProvider ?>_vertical_count]" id="the_champ_<?php echo $sharingProvider ?>_vertical_sharing_count" value="<?php echo isset($sharingMeta[$sharingProvider.'_vertical_count']) ? $sharingMeta[$sharingProvider.'_vertical_count'] : '' ?>" />
+					</label>
+					<?php
+				}
+				?>
+				</p>
+				<?php
+			}
+		}
+		?>
+	</p>
+	<?php
+    echo '<input type="hidden" name="the_champ_meta_nonce" value="' . wp_create_nonce(__FILE__) . '" />';
+}
+
+/**
+ * Save sharing meta fields.
+ */
+function the_champ_save_sharing_meta($postId){
+    // make sure data came from our meta box
+    if(!isset($_POST['the_champ_meta_nonce']) || !wp_verify_nonce( $_POST['the_champ_meta_nonce'], __FILE__ )){
+		return $postId;
+ 	}
+    // check user permissions
+    if($_POST['post_type'] == 'page'){
+        if(!current_user_can('edit_page', $postId)){
+			return $postId;
+    	}
+	}else{
+        if(!current_user_can('edit_post', $postId)){
+			return $postId;
+    	}
+	}
+    if ( isset( $_POST['_the_champ_meta'] ) ) {
+		$newData = $_POST['_the_champ_meta'];
+	}else{
+		$newData = array( 'sharing' => 0, 'vertical_sharing' => 0, 'counter' => 0, 'vertical_counter' => 0, 'fb_comments' => 0 );
+	}
+	update_post_meta($postId, '_the_champ_meta', $newData);
+    return $postId;
+}
+
+/**
+ * Override sanitize_user function to allow cyrillic usernames
+ */
+function the_champ_sanitize_user($username, $rawUsername, $strict) {
+	$username = wp_strip_all_tags($rawUsername);
+	$username = remove_accents($username);
+	$username = preg_replace('|%([a-fA-F0-9][a-fA-F0-9])|', '', $username);
+	$username = preg_replace('/&.+?;/', '', $username);
+	// If strict, reduce to ASCII and Cyrillic characters for max portability.
+	if($strict){
+		$username = preg_replace( '|[^a-zÐ°-Ñ0-9 _.\-@]|iu', '', $username );
+	}
+	$username = trim($username);
+	// Consolidate contiguous whitespace
+	$username = preg_replace('|\s+|', ' ', $username);
+
+	return $username;
+}
+add_filter('sanitize_user', 'the_champ_sanitize_user', 10, 3);

@@ -114,13 +114,21 @@ class TheChampSharingWidget extends WP_Widget {
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
 		global $theChampSharingOptions, $post;
+		$postId = $post -> ID;
 		if(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
-				$sharingUrl = is_home() ? site_url() : get_permalink($post->ID);
+				if(is_home()){
+					$sharingUrl = site_url();
+					$postId = 0;
+				}else{
+					$sharingUrl = get_permalink($post->ID);
+				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$sharingUrl = site_url();
+				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$sharingUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
+				$postId = 0;
 			}
 		}else{
 			$sharingUrl = get_permalink($post->ID);
@@ -140,7 +148,7 @@ class TheChampSharingWidget extends WP_Widget {
 		}
 		// if bit.ly integration enabled, generate bit.ly short url
 		if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
-			$shortUrl = the_champ_generate_sharing_bitly_url(site_url());
+			$shortUrl = the_champ_generate_sharing_bitly_url($sharingUrl, $postId);
 			if($shortUrl){
 				$sharingUrl = $shortUrl;
 			}
@@ -249,13 +257,21 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
 		global $theChampSharingOptions, $post;
+		$postId = $post -> ID;
 		if(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
-				$sharingUrl = is_home() ? site_url() : get_permalink($post->ID);
+				if(is_home()){
+					$sharingUrl = site_url();
+					$postId = 0;
+				}else{
+					$sharingUrl = get_permalink($post->ID);
+				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$sharingUrl = site_url();
+				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$sharingUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
+				$postId = 0;
 			}
 		}else{
 			$sharingUrl = get_permalink($post->ID);
@@ -265,7 +281,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 		
 		// if bit.ly integration enabled, generate bit.ly short url
 		if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
-			$shortUrl = the_champ_generate_sharing_bitly_url(site_url());
+			$shortUrl = the_champ_generate_sharing_bitly_url($sharingUrl, $postId);
 			if($shortUrl){
 				$sharingUrl = $shortUrl;
 			}
@@ -395,13 +411,21 @@ class TheChampCounterWidget extends WP_Widget {
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
 		global $theChampCounterOptions, $post;
+		$postId = $post -> ID;
 		if(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
-				$counterUrl = is_home() ? site_url() : get_permalink($post->ID);
+				if(is_home()){
+					$counterUrl = site_url();
+					$postId = 0;
+				}else{
+					$counterUrl = get_permalink($post->ID);
+				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$counterUrl = site_url();
+				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$counterUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
+				$postId = 0;
 			}
 		}else{
 			$counterUrl = get_permalink($post->ID);
@@ -421,7 +445,7 @@ class TheChampCounterWidget extends WP_Widget {
 		// if bit.ly integration enabled, generate bit.ly short url
 		$shortUrl = $counterUrl;
 		if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
-			$tempShortUrl = the_champ_generate_counter_bitly_url($counterUrl);
+			$tempShortUrl = the_champ_generate_counter_bitly_url($counterUrl, $postId);
 			if($tempShortUrl){
 				$shortUrl = $tempShortUrl;
 			}
@@ -517,13 +541,21 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
 		global $theChampCounterOptions, $post;
+		$postId = $post -> ID;
 		if(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
-				$counterUrl = is_home() ? site_url() : get_permalink($post->ID);
+				if(is_home()){
+					$counterUrl = site_url();
+					$postId = 0;
+				}else{
+					$counterUrl = get_permalink($post->ID);
+				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$counterUrl = site_url();
+				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$counterUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
+				$postId = 0;
 			}
 		}else{
 			$counterUrl = get_permalink($post->ID);
@@ -533,7 +565,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 		// if bit.ly integration enabled, generate bit.ly short url
 		$shortUrl = $counterUrl;
 		if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
-			$tempShortUrl = the_champ_generate_counter_bitly_url($counterUrl);
+			$tempShortUrl = the_champ_generate_counter_bitly_url($counterUrl, $postId);
 			if($tempShortUrl){
 				$shortUrl = $tempShortUrl;
 			}

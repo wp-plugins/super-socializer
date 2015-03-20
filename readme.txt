@@ -3,8 +3,8 @@ Contributors: the_champ, Spanish translator: Andrew Kurtis http://webhostinghub.
 Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
-Tested up to: 4.1
-Stable tag: 4.0.2
+Tested up to: 4.1.1
+Stable tag: 4.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
@@ -171,6 +171,28 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 4.2 =
+* [Bugfix] Xing login was not working
+* [Bugfix] Google Login was not working with French translation
+* [Bugfix] Bit.ly service was being called on each page load. Now short urls are being cached.
+* [Bugfix] Names having cyrillic characters were not being displayed
+* [Bugfix] Could not FB comment using mobile, interface kept refreshing
+* [Bugfix] <div id="fb-root"></div> was being included in the <head> section of webpage
+* [Bugfix] FB Commenting was not working with Disqus commenting
+* [Bugfix] Bitly url shortener was not working in sharing shortcode
+* [Bugfix] Removed {} (empty brackets) from front.css file
+* [Bugfix] Commenting.js file was being loaded on the page where FB commenting was disabled
+* Included Whatsapp in sharing
+* Included option to enable only Facebook Commenting without enabling default comment form
+* Removed Facebook feed feature
+* Included 'Archives' in 'Sharing Location' option
+* Included filter 'the_champ_login_interface_filter' in 'inc/social_login.php' file to use custom icons for Social Login 
+* Included filter 'the_champ_ajax_response_filter' in helper.php file to alter AJAX responses
+* Included action 'the_champ_hook_update_profile_data' in 'inc/social_login.php' to update profile data
+* Included an option to enable/disable social account linking at BuddyPress profile page
+* Now fuctionality does not rely on 'wp_footer' hook to include Javascript files in footer of the webpage
+* CSS improvements
+
 = 4.0.2 =
 * Removed credit links
 
@@ -392,3 +414,25 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 
 = 4.0.2 =
 * Removed credit links
+
+= 4.2 =
+* [Bugfix] Xing login was not working
+* [Bugfix] Google Login was not working with French translation
+* [Bugfix] Bit.ly service was being called on each page load. Now short urls are being cached.
+* [Bugfix] Names having cyrillic characters were not being displayed
+* [Bugfix] Could not FB comment using mobile, interface kept refreshing
+* [Bugfix] <div id="fb-root"></div> was being included in the <head> section of webpage
+* [Bugfix] FB Commenting was not working with Disqus commenting
+* [Bugfix] Bitly url shortener was not working in sharing shortcode
+* [Bugfix] Removed {} (empty brackets) from front.css file
+* [Bugfix] Commenting.js file was being loaded on the page where FB commenting was disabled
+* Included Whatsapp in sharing
+* Included option to enable only Facebook Commenting without enabling default comment form
+* Removed Facebook feed feature
+* Included 'Archives' in 'Sharing Location' option
+* Included filter 'the_champ_login_interface_filter' in 'inc/social_login.php' file to use custom icons for Social Login 
+* Included filter 'the_champ_ajax_response_filter' in helper.php file to alter AJAX responses
+* Included action 'the_champ_hook_update_profile_data' in 'inc/social_login.php' to update profile data
+* Included an option to enable/disable social account linking at BuddyPress profile page
+* Now functionality does not rely on 'wp_footer' hook to include Javascript files in footer of the webpage
+* CSS improvements

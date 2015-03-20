@@ -2,14 +2,14 @@
 /*
 Plugin Name: Super Socializer
 Plugin URI: http://super-socializer-wordpress.pyrovolt.com
-Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more.
-Version: 4.0.2
+Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
+Version: 4.2
 Author: The Champ
 Author URI: http://thechamplord.wordpress.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '4.0.2');
+define('THE_CHAMP_SS_VERSION', '4.2');
 
 $theChampLoginOptions = get_option('the_champ_login');
 if(isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers'])){
@@ -47,13 +47,7 @@ function the_champ_init(){
 		update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
 	}
 	add_action('wp_enqueue_scripts', 'the_champ_load_event');
-	global $theChampLoginOptions;
-	if(isset($theChampLoginOptions['footer_script']) && $theChampLoginOptions['footer_script'] == 1){
-		add_action('wp_footer', 'the_champ_frontend_scripts');
-		add_action('login_footer', 'the_champ_frontend_scripts');
-	}else{
-		add_action('wp_enqueue_scripts', 'the_champ_frontend_scripts');
-	}
+	add_action('wp_enqueue_scripts', 'the_champ_frontend_scripts');
 	add_action('wp_enqueue_scripts', 'the_champ_frontend_styles');
 	add_action('login_head', 'wp_enqueue_scripts', 1);
 	add_action('parse_request', 'the_champ_connect');
@@ -107,13 +101,12 @@ function the_champ_connect(){
 					$redirectTo = esc_attr(the_champ_get_login_redirection_url($redirection));
 				}
 				the_champ_close_login_popup($redirectTo);
-				//the_champ_close_login_popup(esc_attr(the_champ_get_login_redirection_url($redirection)));
 			}
 		}
 	}
 	
 	// send request to Xing
-	if(isset($_GET['SuperSocializerAuth']) && $_GET['SuperSocializerAuth'] == 'Xing'){
+	if((isset($_GET['SuperSocializerAuth']) && $_GET['SuperSocializerAuth'] == 'Xing')){
 		session_start();
 		if(!isset($_GET['oauth_token']) && isset($_SESSION['OAUTH_ACCESS_TOKEN'])){
 			Unset($_SESSION['OAUTH_ACCESS_TOKEN']);
@@ -123,7 +116,7 @@ function the_champ_connect(){
 			$xingClient->debug = 0;
 			$xingClient->debug_http = 1;
 			$xingClient->server = 'XING';
-			$xingClient->redirect_uri = site_url().'/index.php?SuperSocializerAuth=Xing&super_socializer_redirect_to=' . esc_attr($_GET['super_socializer_redirect_to']);
+			$xingClient->redirect_uri = site_url() . '/index.php?SuperSocializerAuth=Xing&super_socializer_redirect_to=' . esc_attr(str_replace(array('http://', 'https://'), '', urldecode($_GET['super_socializer_redirect_to'])));
 			$xingClient->client_id = $theChampLoginOptions['xing_ck'];
 			$xingClient->client_secret = $theChampLoginOptions['xing_cs'];
 			if(($success = $xingClient->Initialize())){
@@ -139,7 +132,7 @@ function the_champ_connect(){
 			if($xingClient->exit) die('exit');
 			if($success){
 				if(isset($xingResponse -> users) && is_array($xingResponse -> users) && isset($xingResponse -> users[0] -> id)){
-					$xingRedirect = esc_attr($_GET['super_socializer_redirect_to']);
+					$xingRedirect = the_champ_get_http() . esc_attr($_GET['super_socializer_redirect_to']);
 					$response = the_champ_user_auth($xingResponse -> users[0], 'xing', $xingRedirect);
 					if(is_array($response) && isset($response['message']) && $response['message'] == 'register' && (!isset($response['url']) || $response['url'] == '')){
 						$redirectTo = esc_attr(the_champ_get_login_redirection_url($xingRedirect, true));
@@ -272,7 +265,7 @@ function the_champ_get_http(){
  */
 function the_champ_get_valid_url($url){
 	$url = urldecode($url);
-	if($url == wp_login_url() || $url == site_url().'/wp-login.php?action=register' || $url == site_url().'/wp-login.php?loggedout=true'){ 
+	if(remove_query_arg('ss_message', $url) == wp_login_url() || $url == site_url().'/wp-login.php?action=register' || $url == site_url().'/wp-login.php?loggedout=true'){ 
 		$url = site_url().'/';
 	}elseif(isset($_GET['redirect_to'])){
 		if(urldecode($_GET['redirect_to']) == admin_url()){
@@ -326,8 +319,9 @@ function the_champ_get_login_redirection_url($twitterRedirect = '', $register = 
  */
 function the_champ_frontend_scripts(){
 	global $theChampFacebookOptions, $theChampLoginOptions;
+	$inFooter = isset($theChampLoginOptions['footer_script']) ? true : false;
 	// general (required) scripts
-	wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION);
+	wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION, $inFooter);
 	$websiteUrl = site_url();
 	?>
 	<script> var theChampSiteUrl = '<?php echo $websiteUrl ?>'; </script>
@@ -382,7 +376,7 @@ function the_champ_frontend_scripts(){
 		?>
 		<script> var theChampVerified = <?php echo intval($userVerified) ?>; var theChampAjaxUrl = '<?php echo admin_url().$ajaxUrl ?>'; var theChampPopupTitle = '<?php echo $notification; ?>'; var theChampEmailPopup = <?php echo intval($emailPopup); ?>; var theChampEmailAjaxUrl = '<?php echo admin_url().$emailAjaxUrl; ?>'; var theChampEmailPopupTitle = '<?php echo $emailPopupTitle; ?>'; var theChampEmailPopupErrorMsg = '<?php echo htmlspecialchars($emailPopupErrorMessage, ENT_QUOTES); ?>'; var theChampEmailPopupUniqueId = '<?php echo $emailPopupUniqueId; ?>'; var theChampEmailPopupVerifyMessage = '<?php echo $emailPopupVerifyMessage; ?>'; var theChampTwitterRedirect = '<?php echo urlencode(the_champ_get_valid_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])); ?>'; </script>
 		<?php
-		wp_enqueue_script('the_champ_sl_common', plugins_url('js/front/social_login/common.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_sl_common', plugins_url('js/front/social_login/common.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
 	}
@@ -390,9 +384,9 @@ function the_champ_frontend_scripts(){
 	if(the_champ_social_login_provider_enabled('google') && !is_user_logged_in()){
 		$googleKey = isset($theChampLoginOptions['google_key']) ? $theChampLoginOptions['google_key'] : '';
 		?>
-		<script>var theChampGoogleKey = '<?php echo $googleKey ?>'; var theChampGoogleErrorMessage = '<?php _e('Follow steps 11 and 12 at GooglePlus app configuration page, about to open', 'Super-Socializer') ?>' </script>
+		<script>var theChampGoogleKey = '<?php echo $googleKey ?>'; var theChampGoogleErrorMessage = '<?php echo htmlspecialchars(__('Follow steps 11 and 12 at GooglePlus app configuration page, about to open', 'Super-Socializer'), ENT_QUOTES); ?>' </script>
 		<?php
-		wp_enqueue_script('the_champ_sl_google', plugins_url('js/front/social_login/google.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_sl_google', plugins_url('js/front/social_login/google.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Linkedin scripts
 	if(the_champ_social_login_provider_enabled('linkedin') && !is_user_logged_in()){
@@ -403,7 +397,7 @@ function the_champ_frontend_scripts(){
 		  onLoad: theChampLinkedInOnLoad
 		</script>
 		<?php
-		wp_enqueue_script('the_champ_sl_linkedin', plugins_url('js/front/social_login/linkedin.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_sl_linkedin', plugins_url('js/front/social_login/linkedin.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Vkontakte scripts
 	if(the_champ_social_login_provider_enabled('vkontakte') && !is_user_logged_in()){
@@ -411,28 +405,27 @@ function the_champ_frontend_scripts(){
 		<div id="vk_api_transport"></div>
 		<script> var theChampVkKey = '<?php echo (isset($theChampLoginOptions["vk_key"]) && $theChampLoginOptions["vk_key"] != "") ? $theChampLoginOptions["vk_key"] : 0 ?>' </script>
 		<?php
-		wp_enqueue_script('the_champ_sl_vkontakte', plugins_url('js/front/social_login/vkontakte.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_sl_vkontakte', plugins_url('js/front/social_login/vkontakte.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Instagram scripts
 	if(the_champ_social_login_provider_enabled('instagram')){
 		?>
 		<script> var theChampInstaId = '<?php echo (isset($theChampLoginOptions["insta_id"]) && $theChampLoginOptions["insta_id"] != "") ? $theChampLoginOptions["insta_id"] : 0 ?>'; var theChampTwitterRedirect = '<?php echo urlencode(the_champ_get_valid_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])); ?>'; </script>
 		<?php
-		wp_enqueue_script('the_champ_sl_instagram', plugins_url('js/front/social_login/instagram.js', __FILE__), false, THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_sl_instagram', plugins_url('js/front/social_login/instagram.js', __FILE__), false, THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Facebook scripts
 	if(the_champ_facebook_plugin_enabled()){
 		?>
-		<div id="fb-root"></div>
 		<script> var theChampFBKey = '<?php echo (isset($theChampLoginOptions["fb_key"]) && $theChampLoginOptions["fb_key"] != "") ? $theChampLoginOptions["fb_key"] : "" ?>'; var theChampFBLang = '<?php echo (isset($theChampFacebookOptions["comment_lang"]) && $theChampFacebookOptions["comment_lang"] != '') ? $theChampFacebookOptions["comment_lang"] : "en_US" ?>'; </script>
 		<?php
-		wp_enqueue_script('the_champ_fb_sdk', plugins_url('js/front/facebook/sdk.js', __FILE__), false, THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_fb_sdk', plugins_url('js/front/facebook/sdk.js', __FILE__), false, THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	if(the_champ_social_login_provider_enabled('facebook') && !is_user_logged_in()){
 		?>
-		<script> var theChampFacebookScope = 'email<?php echo (isset( $theChampFacebookOptions["enable_fbfeed"] ) && $theChampFacebookOptions["enable_fbfeed"] == 1) ? ", publish_actions" : "" ?>'; var theChampFBFeedEnabled = <?php echo the_champ_facebook_feed_enabled() ? 'true' : 'false' ?>; </script>
+		<script> var theChampFacebookScope = 'email'; </script>
 		<?php
-		wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Facebook commenting
 	if(the_champ_facebook_commenting_enabled()){
@@ -447,17 +440,12 @@ function the_champ_frontend_scripts(){
 		if($post){
 			$postMeta = get_post_meta($post -> ID, '_the_champ_meta', true);
 		}
-		?>
-		<script>var theChampFBCommentUrl = '<?php echo $commentUrl ?>'; var theChampFBCommentColor = '<?php echo (isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '') ? $theChampFacebookOptions["comment_color"] : ''; ?>'; var theChampFBCommentNumPosts = '<?php echo (isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '') ? $theChampFacebookOptions["comment_numposts"] : ''; ?>'; var theChampFBCommentWidth = '<?php echo (isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '') ? $theChampFacebookOptions["comment_width"] : '100%'; ?>'; var theChampFBCommentOrderby = '<?php echo (isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '') ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'; var theChampFBCommentMobile = '<?php echo (isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] != '') ? $theChampFacebookOptions["comment_mobile"] : ''; ?>'; var theChampFBAppID = '<?php echo (isset($theChampLoginOptions['fb_key']) && $theChampLoginOptions['fb_key'] != '') ? $theChampLoginOptions['fb_key'] : '' ?>'; var theChampSiteUrl = '<?php echo site_url() ?>'; var theChampWPCommentingContent = ''; var theChampFBCommentingContent = ''; var theChampCommentingHandle = false; var theChampCommentingDisabled = <?php echo isset($postMeta) && isset($postMeta['fb_comments']) && $postMeta['fb_comments'] == 1 ? 1 : 0 ?></script>
-		<?php
-		wp_enqueue_script('the_champ_fb_commenting', plugins_url('js/front/facebook/commenting.js', __FILE__), false, THE_CHAMP_SS_VERSION);
-	}
-	// Facebook feed posts
-	if(the_champ_facebook_feed_enabled()){
-		?>
-		<script> var theChampFacebookFeedMsg = '<?php echo htmlspecialchars(str_replace("%website-name%", get_option("blogname"), $theChampFacebookOptions['feedMessage']), ENT_QUOTES) ?>'; var theChampFBFeedName = '<?php echo (isset($theChampFacebookOptions['feed_name']) && $theChampFacebookOptions['feed_name'] != '') ? htmlspecialchars($theChampFacebookOptions['feed_name'], ENT_QUOTES) : '' ?>'; var theChampFBFeedDesc = '<?php echo (isset($theChampFacebookOptions['feed_description']) && $theChampFacebookOptions['feed_description'] != '') ? htmlspecialchars(trim(preg_replace("/\r?\n/", '\n', $theChampFacebookOptions['feed_description'])), ENT_QUOTES) : '' ?>'; var theChampFBFeedLink = '<?php echo (isset($theChampFacebookOptions['feed_link']) && $theChampFacebookOptions['feed_link'] != '') ? $theChampFacebookOptions['feed_link'] : '' ?>'; var theChampFBFeedSource = '<?php echo (isset($theChampFacebookOptions['feedSource']) && $theChampFacebookOptions['feedSource'] != '') ? $theChampFacebookOptions['feedSource'] : '' ?>'; var theChampFBFeedPicture = '<?php echo (isset($theChampFacebookOptions['feedPicture']) && $theChampFacebookOptions['feedPicture'] != '') ? $theChampFacebookOptions['feedPicture'] : '' ?>'; var theChampFBFeedCaption = '<?php echo (isset($theChampFacebookOptions['feed_caption']) && $theChampFacebookOptions['feed_caption'] != '') ? htmlspecialchars($theChampFacebookOptions['feed_caption'], ENT_QUOTES) : '' ?>'; </script>
-		<?php
-		wp_enqueue_script('the_champ_fb_feed', plugins_url('js/front/facebook/feed.js', __FILE__), false, THE_CHAMP_SS_VERSION);
+		if(!(isset($postMeta) && isset($postMeta['fb_comments']) && $postMeta['fb_comments'] == 1)){
+			?>
+			<script>var theChampFBCommentUrl = '<?php echo $commentUrl ?>'; var theChampFBCommentColor = '<?php echo (isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '') ? $theChampFacebookOptions["comment_color"] : ''; ?>'; var theChampFBCommentNumPosts = '<?php echo (isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '') ? $theChampFacebookOptions["comment_numposts"] : ''; ?>'; var theChampFBCommentWidth = '<?php echo (isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '') ? $theChampFacebookOptions["comment_width"] : '100%'; ?>'; var theChampFBCommentOrderby = '<?php echo (isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '') ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'; var theChampFBCommentMobile = '<?php echo (isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] != '') ? $theChampFacebookOptions["comment_mobile"] : ''; ?>'; var theChampFBAppID = '<?php echo (isset($theChampLoginOptions['fb_key']) && $theChampLoginOptions['fb_key'] != '') ? $theChampLoginOptions['fb_key'] : '' ?>'; var theChampSiteUrl = '<?php echo site_url() ?>'; var theChampWPCommentingContent = ''; var theChampFBCommentingContent = ''; var theChampCommentingHandle = false;</script>
+			<?php
+			wp_enqueue_script('the_champ_fb_commenting', plugins_url('js/front/facebook/commenting.js', __FILE__), false, THE_CHAMP_SS_VERSION, $inFooter);
+		}
 	}
 	// sharing script
 	if(the_champ_social_sharing_enabled()){
@@ -465,7 +453,7 @@ function the_champ_frontend_scripts(){
 		?>
 		<script> var theChampSharingAjaxUrl = '<?php echo get_admin_url() ?>admin-ajax.php'; var theChampCloseIconPath = '<?php echo plugins_url('images/close.png', __FILE__) ?>'; var theChampPluginIconPath = '<?php echo plugins_url('images/logo.png', __FILE__) ?>'; var theChampHorizontalSharingCountEnable = <?php echo isset($theChampSharingOptions['horizontal_counts']) ? 1 : 0 ?>; var theChampVerticalSharingCountEnable = <?php echo isset($theChampSharingOptions['vertical_counts']) ? 1 : 0 ?>; </script>
 		<?php
-		wp_enqueue_script('the_champ_share_counts', plugins_url('js/front/sharing/sharing.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+		wp_enqueue_script('the_champ_share_counts', plugins_url('js/front/sharing/sharing.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 }
 
@@ -473,6 +461,14 @@ function the_champ_frontend_scripts(){
  * Stylesheets to load at front end.
  */
 function the_champ_frontend_styles(){
+	global $theChampFacebookOptions;
+	if(isset($theChampFacebookOptions['force_enable'])){
+		?>
+		<style type="text/css">
+		#commentform{ display: none; }
+		</style>
+		<?php
+	}
 	wp_enqueue_style('the-champ-frontend-css', plugins_url('css/front.css', __FILE__), false, THE_CHAMP_SS_VERSION);
 }
 
@@ -482,7 +478,7 @@ function the_champ_frontend_styles(){
 function the_champ_create_admin_menu(){
 	$page = add_menu_page('The Champ', '<b>Super Socializer</b>', 'manage_options', 'the-champ', 'the_champ_option_page', plugins_url('images/logo.png', __FILE__));
 	// facebook page
-	$facebookPage = add_submenu_page('the-champ', 'The Champ - Facebook', 'Facebook', 'manage_options', 'the-champ-facebook', 'the_champ_facebook_page');
+	$facebookPage = add_submenu_page('the-champ', 'The Champ - Facebook', 'Social Commenting', 'manage_options', 'the-champ-social-commenting', 'the_champ_facebook_page');
 	// social login page
 	$loginPage = add_submenu_page('the-champ', 'The Champ - Social Login', 'Social Login', 'manage_options', 'the-champ-social-login', 'the_champ_social_login_page');
 	// social sharing page
@@ -556,17 +552,13 @@ function the_champ_default_options(){
 	   'enableAtLogin' => 1,
 	   'enableAtRegister' => 1,
 	   'enableAtComment' => 1,
+	   'footer_script' => 1
 	));
 	
 	// facebook options
 	add_option('the_champ_facebook', array(
 	   'enable_fbcomments' => '1',
-	   'feedMessage' => 'Has just logged into %website-name%',
-	   'comment_lang' => get_locale(),
-	   'feed_link' => site_url(),
-	   'load_first' => 1,
-	   'switch_wp' => 'Switch to default commenting',
-	   'switch_fb' => 'Switch to Facebook commenting',
+	   'comment_lang' => get_locale()
 	));
 	
 	// sharing options
@@ -574,13 +566,12 @@ function the_champ_default_options(){
 	   'enable' => '1',
 	   'hor_enable' => '1',
 	   'vertical_enable' => '1',
-	   'providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-	   'horizontal_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-	   'vertical_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
-	   'vertical_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon'),
+	   'providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon', 'whatsapp'),
+	   'horizontal_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon', 'whatsapp'),
+	   'vertical_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon', 'whatsapp'),
+	   'vertical_re_providers' => array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon', 'whatsapp'),
 	   'title' => 'Share the joy',
 	   'top' => '1',
-	   'bottom' => '1',
 	   'post' => '1',
 	   'page' => '1',
 	   'horizontal_counts' => '1',

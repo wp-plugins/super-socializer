@@ -291,7 +291,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sl_footer_script_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('If enabled (recommended), all the Javascript code will be included in the footer of your website.<br/><strong>"wp_footer" and "login_footer" hooks should be there in your Wordpress theme for this to work, if you are not sure about this, keep this option unchecked.</strong>', 'Super-Socializer') ?>
+							<?php _e('If enabled (recommended), Javascript files will be included in the footer of your website.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -481,7 +481,27 @@
 							</div>
 							</td>
 						</tr>
+
+						<?php if($theChampIsBpActive){ ?>
+						<tr>
+							<th>
+							<img id="the_champ_sl_bp_linking_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sl_bp_linking"><?php _e("Enable social account linking at BuddyPress profile page", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_sl_bp_linking" name="the_champ_login[bp_linking]" type="checkbox" <?php echo isset($theChampLoginOptions['bp_linking']) ? 'checked = "checked"' : '';?> value="1" />
+							</td>
+						</tr>
 						
+						<tr class="the_champ_help_content" id="the_champ_sl_bp_linking_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Enable this option to show social account linking interface at BuddyPress profile page', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+						<?php } ?>
+
 						<tr>
 							<th>
 							<img id="the_champ_sl_loginredirect_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />

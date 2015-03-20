@@ -11,42 +11,47 @@ function the_champ_login_button($widget = false){
 	if(!is_user_logged_in() && the_champ_social_login_enabled()){
 		global $theChampLoginOptions;
 		$html = '';
-		$html .= the_champ_login_notifications($theChampLoginOptions);
-		if(!$widget){
-			$html .= '<div class="the_champ_outer_login_container">';
-			if(isset($theChampLoginOptions['title']) && $theChampLoginOptions['title'] != ''){
-				$html .= '<div class="the_champ_social_login_title">'. $theChampLoginOptions['title'] .'</div>';
-			}
-		}
-		$html .= '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
-		if(isset($theChampLoginOptions['providers']) && is_array($theChampLoginOptions['providers'])){
-			foreach($theChampLoginOptions['providers'] as $provider){
-				$html .= '<li><i ';
-				// id
-				if( $provider == 'google' ){
-					$html .= 'id="theChamp'. ucfirst($provider) .'Button" ';
+		$customInterface = apply_filters('the_champ_login_interface_filter', '', $theChampLoginOptions, $widget);
+		if($customInterface != ''){
+			$html = $customInterface;
+		}elseif(isset($theChampLoginOptions['providers']) && is_array($theChampLoginOptions['providers']) && count($theChampLoginOptions['providers']) > 0){
+			$html = the_champ_login_notifications($theChampLoginOptions);
+			if(!$widget){
+				$html .= '<div class="the_champ_outer_login_container">';
+				if(isset($theChampLoginOptions['title']) && $theChampLoginOptions['title'] != ''){
+					$html .= '<div class="the_champ_social_login_title">'. $theChampLoginOptions['title'] .'</div>';
 				}
-				// class
-				$html .= 'class="theChamp'. ucfirst($provider) .'Button theChampLoginButton" ';
-				$html .= 'alt="Login with ';
-				$html .= ucfirst($provider);
-				$html .= '" title="Login with ';
-				if($provider == 'live'){
-					$html .= 'Windows Live';
-				}else{
+			}
+			$html .= '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
+			if(isset($theChampLoginOptions['providers']) && is_array($theChampLoginOptions['providers']) && count($theChampLoginOptions['providers']) > 0){
+				foreach($theChampLoginOptions['providers'] as $provider){
+					$html .= '<li><i ';
+					// id
+					if( $provider == 'google' ){
+						$html .= 'id="theChamp'. ucfirst($provider) .'Button" ';
+					}
+					// class
+					$html .= 'class="theChamp'. ucfirst($provider) .'Button theChampLoginButton" ';
+					$html .= 'alt="Login with ';
 					$html .= ucfirst($provider);
+					$html .= '" title="Login with ';
+					if($provider == 'live'){
+						$html .= 'Windows Live';
+					}else{
+						$html .= ucfirst($provider);
+					}
+					if(current_filter() == 'comment_form_top' || current_filter() == 'comment_form_must_log_in_after'){
+						$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
+					}else{
+						$html .= '" onclick="theChampInitiateLogin(this)" >';
+					}
+					$html .= '</i></li>';
 				}
-				if(current_filter() == 'comment_form_top' || current_filter() == 'comment_form_must_log_in_after'){
-					$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
-				}else{
-					$html .= '" onclick="theChampInitiateLogin(this)" >';
-				}
-				$html .= '</i></li>';
 			}
-		}
-		$html .= '</ul></div>';
-		if(!$widget){
-			$html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
+			$html .= '</ul></div>';
+			if(!$widget){
+				$html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
+			}
 		}
 		if(!$widget){
 			echo $html;
@@ -144,6 +149,14 @@ function the_champ_create_user($profileData, $verification = false){
 	$nameexists = true;
 	$index = 1;
 	$username = str_replace(' ', '-', $username);
+	
+	//cyrillic username
+	$username = sanitize_user($username, true);
+	if($username == '-'){
+		$emailParts = explode('@', $profileData['email']);
+		$username = $emailParts[0];
+	}
+
 	$userName = $username;
 	while($nameexists == true){
 		if(username_exists($userName) != 0){
@@ -158,7 +171,7 @@ function the_champ_create_user($profileData, $verification = false){
 	$userdata = array(
 		'user_login' => $username,
 		'user_pass' => $password,
-		'user_nicename' => sanitize_title($firstName),
+		'user_nicename' => sanitize_user($firstName, true),
 		'user_email' => $profileData['email'],
 		'display_name' => $firstName,
 		'nickname' => $firstName,
@@ -350,10 +363,10 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['avatar'] = isset($profileData -> profile_picture) ? $profileData -> profile_picture : '';
 	}
 	$temp = apply_filters('the_champ_hook_format_profile_data', $temp, $profileData, $provider);
-	$temp['name'] = isset($temp['name'][0]) && ctype_upper($temp['name'][0]) ? ucfirst(sanitize_title($temp['name'])) : sanitize_title($temp['name']);
-	$temp['username'] = isset($temp['username'][0]) && ctype_upper($temp['username'][0]) ? ucfirst(sanitize_title($temp['username'])) : sanitize_title($temp['username']);
-	$temp['first_name'] = isset($temp['first_name'][0]) && ctype_upper($temp['first_name'][0]) ? ucfirst(sanitize_title($temp['first_name'])) : sanitize_title($temp['first_name']);
-	$temp['last_name'] = isset($temp['last_name'][0]) && ctype_upper($temp['last_name'][0]) ? ucfirst(sanitize_title($temp['last_name'])) : sanitize_title($temp['last_name']);
+	$temp['name'] = isset($temp['name'][0]) && ctype_upper($temp['name'][0]) ? ucfirst(sanitize_user($temp['name'], true)) : sanitize_user($temp['name'], true);
+	$temp['username'] = isset($temp['username'][0]) && ctype_upper($temp['username'][0]) ? ucfirst(sanitize_user($temp['username'], true)) : sanitize_user($temp['username'], true);
+	$temp['first_name'] = isset($temp['first_name'][0]) && ctype_upper($temp['first_name'][0]) ? ucfirst(sanitize_user($temp['first_name'], true)) : sanitize_user($temp['first_name'], true);
+	$temp['last_name'] = isset($temp['last_name'][0]) && ctype_upper($temp['last_name'][0]) ? ucfirst(sanitize_user($temp['last_name'], true)) : sanitize_user($temp['last_name'], true);
 	$temp['provider'] = $provider;
 	return $temp;
 }
@@ -407,6 +420,8 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 			if(is_user_logged_in()){
 				return array('status' => false, 'message' => 'not linked');
 			}else{
+				// hook to update profile data
+				do_action('the_champ_hook_update_profile_data', $existingUser[0] -> ID, $profileData);
 				the_champ_login_user($existingUser[0] -> ID, $profileData, $profileData['id'], true);
 				return array('status' => true, 'message' => '', 'url' => ($loginUrl == 'bp' ? bp_core_get_user_domain($existingUser[0] -> ID) : ''));
 			}
@@ -464,7 +479,7 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 	// register user
 	$userId = the_champ_create_user($profileData);
 	if($userId){
-		the_champ_login_user($userId, array(), $profileData['id'], false); 
+		the_champ_login_user($userId, $profileData, $profileData['id'], false); 
 		if(isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'bp_profile'){
 			return array('status' => true, 'message' => 'register', 'url' => bp_core_get_user_domain($userId));
 		}else{
@@ -549,6 +564,7 @@ function the_champ_save_email(){
 						$userId = the_champ_create_user($tempData, $verify);
 						if($userId && !$verify){
 							// login user
+							$tempData['askemail'] = 1;
 							the_champ_login_user($userId, array(), $tempData['id']);
 							if(isset($theChampLoginOptions['register_redirection']) && $theChampLoginOptions['register_redirection'] == 'same' && isset($tempData['twitter_redirect'])){
 								the_champ_ajax_response(array('status' => 1, 'message' => array('response' => 'success', 'url' => $tempData['twitter_redirect'])));
