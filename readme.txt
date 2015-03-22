@@ -7,10 +7,10 @@ Tested up to: 4.1.1
 Stable tag: 4.2.0
 License: GPLv2 or later
 
-A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Feed and more
+A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
 
 == Description ==
-Super Socializer is a complete package to provide your website all the social features (Social Login, Sharing, Commenting, Feed and more) in a single plugin
+Super Socializer is a complete package to provide your website all the social features (Social Login, Sharing, Commenting and more) in a single plugin
 
 **Spanish, German, French, Hungarian and Italian translation included**
 
@@ -49,13 +49,6 @@ Below is more detail about the features:
 4. **No Spam**: You can get rid off the spammers and users, commenting using their fake accounts.
 
 5. **Works for the lazy**: Most people are nowadays lazy. To get these people commenting on your blog, it will just require them to login to their Facebook account (which almost everyone does after powering on computer).
-
-
-= Facebook Feed = Publish post on user's Facebook timeline.
-
-**Benefits**
-
-1. **Increased User Traffic**: As you publish post on user's Facebook timeline, it attracts more audience at your blog.
 
 
 = User Profile Data = Every time a user logs in, plugin fetches profile data of the user and store that in your WordPress database.
