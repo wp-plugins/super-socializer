@@ -658,7 +658,7 @@ function the_champ_sharing_meta_setup(){
 		<?php
 		if(the_champ_social_sharing_enabled()){
 			global $theChampSharingOptions;
-			$excludedProviders = array('print', 'email', 'yahoo', 'digg', 'float it', 'tumblr', 'xing');
+			$excludedProviders = array('print', 'email', 'yahoo', 'digg', 'float it', 'tumblr', 'xing', 'whatsapp');
 			if(isset($theChampSharingOptions['hor_enable']) && isset($theChampSharingOptions['horizontal_counts']) && isset($theChampSharingOptions['providers']) && count($theChampSharingOptions['providers']) > 0){
 				?>
 				<p>

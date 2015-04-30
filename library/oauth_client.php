@@ -2221,11 +2221,20 @@ class oauth_client_class
 				break;
 
 			default:
-				if(!($json = @file_get_contents($theChampOauthConfigurationFile)))
-				{
-					if(!file_exists($theChampOauthConfigurationFile))
-						return $this->SetError('the OAuth server configuration file '.$theChampOauthConfigurationFile.' does not exist');
-					return $this->SetPHPError('could not read the OAuth server configuration file '.$theChampOauthConfigurationFile, $php_errormsg);
+				if(!($json = @file_get_contents($theChampOauthConfigurationFile))){
+					// use cUrl to get file contents
+					$curl = curl_init();
+					curl_setopt($curl, CURLOPT_URL, $theChampOauthConfigurationFile);
+					curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($curl, CURLOPT_HEADER, false);
+					$json = curl_exec($curl);
+					curl_close($curl);
+					if(!$json){
+						if(!file_exists($theChampOauthConfigurationFile)){
+							return $this->SetError('the OAuth server configuration file '.$theChampOauthConfigurationFile.' does not exist');
+						}
+						return $this->SetPHPError('could not read the OAuth server configuration file '.$theChampOauthConfigurationFile, $php_errormsg);
+					}
 				}
 				$oauth_server = json_decode($json);
 				if(!IsSet($oauth_server))

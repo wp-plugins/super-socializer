@@ -864,6 +864,10 @@ var theChampSharingIconPath = '<?php echo plugins_url('../images/sharing', __FIL
 						<p><?php _e('Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Sharing interface.', 'Super-Socializer') ?></p>
 						<p><?php _e('Example', 'Super-Socializer') ?></p>
 						<p><strong>[TheChamp-Sharing type="vertical" top="200"]</strong></p>
+						<strong style="font-size: 16px"><?php _e('url', 'Super-Socializer') ?></strong>
+						<p><?php _e('Use <strong>url</strong> attribute to specify the url to be shared', 'Super-Socializer') ?></p>
+						<p><?php _e('Example', 'Super-Socializer') ?></p>
+						<p><strong>[TheChamp-Sharing type="vertical" url="http://mywebsite.com/example.php"]</strong></p>
 						<p><?php _e('You can use shortcode in PHP file as following', 'Super-Socializer') ?></p>
 						<p><strong>&lt;?php echo do_shortcode('SHORTCODE') ?&gt;</strong></p>
 						<p><?php _e('Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Sharing style="background-color:#000;"]</strong>, so the final code looks like following', 'Super-Socializer') ?></p>

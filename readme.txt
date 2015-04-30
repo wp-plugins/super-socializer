@@ -3,8 +3,8 @@ Contributors: the_champ, Spanish translator: Andrew Kurtis http://webhostinghub.
 Donate link: http://thechamplord.wordpress.com/
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
-Tested up to: 4.1.1
-Stable tag: 4.2.0
+Tested up to: 4.2.1
+Stable tag: 4.3
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -164,6 +164,11 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 4.3 =
+* [Bugfix] Facebook Comments layout was distorted in mobile devices
+* Updated Facebook SDK to latest version
+* Added action "the_champ_login_widget_hook" in Social Login widget before logout link
+
 = 4.2.0 =
 * [Bugfix] Xing login was not working
 * [Bugfix] Google Login was not working with French translation
@@ -429,3 +434,8 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * Included an option to enable/disable social account linking at BuddyPress profile page
 * Now functionality does not rely on 'wp_footer' hook to include Javascript files in footer of the webpage
 * CSS improvements
+
+= 4.3 =
+* [Bugfix] Facebook Comments layout was distorted in mobile devices
+* Updated Facebook SDK to latest version
+* Added action "the_champ_login_widget_hook" in Social Login widget before logout link

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Super Socializer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 05:49+0530\n"
-"PO-Revision-Date: 2015-03-20 05:52+0530\n"
+"POT-Creation-Date: 2015-04-21 05:49+0530\n"
+"PO-Revision-Date: 2015-04-21 05:49+0530\n"
 "Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
 "Language-Team: The Champ <lordofthechamps@gmail.com>\n"
 "Language: fr\n"
@@ -364,14 +364,14 @@ msgstr "Selectionnez les réseaux sociaux à intégrer dans le compteur. Glissez
 #: ../admin/social_counter.php:300
 #: ../admin/social_counter.php:514
 #: ../admin/social_sharing.php:376
-#: ../admin/social_sharing.php:685
+#: ../admin/social_sharing.php:690
 msgid "Horizontal alignment"
 msgstr "Alignement horizontal"
 
 #: ../admin/social_counter.php:304
 #: ../admin/social_counter.php:518
 #: ../admin/social_sharing.php:380
-#: ../admin/social_sharing.php:689
+#: ../admin/social_sharing.php:694
 msgid "Left"
 msgstr "Gauche"
 
@@ -383,7 +383,7 @@ msgstr "centre"
 #: ../admin/social_counter.php:306
 #: ../admin/social_counter.php:519
 #: ../admin/social_sharing.php:382
-#: ../admin/social_sharing.php:690
+#: ../admin/social_sharing.php:695
 msgid "Right"
 msgstr "Droite"
 
@@ -419,7 +419,7 @@ msgstr "Position du compteur"
 #: ../admin/social_counter.php:347
 #: ../admin/social_counter.php:597
 #: ../admin/social_sharing.php:423
-#: ../admin/social_sharing.php:768
+#: ../admin/social_sharing.php:773
 #: ../admin/social_login.php:514
 #: ../admin/social_login.php:544
 msgid "Homepage"
@@ -428,35 +428,35 @@ msgstr "Page d'accueil"
 #: ../admin/social_counter.php:349
 #: ../admin/social_counter.php:599
 #: ../admin/social_sharing.php:425
-#: ../admin/social_sharing.php:770
+#: ../admin/social_sharing.php:775
 msgid "Posts"
 msgstr "Publications"
 
 #: ../admin/social_counter.php:351
 #: ../admin/social_counter.php:601
 #: ../admin/social_sharing.php:427
-#: ../admin/social_sharing.php:772
+#: ../admin/social_sharing.php:777
 msgid "Pages"
 msgstr "Pages"
 
 #: ../admin/social_counter.php:353
 #: ../admin/social_counter.php:603
 #: ../admin/social_sharing.php:429
-#: ../admin/social_sharing.php:774
+#: ../admin/social_sharing.php:779
 msgid "Excerpts"
 msgstr "Extraits"
 
 #: ../admin/social_counter.php:355
 #: ../admin/social_counter.php:605
 #: ../admin/social_sharing.php:431
-#: ../admin/social_sharing.php:776
+#: ../admin/social_sharing.php:781
 msgid "Category Archives"
 msgstr "Archives des catégories"
 
 #: ../admin/social_counter.php:357
 #: ../admin/social_counter.php:607
 #: ../admin/social_sharing.php:433
-#: ../admin/social_sharing.php:778
+#: ../admin/social_sharing.php:783
 msgid "Archive Pages (Category, Tag, Author or Date based pages)"
 msgstr "Archive Pages (Catégorie, Tag, auteur ou date basée pages)"
 
@@ -468,14 +468,14 @@ msgstr ""
 #: ../admin/social_counter.php:370
 #: ../admin/social_counter.php:613
 #: ../admin/social_sharing.php:446
-#: ../admin/social_sharing.php:784
+#: ../admin/social_sharing.php:789
 msgid "BBPress forum"
 msgstr ""
 
 #: ../admin/social_counter.php:373
 #: ../admin/social_counter.php:616
 #: ../admin/social_sharing.php:449
-#: ../admin/social_sharing.php:787
+#: ../admin/social_sharing.php:792
 msgid "BBPress topic"
 msgstr ""
 
@@ -501,7 +501,7 @@ msgid "Master control to enable vertical (floating) counter widget"
 msgstr "Control maître pour activer le compteur vertical (flotant)"
 
 #: ../admin/social_counter.php:496
-#: ../admin/social_sharing.php:667
+#: ../admin/social_sharing.php:672
 msgid "Background Color"
 msgstr "Couleur de fond"
 
@@ -510,7 +510,7 @@ msgid "Specify the color or hex code (example #cc78e0) for the background of ver
 msgstr "Définir le code HEX de la couleur voulue (exemple #cc78e0) pour le fond du compteur vertical. Laisser vide pour la transparence. Vous pouvez obténir un code HEX pour n'importe quelle couleur <a href=\"http://www.colorpicker.com/\" target=\"_blank\">ici</a>"
 
 #: ../admin/social_counter.php:536
-#: ../admin/social_sharing.php:707
+#: ../admin/social_sharing.php:712
 msgid "Left offset"
 msgstr "Marge à gauche"
 
@@ -519,7 +519,7 @@ msgid "Specify a number. Increase in number will shift counter interface towards
 msgstr "La distance en pixels. Une augmentation du chiffre positionnera le compteur plus à droite, une baisse le ramenera à gauche."
 
 #: ../admin/social_counter.php:556
-#: ../admin/social_sharing.php:727
+#: ../admin/social_sharing.php:732
 msgid "Right offset"
 msgstr "Marge à droite"
 
@@ -528,7 +528,7 @@ msgid "Specify a number. Increase in number will shift counter interface towards
 msgstr "La distance en pixels. Une augmentation du chiffre positionnera le compteur plus à gauche, une baisse le ramenera à droite."
 
 #: ../admin/social_counter.php:575
-#: ../admin/social_sharing.php:746
+#: ../admin/social_sharing.php:751
 msgid "Top offset"
 msgstr "Marge au-dessus"
 
@@ -541,7 +541,7 @@ msgid "Specify the pages where you want to enable vertical counter interface"
 msgstr "Enumérer les pages où vous souhaitez afficher le compteur vertical"
 
 #: ../admin/social_counter.php:642
-#: ../admin/social_sharing.php:832
+#: ../admin/social_sharing.php:837
 #: ../admin/social_commenting.php:11
 #: ../admin/social_commenting.php:211
 #: ../admin/social_login.php:654
@@ -557,12 +557,14 @@ msgstr "Vous pouvez utiliser le shortcode <strong> [TheChamp-Counter] </strong> 
 #: ../admin/social_counter.php:655
 #: ../admin/social_counter.php:660
 #: ../admin/social_counter.php:665
-#: ../admin/social_sharing.php:835
+#: ../admin/social_counter.php:669
 #: ../admin/social_sharing.php:840
 #: ../admin/social_sharing.php:845
 #: ../admin/social_sharing.php:850
 #: ../admin/social_sharing.php:855
 #: ../admin/social_sharing.php:860
+#: ../admin/social_sharing.php:865
+#: ../admin/social_sharing.php:869
 #: ../admin/social_commenting.php:214
 #: ../admin/social_commenting.php:219
 #: ../admin/social_commenting.php:224
@@ -574,7 +576,7 @@ msgid "Example"
 msgstr "Exemple"
 
 #: ../admin/social_counter.php:647
-#: ../admin/social_sharing.php:837
+#: ../admin/social_sharing.php:842
 #: ../admin/social_commenting.php:216
 msgid "You can use following attributes in the Shortcode"
 msgstr "Vous pouvez utiliser les attributs suivants dans le shortcode"
@@ -605,50 +607,60 @@ msgid "Use <strong>top</strong> attribute to specify the top offset (distance fo
 msgstr "Utilisez l'attribut <strong>top</strong> afin de définir la distance entre le compteur et le côté gauche de l'écran."
 
 #: ../admin/social_counter.php:667
-#: ../admin/social_sharing.php:862
+#: ../admin/social_sharing.php:867
+msgid "url"
+msgstr ""
+
+#: ../admin/social_counter.php:668
+#, fuzzy
+msgid "Use <strong>url</strong> attribute to specify the url to be liked"
+msgstr "Utilisez l'attribut \"<strong>style</ strong>\" afin de customizer les boutons de partage."
+
+#: ../admin/social_counter.php:671
+#: ../admin/social_sharing.php:871
 #: ../admin/social_commenting.php:236
 #: ../admin/social_login.php:662
 msgid "You can use shortcode in PHP file as following"
 msgstr "Vous pouvez utilizer le shortcode dans un fichier PHP comme ceci :"
 
-#: ../admin/social_counter.php:669
+#: ../admin/social_counter.php:673
 msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Counter style=\"background-color:#000;\"]</strong>, so the final code looks like following"
 msgstr "Remplacez <strong>SHORTCODE</ strong> dans le code ci-dessus avec le code nécessaire, comme <strong>[TheChamp-Login style=\"background-color: #000;\"]</ strong>, pour que le résultat soit ainsi :"
 
-#: ../admin/social_counter.php:675
-#: ../admin/social_sharing.php:870
+#: ../admin/social_counter.php:679
+#: ../admin/social_sharing.php:879
 #: ../admin/social_login.php:670
 msgid "Widget"
 msgstr "Widget"
 
-#: ../admin/social_counter.php:677
+#: ../admin/social_counter.php:681
 msgid "You can navigate to the <strong>Appearance</strong> > <strong>Widgets</strong> section in the left pan and drag <strong>Super Socializer - Counter (Horizontal Widget)</strong> and <strong>Super Socializer - Counter (Vertical Floating Widget)</strong> widgets in the required area."
 msgstr "Vous pouvez aller à <strong>Apparence</ strong > > <strong>Widgets</ strong> dans la partie gauche de votre écran et glisser <strong> Super Socializer - Compteur (Widget Horizontal) </ strong> et <strong> Super Socializer - Compteur (Widget Vertical Flotant) </ strong> dans les zones que vous voulez."
 
-#: ../admin/social_counter.php:687
+#: ../admin/social_counter.php:691
 #, fuzzy
 msgid "How can I show like counts of my website rather than of individual pages/posts?"
 msgstr "Comment je peux afficher le compte des partages de mon site, et non des pages/publications individuelles ?"
 
-#: ../admin/social_counter.php:691
+#: ../admin/social_counter.php:695
 #, fuzzy
 msgid "Choose \"Url of the homepage of your website\" in \"Target Url\" option"
 msgstr "Choisissez l'option \"Url de la page d'accueil de votre site Web \" dans option \"URL cible \" et \"Afficher activer part compte \""
 
-#: ../admin/social_counter.php:698
+#: ../admin/social_counter.php:702
 #, fuzzy
 msgid "How can I disable social counter on particular page/post?"
 msgstr "Comment je peux afficher le compte des partages de mon site, et non des pages/publications individuelles ?"
 
-#: ../admin/social_counter.php:702
-#: ../admin/social_sharing.php:916
-#: ../admin/social_sharing.php:929
+#: ../admin/social_counter.php:706
+#: ../admin/social_sharing.php:925
+#: ../admin/social_sharing.php:938
 #, fuzzy
 msgid "Edit that page/post and check the options at the bottom in \"Super Socializer\" section"
 msgstr "Modifier cette page / poste et cochez l'option \"Désactiver Facebook Commentaires sur ce post / la page \" au bas de section \"super Socializer \""
 
-#: ../admin/social_counter.php:715
-#: ../admin/social_sharing.php:940
+#: ../admin/social_counter.php:719
+#: ../admin/social_sharing.php:949
 #: ../admin/social_commenting.php:277
 #: ../admin/social_login.php:681
 msgid "Save Changes"
@@ -809,26 +821,27 @@ msgid "Xing"
 msgstr ""
 
 #: ../admin/social_sharing.php:329
+#: ../admin/social_sharing.php:625
 msgid "Whatsapp"
 msgstr ""
 
 #: ../admin/social_sharing.php:337
-#: ../admin/social_sharing.php:628
+#: ../admin/social_sharing.php:633
 msgid "Select the providers for sharing interface"
 msgstr "Selectionner les réseaux sociaux à inclure"
 
 #: ../admin/social_sharing.php:345
-#: ../admin/social_sharing.php:636
+#: ../admin/social_sharing.php:641
 msgid "Rearrange icons"
 msgstr "Repositionner les icônes"
 
 #: ../admin/social_sharing.php:368
-#: ../admin/social_sharing.php:659
+#: ../admin/social_sharing.php:664
 msgid "Drag the icons to rearrange in desired order"
 msgstr "Faites glisser les icônes afin de les repositionner à votre gout."
 
 #: ../admin/social_sharing.php:390
-#: ../admin/social_sharing.php:698
+#: ../admin/social_sharing.php:703
 msgid "Horizontal alignment of the sharing interface"
 msgstr "Alignement horizontal des boutons de partage"
 
@@ -837,7 +850,7 @@ msgid "Specify position of the sharing interface with respect to the content"
 msgstr "Définir la position des boutons de partage par rapport au contenu de la page"
 
 #: ../admin/social_sharing.php:419
-#: ../admin/social_sharing.php:764
+#: ../admin/social_sharing.php:769
 msgid "Sharing location"
 msgstr "Position de partage"
 
@@ -846,12 +859,12 @@ msgid "Specify the pages where you want to enable Sharing interface"
 msgstr "Définir les pages où vous souhaitez activer les boutons partage"
 
 #: ../admin/social_sharing.php:470
-#: ../admin/social_sharing.php:805
+#: ../admin/social_sharing.php:810
 msgid "Show share counts"
 msgstr "Afficher le compteur des partages"
 
 #: ../admin/social_sharing.php:480
-#: ../admin/social_sharing.php:815
+#: ../admin/social_sharing.php:820
 msgid "If enabled, share counts are displayed above sharing icons."
 msgstr "Si cela est activé, le compte des partages sera affiché au-dessus des icônes."
 
@@ -867,91 +880,96 @@ msgstr "Activer les boutons de partage verticaux (flotants)"
 msgid "Master control to enable vertical (floating) sharing widget"
 msgstr "Control maître pour les boutons de partage verticaux (flotants)"
 
-#: ../admin/social_sharing.php:677
+#: ../admin/social_sharing.php:682
 msgid "Specify the color or hex code (example #cc78e0) for the background of vertical sharing bar. Leave empty for transparent. You can get the hex code of the required color from <a href=\"http://www.colorpicker.com/\" target=\"_blank\">this link</a>"
 msgstr "Définir le code HEX de la couleur désiré (exemple #cc78e0) pour le fond des boutons verticaux. Laissez vide pour la transparence. Vous pouvez obtenir le code HEX de n'importe quelle couleur <a href=\"http://www.colorpicker.com/\" target=\"_blank\">ici</a>"
 
-#: ../admin/social_sharing.php:717
+#: ../admin/social_sharing.php:722
 msgid "Specify a number. Increase in number will shift sharing interface towards right and decrease will shift it towards left."
 msgstr "Définir la taille de la marge à gauche (en pixels)."
 
-#: ../admin/social_sharing.php:737
+#: ../admin/social_sharing.php:742
 msgid "Specify a number. Increase in number will shift sharing interface towards left and decrease will shift it towards right."
 msgstr "La distance en pixels. Une augmentation déplacera les boutons vers la gauche, et une baisse les déplacera vers la droite."
 
-#: ../admin/social_sharing.php:756
+#: ../admin/social_sharing.php:761
 msgid "Specify a number. Increase in number will shift sharing interface towards bottom and decrease will shift it towards top."
 msgstr "La distance en pixels. Une augmentation déplacera les boutons vers le bas, et une baisse les déplacera vers le haut."
 
-#: ../admin/social_sharing.php:797
+#: ../admin/social_sharing.php:802
 msgid "Specify the pages where you want to enable vertical Sharing interface"
 msgstr "Définir les page où vous souhaitez activer les boutons verticaux"
 
-#: ../admin/social_sharing.php:834
+#: ../admin/social_sharing.php:839
 msgid "You can use <strong>[TheChamp-Sharing]</strong> Shortcode in the content of required page/post where you want to display Social Sharing interface."
 msgstr "Vous pouvez utiliser le shortcode <strong>[TheChamp-Sharing]</strong> dans le contenu d'une page/publication si vous souhaitez y afficher les boutons de partage."
 
-#: ../admin/social_sharing.php:839
+#: ../admin/social_sharing.php:844
 msgid "Use <strong>style</strong> attribute to style the rendered Social Sharing interface"
 msgstr "Utilisez l'attribut <strong>style</strong> afin de customizer les boutons."
 
-#: ../admin/social_sharing.php:844
+#: ../admin/social_sharing.php:849
 msgid "Use <strong>type</strong> attribute to specify the type (\"horizontal\" or \"vertical\") of Social Sharing interface. Default type is \"horizontal\"."
 msgstr "Utilisez l'attribut <strong>type</ strong> afin de définir quel type de boutons à afficher (\"horizontal\" ou \"vertical\"). \"horizontal\" par défaut."
 
-#: ../admin/social_sharing.php:849
+#: ../admin/social_sharing.php:854
 #, fuzzy
 msgid "Use <strong>count</strong> attribute to enable the share counts on Social Sharing interface"
 msgstr "Utilisez l'attribut <strong>style</strong> afin de customizer les boutons."
 
-#: ../admin/social_sharing.php:853
+#: ../admin/social_sharing.php:858
 #, fuzzy
 msgid "left (Works with \"Vertical\" type interface only)"
 msgstr "Left (\"gauche\", ne fonctionne qu'avec l'interface vertical)"
 
-#: ../admin/social_sharing.php:854
+#: ../admin/social_sharing.php:859
 msgid "Use <strong>left</strong> attribute to specify the left offset (distance form the left side of the screen) of Social Sharing interface."
 msgstr "Utilisez l'attribut <strong>left</strong> afin de définir la marge à gauche des boutons."
 
-#: ../admin/social_sharing.php:858
+#: ../admin/social_sharing.php:863
 #, fuzzy
 msgid "top (Works with \"Vertical\" type interface only)"
 msgstr "Top (\"haut\", ne fonctionne qu'avec l'interface vertical)"
 
-#: ../admin/social_sharing.php:859
+#: ../admin/social_sharing.php:864
 msgid "Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Sharing interface."
 msgstr "Utilisez l'attribut <strong>top</strong> afin de définir la marge en haut des boutons."
 
-#: ../admin/social_sharing.php:864
+#: ../admin/social_sharing.php:868
+#, fuzzy
+msgid "Use <strong>url</strong> attribute to specify the url to be shared"
+msgstr "Utilisez l'attribut \"<strong>style</ strong>\" afin de customizer les boutons de partage."
+
+#: ../admin/social_sharing.php:873
 msgid "Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Sharing style=\"background-color:#000;\"]</strong>, so the final code looks like following"
 msgstr "Remplacez <strong>SHORTCODE</strong> dans le code ci-dessus avec le shortcode requis, par exemple <strong>[TheChamp-Sharing style=\"background-color:#000;\"]</strong>, pour que le résultat ressemble à ceci"
 
-#: ../admin/social_sharing.php:872
+#: ../admin/social_sharing.php:881
 msgid "You can navigate to the <strong>Appearance</strong> > <strong>Widgets</strong> section in the left pan and drag <strong>Super Socializer - Sharing (Horizontal Widget)</strong> and <strong>Super Socializer - Sharing (Vertical Floating Widget)</strong> widgets in the required area."
 msgstr "Naviguez dans <strong>Apparence</strong> > <strong>Widgets</strong> à gauche et faites glisser le widget \"Super Socializer - Sharing (Horizontal Widget)\" ou  \"Super Socializer - Sharing (Vertical Widget)\" dans le zone désiré."
 
-#: ../admin/social_sharing.php:882
+#: ../admin/social_sharing.php:891
 msgid "Facebook Sharing Troubleshooter"
 msgstr "Résoudre les problems Facebook"
 
-#: ../admin/social_sharing.php:887
+#: ../admin/social_sharing.php:896
 msgid "If Facebook sharing is not working fine, click at the following link and enter the problematic url (where Facebook sharing is not working properly) of your website in the text field:"
 msgstr "Si le partage sur Facebook ne marche pas, cliquez sur le lien suivant et entrez le lien de la page ou le problème se produit."
 
-#: ../admin/social_sharing.php:901
+#: ../admin/social_sharing.php:910
 msgid "How can I show share counts of my website rather than of individual pages/posts?"
 msgstr "Comment je peux afficher le compte des partages de mon site, et non des pages/publications individuelles ?"
 
-#: ../admin/social_sharing.php:905
+#: ../admin/social_sharing.php:914
 msgid "Choose \"Url of the homepage of your website\" in \"Target Url\" option and enable \"Show share counts\" option"
 msgstr "Choisissez l'option \"Url de la page d'accueil de votre site Web \" dans option \"URL cible \" et \"Afficher activer part compte \""
 
-#: ../admin/social_sharing.php:912
+#: ../admin/social_sharing.php:921
 #, fuzzy
 msgid "How can I disable sharing on particular page/post?"
 msgstr "Comment je peux afficher le compte des partages de mon site, et non des pages/publications individuelles ?"
 
-#: ../admin/social_sharing.php:925
+#: ../admin/social_sharing.php:934
 msgid "How can I specify minimum sharing count for sharing networks?"
 msgstr "Comment puis-je spécifier le nombre de partage minimum pour les réseaux de partage?"
 
@@ -1495,89 +1513,89 @@ msgstr "Super Socializer - Login"
 msgid "Let your website users login/register using their favorite Social ID Provider, such as Facebook, Twitter, Google+, LinkedIn"
 msgstr "Permettez à vos utilisateurs de se connecter et de créer un compte avec leur compte sur un réseau social comme Facebook, Twitter, Google+ ou LinkedIn"
 
-#: ../inc/widget.php:46
+#: ../inc/widget.php:47
 msgid "Log Out"
 msgstr "Deconnexion"
 
-#: ../inc/widget.php:77
-#: ../inc/widget.php:211
-#: ../inc/widget.php:497
+#: ../inc/widget.php:78
+#: ../inc/widget.php:214
+#: ../inc/widget.php:504
 msgid "Title:"
 msgstr "Titre :"
 
-#: ../inc/widget.php:79
-#: ../inc/widget.php:223
-#: ../inc/widget.php:507
+#: ../inc/widget.php:80
+#: ../inc/widget.php:226
+#: ../inc/widget.php:514
 msgid "Before widget content:"
 msgstr "Avant le contenu du widget :"
 
-#: ../inc/widget.php:81
-#: ../inc/widget.php:225
-#: ../inc/widget.php:509
+#: ../inc/widget.php:82
+#: ../inc/widget.php:228
+#: ../inc/widget.php:516
 msgid "After widget content:"
 msgstr "Après le contenu du widget :"
 
-#: ../inc/widget.php:84
-#: ../inc/widget.php:227
-#: ../inc/widget.php:380
-#: ../inc/widget.php:511
-#: ../inc/widget.php:652
+#: ../inc/widget.php:85
+#: ../inc/widget.php:230
+#: ../inc/widget.php:385
+#: ../inc/widget.php:518
+#: ../inc/widget.php:661
 msgid "Hide for logged in users:"
 msgstr "Cacher pour les utilisateurs connectés :"
 
-#: ../inc/widget.php:103
+#: ../inc/widget.php:104
 msgid "Horizontal sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Boutons de partage horizontaux. Permettez à vos utilisateurs de partager votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 
-#: ../inc/widget.php:213
-#: ../inc/widget.php:351
+#: ../inc/widget.php:216
+#: ../inc/widget.php:356
 #, fuzzy
 msgid "Show share counts:"
 msgstr "Afficher le compteur des partages"
 
-#: ../inc/widget.php:215
-#: ../inc/widget.php:353
-#: ../inc/widget.php:499
-#: ../inc/widget.php:625
+#: ../inc/widget.php:218
+#: ../inc/widget.php:358
+#: ../inc/widget.php:506
+#: ../inc/widget.php:634
 msgid "Target Url:"
 msgstr "Cible Url:"
 
-#: ../inc/widget.php:217
-#: ../inc/widget.php:355
-#: ../inc/widget.php:501
-#: ../inc/widget.php:627
+#: ../inc/widget.php:220
+#: ../inc/widget.php:360
+#: ../inc/widget.php:508
+#: ../inc/widget.php:636
 msgid "Select"
 msgstr "sélectionner"
 
-#: ../inc/widget.php:246
+#: ../inc/widget.php:249
 msgid "Vertical floating sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Boutons de partage verticaux. Permettez à vos utilisateurs de partager votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 
-#: ../inc/widget.php:361
-#: ../inc/widget.php:633
+#: ../inc/widget.php:366
+#: ../inc/widget.php:642
 msgid "Alignment"
 msgstr "Alignement"
 
-#: ../inc/widget.php:367
-#: ../inc/widget.php:639
+#: ../inc/widget.php:372
+#: ../inc/widget.php:648
 msgid "Left Offset"
 msgstr "Marge gauche"
 
-#: ../inc/widget.php:371
-#: ../inc/widget.php:643
+#: ../inc/widget.php:376
+#: ../inc/widget.php:652
 msgid "Right Offset"
 msgstr "Marge droite"
 
-#: ../inc/widget.php:374
-#: ../inc/widget.php:646
+#: ../inc/widget.php:379
+#: ../inc/widget.php:655
 msgid "Top Offset"
 msgstr "Marge superieur"
 
-#: ../inc/widget.php:399
+#: ../inc/widget.php:404
 msgid "Horizontal counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Compteur horizontal. Permettez à vos utilisateurs de partager/\"aimer\" votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 
-#: ../inc/widget.php:530
+#: ../inc/widget.php:537
 msgid "Vertical floating counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Compteur vertical. Permettez à vos utilisateurs de partager/\"aimer\" votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 

@@ -43,6 +43,7 @@ class TheChampLoginWidget extends WP_Widget {
 			}
 			echo "</div><div style='float:left; margin-left:10px'>";
 			echo str_replace('-', ' ', $userInfo -> user_login);
+			do_action('the_champ_login_widget_hook', $userInfo -> user_login);
 			echo '<br/><a href="' . wp_logout_url(home_url()) . '">' .__('Log Out', 'Super-Socializer') . '</a></div></div>';
 		}
 		echo '<div style="clear:both"></div>';
@@ -120,8 +121,10 @@ class TheChampSharingWidget extends WP_Widget {
 				if(is_home()){
 					$sharingUrl = site_url();
 					$postId = 0;
-				}else{
+				}elseif(get_permalink($post -> ID)){
 					$sharingUrl = get_permalink($post->ID);
+				}else{
+					$sharingUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$sharingUrl = site_url();
@@ -263,8 +266,10 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 				if(is_home()){
 					$sharingUrl = site_url();
 					$postId = 0;
-				}else{
+				}elseif(get_permalink($post -> ID)){
 					$sharingUrl = get_permalink($post->ID);
+				}else{
+					$sharingUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$sharingUrl = site_url();
@@ -417,8 +422,10 @@ class TheChampCounterWidget extends WP_Widget {
 				if(is_home()){
 					$counterUrl = site_url();
 					$postId = 0;
-				}else{
+				}elseif(get_permalink($post -> ID)){
 					$counterUrl = get_permalink($post->ID);
+				}else{
+					$counterUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$counterUrl = site_url();
@@ -547,8 +554,10 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 				if(is_home()){
 					$counterUrl = site_url();
 					$postId = 0;
-				}else{
+				}elseif(get_permalink($post -> ID)){
 					$counterUrl = get_permalink($post->ID);
+				}else{
+					$counterUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$counterUrl = site_url();

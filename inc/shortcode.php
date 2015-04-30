@@ -22,9 +22,12 @@ function the_champ_sharing_shortcode($params){
 		if($url){
 			$targetUrl = $url;
 			$postId = 0;
-		}else{
+		}elseif(get_permalink($post -> ID)){
 			$targetUrl = get_permalink($post -> ID);
 			$postId = $post -> ID;
+		}else{
+			$targetUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+			$postId = 0;
 		}
 		// if bit.ly url shortener enabled, generate bit.ly short url
 		$shortUrl = '';
@@ -82,9 +85,12 @@ function the_champ_counter_shortcode($params){
 		if($url){
 			$targetUrl = $url;
 			$postId = 0;
-		}else{
+		}elseif(get_permalink($post -> ID)){
 			$targetUrl = get_permalink($post -> ID);
 			$postId = $post -> ID;
+		}else{
+			$targetUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+			$postId = 0;
 		}
 		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter" ';
 		$verticalOffsets = '';

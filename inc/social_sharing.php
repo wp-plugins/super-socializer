@@ -29,7 +29,7 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 			if($provider == 'print'){
 				$html .= '<i alt="Print" Title="Print" class="theChampSharingButton theChampSharing'. ucfirst($provider) .'Button" onclick=\'window.print()\'></i>';
 			}elseif($provider == 'email'){
-				$html .= '<i alt="Email" Title="Email" class="theChampSharingButton theChampSharing'. ucfirst($provider) .'Button" onclick="window.location.href = \'mailto:?subject=\' + escape(\'Have a look at this website\') + \'&body=\' + escape(\''.$postUrl.'\')"></i>';
+				$html .= '<i alt="Email" Title="Email" class="theChampSharingButton theChampSharing'. ucfirst($provider) .'Button" onclick="window.location.href = \'mailto:?subject=\' + escape(\''. urlencode($post->post_title) .'\') + \'&body=\' + escape(\''.$postUrl.'\')"></i>';
 			}else{
 				if($provider == 'facebook'){
 					$sharingUrl = 'https://www.facebook.com/sharer/sharer.php?u=' . $postUrl;
@@ -99,7 +99,7 @@ function the_champ_prepare_counter_html($postUrl, $sharingType = 'horizontal', $
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#xfbml=1&version=v2.0";
+  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script><li class="the_champ_facebook_like"><div class="fb-like" data-href="'. $postUrl .'" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>';
 			}elseif($provider == 'facebook_recommend'){
@@ -107,7 +107,7 @@ function the_champ_prepare_counter_html($postUrl, $sharingType = 'horizontal', $
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#xfbml=1&version=v2.0";
+  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script><li class="the_champ_facebook_recommend"><div class="fb-like" data-href="'. $postUrl .'" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="false"></div></li>';
 			}elseif($provider == 'twitter_tweet'){
@@ -503,7 +503,7 @@ function the_champ_sharing_count(){
 		foreach($sharingNetworks as $provider){
 			switch($provider){
 				case 'facebook':
-					$url = 'http://graph.facebook.com/?id=' . $targetUrl;
+					$url = 'http://api.facebook.com/restserver.php?method=links.getStats&urls=' . $targetUrl . '&format=json&callback=';
 					break;
 				case 'twitter':
 					$url = 'http://urls.api.twitter.com/1/urls/count.json?url=' . $targetUrl;
@@ -544,8 +544,8 @@ function the_champ_sharing_count(){
 				}
 				switch($provider){
 					case 'facebook':
-						if(!empty($body -> shares)){
-							$responseData[$targetUrl]['facebook'] = $body -> shares;
+						if(!empty($body[0] -> total_count)){
+							$responseData[$targetUrl]['facebook'] = $body[0] -> total_count;
 						}else{
 							$responseData[$targetUrl]['facebook'] = 0;
 						}
