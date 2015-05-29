@@ -3,13 +3,13 @@
 Plugin Name: Super Socializer
 Plugin URI: http://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
-Version: 5.0.0
+Version: 5.0.1
 Author: Heateor Team
 Author URI: http://www.heateor.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '5.0.0');
+define('THE_CHAMP_SS_VERSION', '5.0.1');
 
 $theChampLoginOptions = get_option('the_champ_login');
 if(isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers'])){
@@ -430,7 +430,7 @@ function the_champ_frontend_scripts(){
 		wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Social commenting
-	if(the_champ_social_commenting_enabled()){
+	if(the_champ_social_commenting_enabled() && !is_front_page()){
 		global $post;
 		if(isset($theChampFacebookOptions['urlToComment']) && $theChampFacebookOptions['urlToComment'] != ''){
 			$commentUrl = $theChampFacebookOptions['urlToComment'];
