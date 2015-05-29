@@ -586,17 +586,17 @@ function the_champ_default_options(){
 	   'label_googleplus_comments' => 'G+ Comments',
 	   'label_disqus_comments' => 'Disqus Comments',
 	))){
-		$theChampFacebookOptions = get_option('the_champ_facebook');
-		if(isset($theChampFacebookOptions['enable_fbcomments'])){
-			$theChampFacebookOptions['enable_commenting'] = '1';
+		$theChampTmpFacebookOptions = get_option('the_champ_facebook');
+		if(isset($theChampTmpFacebookOptions['enable_fbcomments'])){
+			$theChampTmpFacebookOptions['enable_commenting'] = '1';
 		}
-		$theChampFacebookOptions['commenting_order'] = 'wordpress,facebook,googleplus,disqus';
-	    $theChampFacebookOptions['commenting_label'] = 'Leave a reply';
-	    $theChampFacebookOptions['label_wordpress_comments'] = 'Default Comments';
-	    $theChampFacebookOptions['label_facebook_comments'] = 'Facebook Comments';
-	    $theChampFacebookOptions['label_googleplus_comments'] = 'G+ Comments';
-	    $theChampFacebookOptions['label_disqus_comments'] = 'Disqus Comments';
-		update_option('the_champ_facebook', $theChampFacebookOptions);
+		$theChampTmpFacebookOptions['commenting_order'] = 'wordpress,facebook,googleplus,disqus';
+	    $theChampTmpFacebookOptions['commenting_label'] = 'Leave a reply';
+	    $theChampTmpFacebookOptions['label_wordpress_comments'] = 'Default Comments';
+	    $theChampTmpFacebookOptions['label_facebook_comments'] = 'Facebook Comments';
+	    $theChampTmpFacebookOptions['label_googleplus_comments'] = 'G+ Comments';
+	    $theChampTmpFacebookOptions['label_disqus_comments'] = 'Disqus Comments';
+		update_option('the_champ_facebook', $theChampTmpFacebookOptions);
 	}
 	
 	// sharing options
@@ -628,14 +628,14 @@ function the_champ_default_options(){
 	   'vertical_more' => 1,
 	   'horizontal_more' => 1,
 	))){
-		$theChampSharingOptions = get_option('the_champ_sharing');
-		$theChampSharingOptions['horizontal_sharing_shape'] = 'round';
-		$theChampSharingOptions['horizontal_sharing_size'] = 30;
-	    $theChampSharingOptions['vertical_sharing_shape'] = 'square';
-	    $theChampSharingOptions['vertical_sharing_size'] = 35;
-	    $theChampSharingOptions['vertical_more'] = 1;
-	    $theChampSharingOptions['horizontal_more'] = 1;
-		update_option('the_champ_sharing', $theChampSharingOptions);
+		$theChampTmpSharingOptions = get_option('the_champ_sharing');
+		$theChampTmpSharingOptions['horizontal_sharing_shape'] = 'round';
+		$theChampTmpSharingOptions['horizontal_sharing_size'] = 30;
+	    $theChampTmpSharingOptions['vertical_sharing_shape'] = 'square';
+	    $theChampTmpSharingOptions['vertical_sharing_size'] = 35;
+	    $theChampTmpSharingOptions['vertical_more'] = 1;
+	    $theChampTmpSharingOptions['horizontal_more'] = 1;
+		update_option('the_champ_sharing', $theChampTmpSharingOptions);
 	}
 
 	// counter options
