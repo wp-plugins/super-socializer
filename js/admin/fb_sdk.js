@@ -1,1 +1,1 @@
-(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=589176264470332";fjs.parentNode.insertBefore(js,fjs)}(document,'script','facebook-jssdk'));
+!function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=901329766553912",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");

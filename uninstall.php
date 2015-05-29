@@ -19,6 +19,7 @@ if(isset($theChampSharingOptions['delete_options'])){
 			delete_option( $option );
 		}
 		$wpdb->query("delete from $wpdb->usermeta where meta_key like 'thechamp%'");
+		$wpdb->query("delete from $wpdb->postmeta where meta_key like '_the_champ%'");
 	}else{
 		// For Multisite
 		$theChampBlogIds = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );

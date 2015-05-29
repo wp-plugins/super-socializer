@@ -576,39 +576,96 @@ function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 						}
 						
 						if(!(verticalCounts) && !(horizontalCounts)){
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing, .the_champ_horizontal_sharing)").find('span.the_champ_'+j+'_count');
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing, .the_champ_horizontal_sharing)").find('.the_champ_'+j+'_count');
 						} else if (!(horizontalCounts)){
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_horizontal_sharing)").find('span.the_champ_'+j+'_count');
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_horizontal_sharing)").find('.the_champ_'+j+'_count');
 						} else if (!(verticalCounts)){
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing)").find('span.the_champ_'+j+'_count');
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing)").find('.the_champ_'+j+'_count');
 						} else {
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']").find('span.the_champ_'+j+'_count');
+							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']").find('.the_champ_'+j+'_count');
 						}
 						if(jQuery(targetElement).attr('ss_st_count')){
 							sharingCount = parseInt(sharingCount) + parseInt(jQuery(targetElement).attr('ss_st_count'));
 						}
 						if(sharingCount < 1){ continue; }
 						if(sharingCount > 9 && sharingCount < 100){
-							jQuery(targetElement).css('width', '12px');
+							var width = '12px';
 						}else if(sharingCount > 99 && sharingCount < 1000){
-							jQuery(targetElement).css('width', '20px');
+							var width = '20px';
 						}else if(sharingCount > 999 && sharingCount < 10000){
 							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							jQuery(targetElement).css('width', '20px');
+							var width = '20px';
 						}else if(sharingCount > 9999 && sharingCount < 100000){
 							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							jQuery(targetElement).css('width', '30px');
+							var width = '30px';
 						}else if(sharingCount > 99999 && sharingCount < 1000000){
 							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							jQuery(targetElement).css('width', '42px');
+							var width = '42px';
 						}else if(sharingCount > 999999){
 							sharingCount = Math.floor(sharingCount/1000000) + 'M+';
-							jQuery(targetElement).css('width', '30px');
+							var width = '30px';
 						}
-						jQuery(targetElement).html(sharingCount).css('visibility', 'visible');
+						if(!jQuery(targetElement).hasClass('the_champ_square_count')){
+							jQuery(targetElement).css('width', width);
+						}
+						jQuery(targetElement).html(sharingCount).css({'visibility': 'visible', 'display': 'block'});
 					}
 				}
 			}
 		}
 	});
+}
+
+function theChampCapitaliseFirstLetter(e) {
+    return e.charAt(0).toUpperCase() + e.slice(1)
+}
+
+if(!Modernizr.svg){
+	jQuery(function(){
+		jQuery('.the_champ_sharing_ul i').each(function(){
+			var alt = theChampCapitaliseFirstLetter(jQuery(this).attr('alt').replace(" Plus", "").replace(" ", "").toLowerCase());
+			jQuery(this).attr('class', 'theChampSharingButton theChampSharing' + alt + 'Button').attr('style', 'width:32px;height:32px').find('div').remove();
+		});
+	});
+}
+
+jQuery(function(){
+	var classes = ['the_champ_vertical_sharing', 'the_champ_vertical_counter'];
+	for(var i = 0; i < classes.length; i++){
+		var verticalSharingHtml = jQuery('.' + classes[i]).html();
+		if(verticalSharingHtml){
+			if(jQuery('.' + classes[i]).attr('style').indexOf('right') >= 0){
+				var removeClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng', margin = 'Right', alignment = 'right', addClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng';
+			}else{
+				var removeClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng', margin = 'Left', alignment = 'left', addClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng';
+			}
+			jQuery('.' + classes[i]).html(verticalSharingHtml + '<div title="Hide" style="float:' + alignment + '" onclick="theChampHideSharing(this, \''+ removeClass +'\', \''+ addClass +'\',\'' + margin +'\', \'' + alignment + '\')" class="theChampSharingArrow ' + removeClass + '"></div>');
+		}
+	}
+});
+
+function theChampHideSharing(elem, removeClass, addClass, margin, alignment){
+	var animation = {}, counter = jQuery(elem).parent().hasClass('the_champ_vertical_counter'), offset = parseInt(jQuery(elem).parent().css('width')) + 10 - (counter ? 16 : 0), savedOffset = (counter ? theChampCounterOffset : theChampSharingOffset);
+	if(jQuery(elem).attr('title') == 'Hide'){
+		animation[alignment] = "-=" + (offset + savedOffset);
+		jQuery(elem).parent().animate(animation, 400, function(){
+			jQuery(elem).removeClass(removeClass).addClass(addClass).attr('title', 'Share');
+			if(counter){
+				var cssFloat = alignment == 'left' ? 'right' : 'left';
+				jQuery(elem).css('float', cssFloat);
+			}else{
+				jQuery(elem).css('margin' + margin, offset + 'px')
+			}
+		});
+	}else{
+		animation[alignment] = "+=" + (offset + savedOffset); 
+		jQuery(elem).parent().animate(animation, 400, function(){
+			jQuery(elem).removeClass(addClass).addClass(removeClass).attr('title', 'Hide');
+			if(counter){
+				jQuery(elem).css('float', alignment);
+			}else{
+				jQuery(elem).css('margin' + margin, '0px');
+			}
+		});
+	}
 }

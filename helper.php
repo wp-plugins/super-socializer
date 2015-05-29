@@ -74,14 +74,14 @@ function the_champ_social_sharing_page(){
 }
 
 /**
- * Social Counter page of plugin in WP admin.
+ * Like buttons page of plugin in WP admin.
  */
-function the_champ_social_counter_page(){
+function the_champ_like_buttons_page(){
 	// social counter options
 	global $theChampCounterOptions, $theChampIsBpActive;
 	// message on saving options
 	echo the_champ_settings_saved_notification();
-	require 'admin/social_counter.php';
+	require 'admin/like_buttons.php';
 }
 
 /**
@@ -149,6 +149,7 @@ function the_champ_fb_sdk_script(){
  */	
 function the_champ_admin_sharing_scripts(){
 	wp_enqueue_script('the_champ_sharing', plugins_url('js/admin/sharing/admin.js', __FILE__), array('jquery', 'jquery-ui-sortable'), THE_CHAMP_SS_VERSION);
+	wp_enqueue_script('the_champ_modernizer', plugins_url('js/modernizr.custom.82187.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 }
 
 /**
@@ -236,6 +237,18 @@ function the_champ_social_counter_enabled(){
 }
 
 /**
+ * Check if vertical Social Counter is enabled.
+ */
+function the_champ_vertical_social_counter_enabled(){
+	global $theChampCounterOptions;
+	if(isset($theChampCounterOptions['vertical_enable']) && $theChampCounterOptions['vertical_enable'] == 1){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
  * Check if Horizontal Social Sharing is enabled.
  */
 function the_champ_horizontal_sharing_enabled(){
@@ -300,7 +313,19 @@ function the_champ_social_login_provider_enabled($provider){
  */
 function the_champ_facebook_commenting_enabled(){
 	global $theChampFacebookOptions;
-	if(isset($theChampFacebookOptions['enable_fbcomments']) && $theChampFacebookOptions['enable_fbcomments'] == 1){
+	if(isset($theChampFacebookOptions['enable_fbcomments'])){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
+ * Check if Social commenting is enabled.
+ */
+function the_champ_social_commenting_enabled(){
+	global $theChampFacebookOptions;
+	if(isset($theChampFacebookOptions['enable_commenting'])){
 		return true;
 	}else{
 		return false;
@@ -397,6 +422,7 @@ function the_champ_account_linking(){
 			$userVerified = false;
 			$ajaxUrl = 'admin-ajax.php';
 			$notification = '';
+			wp_enqueue_script('the_champ_modernizer', plugins_url('js/modernizr.custom.82187.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 			wp_enqueue_script('the_champ_sl_common', plugins_url('js/front/social_login/common.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 		}
 		// linking functions
@@ -506,7 +532,7 @@ function the_champ_account_linking(){
 									$html .= 'id="theChamp'. ucfirst($provider) .'Button" ';
 								}
 								// class
-								$html .= 'class="theChamp'. ucfirst($provider) .'Button theChampLoginButton" ';
+								$html .= 'class="theChampLogin theChamp'. ucfirst($provider) .'Background theChamp'. ucfirst($provider) .'Login" ';
 								$html .= 'alt="Login with ';
 								$html .= ucfirst($provider);
 								$html .= '" title="Login with ';
@@ -520,7 +546,7 @@ function the_champ_account_linking(){
 								}else{
 									$html .= '" onclick="theChampInitiateLogin(this)" >';
 								}
-								$html .= '</i></li>';
+								$html .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider) .'Svg"></div></i></li>';
 							}
 							$html .= '</ul></div>';
 							echo $html;
@@ -589,15 +615,17 @@ add_action('wp_ajax_the_champ_unlink', 'the_champ_unlink');
 
 function the_champ_add_linking_tab() {
 	global $bp, $user_ID;
-	bp_core_new_subnav_item( array(
-			'name' => 'Social Account Linking',
-			'slug' => 'account-linking',
-			'parent_url' => trailingslashit( bp_loggedin_user_domain() . 'profile' ),
-			'parent_slug' => 'profile',
-			'screen_function' => 'the_champ_bp_linking',
-			'position' => 50
-		)
-	);
+	if($user_ID){
+		bp_core_new_subnav_item( array(
+				'name' => 'Social Account Linking',
+				'slug' => 'account-linking',
+				'parent_url' => trailingslashit( bp_loggedin_user_domain() . 'profile' ),
+				'parent_slug' => 'profile',
+				'screen_function' => 'the_champ_bp_linking',
+				'position' => 50
+			)
+		);
+	}
 }
 
 // show social account linking when 'Social Account Linking' tab is clicked
@@ -643,17 +671,17 @@ function the_champ_sharing_meta_setup(){
 		<br/>
 		<label for="the_champ_counter">
 			<input type="checkbox" name="_the_champ_meta[counter]" id="the_champ_counter" value="1" <?php checked('1', @$sharingMeta['counter']); ?> />
-			<?php _e('Disable Horizontal Social Counter on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Horizontal like buttons on this '.$postType, 'Super-Socializer') ?>
 		</label>
 		<br/>
 		<label for="the_champ_vertical_counter">
 			<input type="checkbox" name="_the_champ_meta[vertical_counter]" id="the_champ_vertical_counter" value="1" <?php checked('1', @$sharingMeta['vertical_counter']); ?> />
-			<?php _e('Disable Vertical Social Counter on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Vertical like buttons on this '.$postType, 'Super-Socializer') ?>
 		</label>
 		<br/>
 		<label for="the_champ_fb_comments">
 			<input type="checkbox" name="_the_champ_meta[fb_comments]" id="the_champ_fb_comments" value="1" <?php checked('1', @$sharingMeta['fb_comments']); ?> />
-			<?php _e('Disable Facebook Comments on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Social Commenting on this '.$postType, 'Super-Socializer') ?>
 		</label>
 		<?php
 		if(the_champ_social_sharing_enabled()){

@@ -147,21 +147,37 @@ function the_champ_login_shortcode($params){
 add_shortcode('TheChamp-Login', 'the_champ_login_shortcode');
 
 /** 
- * Shortcode for Social Login.
+ * Shortcode for Facebook Comments.
  */ 
 function the_champ_fb_commenting_shortcode($params){
-	if(the_champ_facebook_commenting_enabled()){
-		extract(shortcode_atts(array(
-			'style' => '',
-			'url' => get_permalink(),
-			'num_posts' => '',
-			'width' => ''
-		), $params));
-		$html = '<div style="'. $style .'" id="the_champ_fb_commenting"> <div class="fb-comments" data-href="' .($url == '' ? the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] : $url). '"';
-        $html .= ' data-numposts="' . $num_posts . '"';
-        $html .= ' data-width="' . ($width == '' ? '100%' : $width) . '"';
-        $html .= ' ></div></div>';
-		return $html;
-	}
+	extract(shortcode_atts(array(
+		'style' => '',
+		'url' => get_permalink(),
+		'num_posts' => '',
+		'width' => '',
+		'language' => 'en_US'
+	), $params));
+	$html = '<div style="'. $style .'" id="the_champ_fb_commenting"> <div class="fb-comments" data-href="' .($url == '' ? the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] : $url). '"';
+    $html .= ' data-numposts="' . $num_posts . '"';
+    $html .= ' data-width="' . ($width == '' ? '100%' : $width) . '"';
+    $html .= ' ></div></div><script type="text/javascript" src="//connect.facebook.net/' . $language . '/sdk.js
+    "></script><script>FB.init({xfbml:1,version: "v2.3"});</script>';
+	return $html;
 }
 add_shortcode('TheChamp-FB-Comments', 'the_champ_fb_commenting_shortcode');
+
+/** 
+ * Shortcode for GooglePlus Comments.
+ */ 
+function the_champ_gp_commenting_shortcode($params){
+	extract(shortcode_atts(array(
+		'style' => '',
+		'url' => get_permalink(),
+		'width' => '',
+	), $params));
+	$html = '<div style="'. $style .'" id="the_champ_gp_commenting">';
+    $html .= "<div class='g-comments' data-href='" . ($url == '' ? the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] : $url) . "' ". ($width ? "data-width='" .$width. "'" : "" ) ." data-first_party_property='BLOGGER' data-view_type='FILTERED_POSTMOD' ></div>";
+    $html .= '</div><script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>';
+	return $html;
+}
+add_shortcode('TheChamp-GP-Comments', 'the_champ_gp_commenting_shortcode');

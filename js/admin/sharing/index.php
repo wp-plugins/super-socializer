@@ -1,1 +1,1 @@
-<?php die("God is within you"); ?>
+<?php die("Silence is Golden"); ?>

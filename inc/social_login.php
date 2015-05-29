@@ -31,7 +31,7 @@ function the_champ_login_button($widget = false){
 						$html .= 'id="theChamp'. ucfirst($provider) .'Button" ';
 					}
 					// class
-					$html .= 'class="theChamp'. ucfirst($provider) .'Button theChampLoginButton" ';
+					$html .= 'class="theChampLogin theChamp'. ucfirst($provider) .'Background theChamp'. ucfirst($provider) .'Login" ';
 					$html .= 'alt="Login with ';
 					$html .= ucfirst($provider);
 					$html .= '" title="Login with ';
@@ -45,7 +45,7 @@ function the_champ_login_button($widget = false){
 					}else{
 						$html .= '" onclick="theChampInitiateLogin(this)" >';
 					}
-					$html .= '</i></li>';
+					$html .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider) .'Svg"></div></i></li>';
 				}
 			}
 			$html .= '</ul></div>';

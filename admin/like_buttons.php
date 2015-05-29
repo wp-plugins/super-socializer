@@ -9,9 +9,8 @@
 			<h2 class="nav-tab-wrapper" style="height:36px">
 			<ul>
 				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-1"><?php _e('Basic Configuration', 'Super-Socializer') ?></a></li>
-				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-2"><?php _e('Social Counter', 'Super-Socializer') ?></a></li>
+				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-2"><?php _e('Like Buttons', 'Super-Socializer') ?></a></li>
 				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-3"><?php _e('Shortcode & Widget', 'Super-Socializer') ?></a></li>
-				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-4"><?php _e('FAQ', 'Super-Socializer') ?></a></li>
 			</ul>
 			</h2>
 			<div class="menu_containt_div" id="tabs-1">
@@ -23,7 +22,7 @@
 						<tr>
 							<th>
 							<img id="the_champ_sc_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label for="the_champ_counter_enable"><?php _e("Enable Social Counter", 'Super-Socializer'); ?></label>
+							<label for="the_champ_counter_enable"><?php _e("Enable Like Buttons", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_counter_enable" name="the_champ_counter[enable]" type="checkbox" <?php echo isset($theChampCounterOptions['enable']) ? 'checked = "checked"' : '';?> value="1" />
@@ -33,23 +32,8 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_enable_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Master control for Social Counter. It must be checked to enable Social Counter functionality', 'Super-Socializer') ?>
+							<?php _e('Master control for like buttons. It must be checked to enable like buttons functionality', 'Super-Socializer') ?>
 							</div>
-							</td>
-						</tr>
-					</table>
-					</div>
-				</div>
-				
-				<div class="stuffbox">
-					<div class="inside">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
-						<tr>
-							<td colspan="2">
-							<div>
-							<?php _e('<strong>Note:</strong> To disable counter on particular page/post, edit that page/post and check the options at the bottom in <strong>"Super Socializer"</strong> section', 'Super-Socializer') ?>
-							</div>
-							<img style="box-shadow: 4px 4px 4px 4px #888888; margin: 8px 0" width="550" id="the_champ_sl_emailver_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/snaps/ss_disable_sharing.png', __FILE__) ?>" />
 							</td>
 						</tr>
 					</table>
@@ -64,9 +48,27 @@
 				<div class="the_champ_left_column">
 				
 				<div class="stuffbox">
-					<h3><label><?php _e('bit.ly url shortener', 'Super-Socializer');?></label></h3>
+					<h3><label><?php _e('Url shortener', 'Super-Socializer');?></label></h3>
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<th>
+							<img id="the_champ_surl_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_surl_enable"><?php _e("Use shortlinks already installed, for tweet button", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_surl_enable" name="the_champ_counter[use_shortlinks]" type="checkbox" <?php echo isset($theChampCounterOptions['use_shortlinks']) ? 'checked = "checked"' : '';?> value="1" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_surl_enable_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Allows for shortened URLs to be used when sharing content if a shortening plugin is installed', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
+
 						<tr>
 							<th>
 							<img id="the_champ_sc_bitly_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -178,13 +180,13 @@
 				</div>
 
 				<div class="stuffbox">
-					<h3><label><?php _e('Horizontal Counter Interface Options', 'Super-Socializer');?></label></h3>
+					<h3><label><?php _e('Horizontal Interface Options', 'Super-Socializer');?></label></h3>
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 						<tr>
 							<th>
 							<img id="the_champ_sc_horizontal_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label for="the_champ_sc_horizontal_enable"><?php _e("Enable horizontal counter interface", 'Super-Socializer'); ?></label>
+							<label for="the_champ_sc_horizontal_enable"><?php _e("Enable horizontal interface", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_sc_horizontal_enable" onclick="theChampHorizontalCounterOptionsToggle(this)" name="the_champ_counter[hor_enable]" type="checkbox" <?php echo isset($theChampCounterOptions['hor_enable']) ? 'checked = "checked"' : '';?> value="1" />
@@ -194,7 +196,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_horizontal_enable_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Master control to enable horizontal counter', 'Super-Socializer') ?>
+							<?php _e('Master control to enable horizontal like buttons', 'Super-Socializer') ?>
 							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_horizontal_counter.png', __FILE__); ?>" />
 							</div>
 							</td>
@@ -237,7 +239,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_title_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('The text to display above the counter interface', 'Super-Socializer') ?>
+							<?php _e('The text to display above the interface', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -289,7 +291,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_providers_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Select the providers for counter interface. Drag them to rearrange.', 'Super-Socializer') ?>
+							<?php _e('Select the providers for interface. Drag them to rearrange.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -311,7 +313,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_hor_alignment_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Horizontal alignment of the counter interface', 'Super-Socializer') ?>
+							<?php _e('Horizontal alignment of the interface', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -332,7 +334,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_position_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify position of the counter interface with respect to the content', 'Super-Socializer') ?>
+							<?php _e('Specify position of the interface with respect to the content', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -340,7 +342,7 @@
 						<tr>
 							<th>
 							<img id="the_champ_sc_location_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label><?php _e("Counter location", 'Super-Socializer'); ?></label>
+							<label><?php _e("Interface location", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_counter_home" name="the_champ_counter[home]" type="checkbox" <?php echo isset($theChampCounterOptions['home']) ? 'checked = "checked"' : '';?> value="1" />
@@ -383,7 +385,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_location_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify the pages where you want to enable counter interface', 'Super-Socializer') ?>
+							<?php _e('Specify the pages where you want to enable interface', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -393,13 +395,13 @@
 				</div>
 				
 				<div class="stuffbox">
-					<h3><label><?php _e('Vertical (Floating) counter interface Options', 'Super-Socializer');?></label></h3>
+					<h3><label><?php _e('Vertical (Floating) like buttons Options', 'Super-Socializer');?></label></h3>
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 						<tr>
 							<th>
 							<img id="the_champ_sc_vertical_enable_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label for="the_champ_sc_vertical_enable"><?php _e("Enable vertical (floating) counter interface", 'Super-Socializer'); ?></label>
+							<label for="the_champ_sc_vertical_enable"><?php _e("Enable vertical (floating) like buttons", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_sc_vertical_enable" onclick="theChampVerticalCounterOptionsToggle(this)" name="the_champ_counter[vertical_enable]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_enable']) ? 'checked = "checked"' : '';?> value="1" />
@@ -485,7 +487,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_vertical_providers_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Select the providers for counter interface. Drag them to rearrange.', 'Super-Socializer') ?>
+							<?php _e('Select the providers for interface. Drag them to rearrange.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -503,7 +505,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_vertical_bg_color_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify the color or hex code (example #cc78e0) for the background of vertical counter bar. Leave empty for transparent. You can get the hex code of the required color from <a href="http://www.colorpicker.com/" target="_blank">this link</a>', 'Super-Socializer') ?>
+							<?php _e('Specify the color or hex code (example #cc78e0) for the background of vertical interface. Leave empty for transparent. You can get the hex code of the required color from <a href="http://www.colorpicker.com/" target="_blank">this link</a>', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -524,7 +526,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_alignment_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Horizontal alignment of the counter interface', 'Super-Socializer') ?>
+							<?php _e('Horizontal alignment of the interface', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -543,7 +545,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_left_offset_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify a number. Increase in number will shift counter interface towards right and decrease will shift it towards left.', 'Super-Socializer') ?>
+							<?php _e('Specify a number. Increase in number will shift interface towards right and decrease will shift it towards left.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -563,7 +565,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_right_offset_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify a number. Increase in number will shift counter interface towards left and decrease will shift it towards right.', 'Super-Socializer') ?>
+							<?php _e('Specify a number. Increase in number will shift interface towards left and decrease will shift it towards right.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -582,7 +584,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_top_offset_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify a number. Increase in number will shift counter interface towards bottom and decrease will shift it towards top.', 'Super-Socializer') ?>
+							<?php _e('Specify a number. Increase in number will shift interface towards bottom and decrease will shift it towards top.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -590,7 +592,7 @@
 						<tr>
 							<th>
 							<img id="the_champ_sc_vertical_location_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label><?php _e("Counter location", 'Super-Socializer'); ?></label>
+							<label><?php _e("Interface location", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_counter_vertical_home" name="the_champ_counter[vertical_home]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_home']) ? 'checked = "checked"' : '';?> value="1" />
@@ -623,7 +625,7 @@
 						<tr class="the_champ_help_content" id="the_champ_sc_vertical_location_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify the pages where you want to enable vertical counter interface', 'Super-Socializer') ?>
+							<?php _e('Specify the pages where you want to enable vertical interface', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -639,71 +641,9 @@
 			<div class="menu_containt_div" id="tabs-3">
 				<div class="the_champ_left_column">
 				<div class="stuffbox">
-					<h3><label><?php _e('Shortcode', 'Super-Socializer');?></label></h3>
+					<h3><label><?php _e('Shortcode & Widget', 'Super-Socializer');?></label></h3>
 					<div class="inside">
-						<p><?php _e('You can use <strong>[TheChamp-Counter]</strong> Shortcode in the content of required page/post where you want to display Social Counter interface.', 'Super-Socializer') ?></p>
-						<p><?php _e('Example', 'Super-Socializer') ?></p>
-						<p><strong>[TheChamp-Counter]</strong></p>
-						<p><?php _e('You can use following attributes in the Shortcode', 'Super-Socializer') ?></p>
-						<strong style="font-size: 16px">Style</strong>
-						<p><?php _e('Use <strong>style</strong> attribute to style the rendered Social Counter interface', 'Super-Socializer') ?></p>
-						<p><?php _e('Example', 'Super-Socializer') ?></p>
-						<p><strong>[TheChamp-Counter style="background-color:#000;"]</strong></p>
-						
-						<strong style="font-size: 16px">Type</strong>
-						<p><?php _e('Use <strong>type</strong> attribute to specify the type ("horizontal" or "vertical") of Social Counter interface. Default type is "horizontal".', 'Super-Socializer') ?></p>
-						<p><?php _e('Example', 'Super-Socializer') ?></p>
-						<p><strong>[TheChamp-Counter type="vertical"]</strong></p>
-						
-						<strong style="font-size: 16px"><?php _e('Left (Works with "Vertical" type interface only)', 'Super-Socializer') ?></strong>
-						<p><?php _e('Use <strong>left</strong> attribute to specify the left offset (distance form the left side of the screen) of Social Counter interface.', 'Super-Socializer') ?></p>
-						<p><?php _e('Example', 'Super-Socializer') ?></p>
-						<p><strong>[TheChamp-Counter type="vertical" left="500"]</strong></p>
-						
-						<strong style="font-size: 16px"><?php _e('Top (Works with "Vertical" type interface only)', 'Super-Socializer') ?></strong>
-						<p><?php _e('Use <strong>top</strong> attribute to specify the top offset (distance form the top of the screen) of Social Counter interface.', 'Super-Socializer') ?></p>
-						<p><?php _e('Example', 'Super-Socializer') ?></p>
-						<p><strong>[TheChamp-Counter type="vertical" top="200"]</strong></p>
-						<p><?php _e('You can use shortcode in PHP file as following', 'Super-Socializer') ?></p>
-						<p><strong>&lt;?php echo do_shortcode('SHORTCODE') ?&gt;</strong></p>
-						<p><?php _e('Replace <strong>SHORTCODE</strong> in above code with the required shortcode like <strong>[TheChamp-Counter style="background-color:#000;"]</strong>, so the final code looks like following', 'Super-Socializer') ?></p>
-						<p><strong>&lt;?php echo do_shortcode('[TheChamp-Counter style="background-color:#000;"]') ?&gt;</strong></p>
-					</div>
-				</div>
-				
-				<div class="stuffbox">
-					<h3><label><?php _e('Widget', 'Super-Socializer');?></label></h3>
-					<div class="inside">
-						<p><?php _e('You can navigate to the <strong>Appearance</strong> > <strong>Widgets</strong> section in the left pan and drag <strong>Super Socializer - Counter (Horizontal Widget)</strong> and <strong>Super Socializer - Counter (Vertical Floating Widget)</strong> widgets in the required area.', 'Super-Socializer') ?></p>
-					</div>
-				</div>
-				</div>
-				<?php include 'help.php'; ?>
-			</div>
-			
-			<div class="menu_containt_div" id="tabs-4">
-				<div class="the_champ_left_column">
-				<div class="stuffbox">
-					<h3><label><?php _e('How can I show like counts of my website rather than of individual pages/posts?', 'Super-Socializer') ?></label></h3>
-					<div class="inside">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
-						<tr>
-							<td><?php _e('Choose "Url of the homepage of your website" in "Target Url" option', 'Super-Socializer') ?></td>
-						</tr>
-					</table>
-					</div>
-				</div>
-
-				<div class="stuffbox">
-					<h3><label><?php _e('How can I disable social counter on particular page/post?', 'Super-Socializer') ?></label></h3>
-					<div class="inside">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
-						<tr>
-							<td><?php _e('Edit that page/post and check the options at the bottom in "Super Socializer" section', 'Super-Socializer') ?><br/>
-								<img style="box-shadow: 4px 4px 4px 4px #888888; margin: 8px 0" width="550" id="the_champ_sl_emailver_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/snaps/ss_disable_sharing.png', __FILE__) ?>" />
-							</td>
-						</tr>
-					</table>
+						<p><a href="//support.heateor.com/like-buttons-shortcode-and-widget/" target="_blank"><?php _e('Shortcode & Widget', 'Super-Socializer') ?></a></p>
 					</div>
 				</div>
 				</div>

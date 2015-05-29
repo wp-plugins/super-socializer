@@ -1,10 +1,10 @@
 ﻿=== Super Socializer ===
-Contributors: the_champ, Spanish translator: Andrew Kurtis http://webhostinghub.com, French Translator: Patrick Mac Cann http://pixxi.es, German Translator: Maximilian Kops http://maxkops.de, Hungarian Translator: László Tavaszi http://kerekmese.hu, Italian Translator: Beda http://bluewin.ch
-Donate link: http://thechamplord.wordpress.com/
+Contributors: the_champ, Heateor, Spanish translator: Andrew Kurtis http://webhostinghub.com, French Translator: Patrick Mac Cann http://pixxi.es, German Translator: Maximilian Kops http://maxkops.de, Hungarian Translator: László Tavaszi http://kerekmese.hu, Italian Translator: Beda http://bluewin.ch
+Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.2
-Stable tag: 4.3.0
+Stable tag: 5.0.0
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -72,7 +72,7 @@ Below is more detail about the features:
 5. **Optimal Loading time**: Loading time of Social Login and Sharing icons is optimal and if you compare with other plugins, you will find it less than that of all those plugins.
 
 = Important links =
-* Plugin Demo: http://super-socializer-wordpress.pyrovolt.com
+* Plugin Demo: http://super-socializer-wordpress.heateor.com
 * Plugin Facebook fan page: https://www.facebook.com/SocializerChamp
 * Blog: http://thechamplord.wordpress.com
 * My Facebook profile: https://www.facebook.com/thechamp.lord
@@ -164,6 +164,17 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 5.0.0 =
+* Improved Social Sharing icons
+* Two themes for sharing icons (round and square)
+* Option to change size of sharing icons (ranging between 16x16px and 35x35px) 
+* Option to disable/enable "More" icon in sharing
+* Improved Social Login icons
+* Feature to slide in/out vertical sharing/counter interface
+* Option to use already enabled shortlinks with sharing
+* GooglePlus and Disqus included in Social Commenting
+* [Bugfix] Cached short urls were not being removed on deletion of plugin
+
 = 4.3.0 =
 * [Bugfix] Facebook Comments layout was distorted in mobile devices
 * Updated Facebook SDK to latest version
@@ -439,3 +450,14 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 * [Bugfix] Facebook Comments layout was distorted in mobile devices
 * Updated Facebook SDK to latest version
 * Added action "the_champ_login_widget_hook" in Social Login widget before logout link
+
+= 5.0.0 =
+* Improved Social Sharing icons
+* Two themes for sharing icons (round and square)
+* Option to change size of sharing icons (ranging between 16x16px and 35x35px) 
+* Option to disable/enable "More" icon in sharing
+* Improved Social Login icons
+* Feature to slide in/out vertical sharing/counter interface
+* Option to use already enabled shortlinks with sharing
+* GooglePlus and Disqus included in Social Commenting
+* [Bugfix] Cached short urls were not being removed on deletion of plugin
