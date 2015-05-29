@@ -10,6 +10,18 @@ defined('ABSPATH') or die("Cheating........Uh!!");
 function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $displayCount){
 	global $theChampSharingOptions, $post;
 	$postUrl = (isset($theChampSharingOptions['use_shortlink']) && function_exists('wp_get_shortlink')) ? wp_get_shortlink() : $postUrl;
+	if(!isset($theChampSharingOptions['horizontal_sharing_size'])){
+		$theChampSharingOptions['horizontal_sharing_size'] = 30;
+	}
+	if(!isset($theChampSharingOptions['horizontal_sharing_shape'])){
+		$theChampSharingOptions['horizontal_sharing_shape'] = 'round';
+	}
+	if(!isset($theChampSharingOptions['vertical_sharing_size'])){
+		$theChampSharingOptions['vertical_sharing_size'] = 35;
+	}
+	if(!isset($theChampSharingOptions['vertical_sharing_shape'])){
+		$theChampSharingOptions['vertical_sharing_shape'] = 'square';
+	}
 	$output = apply_filters('the_champ_sharing_interface_filter', '', $postUrl, $sharingType, $theChampSharingOptions, $post, $displayCount);
 	if($output != ''){
 		return $output;

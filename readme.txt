@@ -4,7 +4,7 @@ Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.2
-Stable tag: 5.0.1
+Stable tag: 5.0.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -164,6 +164,9 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 5.0.2 =
+* [Bugfix] Sharing icons were not being displayed in admin and front-end, with some themes, on updating the plugin
+
 = 5.0.1 =
 * [Bugfix] Social Commenting was breaking layout of some themes
 
@@ -467,3 +470,6 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 
 = 5.0.1 =
 * [Bugfix] Social Commenting was breaking layout of some themes
+
+= 5.0.2 =
+* [Bugfix] Sharing icons were not being displayed in admin and front-end, with some themes, on updating the plugin

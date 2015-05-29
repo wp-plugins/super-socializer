@@ -68,6 +68,18 @@ function the_champ_social_login_page(){
 function the_champ_social_sharing_page(){
 	// social sharing options
 	global $theChampSharingOptions, $theChampIsBpActive;
+	if(!isset($theChampSharingOptions['horizontal_sharing_size'])){
+		$theChampSharingOptions['horizontal_sharing_size'] = 30;
+	}
+	if(!isset($theChampSharingOptions['horizontal_sharing_shape'])){
+		$theChampSharingOptions['horizontal_sharing_shape'] = 'round';
+	}
+	if(!isset($theChampSharingOptions['vertical_sharing_size'])){
+		$theChampSharingOptions['vertical_sharing_size'] = 35;
+	}
+	if(!isset($theChampSharingOptions['vertical_sharing_shape'])){
+		$theChampSharingOptions['vertical_sharing_shape'] = 'square';
+	}
 	// message on saving options
 	echo the_champ_settings_saved_notification();
 	require 'admin/social_sharing.php';

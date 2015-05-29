@@ -3,13 +3,13 @@
 Plugin Name: Super Socializer
 Plugin URI: http://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
-Version: 5.0.1
+Version: 5.0.2
 Author: Heateor Team
 Author URI: http://www.heateor.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '5.0.1');
+define('THE_CHAMP_SS_VERSION', '5.0.2');
 
 $theChampLoginOptions = get_option('the_champ_login');
 if(isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers'])){
@@ -629,12 +629,8 @@ function the_champ_default_options(){
 	   'horizontal_more' => 1,
 	))){
 		$theChampTmpSharingOptions = get_option('the_champ_sharing');
-		$theChampTmpSharingOptions['horizontal_sharing_shape'] = 'round';
-		$theChampTmpSharingOptions['horizontal_sharing_size'] = 30;
-	    $theChampTmpSharingOptions['vertical_sharing_shape'] = 'square';
-	    $theChampTmpSharingOptions['vertical_sharing_size'] = 35;
+		$theChampTmpSharingOptions['horizontal_more'] = 1;
 	    $theChampTmpSharingOptions['vertical_more'] = 1;
-	    $theChampTmpSharingOptions['horizontal_more'] = 1;
 		update_option('the_champ_sharing', $theChampTmpSharingOptions);
 	}
 
