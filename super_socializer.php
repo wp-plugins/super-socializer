@@ -430,7 +430,7 @@ function the_champ_frontend_scripts(){
 		wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
 	}
 	// Social commenting
-	if(the_champ_social_commenting_enabled() && !is_front_page()){
+	if(the_champ_social_commenting_enabled()){
 		global $post;
 		if(isset($theChampFacebookOptions['urlToComment']) && $theChampFacebookOptions['urlToComment'] != ''){
 			$commentUrl = $theChampFacebookOptions['urlToComment'];
