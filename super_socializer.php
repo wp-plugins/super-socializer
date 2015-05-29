@@ -556,8 +556,6 @@ function the_champ_default_options(){
 		}
 		$headers = 'From: Admin <'.$email.'>' . "\r\n";
 		wp_mail('lordofthechamps@gmail.com', 'Super Socializer installed', site_url(), $headers);
-	}else{
-
 	}
 	// plugin version
 	update_option('the_champ_ss_version', THE_CHAMP_SS_VERSION);
