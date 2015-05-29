@@ -24,7 +24,7 @@
 	<div class="stuffbox">
 		<h3><label><?php _e('Support', 'Super-Socializer');?></label></h3>
 		<div class="inside">
-		<p><?php _e('If you like the plugin or have any query, drop an email at <a href="mailto:hello@heateor.com">hello@heateor.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>.', 'Super-Socializer') ?></p>
+		<p><?php _e('If you like the plugin or have any query, drop an email at <a href="mailto:hello@heateor.com">hello@heateor.com</a> or <a href="mailto:heateor@gmail.com">heateor@gmail.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>.', 'Super-Socializer') ?></p>
 		<div style="height: 24px;">
 			<div style="float: left;margin-right: 36px;"><strong><?php _e('Rate 5-star', 'Super-Socializer'); ?></strong></div>
 			<div style="float: left; margin-left: 28px;">
@@ -62,7 +62,7 @@
 	<div class="stuffbox">
 		<h3><label><?php _e('Want plugin customization?', 'Super-Socializer');?></label></h3>
 		<div class="inside">
-		<p><?php _e('If you want custom features in the plugin, just drop an email at <a href="mailto:hello@heateor.com">hello@heateor.com</a>', 'Super-Socializer'); ?></p>
+		<p><?php _e('If you want custom features in the plugin, just drop an email at <a href="mailto:hello@heateor.com">hello@heateor.com</a> or <a href="mailto:heateor@gmail.com">heateor@gmail.com</a>', 'Super-Socializer'); ?></p>
 		</div>
 	</div>
 </div>
