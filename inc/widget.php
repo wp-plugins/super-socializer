@@ -149,8 +149,10 @@ class TheChampSharingWidget extends WP_Widget {
 		if( !empty( $instance['before_widget_content'] ) ){ 
 			echo '<div>' . $instance['before_widget_content'] . '</div>'; 
 		}
-		// if bit.ly integration enabled, generate bit.ly short url
-		if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+		if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+			$sharingUrl = wp_get_shortlink();
+			// if bit.ly integration enabled, generate bit.ly short url
+		}elseif(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
 			$shortUrl = the_champ_generate_sharing_bitly_url($sharingUrl, $postId);
 			if($shortUrl){
 				$sharingUrl = $shortUrl;
@@ -281,11 +283,16 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 		}else{
 			$sharingUrl = get_permalink($post->ID);
 		}
-
-		echo "<div class='the_champ_sharing_container the_champ_vertical_sharing' style='".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='". $sharingUrl ."'>";
+		$ssOffset = 0;
+		if(isset($instance['alignment']) && isset($instance[$instance['alignment'] . '_offset'])){
+			$ssOffset = $instance[$instance['alignment'] . '_offset'];
+		}
+		echo "<div class='the_champ_sharing_container the_champ_vertical_sharing' ss-offset='" . $ssOffset . "' style='width:" . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : 35) + 4) . "px;".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='". $sharingUrl ."'>";
 		
-		// if bit.ly integration enabled, generate bit.ly short url
-		if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+		if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+			$sharingUrl = wp_get_shortlink();
+			// if bit.ly integration enabled, generate bit.ly short url
+		}elseif(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
 			$shortUrl = the_champ_generate_sharing_bitly_url($sharingUrl, $postId);
 			if($shortUrl){
 				$sharingUrl = $shortUrl;
@@ -451,7 +458,10 @@ class TheChampCounterWidget extends WP_Widget {
 		}
 		// if bit.ly integration enabled, generate bit.ly short url
 		$shortUrl = $counterUrl;
-		if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
+		if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+			$shortUrl = wp_get_shortlink();
+			// if bit.ly integration enabled, generate bit.ly short url
+		}elseif(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
 			$tempShortUrl = the_champ_generate_counter_bitly_url($counterUrl, $postId);
 			if($tempShortUrl){
 				$shortUrl = $tempShortUrl;
@@ -569,11 +579,17 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 		}else{
 			$counterUrl = get_permalink($post->ID);
 		}
-		
-		echo "<div class='the_champ_counter_container the_champ_vertical_counter' style='".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' >";
+		$ssOffset = 0;
+		if(isset($instance['alignment']) && isset($instance[$instance['alignment'] . '_offset'])){
+			$ssOffset = $instance[$instance['alignment'] . '_offset'];
+		}
+		echo "<div class='the_champ_counter_container the_champ_vertical_counter' ss-offset='". $ssOffset ."' style='".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' >";
 		// if bit.ly integration enabled, generate bit.ly short url
 		$shortUrl = $counterUrl;
-		if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
+		if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+			$shortUrl = wp_get_shortlink();
+			// if bit.ly integration enabled, generate bit.ly short url
+		}elseif(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
 			$tempShortUrl = the_champ_generate_counter_bitly_url($counterUrl, $postId);
 			if($tempShortUrl){
 				$shortUrl = $tempShortUrl;

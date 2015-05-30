@@ -266,8 +266,10 @@ function the_champ_render_sharing($content){
 			}
 			
 			$counterUrl = $counterPostUrl;
-			// if bit.ly integration enabled, generate bit.ly short url
-			if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
+			if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+				$counterUrl = wp_get_shortlink();
+				// if bit.ly integration enabled, generate bit.ly short url
+			}elseif(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
 				$shortUrl = the_champ_generate_counter_bitly_url($counterPostUrl, $postId);
 				if($shortUrl){
 					$counterUrl = $shortUrl;
@@ -323,8 +325,10 @@ function the_champ_render_sharing($content){
 			}
 			
 			$counterUrl = $counterPostUrl;
-			// if bit.ly integration enabled, generate bit.ly short url
-			if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
+			if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+				$counterUrl = wp_get_shortlink();
+				// if bit.ly integration enabled, generate bit.ly short url
+			}elseif(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
 				$shortUrl = the_champ_generate_counter_bitly_url($counterPostUrl, $postId);
 				if($shortUrl){
 					$counterUrl = $shortUrl;
@@ -350,8 +354,10 @@ function the_champ_render_sharing($content){
 							if(isset($theChampCounterOptions['vertical_target_url']) && $theChampCounterOptions['vertical_target_url'] == 'default'){
 								$counterPostUrl = site_url();
 								$counterUrl = $counterPostUrl;
-								// if bit.ly integration enabled, generate bit.ly short url
-								if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
+								if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+									$counterUrl = wp_get_shortlink();
+									// if bit.ly integration enabled, generate bit.ly short url
+								}elseif(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
 									$shortUrl = the_champ_generate_counter_bitly_url($counterPostUrl, 0);
 									if($shortUrl){
 										$counterUrl = $shortUrl;
@@ -394,8 +400,10 @@ function the_champ_render_sharing($content){
 			}
 			
 			$sharingUrl = $postUrl;
-			// if bit.ly integration enabled, generate bit.ly short url
-			if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+			if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+				$sharingUrl = wp_get_shortlink();
+				// if bit.ly integration enabled, generate bit.ly short url
+			}elseif(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
 				$shortUrl = the_champ_generate_sharing_bitly_url($postUrl, $postId);
 				if($shortUrl){
 					$sharingUrl = $shortUrl;
@@ -451,8 +459,10 @@ function the_champ_render_sharing($content){
 			}
 			
 			$sharingUrl = $postUrl;
-			// if bit.ly integration enabled, generate bit.ly short url
-			if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+			if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+				$sharingUrl = wp_get_shortlink();
+				// if bit.ly integration enabled, generate bit.ly short url
+			}elseif(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
 				$shortUrl = the_champ_generate_sharing_bitly_url($postUrl, $postId);
 				if($shortUrl){
 					$sharingUrl = $shortUrl;
@@ -478,8 +488,10 @@ function the_champ_render_sharing($content){
 							if(isset($theChampSharingOptions['vertical_target_url']) && $theChampSharingOptions['vertical_target_url'] == 'default'){
 								$postUrl = site_url();
 								$sharingUrl = $postUrl;
-								// if bit.ly integration enabled, generate bit.ly short url
-								if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+								if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+									$sharingUrl = wp_get_shortlink();
+									// if bit.ly integration enabled, generate bit.ly short url
+								}elseif(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
 									$shortUrl = the_champ_generate_sharing_bitly_url($postUrl, 0);
 									if($shortUrl){
 										$sharingUrl = $shortUrl;

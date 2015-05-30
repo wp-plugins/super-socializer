@@ -11,9 +11,11 @@ function the_champ_sharing_shortcode($params){
 			'style' => '',
 			'type' => 'horizontal',
 			'left' => '0',
+			'right' => '0',
 			'top' => '100',
 			'url' => '',
-			'count' => 0
+			'count' => 0,
+			'align' => 'left'
 		), $params));
 		if(($type == 'horizontal' && !the_champ_horizontal_sharing_enabled()) || ($type == 'vertical' && !the_champ_vertical_sharing_enabled())){
 			return;
@@ -31,18 +33,27 @@ function the_champ_sharing_shortcode($params){
 		}
 		// if bit.ly url shortener enabled, generate bit.ly short url
 		$shortUrl = '';
-		if(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
+		if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+			$shortUrl = wp_get_shortlink();
+			// if bit.ly integration enabled, generate bit.ly short url
+		}elseif(isset($theChampSharingOptions['bitly_enable']) && isset($theChampSharingOptions['bitly_username']) && $theChampSharingOptions['bitly_username'] != '' && isset($theChampSharingOptions['bitly_key']) && $theChampSharingOptions['bitly_key'] != ''){
 			$shortUrl = the_champ_generate_sharing_bitly_url($targetUrl, $postId);
 		}
-		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing" super-socializer-data-href="'.$targetUrl.'" ';
+		$alignmentOffset = 0;
+		if($left){
+			$alignmentOffset = $left;
+		}elseif($right){
+			$alignmentOffset = $right;
+		}
+		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing" ss-offset="' . $alignmentOffset . '" super-socializer-data-href="'.$targetUrl.'" ';
 		$verticalOffsets = '';
 		if($type == 'vertical'){
-			$verticalOffsets = 'left: '.$left.'px; top: '.$top.'px;';
+			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;width:' . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : '35') + 4) . "px;";
 		}
 		// style 
 		if($style != "" || $verticalOffsets != ''){
 			$html .= 'style="';
-			if(strpos($style, 'background') === false){ $html .= 'box-shadow: none;'; }
+			if(strpos($style, 'background') === false){ $html .= '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;'; }
 			$html .= $verticalOffsets;
 			$html .= $style;
 			$html .= '"';
@@ -75,8 +86,10 @@ function the_champ_counter_shortcode($params){
 			'style' => '',
 			'type' => 'horizontal',
 			'left' => '0',
+			'right' => '0',
 			'top' => '100',
-			'url' => ''
+			'url' => '',
+			'align' => 'left'
 		), $params));
 		if(($type == 'horizontal' && !the_champ_horizontal_counter_enabled()) || ($type == 'vertical' && !the_champ_vertical_counter_enabled())){
 			return;
@@ -92,15 +105,21 @@ function the_champ_counter_shortcode($params){
 			$targetUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 			$postId = 0;
 		}
-		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter" ';
+		$alignmentOffset = 0;
+		if($left){
+			$alignmentOffset = $left;
+		}elseif($right){
+			$alignmentOffset = $right;
+		}
+		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter" ss-offset="' . $alignmentOffset . '" ';
 		$verticalOffsets = '';
 		if($type == 'vertical'){
-			$verticalOffsets = 'left: '.$left.'px; top: '.$top.'px;';
+			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;';
 		}
 		// style 
 		if($style != "" || $verticalOffsets != ''){
 			$html .= 'style="';
-			if(strpos($style, 'background') === false){ $html .= 'box-shadow: none;'; }
+			if(strpos($style, 'background') === false){ $html .= '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;'; }
 			$html .= $verticalOffsets;
 			$html .= $style;
 			$html .= '"';
@@ -108,8 +127,10 @@ function the_champ_counter_shortcode($params){
 		$html .= '>';
 		global $theChampCounterOptions;
 		$counterUrl = $targetUrl;
-		// if bit.ly integration enabled, generate bit.ly short url
-		if(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
+		if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
+			$counterUrl = wp_get_shortlink();
+			// if bit.ly integration enabled, generate bit.ly short url
+		}elseif(isset($theChampCounterOptions['bitly_enable']) && isset($theChampCounterOptions['bitly_username']) && isset($theChampCounterOptions['bitly_username']) && $theChampCounterOptions['bitly_username'] != '' && isset($theChampCounterOptions['bitly_key']) && $theChampCounterOptions['bitly_key'] != ''){
 			$shortUrl = the_champ_generate_counter_bitly_url($targetUrl, $postId);
 			if($shortUrl){
 				$counterUrl = $shortUrl;

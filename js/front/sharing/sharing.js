@@ -632,20 +632,28 @@ if(!Modernizr.svg){
 jQuery(function(){
 	var classes = ['the_champ_vertical_sharing', 'the_champ_vertical_counter'];
 	for(var i = 0; i < classes.length; i++){
-		var verticalSharingHtml = jQuery('.' + classes[i]).html();
-		if(verticalSharingHtml){
-			if(jQuery('.' + classes[i]).attr('style').indexOf('right') >= 0){
-				var removeClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng', margin = 'Right', alignment = 'right', addClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng';
-			}else{
-				var removeClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng', margin = 'Left', alignment = 'left', addClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng';
-			}
-			jQuery('.' + classes[i]).html(verticalSharingHtml + '<div title="Hide" style="float:' + alignment + '" onclick="theChampHideSharing(this, \''+ removeClass +'\', \''+ addClass +'\',\'' + margin +'\', \'' + alignment + '\')" class="theChampSharingArrow ' + removeClass + '"></div>');
+		if(jQuery('.' + classes[i]).length){
+			jQuery('.' + classes[i]).each(function(){
+				var verticalSharingHtml = jQuery(this).html();
+				if(jQuery(this).attr('style').indexOf('right') >= 0){
+					var removeClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng', margin = 'Right', alignment = 'right', addClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng';
+				}else{
+					var removeClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng', margin = 'Left', alignment = 'left', addClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng';
+				}
+				jQuery(this).html(verticalSharingHtml + '<div title="Hide" style="float:' + alignment + '" onclick="theChampHideSharing(this, \''+ removeClass +'\', \''+ addClass +'\',\'' + margin +'\', \'' + alignment + '\')" class="theChampSharingArrow ' + removeClass + '"></div>');
+			});
 		}
 	}
 });
 
 function theChampHideSharing(elem, removeClass, addClass, margin, alignment){
-	var animation = {}, counter = jQuery(elem).parent().hasClass('the_champ_vertical_counter'), offset = parseInt(jQuery(elem).parent().css('width')) + 10 - (counter ? 16 : 0), savedOffset = (counter ? theChampCounterOffset : theChampSharingOffset);
+	var animation = {}, counter = jQuery(elem).parent().hasClass('the_champ_vertical_counter'), offset = parseInt(jQuery(elem).parent().css('width')) + 10 - (counter ? 16 : 0);
+	var ssOffset = jQuery(elem).parent().attr('ss-offset');
+	if(ssOffset){
+		var savedOffset = parseInt(ssOffset);
+	}else{
+		var savedOffset = (counter ? theChampCounterOffset : theChampSharingOffset);
+	}
 	if(jQuery(elem).attr('title') == 'Hide'){
 		animation[alignment] = "-=" + (offset + savedOffset);
 		jQuery(elem).parent().animate(animation, 400, function(){

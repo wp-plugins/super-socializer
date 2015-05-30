@@ -26,6 +26,9 @@ function theChampRenderFBCommenting() {
     for(var i = 0; i < theChampScEnabledTabs.length; i++){
         commentingHtml += '<li id="theChampTabs-'+ i +'-li" onclick="';
         commentingHtml += 'this.setAttribute(\'class\', \'theChampSelectedTab\');document.getElementById(\'theChampTabs-'+ i +'\').style.display=\'block\';';
+        if(theChampScEnabledTabs[i] == 'fb'){
+            commentingHtml += 'theChampInitiateFB();';
+        }
         for(var j = 0; j < theChampScEnabledTabs.length; j++){
             if(j != i){
                 commentingHtml += 'document.getElementById(\'theChampTabs-' + j + '-li\').setAttribute(\'class\', \'\');document.getElementById(\'theChampTabs-'+ j +'\').style.display=\'none\';';

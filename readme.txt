@@ -1,10 +1,10 @@
 ﻿=== Super Socializer ===
-Contributors: the_champ, Heateor, Spanish translator: Andrew Kurtis http://webhostinghub.com, French Translator: Patrick Mac Cann http://pixxi.es, German Translator: Maximilian Kops http://maxkops.de, Hungarian Translator: László Tavaszi http://kerekmese.hu, Italian Translator: Beda http://bluewin.ch
+Contributors: Heateor, the_champ, Spanish translator: Andrew Kurtis http://webhostinghub.com, French Translator: Patrick Mac Cann http://pixxi.es, German Translator: Maximilian Kops http://maxkops.de, Hungarian Translator: László Tavaszi http://kerekmese.hu, Italian Translator: Beda http://bluewin.ch
 Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.2
-Stable tag: 5.1.2
+Stable tag: 5.2.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -78,7 +78,7 @@ Below is more detail about the features:
 * Our GooglePlus Page: https://plus.google.com/u/0/b/108269557664834008011/108269557664834008011/about
 * Our Twitter Profile: https://twitter.com/heateor
 
-You can provide your feedback at heateor@gmail.com
+You can provide your feedback at hello@heateor.com
 
 == Installation ==
 
@@ -163,6 +163,10 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 5.2.2 =
+* [Bugfix] Fixed issues with sharing and like buttons (Social Counter) shortcodes/widgets
+* [Bugfix] Facebook comemnts in new commenting interface were not visible in Firefox browser
+
 = 5.1.2 =
 * [Bugfix] Double sharing icons were appearing at front-end
 
@@ -478,3 +482,7 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 
 = 5.1.2 =
 * [Bugfix] Double sharing icons were appearing at front-end
+
+= 5.2.2 =
+* [Bugfix] Fixed issues with sharing and like buttons (Social Counter) shortcodes/widgets
+* [Bugfix] Facebook comemnts in new commenting interface were not visible in Firefox browser

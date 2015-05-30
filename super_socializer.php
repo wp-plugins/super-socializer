@@ -3,13 +3,13 @@
 Plugin Name: Super Socializer
 Plugin URI: http://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
-Version: 5.1.2
+Version: 5.2.2
 Author: Heateor Team
 Author URI: http://www.heateor.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '5.1.2');
+define('THE_CHAMP_SS_VERSION', '5.2.2');
 
 $theChampLoginOptions = get_option('the_champ_login');
 if(isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers'])){
@@ -575,7 +575,7 @@ function the_champ_default_options(){
 	));
 	
 	// social commenting options
-	if(!add_option('the_champ_facebook', array(
+	add_option('the_champ_facebook', array(
 	   'enable_commenting' => '1',
 	   'enable_fbcomments' => '1',
 	   'comment_lang' => get_locale(),
@@ -585,22 +585,10 @@ function the_champ_default_options(){
 	   'label_facebook_comments' => 'Facebook Comments',
 	   'label_googleplus_comments' => 'G+ Comments',
 	   'label_disqus_comments' => 'Disqus Comments',
-	))){
-		$theChampTmpFacebookOptions = get_option('the_champ_facebook');
-		if(isset($theChampTmpFacebookOptions['enable_fbcomments'])){
-			$theChampTmpFacebookOptions['enable_commenting'] = '1';
-		}
-		$theChampTmpFacebookOptions['commenting_order'] = 'wordpress,facebook,googleplus,disqus';
-	    $theChampTmpFacebookOptions['commenting_label'] = 'Leave a reply';
-	    $theChampTmpFacebookOptions['label_wordpress_comments'] = 'Default Comments';
-	    $theChampTmpFacebookOptions['label_facebook_comments'] = 'Facebook Comments';
-	    $theChampTmpFacebookOptions['label_googleplus_comments'] = 'G+ Comments';
-	    $theChampTmpFacebookOptions['label_disqus_comments'] = 'Disqus Comments';
-		update_option('the_champ_facebook', $theChampTmpFacebookOptions);
-	}
+	));
 	
 	// sharing options
-	if(!add_option('the_champ_sharing', array(
+	add_option('the_champ_sharing', array(
 	   'enable' => '1',
 	   'hor_enable' => '1',
 	   'vertical_enable' => '1',
@@ -627,12 +615,7 @@ function the_champ_default_options(){
 	   'vertical_sharing_size' => 35,
 	   'vertical_more' => 1,
 	   'horizontal_more' => 1,
-	))){
-		$theChampTmpSharingOptions = get_option('the_champ_sharing');
-		$theChampTmpSharingOptions['horizontal_more'] = 1;
-	    $theChampTmpSharingOptions['vertical_more'] = 1;
-		update_option('the_champ_sharing', $theChampTmpSharingOptions);
-	}
+	));
 
 	// counter options
 	add_option('the_champ_counter', array(

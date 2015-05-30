@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Super Socializer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 03:12+0530\n"
-"PO-Revision-Date: 2015-05-29 03:14+0530\n"
+"POT-Creation-Date: 2015-05-31 04:57+0530\n"
+"PO-Revision-Date: 2015-05-31 05:00+0530\n"
 "Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
 "Language-Team: The Champ <lordofthechamps@gmail.com>\n"
 "Language: fr\n"
@@ -50,15 +50,15 @@ msgstr "Merci de verifier votre boîte mail afin de finaliser votre création de
 msgid "Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
 msgstr "Suivez les étapes 11 et 12 au GooglePlus page de configuration de l'application, sur le point d'ouvrir"
 
-#: ../super_socializer.php:463
+#: ../super_socializer.php:464
 msgid "Leave a reply"
-msgstr ""
+msgstr "Laisser une réponse"
 
-#: ../super_socializer.php:565
+#: ../super_socializer.php:566
 msgid "Email you entered is already registered or invalid"
 msgstr "Envoyer vous avez entré est déjà enregistré ou non valide"
 
-#: ../super_socializer.php:569
+#: ../super_socializer.php:570
 msgid "Please enter a valid email address. You might be required to verify it"
 msgstr "Se il vous plaît entrer une adresse email valide. Vous pouvez être amené à vérifier"
 
@@ -66,83 +66,83 @@ msgstr "Se il vous plaît entrer une adresse email valide. Vous pouvez être ame
 msgid "Options saved successfully"
 msgstr "Paramètres enregistrées avec succès"
 
-#: ../helper.php:135
+#: ../helper.php:147
 msgid "Click to show help"
 msgstr "Cliquez pour afficher l'aide"
 
-#: ../helper.php:135
+#: ../helper.php:147
 msgid "Click to hide help"
 msgstr "Cliquez sur pour cacher l'aide"
 
-#: ../helper.php:175
+#: ../helper.php:187
 msgid "Settings"
 msgstr "Paramètres"
 
-#: ../helper.php:492
+#: ../helper.php:504
 #, fuzzy
 msgid "Account linked successfully"
 msgstr "Paramètres enregistrées avec succès"
 
-#: ../helper.php:498
+#: ../helper.php:510
 msgid "Account already exists or linked"
 msgstr "Compte existe déjà ou liée"
 
-#: ../helper.php:509
+#: ../helper.php:521
 #, fuzzy
 msgid "You are already connected with"
 msgstr "Vous êtes prêt à Socialiser votre site web."
 
-#: ../helper.php:509
+#: ../helper.php:521
 msgid "as primary social network"
 msgstr "comme réseau social primaire"
 
-#: ../helper.php:526
+#: ../helper.php:538
 msgid "Link your social account to login to your account at this website"
 msgstr "Lier votre compte sociale pour vous connecter à votre compte à ce site"
 
-#: ../helper.php:571
+#: ../helper.php:583
 msgid "Currently"
 msgstr "actuellement"
 
-#: ../helper.php:571
+#: ../helper.php:583
 msgid "Remove"
 msgstr "supprimer"
 
-#: ../helper.php:664
+#: ../helper.php:676
 msgid "Disable Horizontal Social Sharing on this "
 msgstr "Désactiver les boutons de partage horizontaux sur cette page"
 
-#: ../helper.php:669
+#: ../helper.php:681
 msgid "Disable Vertical Social Sharing on this "
 msgstr "Désactiver les boutons de partage verticaux sur cette page"
 
-#: ../helper.php:674
+#: ../helper.php:686
 #, fuzzy
 msgid "Disable Horizontal like buttons on this "
 msgstr "Désactiver le compteur social horizontal sur cette page"
 
-#: ../helper.php:679
+#: ../helper.php:691
 #, fuzzy
 msgid "Disable Vertical like buttons on this "
 msgstr "Désactiver le compteur social vertical sur cette page"
 
-#: ../helper.php:684
+#: ../helper.php:696
 #, fuzzy
 msgid "Disable Social Commenting on this "
 msgstr "Activer les commentaires Facebook"
 
-#: ../helper.php:693
+#: ../helper.php:705
 #, fuzzy
 msgid "Horizontal sharing"
 msgstr "Alignement horizontal"
 
-#: ../helper.php:699
-#: ../helper.php:718
+#: ../helper.php:711
+#: ../helper.php:730
 #, fuzzy
 msgid "Starting share count for "
 msgstr "Afficher le compteur des partages"
 
-#: ../helper.php:712
+#: ../helper.php:724
 #, fuzzy
 msgid "Vertical sharing"
 msgstr "Partage social"
@@ -161,7 +161,7 @@ msgstr "pour"
 
 #: ../admin/help.php:7
 msgid "We are a creative team with unique ideas in mind and service in heart. We love what we do. For more info join us at"
-msgstr ""
+msgstr "Nous sommes une équipe créative avec des idées uniques dans l'esprit et le service à cœur. Nous aimons ce que nous faisons. Pour plus d'infos vous joindre à nous"
 
 #: ../admin/help.php:17
 msgid "Plugin Demo"
@@ -177,7 +177,7 @@ msgstr "Aide"
 
 #: ../admin/help.php:27
 #, fuzzy
-msgid "If you like the plugin or have any query, drop an email at <a href=\"mailto:hello@heateor.com\">hello@heateor.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>."
+msgid "If you like the plugin or have any query, drop an email at <a href=\"mailto:support@heateor.com\">support@heateor.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>."
 msgstr "Si vous aimez mon plugin ou si vous avez des questions, vous pouvez m'envoyer un mail à <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>, aimer ma page <strong>Facebook</strong> et me suivre sur <strong>Twitter</strong>."
 
 #: ../admin/help.php:29
@@ -202,7 +202,7 @@ msgstr "Vous voulez un plugin personnalisé ?"
 
 #: ../admin/help.php:65
 #, fuzzy
-msgid "If you want custom features in the plugin, just drop an email at <a href=\"mailto:hello@heateor.com\">hello@heateor.com</a>"
+msgid "If you want custom features in the plugin, just drop an email at <a href=\"mailto:support@heateor.com\">support@heateor.com</a>"
 msgstr "Si vous souhaitez avoir des fonctionnalités personnalisés dans ce plugin, je peux le faire. Envoyez-moi un mail à <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a>."
 
 #: ../admin/social_sharing.php:11
@@ -242,7 +242,7 @@ msgstr "Résolution de problèmes"
 #: ../admin/social_sharing.php:16
 #: ../admin/social_sharing.php:1098
 #: ../admin/social_commenting.php:12
-#: ../admin/social_commenting.php:404
+#: ../admin/social_commenting.php:403
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -270,17 +270,17 @@ msgstr "Paramètres pour l'interface de partage horizontal"
 #: ../admin/social_sharing.php:77
 #: ../admin/social_sharing.php:155
 msgid "Shape"
-msgstr ""
+msgstr "forme"
 
 #: ../admin/social_sharing.php:85
 #: ../admin/social_sharing.php:163
 msgid "Round"
-msgstr ""
+msgstr "tour"
 
 #: ../admin/social_sharing.php:87
 #: ../admin/social_sharing.php:165
 msgid "Square"
-msgstr ""
+msgstr "carré"
 
 #: ../admin/social_sharing.php:94
 #: ../admin/social_sharing.php:172
@@ -291,7 +291,7 @@ msgstr "Afficher le compteur des partages"
 #: ../admin/social_sharing.php:102
 #: ../admin/social_sharing.php:180
 msgid "Size (in pixels)"
-msgstr ""
+msgstr "Taille (en pixels)"
 
 #: ../admin/social_sharing.php:120
 #: ../admin/social_sharing.php:198
@@ -302,12 +302,12 @@ msgstr "Alignement horizontal des boutons de partage"
 #: ../admin/social_sharing.php:127
 #: ../admin/social_sharing.php:205
 msgid "Icon Preview"
-msgstr ""
+msgstr "Aperçu d'icône"
 
 #: ../admin/social_sharing.php:141
 #: ../admin/social_sharing.php:219
 msgid "Do not forget to save the configuration after making changes by clicking the save button below"
-msgstr ""
+msgstr "Ne pas oublier de sauvegarder la configuration après avoir fait des changements en cliquant sur le bouton ci-dessous sauver"
 
 #: ../admin/social_sharing.php:149
 #, fuzzy
@@ -322,12 +322,12 @@ msgstr "bit.ly raccourcisseur d'URL"
 
 #: ../admin/social_sharing.php:238
 msgid "Use shortlinks already installed"
-msgstr ""
+msgstr "Utilisez shortlinks déjà installés"
 
 #: ../admin/social_sharing.php:248
 #: ../admin/like_buttons.php:67
 msgid "Allows for shortened URLs to be used when sharing content if a shortening plugin is installed"
-msgstr ""
+msgstr "Permet d'URL raccourcies à être utilisés lorsque le partage de contenu si un plugin de raccourcissement est installé"
 
 #: ../admin/social_sharing.php:256
 msgid "Enable bit.ly url shortener for sharing"
@@ -681,7 +681,7 @@ msgstr "Activer la verification de l'adresse e-mail"
 #: ../admin/social_sharing.php:672
 #: ../admin/social_sharing.php:1041
 msgid "If enabled, \"More\" icon will be displayed after selected sharing icons which shows additional sharing networks in popup"
-msgstr ""
+msgstr "Si elle est activée, icône \"Plus de\" sera affiché icônes de partage sélectionnés après qui montre des réseaux de partage supplémentaires dans le popup"
 
 #: ../admin/social_sharing.php:682
 msgid "Vertical (Floating) Sharing Interface Options"
@@ -757,7 +757,7 @@ msgid "How can I specify minimum sharing count for sharing networks?"
 msgstr "Comment puis-je spécifier le nombre de partage minimum pour les réseaux de partage?"
 
 #: ../admin/social_sharing.php:1112
-#: ../admin/social_commenting.php:414
+#: ../admin/social_commenting.php:413
 #: ../admin/social_login.php:665
 #: ../admin/like_buttons.php:655
 msgid "Save Changes"
@@ -769,8 +769,8 @@ msgid "Social Commenting"
 msgstr "Commentaires par défaut"
 
 #: ../admin/social_commenting.php:11
-#: ../admin/social_commenting.php:392
-#: ../admin/social_commenting.php:394
+#: ../admin/social_commenting.php:391
+#: ../admin/social_commenting.php:393
 msgid "Shortcode"
 msgstr "Shortcode"
 
@@ -784,19 +784,19 @@ msgstr "Activer le Compteur Social"
 
 #: ../admin/social_commenting.php:42
 msgid "Order of tabs in commenting interface"
-msgstr ""
+msgstr "Ordre des onglets dans l'interface commentant"
 
 #: ../admin/social_commenting.php:52
 msgid "Order of the tabs shown in social commenting interface. Defaults to wordpress,facebook,googleplus,disqus"
-msgstr ""
+msgstr "Ordre des onglets affichés dans l'interface commentant sociale. Par défaut, wordpress, facebook, googleplus, Disqus"
 
 #: ../admin/social_commenting.php:60
 msgid "Comment area label"
-msgstr ""
+msgstr "Commentaire étiquette de la zone"
 
 #: ../admin/social_commenting.php:71
 msgid "Labels"
-msgstr ""
+msgstr "étiquettes"
 
 #: ../admin/social_commenting.php:77
 #, fuzzy
@@ -825,140 +825,140 @@ msgstr "Paramètres des commentaires Facebook"
 msgid "Enable Facebook Commenting"
 msgstr "Activer les commentaires Facebook"
 
-#: ../admin/social_commenting.php:143
-#: ../admin/social_commenting.php:323
+#: ../admin/social_commenting.php:142
+#: ../admin/social_commenting.php:322
 msgid "Url to comment on"
 msgstr "URL à commenter"
 
-#: ../admin/social_commenting.php:153
+#: ../admin/social_commenting.php:152
 msgid "The absolute URL that comments posted will be permanently associated with. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
 msgstr "L'URL absolu auquel les commentaires publiés seront associés de façon permanente. Les publications sur Facebook à propos des commentaires laissés sur votre site seront associés à ce lien. <br/>Si vous le laissez vide <strong>Recommandé</strong>, le lien de la page sera utilisé."
 
-#: ../admin/social_commenting.php:161
-#: ../admin/social_commenting.php:305
+#: ../admin/social_commenting.php:160
+#: ../admin/social_commenting.php:304
 msgid "Width"
 msgstr "Largeur"
 
-#: ../admin/social_commenting.php:171
+#: ../admin/social_commenting.php:170
 msgid "Leave empty to auto-adjust the width. The width (in pixels) of the Comments block."
 msgstr "Laisser vide pour ajuster automatiquement la largeur. La largeur (en pixels) du bloc de commentaires."
 
-#: ../admin/social_commenting.php:179
+#: ../admin/social_commenting.php:178
 msgid "Color Scheme"
 msgstr "Schéma de couleurs"
 
-#: ../admin/social_commenting.php:183
+#: ../admin/social_commenting.php:182
 msgid "Light"
 msgstr "Clair"
 
-#: ../admin/social_commenting.php:184
+#: ../admin/social_commenting.php:183
 msgid "Dark"
 msgstr "Sombre"
 
-#: ../admin/social_commenting.php:192
+#: ../admin/social_commenting.php:191
 msgid "The color scheme used by the plugin. Can be \"light\" or \"dark\"."
 msgstr "Le schema de couleurs utilisé par ce plugin. Peut être \"clair\" ou \"sombre\"."
 
-#: ../admin/social_commenting.php:200
+#: ../admin/social_commenting.php:199
 #, fuzzy
 msgid "Number of comments"
 msgstr "Le nombre de publications"
 
-#: ../admin/social_commenting.php:210
+#: ../admin/social_commenting.php:209
 msgid "The number of comments to show by default. The minimum value is 1. Defaults to 10"
 msgstr "Le nombre de commentaires à afficher par défaut. Minimum de 1 commentaire. 10 par défaut."
 
-#: ../admin/social_commenting.php:218
+#: ../admin/social_commenting.php:217
 msgid "Order by"
 msgstr "Trier par"
 
-#: ../admin/social_commenting.php:222
+#: ../admin/social_commenting.php:221
 msgid "Social"
 msgstr "Social"
 
-#: ../admin/social_commenting.php:223
+#: ../admin/social_commenting.php:222
 msgid "Reverse Time"
 msgstr "Anachronique"
 
-#: ../admin/social_commenting.php:224
+#: ../admin/social_commenting.php:223
 msgid "Time"
 msgstr "Heure"
 
-#: ../admin/social_commenting.php:232
+#: ../admin/social_commenting.php:231
 msgid "The order to use when displaying comments."
 msgstr "L'ordre à utiliser lors de l'affiche des commentaires."
 
-#: ../admin/social_commenting.php:240
+#: ../admin/social_commenting.php:239
 msgid "Mobile"
 msgstr "Portable"
 
-#: ../admin/social_commenting.php:244
+#: ../admin/social_commenting.php:243
 msgid "Auto Detect"
 msgstr "Detecter automatiquement"
 
-#: ../admin/social_commenting.php:245
+#: ../admin/social_commenting.php:244
 msgid "True"
 msgstr "Vrai"
 
-#: ../admin/social_commenting.php:246
+#: ../admin/social_commenting.php:245
 msgid "False"
 msgstr "Faux"
 
-#: ../admin/social_commenting.php:254
+#: ../admin/social_commenting.php:253
 msgid "A boolean value that specifies whether to show the mobile-optimized version or not."
 msgstr "Une valeur booléen qui définit si la version mobile s'affiche ou pas."
 
-#: ../admin/social_commenting.php:262
+#: ../admin/social_commenting.php:261
 #: ../admin/like_buttons.php:132
 #: ../admin/like_buttons.php:138
 msgid "Language"
 msgstr "Langue"
 
-#: ../admin/social_commenting.php:272
+#: ../admin/social_commenting.php:271
 #, php-format
 msgid "Enter the code of the language you want to use to display commenting. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
 msgstr "Définissez le langage de code que vous souhaitez utilizer dans les commentaires. Vous trouverez une liste <a href=\"%s\" target=\"_blank\">ici</ a>. Laissez vide pour l'anglais."
 
-#: ../admin/social_commenting.php:281
+#: ../admin/social_commenting.php:280
 #, fuzzy
 msgid "Google Plus Commenting Options"
 msgstr "Paramètres des commentaires Facebook"
 
-#: ../admin/social_commenting.php:287
-#: ../admin/social_commenting.php:297
+#: ../admin/social_commenting.php:286
+#: ../admin/social_commenting.php:296
 #, fuzzy
 msgid "Enable Google Plus Commenting"
 msgstr "Activer les commentaires Facebook"
 
-#: ../admin/social_commenting.php:315
+#: ../admin/social_commenting.php:314
 msgid "Width of GooglePlus Commenting interface. Leave empty for auto adjust"
 msgstr "Largeur de l'interface Commentant GooglePlus. Laissez vide pour Auto Adjust"
 
-#: ../admin/social_commenting.php:333
+#: ../admin/social_commenting.php:332
 #, fuzzy
 msgid "The absolute URL that comments posted will be permanently associated with. Stories on Google Plus about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
 msgstr "L'URL absolu auquel les commentaires publiés seront associés de façon permanente. Les publications sur Facebook à propos des commentaires laissés sur votre site seront associés à ce lien. <br/>Si vous le laissez vide <strong>Recommandé</strong>, le lien de la page sera utilisé."
 
-#: ../admin/social_commenting.php:342
+#: ../admin/social_commenting.php:341
 #, fuzzy
 msgid "Disqus Commenting Options"
 msgstr "Paramètres des commentaires Facebook"
 
-#: ../admin/social_commenting.php:348
-#: ../admin/social_commenting.php:358
+#: ../admin/social_commenting.php:347
+#: ../admin/social_commenting.php:357
 #, fuzzy
 msgid "Enable Disqus Commenting"
 msgstr "Activer les commentaires Facebook"
 
-#: ../admin/social_commenting.php:366
+#: ../admin/social_commenting.php:365
 msgid "Disqus Shortname"
 msgstr ""
 
-#: ../admin/social_commenting.php:376
+#: ../admin/social_commenting.php:375
 msgid "<strong>Required to use Disqus commenting.</strong> You can find it in your Disqus plugin settings section as shown in the screenshot below"
 msgstr "<strong>Nécessaire pour utiliser Disqus commentant.</strong> Vous pouvez le trouver dans votre section Disqus des paramètres de plug-in comme le montre la capture d'écran ci-dessous"
 
-#: ../admin/social_commenting.php:406
+#: ../admin/social_commenting.php:405
 #, fuzzy
 msgid "How can I disable Social Commenting at individual page/post?"
 msgstr "Comment je peux afficher le compte des partages de mon site, et non des pages/publications individuelles ?"
@@ -1439,11 +1439,11 @@ msgstr "La distance en pixels. Une augmentation du chiffre décalera le compteur
 msgid "Specify the pages where you want to enable vertical interface"
 msgstr "Enumérer les pages où vous souhaitez afficher le compteur vertical"
 
-#: ../inc/social_sharing.php:515
+#: ../inc/social_sharing.php:539
 msgid "Invalid request"
 msgstr "Demande non-valable !"
 
-#: ../inc/social_sharing.php:522
+#: ../inc/social_sharing.php:546
 msgid "Providers not selected"
 msgstr "Réseaux sociaux non-selectionnés !"
 
@@ -1460,28 +1460,28 @@ msgid "Log Out"
 msgstr "Deconnexion"
 
 #: ../inc/widget.php:78
-#: ../inc/widget.php:214
-#: ../inc/widget.php:504
+#: ../inc/widget.php:216
+#: ../inc/widget.php:514
 msgid "Title:"
 msgstr "Titre :"
 
 #: ../inc/widget.php:80
-#: ../inc/widget.php:226
-#: ../inc/widget.php:514
+#: ../inc/widget.php:228
+#: ../inc/widget.php:524
 msgid "Before widget content:"
 msgstr "Avant le contenu du widget :"
 
 #: ../inc/widget.php:82
-#: ../inc/widget.php:228
-#: ../inc/widget.php:516
+#: ../inc/widget.php:230
+#: ../inc/widget.php:526
 msgid "After widget content:"
 msgstr "Après le contenu du widget :"
 
 #: ../inc/widget.php:85
-#: ../inc/widget.php:230
-#: ../inc/widget.php:385
-#: ../inc/widget.php:518
-#: ../inc/widget.php:661
+#: ../inc/widget.php:232
+#: ../inc/widget.php:392
+#: ../inc/widget.php:528
+#: ../inc/widget.php:677
 msgid "Hide for logged in users:"
 msgstr "Cacher pour les utilisateurs connectés :"
 
@@ -1489,55 +1489,55 @@ msgstr "Cacher pour les utilisateurs connectés :"
 msgid "Horizontal sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Boutons de partage horizontaux. Permettez à vos utilisateurs de partager votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 
-#: ../inc/widget.php:216
-#: ../inc/widget.php:356
+#: ../inc/widget.php:218
+#: ../inc/widget.php:363
 #, fuzzy
 msgid "Show share counts:"
 msgstr "Afficher le compteur des partages"
 
-#: ../inc/widget.php:218
-#: ../inc/widget.php:358
-#: ../inc/widget.php:506
-#: ../inc/widget.php:634
+#: ../inc/widget.php:220
+#: ../inc/widget.php:365
+#: ../inc/widget.php:516
+#: ../inc/widget.php:650
 msgid "Target Url:"
 msgstr "Cible Url:"
 
-#: ../inc/widget.php:220
-#: ../inc/widget.php:360
-#: ../inc/widget.php:508
-#: ../inc/widget.php:636
+#: ../inc/widget.php:222
+#: ../inc/widget.php:367
+#: ../inc/widget.php:518
+#: ../inc/widget.php:652
 msgid "Select"
 msgstr "sélectionner"
 
-#: ../inc/widget.php:249
+#: ../inc/widget.php:251
 msgid "Vertical floating sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Boutons de partage verticaux. Permettez à vos utilisateurs de partager votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 
-#: ../inc/widget.php:366
-#: ../inc/widget.php:642
+#: ../inc/widget.php:373
+#: ../inc/widget.php:658
 msgid "Alignment"
 msgstr "Alignement"
 
-#: ../inc/widget.php:372
-#: ../inc/widget.php:648
+#: ../inc/widget.php:379
+#: ../inc/widget.php:664
 msgid "Left Offset"
 msgstr "Marge gauche"
 
-#: ../inc/widget.php:376
-#: ../inc/widget.php:652
+#: ../inc/widget.php:383
+#: ../inc/widget.php:668
 msgid "Right Offset"
 msgstr "Marge droite"
 
-#: ../inc/widget.php:379
-#: ../inc/widget.php:655
+#: ../inc/widget.php:386
+#: ../inc/widget.php:671
 msgid "Top Offset"
 msgstr "Marge superieur"
 
-#: ../inc/widget.php:404
+#: ../inc/widget.php:411
 msgid "Horizontal counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Compteur horizontal. Permettez à vos utilisateurs de partager/\"aimer\" votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 
-#: ../inc/widget.php:537
+#: ../inc/widget.php:547
 msgid "Vertical floating counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Compteur vertical. Permettez à vos utilisateurs de partager/\"aimer\" votre contenu facilement sur les réseaux sociaux comme Facebook, Twitter, Tumblr, Google+ et plus"
 

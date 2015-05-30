@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Super Socializer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 03:14+0530\n"
-"PO-Revision-Date: 2015-05-29 03:20+0530\n"
+"POT-Creation-Date: 2015-05-31 05:01+0530\n"
+"PO-Revision-Date: 2015-05-31 05:01+0530\n"
 "Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
 "Language-Team: The Champ <lordofthechamps@gmail.com>\n"
 "Language: hu\n"
@@ -50,15 +50,15 @@ msgstr "Kérjük, nézd meg e-mail címed a regisztráció befejezéséhez."
 msgid "Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
 msgstr "Kövesd a 11-ik és 12-ik lépést GooglePlus alkalmazás beállítás oldalon, about to open"
 
-#: ../super_socializer.php:463
+#: ../super_socializer.php:464
 msgid "Leave a reply"
 msgstr "Válaszolj"
 
-#: ../super_socializer.php:565
+#: ../super_socializer.php:566
 msgid "Email you entered is already registered or invalid"
 msgstr "A megadott e-maik már regisztrálva van, vagy hibás"
 
-#: ../super_socializer.php:569
+#: ../super_socializer.php:570
 msgid "Please enter a valid email address. You might be required to verify it"
 msgstr "Kérlek, érvényes e-mail címet adj meg. Ezt később ellenőrizhetjük"
 
@@ -66,83 +66,83 @@ msgstr "Kérlek, érvényes e-mail címet adj meg. Ezt később ellenőrizhetjü
 msgid "Options saved successfully"
 msgstr "A beállítások mentése sikeres"
 
-#: ../helper.php:135
+#: ../helper.php:147
 msgid "Click to show help"
 msgstr "Kattintson megmutatni segítség"
 
-#: ../helper.php:135
+#: ../helper.php:147
 msgid "Click to hide help"
 msgstr "Elrejtéséhez kattintson segítség"
 
-#: ../helper.php:175
+#: ../helper.php:187
 msgid "Settings"
 msgstr "Beállítások"
 
-#: ../helper.php:492
+#: ../helper.php:504
 #, fuzzy
 msgid "Account linked successfully"
 msgstr "A beállítások mentése sikeres"
 
-#: ../helper.php:498
+#: ../helper.php:510
 msgid "Account already exists or linked"
 msgstr "Fiók már létezik, vagy össze van kötve"
 
-#: ../helper.php:509
+#: ../helper.php:521
 #, fuzzy
 msgid "You are already connected with"
 msgstr "Készen állsz weboldalad \"Közösségesítésére\"."
 
-#: ../helper.php:509
+#: ../helper.php:521
 msgid "as primary social network"
 msgstr "elsődleges szociális háló"
 
-#: ../helper.php:526
+#: ../helper.php:538
 msgid "Link your social account to login to your account at this website"
 msgstr "Kapcsold össze közösségi fiókod, hogy belépj erre az oldalra"
 
-#: ../helper.php:571
+#: ../helper.php:583
 msgid "Currently"
 msgstr "Jelenleg"
 
-#: ../helper.php:571
+#: ../helper.php:583
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: ../helper.php:664
+#: ../helper.php:676
 msgid "Disable Horizontal Social Sharing on this "
 msgstr "Vízszintes Közösségi Megosztás kikapcsolása"
 
-#: ../helper.php:669
+#: ../helper.php:681
 msgid "Disable Vertical Social Sharing on this "
 msgstr "Függőleges Közösségi Megosztás kikapcsolása"
 
-#: ../helper.php:674
+#: ../helper.php:686
 #, fuzzy
 msgid "Disable Horizontal like buttons on this "
 msgstr "Vízszintes Közösségi Megosztás kikapcsolása"
 
-#: ../helper.php:679
+#: ../helper.php:691
 #, fuzzy
 msgid "Disable Vertical like buttons on this "
 msgstr "Függőleges Közösségi Megosztás kikapcsolása"
 
-#: ../helper.php:684
+#: ../helper.php:696
 #, fuzzy
 msgid "Disable Social Commenting on this "
 msgstr "Facebook Hozzászólás Bekapcsolás"
 
-#: ../helper.php:693
+#: ../helper.php:705
 #, fuzzy
 msgid "Horizontal sharing"
 msgstr "Függőleges igazítás"
 
-#: ../helper.php:699
-#: ../helper.php:718
+#: ../helper.php:711
+#: ../helper.php:730
 #, fuzzy
 msgid "Starting share count for "
 msgstr "Megosztás számok mutatása"
 
-#: ../helper.php:712
+#: ../helper.php:724
 #, fuzzy
 msgid "Vertical sharing"
 msgstr "Közösségi Megosztás"
@@ -177,7 +177,7 @@ msgstr "Támogatás"
 
 #: ../admin/help.php:27
 #, fuzzy
-msgid "If you like the plugin or have any query, drop an email at <a href=\"mailto:hello@heateor.com\">hello@heateor.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>."
+msgid "If you like the plugin or have any query, drop an email at <a href=\"mailto:support@heateor.com\">support@heateor.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>."
 msgstr "Ha tetszik a plugin, vagy kérdésed van, írhatsz nekem (angolul) <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a> címen, megtalálsz a <strong>Facebook</strong> oldalaimon és követhetsz a <strong>Twitter-en</strong>."
 
 #: ../admin/help.php:29
@@ -202,7 +202,7 @@ msgstr "Szeretnél egyedi funkciókat?"
 
 #: ../admin/help.php:65
 #, fuzzy
-msgid "If you want custom features in the plugin, just drop an email at <a href=\"mailto:hello@heateor.com\">hello@heateor.com</a>"
+msgid "If you want custom features in the plugin, just drop an email at <a href=\"mailto:support@heateor.com\">support@heateor.com</a>"
 msgstr "Ha egyedi funkciót szeretnél a plugin-ba, el tudom neked készíteni. Írj nekem egy e-mailt (angolul) a <a href=\"mailto:lordofthechamps@gmail.com\">lordofthechamps@gmail.com</a> címre"
 
 #: ../admin/social_sharing.php:11
@@ -242,7 +242,7 @@ msgstr "Hibamegoldó"
 #: ../admin/social_sharing.php:16
 #: ../admin/social_sharing.php:1098
 #: ../admin/social_commenting.php:12
-#: ../admin/social_commenting.php:404
+#: ../admin/social_commenting.php:403
 msgid "FAQ"
 msgstr "GYIK"
 
@@ -758,7 +758,7 @@ msgid "How can I specify minimum sharing count for sharing networks?"
 msgstr "Hogyan adhatok meg minimum megosztása száma a fájlcserélő hálózatokat?"
 
 #: ../admin/social_sharing.php:1112
-#: ../admin/social_commenting.php:414
+#: ../admin/social_commenting.php:413
 #: ../admin/social_login.php:665
 #: ../admin/like_buttons.php:655
 msgid "Save Changes"
@@ -770,8 +770,8 @@ msgid "Social Commenting"
 msgstr "Alapértelmezett Hozzászólás"
 
 #: ../admin/social_commenting.php:11
-#: ../admin/social_commenting.php:392
-#: ../admin/social_commenting.php:394
+#: ../admin/social_commenting.php:391
+#: ../admin/social_commenting.php:393
 msgid "Shortcode"
 msgstr "Shortcode"
 
@@ -826,140 +826,140 @@ msgstr "Facebook Hozzászólás Beállítások"
 msgid "Enable Facebook Commenting"
 msgstr "Facebook Hozzászólás Bekapcsolás"
 
-#: ../admin/social_commenting.php:143
-#: ../admin/social_commenting.php:323
+#: ../admin/social_commenting.php:142
+#: ../admin/social_commenting.php:322
 msgid "Url to comment on"
 msgstr "A hozzászólás URL"
 
-#: ../admin/social_commenting.php:153
+#: ../admin/social_commenting.php:152
 msgid "The absolute URL that comments posted will be permanently associated with. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
 msgstr "Abszolut URL, amelyhez a hozzászólások végelegesen kapcsolva lesznek. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
 
-#: ../admin/social_commenting.php:161
-#: ../admin/social_commenting.php:305
+#: ../admin/social_commenting.php:160
+#: ../admin/social_commenting.php:304
 msgid "Width"
 msgstr "Szélesség"
 
-#: ../admin/social_commenting.php:171
+#: ../admin/social_commenting.php:170
 msgid "Leave empty to auto-adjust the width. The width (in pixels) of the Comments block."
 msgstr "Hagyja üresen automata beállítás szélességét. A szélessége (pixel) a hozzászólások blokk."
 
-#: ../admin/social_commenting.php:179
+#: ../admin/social_commenting.php:178
 msgid "Color Scheme"
 msgstr "Szín Sablon"
 
-#: ../admin/social_commenting.php:183
+#: ../admin/social_commenting.php:182
 msgid "Light"
 msgstr "Világos"
 
-#: ../admin/social_commenting.php:184
+#: ../admin/social_commenting.php:183
 msgid "Dark"
 msgstr "Sötét"
 
-#: ../admin/social_commenting.php:192
+#: ../admin/social_commenting.php:191
 msgid "The color scheme used by the plugin. Can be \"light\" or \"dark\"."
 msgstr "A plugin által használt színsablon. \"Világos\" vagy \"sötét\" lehet."
 
-#: ../admin/social_commenting.php:200
+#: ../admin/social_commenting.php:199
 #, fuzzy
 msgid "Number of comments"
 msgstr "Hozzászólások száma"
 
-#: ../admin/social_commenting.php:210
+#: ../admin/social_commenting.php:209
 msgid "The number of comments to show by default. The minimum value is 1. Defaults to 10"
 msgstr "Az elsőre látható hozzászólások száma. A minimum 1, az alapértelmezés 10."
 
-#: ../admin/social_commenting.php:218
+#: ../admin/social_commenting.php:217
 msgid "Order by"
 msgstr "Rendezés"
 
-#: ../admin/social_commenting.php:222
+#: ../admin/social_commenting.php:221
 msgid "Social"
 msgstr "Közösségi"
 
-#: ../admin/social_commenting.php:223
+#: ../admin/social_commenting.php:222
 msgid "Reverse Time"
 msgstr "Fordított Sorrend"
 
-#: ../admin/social_commenting.php:224
+#: ../admin/social_commenting.php:223
 msgid "Time"
 msgstr "Időrend"
 
-#: ../admin/social_commenting.php:232
+#: ../admin/social_commenting.php:231
 msgid "The order to use when displaying comments."
 msgstr "A hozzászólás megjelenésének sorrendje."
 
-#: ../admin/social_commenting.php:240
+#: ../admin/social_commenting.php:239
 msgid "Mobile"
 msgstr "Mobil"
 
-#: ../admin/social_commenting.php:244
+#: ../admin/social_commenting.php:243
 msgid "Auto Detect"
 msgstr "Automata Érzékelés"
 
-#: ../admin/social_commenting.php:245
+#: ../admin/social_commenting.php:244
 msgid "True"
 msgstr "Igaz"
 
-#: ../admin/social_commenting.php:246
+#: ../admin/social_commenting.php:245
 msgid "False"
 msgstr "Hamis"
 
-#: ../admin/social_commenting.php:254
+#: ../admin/social_commenting.php:253
 msgid "A boolean value that specifies whether to show the mobile-optimized version or not."
 msgstr "Logikai érték, mely meghatározza, hogy mobilra optimalizált legyen-e a megjelenés."
 
-#: ../admin/social_commenting.php:262
+#: ../admin/social_commenting.php:261
 #: ../admin/like_buttons.php:132
 #: ../admin/like_buttons.php:138
 msgid "Language"
 msgstr "NYelv"
 
-#: ../admin/social_commenting.php:272
+#: ../admin/social_commenting.php:271
 #, php-format
 msgid "Enter the code of the language you want to use to display commenting. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
 msgstr "Add meg a nyelv kódját, amit a hozzászólás megjelenítéshez használjunk. A nyelvi kódot <a href=\"%s\" target=\"_blank\">itt</a> találod. Hagyd üresen az alapértelmezett (angol) nyelv használatához "
 
-#: ../admin/social_commenting.php:281
+#: ../admin/social_commenting.php:280
 #, fuzzy
 msgid "Google Plus Commenting Options"
 msgstr "Facebook Hozzászólás Beállítások"
 
-#: ../admin/social_commenting.php:287
-#: ../admin/social_commenting.php:297
+#: ../admin/social_commenting.php:286
+#: ../admin/social_commenting.php:296
 #, fuzzy
 msgid "Enable Google Plus Commenting"
 msgstr "Facebook Hozzászólás Bekapcsolás"
 
-#: ../admin/social_commenting.php:315
+#: ../admin/social_commenting.php:314
 msgid "Width of GooglePlus Commenting interface. Leave empty for auto adjust"
 msgstr "Szélessége googleplus kommentálva interfész. Hagyja üresen BEALLI"
 
-#: ../admin/social_commenting.php:333
+#: ../admin/social_commenting.php:332
 #, fuzzy
 msgid "The absolute URL that comments posted will be permanently associated with. Stories on Google Plus about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
 msgstr "Abszolut URL, amelyhez a hozzászólások végelegesen kapcsolva lesznek. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
 
-#: ../admin/social_commenting.php:342
+#: ../admin/social_commenting.php:341
 #, fuzzy
 msgid "Disqus Commenting Options"
 msgstr "Facebook Hozzászólás Beállítások"
 
-#: ../admin/social_commenting.php:348
-#: ../admin/social_commenting.php:358
+#: ../admin/social_commenting.php:347
+#: ../admin/social_commenting.php:357
 #, fuzzy
 msgid "Enable Disqus Commenting"
 msgstr "Facebook Hozzászólás Bekapcsolás"
 
-#: ../admin/social_commenting.php:366
+#: ../admin/social_commenting.php:365
 msgid "Disqus Shortname"
 msgstr ""
 
-#: ../admin/social_commenting.php:376
+#: ../admin/social_commenting.php:375
 msgid "<strong>Required to use Disqus commenting.</strong> You can find it in your Disqus plugin settings section as shown in the screenshot below"
 msgstr "<strong>használatához szükséges Disqus kommentálva.</strong> Megtalálható a Disqus bővítmény beállítások részben, amint az a lenti képen"
 
-#: ../admin/social_commenting.php:406
+#: ../admin/social_commenting.php:405
 #, fuzzy
 msgid "How can I disable Social Commenting at individual page/post?"
 msgstr "Hogyan jeleníthetem meg a megosztások számát az oldal/bejegyzés oldalakon kívül is?"
@@ -1442,11 +1442,11 @@ msgstr "Adj meg egy számot. A nagyobb szám lefelé tolja el a megosztási fel�
 msgid "Specify the pages where you want to enable vertical interface"
 msgstr "Add meg, melyik oldalakon jelenjen meg a Megosztási felület"
 
-#: ../inc/social_sharing.php:515
+#: ../inc/social_sharing.php:539
 msgid "Invalid request"
 msgstr "Hibás kérés"
 
-#: ../inc/social_sharing.php:522
+#: ../inc/social_sharing.php:546
 msgid "Providers not selected"
 msgstr "Nincs kiválasztott szolgáltató"
 
@@ -1463,28 +1463,28 @@ msgid "Log Out"
 msgstr "Kilépés"
 
 #: ../inc/widget.php:78
-#: ../inc/widget.php:214
-#: ../inc/widget.php:504
+#: ../inc/widget.php:216
+#: ../inc/widget.php:514
 msgid "Title:"
 msgstr "Cím:"
 
 #: ../inc/widget.php:80
-#: ../inc/widget.php:226
-#: ../inc/widget.php:514
+#: ../inc/widget.php:228
+#: ../inc/widget.php:524
 msgid "Before widget content:"
 msgstr "Widget tartalom előtt:"
 
 #: ../inc/widget.php:82
-#: ../inc/widget.php:228
-#: ../inc/widget.php:516
+#: ../inc/widget.php:230
+#: ../inc/widget.php:526
 msgid "After widget content:"
 msgstr "Widget tartalom után:"
 
 #: ../inc/widget.php:85
-#: ../inc/widget.php:230
-#: ../inc/widget.php:385
-#: ../inc/widget.php:518
-#: ../inc/widget.php:661
+#: ../inc/widget.php:232
+#: ../inc/widget.php:392
+#: ../inc/widget.php:528
+#: ../inc/widget.php:677
 msgid "Hide for logged in users:"
 msgstr "Bejelentkezettek számára elrejtve:"
 
@@ -1493,60 +1493,60 @@ msgstr "Bejelentkezettek számára elrejtve:"
 msgid "Horizontal sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Vízszíntes widget. Legyen látogatóidnak egyszerű a megosztás a Közösségi Hálózatokon, mint a Facebook, Twitter, Google+, vagy a LinkedIn"
 
-#: ../inc/widget.php:216
-#: ../inc/widget.php:356
+#: ../inc/widget.php:218
+#: ../inc/widget.php:363
 #, fuzzy
 msgid "Show share counts:"
 msgstr "Megosztás számok mutatása"
 
-#: ../inc/widget.php:218
-#: ../inc/widget.php:358
-#: ../inc/widget.php:506
-#: ../inc/widget.php:634
+#: ../inc/widget.php:220
+#: ../inc/widget.php:365
+#: ../inc/widget.php:516
+#: ../inc/widget.php:650
 msgid "Target Url:"
 msgstr "Cél Url:"
 
-#: ../inc/widget.php:220
-#: ../inc/widget.php:360
-#: ../inc/widget.php:508
-#: ../inc/widget.php:636
+#: ../inc/widget.php:222
+#: ../inc/widget.php:367
+#: ../inc/widget.php:518
+#: ../inc/widget.php:652
 msgid "Select"
 msgstr "Válassz"
 
-#: ../inc/widget.php:249
+#: ../inc/widget.php:251
 #, fuzzy
 msgid "Vertical floating sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
 msgstr "Függőleges lebegő widget. Legyen látogatóidnak egyszerű a megosztás a Közösségi Hálózatokon, mint a Facebook, Twitter, Google+, vagy a LinkedIn"
 
-#: ../inc/widget.php:366
-#: ../inc/widget.php:642
+#: ../inc/widget.php:373
+#: ../inc/widget.php:658
 msgid "Alignment"
 msgstr "Igazítás"
 
-#: ../inc/widget.php:372
-#: ../inc/widget.php:648
+#: ../inc/widget.php:379
+#: ../inc/widget.php:664
 #, fuzzy
 msgid "Left Offset"
 msgstr "Bal margó:"
 
-#: ../inc/widget.php:376
-#: ../inc/widget.php:652
+#: ../inc/widget.php:383
+#: ../inc/widget.php:668
 #, fuzzy
 msgid "Right Offset"
 msgstr "Jobb margó"
 
-#: ../inc/widget.php:379
-#: ../inc/widget.php:655
+#: ../inc/widget.php:386
+#: ../inc/widget.php:671
 #, fuzzy
 msgid "Top Offset"
 msgstr "Felső margó:"
 
-#: ../inc/widget.php:404
+#: ../inc/widget.php:411
 #, fuzzy
 msgid "Horizontal counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Vízszíntes widget. Legyen látogatóidnak egyszerű a megosztás a Közösségi Hálózatokon, mint a Facebook, Twitter, Google+, vagy a LinkedIn"
 
-#: ../inc/widget.php:537
+#: ../inc/widget.php:547
 #, fuzzy
 msgid "Vertical floating counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
 msgstr "Függőleges lebegő widget. Legyen látogatóidnak egyszerű a megosztás a Közösségi Hálózatokon, mint a Facebook, Twitter, Google+, vagy a LinkedIn"
