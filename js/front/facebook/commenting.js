@@ -41,7 +41,8 @@ function theChampRenderFBCommenting() {
     }
     commentingHtml += '</div>';
     t.innerHTML = commentingHtml;
-    document.getElementById("reply-title").remove();
+    var replyTitle = document.getElementById("reply-title");
+    if(replyTitle){ replyTitle.remove(); }
     for(var i = 0; i < theChampScEnabledTabs.length; i++){
         if(scripts[theChampScEnabledTabs[i]]){
             var script = document.createElement('script');
