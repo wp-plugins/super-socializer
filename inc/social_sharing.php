@@ -36,16 +36,16 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 		$style = 'style="width:' . $theChampSharingOptions[$sharingType . '_sharing_size'] . 'px;height:' . $theChampSharingOptions[$sharingType . '_sharing_size'] . 'px;';
 		$counterContainerInitHtml = '<span class="the_champ_share_count';
 		$counterContainerEndHtml = '</span>';
-		$deliciousRadius = '';
+		$innerStyle = 'display:block;';
 		$liClass = 'theChampSharingRound';
 		if($theChampSharingOptions[$sharingType . '_sharing_shape'] == 'round'){
 			$style .= 'border-radius:999px;';
-			$deliciousRadius = 'style="border-radius:999px;"';
+			$innerStyle .= 'border-radius:999px;';
 		}
 		if($sharingType == 'vertical' && $theChampSharingOptions[$sharingType . '_sharing_shape'] == 'square'){
 			$style .= 'margin:0;';
-			$counterContainerInitHtml = '<div class="the_champ_square_count';
-			$counterContainerEndHtml = '</div>';
+			$counterContainerInitHtml = '<ss class="the_champ_square_count';
+			$counterContainerEndHtml = '</ss>';
 			$liClass = '';
 		}
 		$style .= '"';
@@ -56,9 +56,9 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 				$html .= $counterContainerInitHtml . ' the_champ_'.$provider.'_count" '. ($startingCount ? 'ss_st_count="'. $sharingMeta[$provider . '_' . $sharingType . '_count'] .'"' : '') .' >&nbsp;' . $counterContainerEndHtml;
 			}
 			if($provider == 'print'){
-				$html .= '<i ' .$style. ' alt="Print" Title="Print" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick=\'window.print()\'><div class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></div></i>';
+				$html .= '<i ' .$style. ' alt="Print" Title="Print" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick=\'window.print()\'><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
 			}elseif($provider == 'email'){
-				$html .= '<i ' .$style. ' alt="Email" Title="Email" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick="window.location.href = \'mailto:?subject=\' + escape(\''. urlencode($post->post_title) .'\') + \'&body=\' + escape(\''.$postUrl.'\')"><div class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></div></i>';
+				$html .= '<i ' .$style. ' alt="Email" Title="Email" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick="window.location.href = \'mailto:?subject=\' + escape(\''. urlencode($post->post_title) .'\') + \'&body=\' + escape(\''.$postUrl.'\')"><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
 			}else{
 				if($provider == 'facebook'){
 					$sharingUrl = 'https://www.facebook.com/sharer/sharer.php?u=' . $postUrl;
@@ -93,9 +93,9 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 				}
 				$html .= '<i ' .$style. ' alt="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" Title="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" class="theChampSharing theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Background" ';
 				if($provider == 'pinterest'){
-					$html .= 'onclick="'.$sharingUrl.'"><div class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></div></i>';
+					$html .= 'onclick="'.$sharingUrl.'"><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
 				}else{
-					$html .= 'onclick=\' theChampPopup("'.$sharingUrl.'")\'><div ' . $deliciousRadius . ' class="theChampSharingSvg theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Svg"></div></i>';
+					$html .= 'onclick=\' theChampPopup("'.$sharingUrl.'")\'><ss style="'. $innerStyle .'" class="theChampSharingSvg theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Svg"></ss></i>';
 				}
 			}
 			$html .= '</li>';
@@ -105,7 +105,7 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 			if($displayCount){
 				$html .= $counterContainerInitHtml . '">&nbsp;' . $counterContainerEndHtml;
 			}
-			$html .= '<i ' .$style. ' title="More" alt="More" class="theChampSharing theChampMoreBackground" onclick="theChampMoreSharingPopup(this, \''.$postUrl.'\', \''.urlencode($post->post_title).'\')" ><div class="theChampSharingSvg theChampMoreSvg"></div></i></li>';
+			$html .= '<i ' .$style. ' title="More" alt="More" class="theChampSharing theChampMoreBackground" onclick="theChampMoreSharingPopup(this, \''.$postUrl.'\', \''.urlencode($post->post_title).'\')" ><ss style="display:block" class="theChampSharingSvg theChampMoreSvg"></ss></i></li>';
 		}
 		$html .= '</ul><div style="clear:both"></div>';
 	}

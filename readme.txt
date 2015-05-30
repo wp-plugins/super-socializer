@@ -4,7 +4,7 @@ Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.2
-Stable tag: 5.0.2
+Stable tag: 5.1.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -74,12 +74,11 @@ Below is more detail about the features:
 = Important links =
 * Plugin Demo: http://super-socializer-wordpress.heateor.com
 * Plugin Facebook fan page: https://www.facebook.com/SocializerChamp
-* Blog: http://thechamplord.wordpress.com
-* My Facebook profile: https://www.facebook.com/thechamp.lord
-* My Facebook fan page: https://www.facebook.com/pages/The-Champ/196278200561984
-* My Twitter profile: https://twitter.com/l0rd_champ
+* Our Facebook Page: https://www.facebook.com/heateor
+* Our GooglePlus Page: https://plus.google.com/u/0/b/108269557664834008011/108269557664834008011/about
+* Our Twitter Profile: https://twitter.com/heateor
 
-You can provide your feedback at lordofthechamps@gmail.com
+You can provide your feedback at heateor@gmail.com
 
 == Installation ==
 
@@ -164,6 +163,9 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 7. **Social Counter**: Horizontal Interface
 
 == Changelog ==
+= 5.1.2 =
+* [Bugfix] Double sharing icons were appearing at front-end
+
 = 5.0.2 =
 * [Bugfix] Sharing icons were not being displayed in admin and front-end, with some themes, on updating the plugin
 
@@ -473,3 +475,6 @@ Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
 
 = 5.0.2 =
 * [Bugfix] Sharing icons were not being displayed in admin and front-end, with some themes, on updating the plugin
+
+= 5.1.2 =
+* [Bugfix] Double sharing icons were appearing at front-end
