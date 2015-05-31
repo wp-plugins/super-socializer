@@ -148,19 +148,20 @@ Social Sharing enables your website users to share your website content over the
 2. **SEO Optimization**: Social sharing helps your website content get indexed faster and improves other factors that help in search engine optimization of your blog.
 
 = How much do you charge for the plugin? =
-This plugin is FREE to download and feel free to use it on your WordPress, BuddyPress, BBPress and any other WP based systems. For advanced features and custom solutions, drop me an email at lordofthechamps@gmail.com
+This plugin is FREE to download and feel free to use it on your WordPress, BuddyPress, BBPress and any other WP based systems. For advanced features and custom solutions, drop an email at support@heateor.com
 
 = Can you help me set up the plugin at my website? =
-Yes, I can help you with it. Just drop me an email at lordofthechamps@gmail.com
+Yes, we can help you with it. Just drop an email at support@heateor.com
 
 == Screenshots ==
 1. **Social Login**: Social Login interface at Wordpress login form
-2. **Social Sharing (Horizontal Interface)**: Social Sharing enabled at blog post
-3. **Social Sharing (Floating/Vertical Interface)**: Social Sharing enabled at blog post
+2. **Social Sharing**: A wide variety of sharing icons
+3. **Social Sharing**: Options to chosse size (ranging from 16px to 35px) and shape (round and square) of sharing icons
 4. **Social Sharing**: Around 90 social networks in Social Sharing
-5. **Facebook Commenting**: Facebook commenting in action
-6. **Social Counter**: Floating/Vertical Interface
-7. **Social Counter**: Horizontal Interface
+5. **Social Commenting**: WordPress Commenting selected
+6. **Social Commenting**: Facebook Commenting selected
+7. **Social Commenting**: GooglePlus Commenting selected
+8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
 = 5.2.2 =
