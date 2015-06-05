@@ -57,11 +57,9 @@ function theChampRenderFBCommenting() {
         }
     }
     document.getElementById('theChampTabs-0-li').setAttribute('class', 'theChampSelectedTab');
-    setTimeout(function(){
-        for(var i = 1; i < theChampScEnabledTabs.length; i++){
-           document.getElementById('theChampTabs-' + i).style.display = 'none';
-        }
-    }, 3000);
+    for(var i = 1; i < theChampScEnabledTabs.length; i++){
+       document.getElementById('theChampTabs-' + i).style.display = 'none';
+    }
 }
 theChampLoadEvent(function() {
     theChampRenderFBCommenting()

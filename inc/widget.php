@@ -75,6 +75,7 @@ class TheChampLoginWidget extends WP_Widget {
 		$instance = wp_parse_args( (array)$instance, $defaults ); 
 		?> 
 		<p> 
+			<p><strong>Note:</strong> <?php _e('Make sure Social Login is enabled from "Super Socializer > Social Login" page.', 'Super-Socializer') ?></p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'Super-Socializer' ); ?></label> 
 			<input style="width: 95%" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" /> 
 			<label for="<?php echo $this->get_field_id( 'before_widget_content' ); ?>"><?php _e( 'Before widget content:', 'Super-Socializer' ); ?></label> 
@@ -213,6 +214,7 @@ class TheChampSharingWidget extends WP_Widget {
 			}
 		</script>
 		<p> 
+			<p><strong>Note:</strong> <?php _e('Make sure "Horizontal Social Sharing" is enabled from "Super Socializer > Social Sharing" page.', 'Super-Socializer') ?></p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'Super-Socializer' ); ?></label> 
 			<input style="width: 95%" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" /> <br/>
 			<label for="<?php echo $this->get_field_id( 'show_counts' ); ?>"><?php _e( 'Show share counts:', 'Super-Socializer' ); ?></label> 
@@ -360,6 +362,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 				}
 			}
 			</script>
+			<p><strong>Note:</strong> <?php _e('Make sure "Vertical Social Sharing" is enabled from "Super Socializer > Social Sharing" page.', 'Super-Socializer') ?></p>
 			<label for="<?php echo $this->get_field_id( 'show_counts' ); ?>"><?php _e( 'Show share counts:', 'Super-Socializer' ); ?></label> 
 			<input id="<?php echo $this->get_field_id( 'show_counts' ); ?>" name="<?php echo $this->get_field_name( 'show_counts' ); ?>" type="checkbox" value="1" <?php echo isset($instance['show_counts']) && $instance['show_counts'] == 1 ? 'checked' : ''; ?> /><br/> 
 			<label for="<?php echo $this->get_field_id( 'target_url' ); ?>"><?php _e( 'Target Url:', 'Super-Socializer' ); ?></label> 
@@ -405,10 +408,10 @@ class TheChampCounterWidget extends WP_Widget {
 	function TheChampCounterWidget() { 
 		parent::WP_Widget( 
 			'TheChampHorizontalCounter', //unique id 
-			'Super Socializer - Counter (Horizontal Widget)', //title displayed at admin panel 
+			'Super Socializer - Like Buttons (Horizontal Widget)', //title displayed at admin panel 
 			//Additional parameters 
 			array(
-				'description' => __( 'Horizontal counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more', 'Super-Socializer' )
+				'description' => __( 'Horizontal like buttons widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more', 'Super-Socializer' )
 			)
 		); 
 	}  
@@ -511,6 +514,7 @@ class TheChampCounterWidget extends WP_Widget {
 			}
 		</script>
 		<p> 
+			<p><strong>Note:</strong> <?php _e('Make sure "Horizontal Like Buttons" are enabled from "Super Socializer > Like Buttons" page.', 'Super-Socializer') ?></p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'Super-Socializer' ); ?></label> 
 			<input style="width: 95%" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" /> 
 			<label for="<?php echo $this->get_field_id( 'target_url' ); ?>"><?php _e( 'Target Url:', 'Super-Socializer' ); ?></label> 
@@ -541,10 +545,10 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 	function TheChampVerticalCounterWidget() { 
 		parent::WP_Widget( 
 			'TheChampVerticalCounter', //unique id 
-			'Super Socializer - Counter (Vertical Floating Widget)', //title displayed at admin panel 
+			'Super Socializer - Like Buttons (Vertical Floating Widget)', //title displayed at admin panel 
 			//Additional parameters 
 			array(
-				'description' => __( 'Vertical floating counter widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more', 'Super-Socializer' )) 
+				'description' => __( 'Vertical floating like buttons widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more', 'Super-Socializer' )) 
 			); 
 	}  
 
@@ -647,6 +651,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 			}
 			</script>
 		<p> 
+			<p><strong>Note:</strong> <?php _e('Make sure "Vertical Like Buttons" are enabled from "Super Socializer > Like Buttons" page.', 'Super-Socializer') ?></p>
 			<label for="<?php echo $this->get_field_id( 'target_url' ); ?>"><?php _e( 'Target Url:', 'Super-Socializer' ); ?></label> 
 			<select style="width: 95%" onchange="theChampToggleVerticalCounterTargetUrl(this.value)" class="widefat" id="<?php echo $this->get_field_id( 'target_url' ); ?>" name="<?php echo $this->get_field_name( 'target_url' ); ?>">
 				<option value="">--<?php _e('Select', 'Super-Socializer') ?>--</option>

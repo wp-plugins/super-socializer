@@ -4,7 +4,7 @@ Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.2
-Stable tag: 5.2.2
+Stable tag: 5.3.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -164,6 +164,14 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 5.3.2 =
+* [Improvement] Optimized loading of Social Commenting
+* [Improvement] Improved LinkedIn sharing
+* [Bugfix] Some commenting tabs were not visible if there was space in "Order of tabs in commenting interface" option in Social Commenting section
+* [Bugfix] Modernizr Javascript was breaking functionality of some themes if included in footer
+* [Bugfix] Double Social Login icons at front-end with a few themes
+* [Bugfix] Sharing icons were not visible in "Rearrange icons" option in admin panel in a few cases
+
 = 5.2.2 =
 * [Bugfix] Fixed issues with sharing and like buttons (Social Counter) shortcodes/widgets
 * [Bugfix] Facebook comemnts in new commenting interface were not visible in Firefox browser
@@ -487,3 +495,11 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 = 5.2.2 =
 * [Bugfix] Fixed issues with sharing and like buttons (Social Counter) shortcodes/widgets
 * [Bugfix] Facebook comemnts in new commenting interface were not visible in Firefox browser
+
+= 5.3.2 =
+* [Improvement] Optimized loading of Social Commenting
+* [Improvement] Improved LinkedIn sharing
+* [Bugfix] Some commenting tabs were not visible if there was space in "Order of tabs in commenting interface" option in Social Commenting section
+* [Bugfix] Modernizr Javascript was breaking functionality of some themes if included in footer
+* [Bugfix] Double Social Login icons at front-end with a few themes
+* [Bugfix] Sharing icons were not visible in "Rearrange icons" option in admin panel in a few cases

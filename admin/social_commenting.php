@@ -119,6 +119,14 @@
 							<div class="inside">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 								<tr>
+									<td colspan="2">
+									<div>
+									<?php _e('<strong>Note:</strong> Drop us an email at support@heateor.com to enable Facebook Comments notification and moderation.', 'Super-Socializer') ?>
+									</div>
+									</td>
+								</tr>
+
+								<tr>
 									<th>
 									<img id="the_champ_fb_comment_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 									<label for="the_champ_enable_fbcomments"><?php _e("Enable Facebook Commenting", 'Super-Socializer'); ?></label>
@@ -372,9 +380,8 @@
 								<tr class="the_champ_help_content" id="the_champ_commenting_dq_shortname_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('<strong>Required to use Disqus commenting.</strong> You can find it in your Disqus plugin settings section as shown in the screenshot below', 'Super-Socializer') ?>
+									<?php _e('<strong>Required to use Disqus commenting.</strong> For more info on shortname, visit following link.', 'Super-Socializer') ?> <a href="https://help.disqus.com/customer/portal/articles/466208" target="_blank">https://help.disqus.com/customer/portal/articles/466208</a>
 									</div>
-									<img width="562" src="<?php echo plugins_url('../images/snaps/sc_disqus_shortname.png', __FILE__); ?>" />
 									</td>
 								</tr>
 							</table>

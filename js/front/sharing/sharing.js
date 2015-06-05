@@ -622,10 +622,12 @@ function theChampCapitaliseFirstLetter(e) {
 
 if(!Modernizr.svg){
 	jQuery(function(){
-		jQuery('.the_champ_sharing_ul i').each(function(){
-			var alt = theChampCapitaliseFirstLetter(jQuery(this).attr('alt').replace(" Plus", "").replace(" ", "").toLowerCase());
-			jQuery(this).attr('class', 'theChampSharingButton theChampSharing' + alt + 'Button').attr('style', 'width:32px;height:32px').find('div').remove();
-		});
+		if(jQuery('.the_champ_sharing_ul').length){
+			jQuery('.the_champ_sharing_ul i').each(function(){
+				var alt = theChampCapitaliseFirstLetter(jQuery(this).attr('alt').replace(" Plus", "").replace(" ", "").toLowerCase());
+				jQuery(this).attr('class', 'theChampSharingButton theChampSharing' + alt + 'Button').attr('style', 'width:32px;height:32px').find('div').remove();
+			});
+		}
 	});
 }
 

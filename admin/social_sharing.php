@@ -921,7 +921,7 @@
 						<tr class="the_champ_help_content" id="the_champ_ss_left_offset_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify a number. Increase in number will shift sharing interface towards right and decrease will shift it towards left.', 'Super-Socializer') ?>
+							<?php _e('Specify a number. Increase in number will shift sharing interface towards right and decrease will shift it towards left. Number can be negative too.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -941,7 +941,7 @@
 						<tr class="the_champ_help_content" id="the_champ_ss_right_offset_help_cont">
 							<td colspan="2">
 							<div>
-							<?php _e('Specify a number. Increase in number will shift sharing interface towards left and decrease will shift it towards right.', 'Super-Socializer') ?>
+							<?php _e('Specify a number. Increase in number will shift sharing interface towards left and decrease will shift it towards right. Number can be negative too.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>

@@ -160,8 +160,8 @@ function the_champ_fb_sdk_script(){
  * Include javascript files in admin sharing page.
  */	
 function the_champ_admin_sharing_scripts(){
-	wp_enqueue_script('the_champ_sharing', plugins_url('js/admin/sharing/admin.js', __FILE__), array('jquery', 'jquery-ui-sortable'), THE_CHAMP_SS_VERSION);
 	wp_enqueue_script('the_champ_modernizer', plugins_url('js/modernizr.custom.82187.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
+	wp_enqueue_script('the_champ_sharing', plugins_url('js/admin/sharing/admin.js', __FILE__), array('jquery', 'jquery-ui-sortable'), THE_CHAMP_SS_VERSION);
 }
 
 /**

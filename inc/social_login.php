@@ -45,7 +45,7 @@ function the_champ_login_button($widget = false){
 					}else{
 						$html .= '" onclick="theChampInitiateLogin(this)" >';
 					}
-					$html .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider) .'Svg"></div></i></li>';
+					$html .= '<ss style="display:block" class="theChampLoginSvg theChamp'. ucfirst($provider) .'Svg"></ss></i></li>';
 				}
 			}
 			$html .= '</ul></div>';

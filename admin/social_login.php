@@ -227,7 +227,7 @@
 							<div>
 							<?php echo sprintf(__('Required for Instagram Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Instagram Client ID', 'Super-Socializer'), '//support.heateor.com/how-to-get-instagram-client-id/') ?>
 							<br/>
-							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website</strong> and <strong>OAuth redirect_uri</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
+							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website URL</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
 							<strong style="color: #14ACDF"><?php echo site_url(); ?></strong>
 							</div>

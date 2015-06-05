@@ -3,13 +3,13 @@
 Plugin Name: Super Socializer
 Plugin URI: http://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
-Version: 5.2.2
+Version: 5.3.2
 Author: Heateor Team
 Author URI: http://www.heateor.com
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '5.2.2');
+define('THE_CHAMP_SS_VERSION', '5.3.2');
 
 $theChampLoginOptions = get_option('the_champ_login');
 if(isset($theChampLoginOptions['providers']) && in_array('twitter', $theChampLoginOptions['providers'])){
@@ -321,7 +321,7 @@ function the_champ_frontend_scripts(){
 	global $theChampFacebookOptions, $theChampLoginOptions;
 	$inFooter = isset($theChampLoginOptions['footer_script']) ? true : false;
 	// general (required) scripts
-	wp_enqueue_script('the_champ_modernizer', plugins_url('js/modernizr.custom.82187.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
+	wp_enqueue_script('the_champ_modernizer', plugins_url('js/modernizr.custom.82187.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 	wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION, $inFooter);
 	$websiteUrl = site_url();
 	?>
@@ -447,6 +447,7 @@ function the_champ_frontend_scripts(){
 			$commentingTabsOrder = explode(',', str_replace('facebook', 'fb', $commentingTabsOrder));
 			$enabledTabs = array();
 			foreach($commentingTabsOrder as $tab){
+				$tab = trim($tab);
 				if($tab == 'wordpress'){
 					$enabledTabs[] = 'wordpress';
 				}elseif(isset($theChampFacebookOptions['enable_'. $tab .'comments'])){
@@ -604,8 +605,8 @@ function the_champ_default_options(){
 	   'vertical_post' => '1',
 	   'vertical_page' => '1',
 	   'vertical_excerpt' => '1',
-	   'left_offset' => '0',
-	   'right_offset' => '0',
+	   'left_offset' => '-10',
+	   'right_offset' => '-10',
 	   'top_offset' => '100',
 	   'delete_options' => '1',
 	   'alignment' => 'left',
@@ -620,8 +621,8 @@ function the_champ_default_options(){
 	// counter options
 	add_option('the_champ_counter', array(
 	   'language' => get_locale(),
-	   'left_offset' => '0',
-	   'right_offset' => '0',
+	   'left_offset' => '-10',
+	   'right_offset' => '-10',
 	   'top_offset' => '100',
 	   'alignment' => 'left',
 	));

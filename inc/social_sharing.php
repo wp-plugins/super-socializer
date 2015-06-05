@@ -65,7 +65,7 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 				}elseif($provider == 'twitter'){
 					$sharingUrl = 'http://twitter.com/intent/tweet?'. (isset($theChampSharingOptions['twitter_username']) && $theChampSharingOptions['twitter_username'] != '' ? 'via=' . $theChampSharingOptions['twitter_username'] . '&' : '') . 'text='.urlencode($post->post_title).'&url=' . $postUrl;
 				}elseif($provider == 'linkedin'){
-					$sharingUrl = 'http://www.linkedin.com/shareArticle?mini=true&url=' . $postUrl;
+					$sharingUrl = 'http://www.linkedin.com/shareArticle?mini=true&url=' . $postUrl . '&title=' . urlencode($post->post_title);
 				}elseif($provider == 'google'){
 					$sharingUrl = 'https://plus.google.com/share?url=' . $postUrl;
 				}elseif($provider == 'yahoo'){
