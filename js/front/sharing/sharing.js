@@ -619,8 +619,8 @@ function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 function theChampCapitaliseFirstLetter(e) {
     return e.charAt(0).toUpperCase() + e.slice(1)
 }
-
-if(!Modernizr.svg){
+var theChampSVGCompatible = (typeof Modernizr.svg == 'undefined' || Modernizr.svg) ? true : false;
+if(!theChampSVGCompatible){
 	jQuery(function(){
 		if(jQuery('.the_champ_sharing_ul').length){
 			jQuery('.the_champ_sharing_ul i').each(function(){
@@ -638,9 +638,9 @@ jQuery(function(){
 			jQuery('.' + classes[i]).each(function(){
 				var verticalSharingHtml = jQuery(this).html();
 				if(jQuery(this).attr('style').indexOf('right') >= 0){
-					var removeClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng', margin = 'Right', alignment = 'right', addClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng';
+					var removeClass = theChampSVGCompatible ? 'theChampPushIn' : 'theChampPushInPng', margin = 'Right', alignment = 'right', addClass = theChampSVGCompatible ? 'theChampPullOut' : 'theChampPullOutPng';
 				}else{
-					var removeClass = Modernizr.svg ? 'theChampPullOut' : 'theChampPullOutPng', margin = 'Left', alignment = 'left', addClass = Modernizr.svg ? 'theChampPushIn' : 'theChampPushInPng';
+					var removeClass = theChampSVGCompatible ? 'theChampPullOut' : 'theChampPullOutPng', margin = 'Left', alignment = 'left', addClass = theChampSVGCompatible ? 'theChampPushIn' : 'theChampPushInPng';
 				}
 				jQuery(this).html(verticalSharingHtml + '<div title="Hide" style="float:' + alignment + '" onclick="theChampHideSharing(this, \''+ removeClass +'\', \''+ addClass +'\',\'' + margin +'\', \'' + alignment + '\')" class="theChampSharingArrow ' + removeClass + '"></div>');
 			});

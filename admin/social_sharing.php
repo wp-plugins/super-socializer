@@ -509,26 +509,27 @@
 							<td>
 							<ul id="the_champ_ss_rearrange">
 								<?php
-								if(isset($theChampSharingOptions['horizontal_re_providers'])){
-									$horSharingStyle = 'width:' . $theChampSharingOptions['horizontal_sharing_size'] . 'px;height:' . $theChampSharingOptions['horizontal_sharing_size'] . 'px;';
-									$horDeliciousRadius = '';
-									if($theChampSharingOptions['horizontal_sharing_shape'] == 'round'){
-										$horSharingStyle .= 'border-radius:999px;';
-										$horDeliciousRadius = 'border-radius:999px;';
-									} 
+								if(!isset($theChampSharingOptions['horizontal_re_providers'])){
+									$theChampSharingOptions['horizontal_re_providers'] = array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon', 'whatsapp');
+								}
+								$horSharingStyle = 'width:' . $theChampSharingOptions['horizontal_sharing_size'] . 'px;height:' . $theChampSharingOptions['horizontal_sharing_size'] . 'px;';
+								$horDeliciousRadius = '';
+								if($theChampSharingOptions['horizontal_sharing_shape'] == 'round'){
+									$horSharingStyle .= 'border-radius:999px;';
+									$horDeliciousRadius = 'border-radius:999px;';
+								} 
+								?>
+								<script>
+								var theChampHorSharingStyle = '<?php echo $horSharingStyle ?>', theChampHorDeliciousRadius = '<?php echo $horDeliciousRadius ?>';
+								</script>
+								<?php
+								foreach($theChampSharingOptions['horizontal_re_providers'] as $rearrange){
 									?>
-									<script>
-									var theChampHorSharingStyle = '<?php echo $horSharingStyle ?>', theChampHorDeliciousRadius = '<?php echo $horDeliciousRadius ?>';
-									</script>
+									<li title="<?php echo $rearrange ?>" id="the_champ_re_horizontal_<?php echo str_replace(' ', '_', $rearrange) ?>" >
+									<i style="display:block;<?php echo $horSharingStyle ?>" class="theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Background"><div class="theChampSharingSvg theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Svg" style="<?php echo $horDeliciousRadius ?>"></div></i>
+									<input type="hidden" name="the_champ_sharing[horizontal_re_providers][]" value="<?php echo $rearrange ?>">
+									</li>
 									<?php
-									foreach($theChampSharingOptions['horizontal_re_providers'] as $rearrange){
-										?>
-										<li title="<?php echo $rearrange ?>" id="the_champ_re_horizontal_<?php echo str_replace(' ', '_', $rearrange) ?>" >
-										<i style="display:block;<?php echo $horSharingStyle ?>" class="theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Background"><div class="theChampSharingSvg theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Svg" style="<?php echo $horDeliciousRadius ?>"></div></i>
-										<input type="hidden" name="the_champ_sharing[horizontal_re_providers][]" value="<?php echo $rearrange ?>">
-										</li>
-										<?php
-									}
 								}
 								?>
 							</ul>
@@ -834,26 +835,27 @@
 							<td>
 							<ul id="the_champ_ss_vertical_rearrange">
 								<?php
-								if(isset($theChampSharingOptions['vertical_re_providers'])){
-									$verticalSharingStyle = 'width:' . $theChampSharingOptions['vertical_sharing_size'] . 'px;height:' . $theChampSharingOptions['vertical_sharing_size'] . 'px;';
-									$verticalDeliciousRadius = '';
-									if($theChampSharingOptions['vertical_sharing_shape'] == 'round'){
-										$verticalSharingStyle .= 'border-radius:999px;';
-										$verticalDeliciousRadius = 'border-radius:999px;';
-									}
+								if(!isset($theChampSharingOptions['vertical_re_providers'])){
+									$theChampSharingOptions['vertical_re_providers'] = array('facebook', 'twitter', 'google', 'linkedin', 'pinterest', 'reddit', 'delicious', 'stumbleupon', 'whatsapp');
+								}
+								$verticalSharingStyle = 'width:' . $theChampSharingOptions['vertical_sharing_size'] . 'px;height:' . $theChampSharingOptions['vertical_sharing_size'] . 'px;';
+								$verticalDeliciousRadius = '';
+								if($theChampSharingOptions['vertical_sharing_shape'] == 'round'){
+									$verticalSharingStyle .= 'border-radius:999px;';
+									$verticalDeliciousRadius = 'border-radius:999px;';
+								}
+								?>
+								<script>
+								var theChampVerticalSharingStyle = '<?php echo $verticalSharingStyle ?>', theChampVerticalDeliciousRadius = '<?php echo $verticalDeliciousRadius ?>';
+								</script>
+								<?php
+								foreach($theChampSharingOptions['vertical_re_providers'] as $rearrange){
 									?>
-									<script>
-									var theChampVerticalSharingStyle = '<?php echo $verticalSharingStyle ?>', theChampVerticalDeliciousRadius = '<?php echo $verticalDeliciousRadius ?>';
-									</script>
+									<li title="<?php echo $rearrange ?>" id="the_champ_re_vertical_<?php echo str_replace(' ', '_', $rearrange) ?>" >
+									<i style="display:block;<?php echo $verticalSharingStyle ?>" class="theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Background"><div class="theChampSharingSvg theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Svg" style="<?php echo $verticalDeliciousRadius ?>"></div></i>
+									<input type="hidden" name="the_champ_sharing[vertical_re_providers][]" value="<?php echo $rearrange ?>">
+									</li>
 									<?php
-									foreach($theChampSharingOptions['vertical_re_providers'] as $rearrange){
-										?>
-										<li title="<?php echo $rearrange ?>" id="the_champ_re_vertical_<?php echo str_replace(' ', '_', $rearrange) ?>" >
-										<i style="display:block;<?php echo $verticalSharingStyle ?>" class="theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Background"><div class="theChampSharingSvg theChamp<?php echo ucfirst(str_replace(' ', '', $rearrange)) ?>Svg" style="<?php echo $verticalDeliciousRadius ?>"></div></i>
-										<input type="hidden" name="the_champ_sharing[vertical_re_providers][]" value="<?php echo $rearrange ?>">
-										</li>
-										<?php
-									}
 								}
 								?>
 							</ul>
@@ -1046,17 +1048,6 @@
 					</table>
 					</div>
 				</div>
-				<script type="text/javascript">
-				if(!Modernizr.svg){
-					jQuery(function(){
-						jQuery('#tabs-2').remove();
-						jQuery('#the_champ_ss_rearrange i, #the_champ_ss_vertical_rearrange i').each(function(){
-							var alt = theChampCapitaliseFirstLetter(jQuery(this).parent().attr('title').replace(" ", "").toLowerCase());
-							jQuery(this).attr('class', 'theChampSharingButton theChampSharing' + alt + 'Button').attr('style', 'width:32px;height:32px').find('div').remove();
-						});
-					});
-				}
-				</script>
 				</div>
 				<?php include 'help.php'; ?>
 			</div>

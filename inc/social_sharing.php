@@ -28,7 +28,7 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 	}
 	$html = '';
 	$sharingMeta = '';
-	if(!is_front_page()){
+	if(!is_front_page() || (is_front_page() && 'page' == get_option('show_on_front'))){
 		$sharingMeta = get_post_meta($post->ID, '_the_champ_meta', true);
 	}
 	if(isset($theChampSharingOptions[$sharingType.'_re_providers'])){
@@ -247,7 +247,7 @@ function the_champ_render_sharing($content){
 	}
 	if(isset($theChampCounterOptions['enable'])){
 		//counter interface
-		if(isset($theChampCounterOptions['hor_enable']) && !(isset($sharingMeta['counter']) && $sharingMeta['counter'] == 1 && !is_front_page())){
+		if(isset($theChampCounterOptions['hor_enable']) && !(isset($sharingMeta['counter']) && $sharingMeta['counter'] == 1 && (!is_front_page() || (is_front_page() && 'page' == get_option('show_on_front'))) )){
 			$postId = $post -> ID;
 			if($counterBpActivity){
 				$counterPostUrl = bp_get_activity_thread_permalink();
@@ -308,7 +308,7 @@ function the_champ_render_sharing($content){
 				}
 			}
 		}
-		if(isset($theChampCounterOptions['vertical_enable']) && !(isset($sharingMeta['vertical_counter']) && $sharingMeta['vertical_counter'] == 1 && !is_front_page())){
+		if(isset($theChampCounterOptions['vertical_enable']) && !(isset($sharingMeta['vertical_counter']) && $sharingMeta['vertical_counter'] == 1 && (!is_front_page() || (is_front_page() && 'page' == get_option('show_on_front'))) )){
 			$postId = $post -> ID;
 			if(isset($theChampCounterOptions['vertical_target_url'])){
 				if($theChampCounterOptions['vertical_target_url'] == 'default'){
@@ -380,7 +380,7 @@ function the_champ_render_sharing($content){
 
 	if(isset($theChampSharingOptions['enable'])){
 		// sharing interface
-		if(isset($theChampSharingOptions['hor_enable']) && !(isset($sharingMeta['sharing']) && $sharingMeta['sharing'] == 1 && !is_front_page())){
+		if(isset($theChampSharingOptions['hor_enable']) && !(isset($sharingMeta['sharing']) && $sharingMeta['sharing'] == 1 && (!is_front_page() || (is_front_page() && 'page' == get_option('show_on_front'))) )){
 			$postId = $post -> ID;
 			if($sharingBpActivity){
 				$postUrl = bp_get_activity_thread_permalink();
@@ -442,7 +442,7 @@ function the_champ_render_sharing($content){
 				}
 			}
 		}
-		if(isset($theChampSharingOptions['vertical_enable']) && !(isset($sharingMeta['vertical_sharing']) && $sharingMeta['vertical_sharing'] == 1 && !is_front_page())){
+		if(isset($theChampSharingOptions['vertical_enable']) && !(isset($sharingMeta['vertical_sharing']) && $sharingMeta['vertical_sharing'] == 1 && (!is_front_page() || (is_front_page() && 'page' == get_option('show_on_front'))) )){
 			$postId = $post -> ID;
 			if(isset($theChampSharingOptions['vertical_target_url'])){
 				if($theChampSharingOptions['vertical_target_url'] == 'default'){

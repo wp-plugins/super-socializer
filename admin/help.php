@@ -8,7 +8,7 @@
 		<div style="height:32px">
 			<a href="//www.facebook.com/heateor" target="_blank" title="Facebook"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampFacebookButton" /></a>
 			<a href="//twitter.com/heateor" target="_blank" title="Twitter"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampTwitterButton" ></a>
-			<a href="//plus.google.com/u/0/b/108269557664834008011/108269557664834008011/about/" title="GooglePlus" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampGoogleButton" ></a>
+			<a href="//plus.google.com/+Heateor" title="GooglePlus" target="_blank"><img style="box-shadow:1px 1px 10px 1px #888888" class="theChampLoginButton theChampGoogleButton" ></a>
 		</div>
 		</div>
 	</div>
