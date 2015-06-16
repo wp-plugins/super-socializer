@@ -165,7 +165,7 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 
 == Changelog ==
 = 5.4.2 =
-* [Improvement] Improved sharing icons for Twitter, GooglePlus, Stumbleupon, Pinterest, Email and Digg
+* [Improvement] Improved sharing/login icons for Twitter, GooglePlus, Stumbleupon, Pinterest, Email and Digg
 * [Bugfix] Overlapped, messy sharing and login icons in a few cases
 * [Bugfix] Admin was unable to disable sharing/like buttons at homepage set as static page
 * [Bugfix] Starting share counts were not working for homepage set as static page
@@ -513,7 +513,7 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 * [Bugfix] Sharing icons were not visible in "Rearrange icons" option in admin panel in a few cases
 
 = 5.4.2 =
-* [Improvement] Improved sharing icons for Twitter, GooglePlus, Stumbleupon, Pinterest, Email and Digg
+* [Improvement] Improved sharing/login icons for Twitter, GooglePlus, Stumbleupon, Pinterest, Email and Digg
 * [Bugfix] Overlapped, messy sharing and login icons in a few cases
 * [Bugfix] Admin was unable to disable sharing/like buttons at homepage set as static page
 * [Bugfix] Starting share counts were not working for homepage set as static page
