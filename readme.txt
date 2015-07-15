@@ -4,7 +4,7 @@ Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.2
-Stable tag: 5.4.2
+Stable tag: 5.5.2
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -164,6 +164,11 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 5.5.2 =
+* [Bugfix] Facebook Commenting interface was shrinked on mobile devices due to recent changes introduced in FB JS SDK by Facebook
+* [Bugfix] Facebook Login was unable to fetch email and some other profile data of user due to recent changes introduced in FB JS SDK by Facebook
+* [Improvement] Updated FB JS SDK to latest version 2.4
+
 = 5.4.2 =
 * [Improvement] Improved sharing/login icons for Twitter, GooglePlus, Stumbleupon, Pinterest, Email and Digg
 * [Bugfix] Overlapped, messy sharing and login icons in a few cases
@@ -519,3 +524,8 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 * [Bugfix] Starting share counts were not working for homepage set as static page
 * [Bugfix] Rearrange sharing icons functionality was not working in a few cases
 * [Bugfix] WordPress Comments tab in Social Commenting interface was displaying incorrect comment counts in a few cases
+
+= 5.5.2 =
+* [Bugfix] Facebook Commenting interface was shrinked on mobile devices due to recent changes introduced in FB JS SDK by Facebook
+* [Bugfix] Facebook Login was unable to fetch email and some other profile data of user due to recent changes introduced in FB JS SDK by Facebook
+* [Improvement] Updated FB JS SDK to latest version 2.4

@@ -9,7 +9,7 @@ function theChampRenderFBCommenting() {
     // wordpress
     htmls['wordpress'] = '<div style="clear:both"></div>' + t.innerHTML;
     // facebook
-    theChampFBCommentingContent = '<div class="fb-comments" data-href="' + theChampFBCommentUrl + '"', "" != theChampFBCommentColor && (theChampFBCommentingContent += ' data-colorscheme="' + theChampFBCommentColor + '"'), "" != theChampFBCommentNumPosts && (theChampFBCommentingContent += ' data-numposts="' + theChampFBCommentNumPosts + '"'), theChampFBCommentingContent += ' data-width="' + theChampFBCommentWidth + '"', "" != theChampFBCommentOrderby && (theChampFBCommentingContent += ' data-order-by="' + theChampFBCommentOrderby + '"'), "" != theChampFBCommentMobile && (theChampFBCommentingContent += ' data-mobile="' + theChampFBCommentMobile + '"'), theChampFBCommentingContent += " ></div>";
+    theChampFBCommentingContent = '<div class="fb-comments" data-href="' + theChampFBCommentUrl + '"', "" != theChampFBCommentColor && (theChampFBCommentingContent += ' data-colorscheme="' + theChampFBCommentColor + '"'), "" != theChampFBCommentNumPosts && (theChampFBCommentingContent += ' data-numposts="' + theChampFBCommentNumPosts + '"'), theChampFBCommentingContent += ' data-width="' + theChampFBCommentWidth + '"', "" != theChampFBCommentOrderby && (theChampFBCommentingContent += ' data-order-by="' + theChampFBCommentOrderby + '"'), theChampFBCommentingContent += " ></div>";
     htmls['fb'] = theChampFBCommentingContent;
     scripts['fb'] = 'theChampInitiateFB();';
     
@@ -40,7 +40,7 @@ function theChampRenderFBCommenting() {
     }
     commentingHtml += '</ul>';
     for(var i = 0; i < theChampScEnabledTabs.length; i++){
-        commentingHtml += '<div id="theChampTabs-' + i + '"><div style="clear: both"></div>' + htmls[theChampScEnabledTabs[i]] + '</div>';
+        commentingHtml += '<div id="theChampTabs-' + i + '" ><div style="clear: both"></div>' + htmls[theChampScEnabledTabs[i]] + '</div>';
     }
     commentingHtml += '</div>';
     t.innerHTML = commentingHtml;

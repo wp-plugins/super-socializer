@@ -132,7 +132,7 @@ function the_champ_prepare_counter_html($postUrl, $sharingType = 'horizontal', $
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#version=v2.3";
+  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script><li class="the_champ_facebook_like"><div class="fb-like" data-href="'. $postUrl .'" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>';
 			}elseif($provider == 'facebook_recommend'){
@@ -140,7 +140,7 @@ function the_champ_prepare_counter_html($postUrl, $sharingType = 'horizontal', $
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#version=v2.3";
+  js.src = "//connect.facebook.net/'. ($language == '' ? 'en_US' : $language) .'/sdk.js#version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script><li class="the_champ_facebook_recommend"><div class="fb-like" data-href="'. $postUrl .'" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="false"></div></li>';
 			}elseif($provider == 'twitter_tweet'){
