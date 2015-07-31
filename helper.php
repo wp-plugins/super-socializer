@@ -114,7 +114,7 @@ function the_champ_validate_options($theChampOptions){
 		if(is_array($v)){
 			$theChampOptions[$k] = $theChampOptions[$k];
 		}else{
-			$theChampOptions[$k] = trim($v);
+			$theChampOptions[$k] = esc_attr(trim($v));
 		}
 	}
 	return $theChampOptions;
@@ -128,9 +128,11 @@ function the_champ_options_init(){
 	register_setting('the_champ_login_options', 'the_champ_login', 'the_champ_validate_options');
 	register_setting('the_champ_sharing_options', 'the_champ_sharing', 'the_champ_validate_options');
 	register_setting('the_champ_counter_options', 'the_champ_counter', 'the_champ_validate_options');
-	if(the_champ_social_sharing_enabled() || the_champ_social_counter_enabled() || the_champ_facebook_commenting_enabled()){
+	if(the_champ_social_sharing_enabled() || the_champ_social_counter_enabled() || the_champ_social_commenting_enabled()){
 		// show option to disable sharing on particular page/post
-		foreach(array('post', 'page') as $type){
+		$post_types = get_post_types( array( 'public' => true ), 'names', 'and' );
+		$post_types = array_unique( array_merge( $post_types, array( 'post', 'page' ) ) );
+		foreach($post_types as $type){
 			add_meta_box('the_champ_meta', 'Super Socializer', 'the_champ_sharing_meta_setup', $type);
 		}
 		// save sharing meta on post/page save
@@ -409,8 +411,7 @@ if(is_multisite() && is_main_site()){
 }
 
 function the_champ_account_linking(){
-	global $pagenow;
-	if(($pagenow == 'profile.php' || current_filter() == 'bp_template_content') && is_user_logged_in()){
+	if(is_user_logged_in()){
 		wp_enqueue_style('the-champ-frontend-css', plugins_url('css/front.css', __FILE__), false, THE_CHAMP_SS_VERSION);
 		global $theChampFacebookOptions, $theChampLoginOptions, $user_ID;
 		?>
@@ -420,7 +421,7 @@ function the_champ_account_linking(){
 		wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION);
 		$websiteUrl = site_url();
 		?>
-		<script> var theChampLinkingRedirection = '<?php echo the_champ_get_http().$_SERVER["HTTP_HOST"] . remove_query_arg(array( 'linked')) ?>'; var theChampSiteUrl = '<?php echo $websiteUrl ?>'; var theChampVerified = 0; var theChampAjaxUrl = '<?php echo admin_url() ?>/admin-ajax.php'; var theChampPopupTitle = ''; var theChampEmailPopup = 0; var theChampEmailAjaxUrl = '<?php echo admin_url() ?>/admin-ajax.php'; var theChampEmailPopupTitle = ''; var theChampEmailPopupErrorMsg = ''; var theChampEmailPopupUniqueId = ''; var theChampEmailPopupVerifyMessage = ''; var theChampTwitterRedirect = '<?php echo urlencode(the_champ_get_valid_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . remove_query_arg(array('linked')))); ?>';</script>
+		<script> var theChampLinkingRedirection = '<?php echo the_champ_get_http().$_SERVER["HTTP_HOST"] . html_entity_decode(esc_url(remove_query_arg(array( 'linked')))) ?>'; var theChampSiteUrl = '<?php echo $websiteUrl ?>'; var theChampVerified = 0; var theChampAjaxUrl = '<?php echo admin_url() ?>/admin-ajax.php'; var theChampPopupTitle = ''; var theChampEmailPopup = 0; var theChampEmailAjaxUrl = '<?php echo admin_url() ?>/admin-ajax.php'; var theChampEmailPopupTitle = ''; var theChampEmailPopupErrorMsg = ''; var theChampEmailPopupUniqueId = ''; var theChampEmailPopupVerifyMessage = ''; var theChampTwitterRedirect = '<?php echo urlencode(the_champ_get_valid_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . html_entity_decode(esc_url(remove_query_arg(array('linked')))))); ?>';</script>
 		<?php
 		// scripts used for common Social Login functionality
 		if(the_champ_social_login_enabled()){
@@ -484,43 +485,35 @@ function the_champ_account_linking(){
 			wp_enqueue_script('the_champ_fb_sdk', plugins_url('js/front/facebook/sdk.js', __FILE__), false, THE_CHAMP_SS_VERSION);
 			wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 		}
-		?>
-		<style type="text/css">
+		$html = '<style type="text/css">
 			table.superSocializerTable td{
 				padding: 10px;
 			}
-		</style>
-		<div class="metabox-holder columns-2 super-socializer-linking-container" id="post-body">
+		</style>';
+
+		$html .= '<div class="metabox-holder columns-2 super-socializer-linking-container" id="post-body">
             <div class="stuffbox" style="width:60%; padding-bottom:10px">
-                <h3><label>Social Account Linking</label></h3>
                 <div class="inside" style="padding:0">
                     <table class="form-table editcomment superSocializerTable">
-                        <tbody>
-                        <?php
+                        <tbody>';
                         if(isset($_GET['linked'])){
                         	if($_GET['linked'] == 1){
-	                        	?>
-	                        	<tr>
-	                        		<td colspan="2" style="color: green"><?php _e('Account linked successfully', 'Super-Socializer') ?></td>
-	                        	</tr>
-	                        	<?php
+	                        	$html .= '<tr>
+	                        		<td colspan="2" style="color: green">' . __('Account linked successfully', 'Super-Socializer') . '</td>
+	                        	</tr>';
                         	}elseif($_GET['linked'] == 0){
-	                        	?>
-	                        	<tr>
-	                        		<td colspan="2" style="color: red"><?php _e('Account already exists or linked', 'Super-Socializer') ?></td>
-	                        	</tr>
-	                        	<?php
+	                        	$html .= '<tr>
+	                        		<td colspan="2" style="color: red">' . __('Account already exists or linked', 'Super-Socializer') . '</td>
+	                        	</tr>';
                         	}
                         }
-                        $html = '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
+                        $icons_container = '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
 						$existingProviders = array();
 						$primarySocialNetwork = get_user_meta($user_ID, 'thechamp_provider', true);
 						if($primarySocialNetwork){
-							?>
-							<tr>
-								<td colspan="2"><?php echo __('You are already connected with', 'Super-Socializer') . ' <strong>' . ucfirst($primarySocialNetwork) . '</strong> ' . __('as primary social network', 'Super-Socializer') ?></td>
-							</tr>
-							<?php
+							$html .= '<tr>
+								<td colspan="2">'. __('You are already connected with', 'Super-Socializer') . ' <strong>' . ucfirst($primarySocialNetwork) . '</strong> ' . __('as primary social network', 'Super-Socializer') . '</td>
+							</tr>';
 						}
 						$existingProviders[] = $primarySocialNetwork;
 						$linkedAccounts = get_user_meta($user_ID, 'thechamp_linked_accounts', true);
@@ -533,77 +526,72 @@ function the_champ_account_linking(){
 							$existingProviders = array_diff($theChampLoginOptions['providers'], $existingProviders);
                         }
 						if(count($existingProviders) > 0){
-                        ?>
-                        <tr>
-                            <td colspan="2"><strong><?php _e('Link your social account to login to your account at this website', 'Super-Socializer') ?></strong><br/>
-                            <?php
+                        $html .= '<tr>
+                            <td colspan="2"><strong>' . __('Link your social account to login to your account at this website', 'Super-Socializer') . '</strong><br/>';
 							foreach($existingProviders as $provider){
-								$html .= '<li><i ';
+								$icons_container .= '<li><i ';
 								// id
 								if( $provider == 'google' ){
-									$html .= 'id="theChamp'. ucfirst($provider) .'Button" ';
+									$icons_container .= 'id="theChamp'. ucfirst($provider) .'Button" ';
 								}
 								// class
-								$html .= 'class="theChampLogin theChamp'. ucfirst($provider) .'Background theChamp'. ucfirst($provider) .'Login" ';
-								$html .= 'alt="Login with ';
-								$html .= ucfirst($provider);
-								$html .= '" title="Login with ';
+								$icons_container .= 'class="theChampLogin theChamp'. ucfirst($provider) .'Background theChamp'. ucfirst($provider) .'Login" ';
+								$icons_container .= 'alt="Login with ';
+								$icons_container .= ucfirst($provider);
+								$icons_container .= '" title="Login with ';
 								if($provider == 'live'){
-									$html .= 'Windows Live';
+									$icons_container .= 'Windows Live';
 								}else{
-									$html .= ucfirst($provider);
+									$icons_container .= ucfirst($provider);
 								}
 								if(current_filter() == 'comment_form_top'){
-									$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
+									$icons_container .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
 								}else{
-									$html .= '" onclick="theChampInitiateLogin(this)" >';
+									$icons_container .= '" onclick="theChampInitiateLogin(this)" >';
 								}
-								$html .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider) .'Svg"></div></i></li>';
+								$icons_container .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider) .'Svg"></div></i></li>';
 							}
-							$html .= '</ul></div>';
-							echo $html;
-	                        ?>
-	                        </td>
-	                        </tr>
-	                    <?php
+							$icons_container .= '</ul></div>';
+							$html .= $icons_container;
+	                        $html .= '</td>
+	                        </tr>';
 	                    }
-	                    ?>
-                        <tr>
-                            <td colspan="2">
-                            	<?php
+                        $html .= '<tr>
+                            <td colspan="2">';
                             	if(is_array($linkedAccounts)){
-                            		?>
-                            		<table>
-                            		<tbody>
-                            		<?php
+                            		$html .= '<table>
+                            		<tbody>';
                             		foreach($linkedAccounts as $key => $value){
                             			$current = get_user_meta($user_ID, 'thechamp_current_id', true) == $value;
-                            			?>
-                            			<tr>
-                            			<td style="padding: 0"><?php echo $current ? '<strong>'. __('Currently', 'Super-Socializer') . ' </strong>' : '' ?>Connected with <strong><?php echo ucfirst($key) ?></strong></td> <?php echo $current ? '' : '<td><input type="button" onclick="theChampUnlink(this, \''. $key .'\')" value="'. __('Remove', 'Super-Socializer') .'" /></td>' ?>
-                            			</tr>
-                            			<?php
+                            			$html .= '<tr>
+                            			<td style="padding: 0">'. ($current ? '<strong>'. __('Currently', 'Super-Socializer') . ' </strong>' : '') . 'Connected with <strong>'. ucfirst($key) .'</strong></td>'. ($current ? '' : '<td><input type="button" onclick="theChampUnlink(this, \''. $key .'\')" value="'. __('Remove', 'Super-Socializer') .'" /></td>').'</tr>';
                             		}
-                            		?>
-                            		</tbody>
-                            		</table>
-                            		<?php
+                            		$html .= '</tbody>
+                            		</table>';
                             	}
-                            	?>
-                            </td>
+                            $html .= '</td>
                         </tr>
                     	</tbody>
                     </table>
                 </div>
             </div>
-        </div>
-		<?php
+        </div>';
+        return $html;
 	}
+	return '';
 }
+
 if(the_champ_social_login_enabled()){
-	add_action('admin_notices', 'the_champ_account_linking');
+	add_action('admin_notices', 'the_champ_user_profile_account_linking');
 	if(isset($theChampLoginOptions['bp_linking'])){
 		add_action('bp_setup_nav', 'the_champ_add_linking_tab', 100);
+	}
+}
+
+function the_champ_user_profile_account_linking(){
+	global $pagenow;
+	if($pagenow == 'profile.php'){
+		echo the_champ_account_linking();
 	}
 }
 
@@ -640,9 +628,13 @@ function the_champ_add_linking_tab() {
 	}
 }
 
+function the_champ_bp_account_linking(){
+	echo the_champ_account_linking();
+}
+
 // show social account linking when 'Social Account Linking' tab is clicked
 function the_champ_bp_linking() {
-	add_action('bp_template_content', 'the_champ_account_linking');
+	add_action('bp_template_content', 'the_champ_bp_account_linking');
 	bp_core_load_template(apply_filters('bp_core_template_plugin', 'members/single/plugins'));
 }
 
@@ -698,7 +690,7 @@ function the_champ_sharing_meta_setup(){
 		<?php
 		if(the_champ_social_sharing_enabled()){
 			global $theChampSharingOptions;
-			$excludedProviders = array('print', 'email', 'yahoo', 'digg', 'float it', 'tumblr', 'xing', 'whatsapp');
+			$excludedProviders = array('print', 'email', 'yahoo', 'digg', 'float it', 'tumblr', 'xing', 'whatsapp', 'yummly');
 			if(isset($theChampSharingOptions['hor_enable']) && isset($theChampSharingOptions['horizontal_counts']) && isset($theChampSharingOptions['providers']) && count($theChampSharingOptions['providers']) > 0){
 				?>
 				<p>

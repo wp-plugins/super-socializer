@@ -1,0 +1,1962 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Super Socializer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-30 21:48+0530\n"
+"PO-Revision-Date: 2015-07-30 21:52+0530\n"
+"Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
+"Language-Team: Heateor <support@heateor.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../super_socializer.php:179
+#, php-format
+msgid "Enter exactly the following url in <strong>Website</strong> and <strong>Callback Url</strong> options in your Twitter app (see step 3 %s)"
+msgstr "أدخل بالضبط العنوان التالي في <strong>الموقع واستدعاء رابط</strong> الخيارات في تويتر التطبيق الخاص بك (راجع الخطوة 3 %s )"
+
+#: ../super_socializer.php:182
+msgid "Make sure cURL is enabled at your website server. You may need to contact the server administrator of your website to verify this"
+msgstr "يتم تمكين جعل الضفيرة متأكدا في الخادم موقع الويب الخاص بك. قد تحتاج إلى الاتصال بمسؤول الملقم من موقع الويب الخاص بك للتحقق من ذلك"
+
+#: ../super_socializer.php:351
+msgid "Please verify your email address to login."
+msgstr "يرجى التحقق من عنوان البريد الإلكتروني الخاص بك للدخول."
+
+#: ../super_socializer.php:351
+msgid "Your email has been verified. Now you can login to your account"
+msgstr "تم التحقق من بريدك الإلكتروني. الآن يمكنك تسجيل الدخول إلى حسابك"
+
+#: ../super_socializer.php:355
+msgid "Notification"
+msgstr "تنبيهات"
+
+#: ../super_socializer.php:374
+#: ../admin/social_login.php:511
+msgid "Email required"
+msgstr "البريد الإلكتروني - إدخال القيمة إجباري"
+
+#: ../super_socializer.php:377
+msgid "Please check your email inbox to complete the registration."
+msgstr "يرجى التحقق من بريدك الالكتروني لإكمال التسجيل."
+
+#: ../super_socializer.php:390
+msgid "Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
+msgstr "اتبع الخطوات 11 و 12 في GooglePlus صفحة تكوين التطبيق، على وشك فتح"
+
+#: ../super_socializer.php:468
+msgid "Leave a reply"
+msgstr "اترك رد"
+
+#: ../super_socializer.php:559
+#, fuzzy
+msgid "Super Socializer - Social Avatar"
+msgstr "آخر تسجيل دخول  |  Last Login"
+
+#: ../super_socializer.php:562
+msgid "Small Avatar Url"
+msgstr "صغير الرمزية رابط"
+
+#: ../super_socializer.php:567
+#, fuzzy
+msgid "Large Avatar Url"
+msgstr "الرابط المصدر و الرابط الهدف لا يمكن أن يكونا متطابقين."
+
+#: ../super_socializer.php:612
+msgid "Email you entered is already registered or invalid"
+msgstr "البريد الإلكتروني الذي أدخلته غير مسجل من قبل أو غير صالحة"
+
+#: ../super_socializer.php:616
+msgid "Please enter a valid email address. You might be required to verify it"
+msgstr "يرجى إدخال عنوان بريد إلكتروني صالح. قد تكون هناك حاجة للتحقق من ذلك"
+
+#: ../helper.php:7
+msgid "Options saved successfully"
+msgstr "خيارات تم حفظها بنجاح"
+
+#: ../helper.php:149
+msgid "Click to show help"
+msgstr "إضغط للمزيد من المساعدة"
+
+#: ../helper.php:149
+msgid "Click to hide help"
+msgstr "إضغط لإخفاء المساعدة "
+
+#: ../helper.php:189
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: ../helper.php:502
+msgid "Account linked successfully"
+msgstr "تم ربط حسابك بنجاح"
+
+#: ../helper.php:506
+msgid "Account already exists or linked"
+msgstr "حساب موجود بالفعل أو مرتبطة مسبقاً"
+
+#: ../helper.php:515
+msgid "You are already connected with"
+msgstr "أنت مرتبط بالفعل مع"
+
+#: ../helper.php:515
+msgid "as primary social network"
+msgstr "حددت كشبكة الإجتماعية اللأساسية"
+
+#: ../helper.php:530
+msgid "Link your social account to login to your account at this website"
+msgstr "الرجاء القيام بربط الحساب الإجتماعي الخاص بك للتمكن من تسجيل الدخول العام الى حسابك في هذا الموقع"
+
+#: ../helper.php:567
+msgid "Currently"
+msgstr "في الوقت الحاضر"
+
+#: ../helper.php:567
+msgid "Remove"
+msgstr "إزالة"
+
+#: ../helper.php:668
+msgid "Disable Horizontal Social Sharing on this "
+msgstr "تعطيل الظهور الأفقي للمشاركة الاجتماعي على هذا"
+
+#: ../helper.php:673
+msgid "Disable Vertical Social Sharing on this "
+msgstr "تعطيل ظهور مشاركة الاجتماعي عمودي على هذا"
+
+#: ../helper.php:678
+msgid "Disable Horizontal like buttons on this "
+msgstr "تعطيل زر الإعجاب الموجود أفقياً على هذا"
+
+#: ../helper.php:683
+msgid "Disable Vertical like buttons on this "
+msgstr "تعطيل زر الإعجاب الموجود عمودياً على هذا"
+
+#: ../helper.php:688
+msgid "Disable Social Commenting on this "
+msgstr "تعطيل تعليقا الاجتماعي على هذا"
+
+#: ../helper.php:697
+msgid "Horizontal sharing"
+msgstr "المشاركات الأفقي"
+
+#: ../helper.php:703
+#: ../helper.php:722
+msgid "Starting share count for "
+msgstr "بدء العد حصة ل"
+
+#: ../helper.php:716
+#, fuzzy
+msgid "Vertical sharing"
+msgstr "تعطيل ظهور مشاركة الاجتماعي عمودي على هذا"
+
+#: ../admin/help.php:4
+#, fuzzy
+msgid "About"
+msgstr "نّبذة شخصية عن مُقدِم الفقرة : "
+
+#: ../admin/help.php:4
+#, fuzzy
+msgid "Version"
+msgstr "إصدار ووردبريس"
+
+#: ../admin/help.php:6
+#, fuzzy
+msgid "by"
+msgstr "كتب بواسطة"
+
+#: ../admin/help.php:7
+#, fuzzy
+msgid "We are a creative team with unique ideas in mind and service in heart. We love what we do. For more info join us at"
+msgstr "نحن فريق إبداعية مع أفكار فريدة من نوعها في العقل والخدمة في القلب. نحن نحب ما نقوم به. لمزيد من المعلومات انضم إلينا في"
+
+#: ../admin/help.php:18
+#, fuzzy
+msgid "Plugin Demo"
+msgstr "دعم البرنامج المساعد  |  Plugin Support"
+
+#: ../admin/help.php:24
+msgid "Add-ons"
+msgstr "إضافات"
+
+#: ../admin/help.php:29
+msgid "Need Help?"
+msgstr "احتاج مساعدة؟"
+
+#: ../admin/help.php:31
+#, fuzzy
+msgid "If you <strong>have any query</strong>, need help regarding <strong>plugin setup</strong>, want <strong>custom features</strong> in the plugin or <strong>have any suggestion</strong> to improve the plugin, just drop an email at <a href=\"mailto:support@heateor.com\">support@heateor.com</a>"
+msgstr "إذا كنت تريد ميزات مخصصة في البرنامج المساعد، مجرد قطره رسالة بالبريد إلكتروني في <a href=\"mailto:support@heateor.com\">support@heateor.com</a>"
+
+#: ../admin/help.php:36
+#, fuzzy
+msgid "Support Us"
+msgstr "الدعم  |  Support"
+
+#: ../admin/help.php:39
+#: ../admin/help.php:42
+#: ../admin/help.php:43
+#: ../admin/help.php:44
+#: ../admin/help.php:45
+#: ../admin/help.php:46
+#, fuzzy
+msgid "Rate 5-star"
+msgstr "يرجى تقييم البرنامج المساعد"
+
+#: ../admin/help.php:54
+#: ../admin/social_sharing.php:437
+#: ../admin/social_sharing.php:815
+#: ../admin/social_login.php:46
+msgid "Facebook"
+msgstr "الفيسبوك"
+
+#: ../admin/social_sharing.php:11
+#: ../admin/social_sharing.php:22
+#: ../admin/social_login.php:9
+#: ../admin/social_login.php:17
+#: ../admin/like_buttons.php:11
+#: ../admin/like_buttons.php:19
+#, fuzzy
+msgid "Basic Configuration"
+msgstr "إنشاء ملف الإعدادات"
+
+#: ../admin/social_sharing.php:12
+#, fuzzy
+msgid "Sharing Interface"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/social_sharing.php:13
+#, fuzzy
+msgid "Sharing Options"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/social_sharing.php:14
+#: ../admin/social_sharing.php:1192
+#: ../admin/social_login.php:11
+#: ../admin/social_login.php:714
+#: ../admin/like_buttons.php:13
+#: ../admin/like_buttons.php:712
+#, fuzzy
+msgid "Shortcode & Widget"
+msgstr "استخدم كود مختصر  |  Include the shortcode"
+
+#: ../admin/social_sharing.php:15
+#, fuzzy
+msgid "Troubleshooter"
+msgstr "مستكشف أخطاء مشاركة في ألفيس بوك"
+
+#: ../admin/social_sharing.php:16
+#: ../admin/social_sharing.php:1223
+#: ../admin/social_commenting.php:12
+#: ../admin/social_commenting.php:393
+#, fuzzy
+msgid "FAQ"
+msgstr "الأسئلة الشائعة "
+
+#: ../admin/social_sharing.php:28
+#, fuzzy
+msgid "Enable Social Sharing"
+msgstr "تعطيل ظهور مشاركة الاجتماعي عمودي على هذا"
+
+#: ../admin/social_sharing.php:38
+#, fuzzy
+msgid "Master control for Social Sharing. It must be checked to enable Social Sharing functionality"
+msgstr "عنصر التحكم الرئيسي \"المشاركة الاجتماعية\". يجب إيداعه لتمكين وظيفة \"المشاركة الاجتماعية\""
+
+#: ../admin/social_sharing.php:46
+#, fuzzy
+msgid "Delete all the options on plugin deletion"
+msgstr "حذف كافة الخيارات على حذف البرنامج المساعد"
+
+#: ../admin/social_sharing.php:56
+#, fuzzy
+msgid "If enabled, plugin options will get deleted when plugin is deleted/uninstalled and you will need to reconfigure the options when you install the plugin next time."
+msgstr "إذا تم تمكين، سيتم الحصول على حذف خيارات البرنامج المساعد عندما البرنامج المساعد حذف/إلغاء تثبيت، وسوف تحتاج إلى إعادة تكوين الخيارات عندما تقوم بتثبيت البرنامج المساعد في المرة القادمة."
+
+#: ../admin/social_sharing.php:71
+#, fuzzy
+msgid "Horizontal interface options"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/social_sharing.php:77
+#: ../admin/social_sharing.php:155
+#, fuzzy
+msgid "Shape"
+msgstr "شكل"
+
+#: ../admin/social_sharing.php:85
+#: ../admin/social_sharing.php:163
+#, fuzzy
+msgid "Round"
+msgstr "مستدير"
+
+#: ../admin/social_sharing.php:87
+#: ../admin/social_sharing.php:165
+#, fuzzy
+msgid "Square"
+msgstr "مربع"
+
+#: ../admin/social_sharing.php:94
+#: ../admin/social_sharing.php:172
+#, fuzzy
+msgid "Shape of the sharing icons"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/social_sharing.php:102
+#: ../admin/social_sharing.php:180
+#, fuzzy
+msgid "Size (in pixels)"
+msgstr "حجم"
+
+#: ../admin/social_sharing.php:120
+#: ../admin/social_sharing.php:198
+#, fuzzy
+msgid "Size of the sharing icons"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/social_sharing.php:127
+#: ../admin/social_sharing.php:205
+msgid "Icon Preview"
+msgstr "الرمز معاينة"
+
+#: ../admin/social_sharing.php:141
+#: ../admin/social_sharing.php:219
+#, fuzzy
+msgid "Do not forget to save the configuration after making changes by clicking the save button below"
+msgstr "لا ننسى لحفظ التكوين بعد إجراء التغييرات بواسطة النقر فوق الحفظ الزر أدناه"
+
+#: ../admin/social_sharing.php:149
+#, fuzzy
+msgid "Vertical interface options"
+msgstr "مسافة عمودية"
+
+#: ../admin/social_sharing.php:233
+msgid "Modernizr"
+msgstr "Modernizr"
+
+#: ../admin/social_sharing.php:239
+msgid "Do not load Modernizr JS"
+msgstr "لا تقم بتحميل Modernizr JS"
+
+#: ../admin/social_sharing.php:249
+msgid "If you find the plugin breaking your theme, you can try enabling this option"
+msgstr "إذا وجدت المساعد كسر الموضوع الخاص بك، يمكنك محاولة تمكين هذا الخيار"
+
+#: ../admin/social_sharing.php:258
+#: ../admin/like_buttons.php:51
+#, fuzzy
+msgid "Url shortener"
+msgstr "عنوان Url للقيام بالتعليق على"
+
+#: ../admin/social_sharing.php:264
+#, fuzzy
+msgid "Use shortlinks already installed"
+msgstr "تمّ التنصيب مسبقاً"
+
+#: ../admin/social_sharing.php:274
+#: ../admin/like_buttons.php:67
+#, fuzzy
+msgid "Allows for shortened URLs to be used when sharing content if a shortening plugin is installed"
+msgstr "يسمح لاختصار عناوين المواقع المراد استخدامه عند مشاركة محتوى إذا تم تثبيت البرنامج المساعد التقصير"
+
+#: ../admin/social_sharing.php:282
+#, fuzzy
+msgid "Enable bit.ly url shortener for sharing"
+msgstr "تمكين bit.ly عنوان المنقص لتقاسم"
+
+#: ../admin/social_sharing.php:292
+#: ../admin/like_buttons.php:85
+#, fuzzy
+msgid "Master control to enable bit.ly url shortening for sharing"
+msgstr "عنصر التحكم الرئيسي لتمكين اختصار لمشاركة عنوان bit.ly"
+
+#: ../admin/social_sharing.php:300
+#: ../admin/like_buttons.php:93
+#, fuzzy
+msgid "bit.ly username"
+msgstr "إسم المستخدم الألكتروني:"
+
+#: ../admin/social_sharing.php:310
+#: ../admin/like_buttons.php:103
+#, fuzzy, php-format
+msgid "Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank\">this link</a> to get bit.ly username"
+msgstr "تسجيل الدخول إلى جهاز bit.ly الحساب والانتقال إلى <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على اسم المستخدم bit.ly"
+
+#: ../admin/social_sharing.php:319
+#: ../admin/like_buttons.php:112
+#, fuzzy
+msgid "bit.ly API Key"
+msgstr "مفتاح API الخاص  |  API Private Key"
+
+#: ../admin/social_sharing.php:329
+#: ../admin/like_buttons.php:122
+#, fuzzy, php-format
+msgid "Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank\">this link</a> to get your API key"
+msgstr "تسجيل الدخول إلى جهاز bit.ly الحساب والانتقال إلى <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على مفتاح API الخاص بك"
+
+#: ../admin/social_sharing.php:339
+#, fuzzy
+msgid "Twitter username in sharing"
+msgstr "شارك الأخرين عبر تويتر"
+
+#: ../admin/social_sharing.php:345
+#, fuzzy
+msgid "Twitter username (without @)"
+msgstr "قالب بدون %1$s"
+
+#: ../admin/social_sharing.php:355
+#, fuzzy
+msgid "Provided username will be appended after the content being shared as \"via @USERNAME\". Leave empty if you do not want any username in the content being shared."
+msgstr "سيتم إلحاق اسم المستخدم المقدمة بعد المحتوى ويجري تقاسم \"عبر @USERNAME\". ترك فارغاً إذا كنت لا تريد أي اسم مستخدم في محتوى يجري تقاسمها."
+
+#: ../admin/social_sharing.php:365
+#, fuzzy
+msgid "Horizontal Sharing Interface Options"
+msgstr "تعطيل الظهور الأفقي للمشاركة الاجتماعي على هذا"
+
+#: ../admin/social_sharing.php:371
+#, fuzzy
+msgid "Enable horizontal sharing interface"
+msgstr "تعطيل الظهور الأفقي للمشاركة الاجتماعي على هذا"
+
+#: ../admin/social_sharing.php:381
+#, fuzzy
+msgid "Master control to enable horizontal sharing"
+msgstr "عنصر التحكم الرئيسي لتمكين مشاركة أفقية"
+
+#: ../admin/social_sharing.php:391
+#: ../admin/social_sharing.php:787
+#: ../admin/like_buttons.php:227
+#: ../admin/like_buttons.php:465
+#, fuzzy
+msgid "Target Url"
+msgstr "الرابط المصدر و الرابط الهدف لا يمكن أن يكونا متطابقين."
+
+#: ../admin/social_sharing.php:395
+#: ../admin/social_sharing.php:791
+#: ../admin/like_buttons.php:231
+#: ../admin/like_buttons.php:469
+#, fuzzy
+msgid "Url of the webpage where icons are located (default)"
+msgstr "عنوان Url لصفحة ويب حيث توجد رموز (افتراضي)"
+
+#: ../admin/social_sharing.php:397
+#: ../admin/social_sharing.php:793
+#: ../admin/like_buttons.php:233
+#: ../admin/like_buttons.php:471
+#, fuzzy
+msgid "Url of the homepage of your website"
+msgstr "URL لعملاء الموقع (اختياري)"
+
+#: ../admin/social_sharing.php:399
+#: ../admin/social_sharing.php:795
+#: ../admin/like_buttons.php:235
+#: ../admin/like_buttons.php:473
+#, fuzzy
+msgid "Custom url"
+msgstr "رابط (URL) مخصّص"
+
+#: ../admin/social_sharing.php:406
+#: ../admin/social_sharing.php:802
+#, fuzzy
+msgid "Url to share"
+msgstr " شارك الآخرين بهذة الفقرة"
+
+#: ../admin/social_sharing.php:414
+#: ../admin/social_login.php:314
+#: ../admin/like_buttons.php:250
+#, fuzzy
+msgid "Title"
+msgstr "العنوان"
+
+#: ../admin/social_sharing.php:424
+#, fuzzy
+msgid "The text to display above the sharing interface"
+msgstr "النص المطلوب عرضه أعلاه واجهة المشاركة"
+
+#: ../admin/social_sharing.php:432
+#: ../admin/social_sharing.php:810
+#: ../admin/social_login.php:41
+#, fuzzy
+msgid "Select providers"
+msgstr "أختر ..."
+
+#: ../admin/social_sharing.php:442
+#: ../admin/social_sharing.php:820
+#: ../admin/social_login.php:50
+#, fuzzy
+msgid "Twitter"
+msgstr "شارك الأخرين عبر تويتر"
+
+#: ../admin/social_sharing.php:447
+#: ../admin/social_sharing.php:825
+#: ../admin/social_login.php:54
+#, fuzzy
+msgid "LinkedIn"
+msgstr "شارك الأخرين عبر لنكيدان"
+
+#: ../admin/social_sharing.php:452
+#: ../admin/social_sharing.php:830
+#: ../admin/social_login.php:58
+#, fuzzy
+msgid "Google+"
+msgstr "الصفحة لمؤلف البرنامج المساعد على جوجل "
+
+#: ../admin/social_sharing.php:457
+#: ../admin/social_sharing.php:835
+#, fuzzy
+msgid "Print"
+msgstr "طباعة"
+
+#: ../admin/social_sharing.php:462
+#: ../admin/social_sharing.php:840
+#, fuzzy
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: ../admin/social_sharing.php:467
+#: ../admin/social_sharing.php:845
+#, fuzzy
+msgid "Yahoo"
+msgstr "ياهو ماسنجر"
+
+#: ../admin/social_sharing.php:472
+#: ../admin/social_sharing.php:850
+#, fuzzy
+msgid "Reddit"
+msgstr "ريديت"
+
+#: ../admin/social_sharing.php:477
+#: ../admin/social_sharing.php:855
+#, fuzzy
+msgid "Digg"
+msgstr "ديق"
+
+#: ../admin/social_sharing.php:482
+#: ../admin/social_sharing.php:860
+#, fuzzy
+msgid "Delicious"
+msgstr "لذيذ"
+
+#: ../admin/social_sharing.php:487
+#: ../admin/social_sharing.php:865
+#, fuzzy
+msgid "StumbleUpon"
+msgstr "ستامبل أبون"
+
+#: ../admin/social_sharing.php:492
+#: ../admin/social_sharing.php:870
+#, fuzzy
+msgid "Float it"
+msgstr "تطفو عليه"
+
+#: ../admin/social_sharing.php:497
+#: ../admin/social_sharing.php:875
+#, fuzzy
+msgid "Tumblr"
+msgstr "شارك الأخرين عبر تمبلير"
+
+#: ../admin/social_sharing.php:502
+#: ../admin/social_sharing.php:880
+#: ../admin/social_login.php:62
+#, fuzzy
+msgid "Vkontakte"
+msgstr "انشر عبر VKontakte"
+
+#: ../admin/social_sharing.php:507
+#: ../admin/social_sharing.php:885
+#, fuzzy
+msgid "Pinterest"
+msgstr "شارك الأخرين عبر بينتريست"
+
+#: ../admin/social_sharing.php:512
+#: ../admin/social_sharing.php:890
+#: ../admin/social_login.php:70
+#, fuzzy
+msgid "Xing"
+msgstr "شينغ"
+
+#: ../admin/social_sharing.php:517
+#: ../admin/social_sharing.php:895
+#, fuzzy
+msgid "Whatsapp"
+msgstr "واتس آب"
+
+#: ../admin/social_sharing.php:522
+#: ../admin/social_sharing.php:900
+msgid "Yummly"
+msgstr "Yummly"
+
+#: ../admin/social_sharing.php:527
+#: ../admin/social_sharing.php:905
+msgid "Buffer"
+msgstr "Buffer"
+
+#: ../admin/social_sharing.php:535
+#: ../admin/social_sharing.php:913
+#, fuzzy
+msgid "Select the providers for sharing interface"
+msgstr "تحديد موفري لتقاسم واجهة"
+
+#: ../admin/social_sharing.php:543
+#: ../admin/social_sharing.php:921
+#, fuzzy
+msgid "Rearrange icons"
+msgstr "إعادة ترتيب الرموز"
+
+#: ../admin/social_sharing.php:578
+#: ../admin/social_sharing.php:956
+#, fuzzy
+msgid "Drag the icons to rearrange in desired order"
+msgstr "اسحب رموز لإعادة ترتيب في الترتيب المطلوب"
+
+#: ../admin/social_sharing.php:586
+#: ../admin/social_sharing.php:982
+#: ../admin/like_buttons.php:320
+#: ../admin/like_buttons.php:557
+#, fuzzy
+msgid "Horizontal alignment"
+msgstr "بلا محاذاة"
+
+#: ../admin/social_sharing.php:590
+#: ../admin/social_sharing.php:986
+#: ../admin/like_buttons.php:324
+#: ../admin/like_buttons.php:561
+#, fuzzy
+msgid "Left"
+msgstr "يسار"
+
+#: ../admin/social_sharing.php:591
+#: ../admin/like_buttons.php:325
+#, fuzzy
+msgid "Center"
+msgstr "وسط"
+
+#: ../admin/social_sharing.php:592
+#: ../admin/social_sharing.php:987
+#: ../admin/like_buttons.php:326
+#: ../admin/like_buttons.php:562
+#, fuzzy
+msgid "Right"
+msgstr "يمين"
+
+#: ../admin/social_sharing.php:600
+#: ../admin/social_sharing.php:995
+#, fuzzy
+msgid "Horizontal alignment of the sharing interface"
+msgstr "تعطيل الظهور الأفقي للمشاركة الاجتماعي على هذا"
+
+#: ../admin/social_sharing.php:608
+#: ../admin/like_buttons.php:342
+#, fuzzy
+msgid "Position with respect to content"
+msgstr "موضع الخلفية"
+
+#: ../admin/social_sharing.php:612
+#: ../admin/like_buttons.php:346
+#, fuzzy
+msgid "Top of the content"
+msgstr "أعلى"
+
+#: ../admin/social_sharing.php:614
+#: ../admin/like_buttons.php:348
+#, fuzzy
+msgid "Bottom of the content"
+msgstr "أسفل"
+
+#: ../admin/social_sharing.php:621
+#, fuzzy
+msgid "Specify position of the sharing interface with respect to the content"
+msgstr "تحديد موقف واجهة المشاركة فيما يتعلق بالمحتوى"
+
+#: ../admin/social_sharing.php:629
+#: ../admin/social_sharing.php:1061
+#, fuzzy
+msgid "Sharing location"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/social_sharing.php:633
+#: ../admin/social_sharing.php:1065
+#: ../admin/social_login.php:574
+#: ../admin/social_login.php:604
+#: ../admin/like_buttons.php:367
+#: ../admin/like_buttons.php:640
+#, fuzzy
+msgid "Homepage"
+msgstr "الصفحة الرئيسية لبرنامج المساعد "
+
+#: ../admin/social_sharing.php:635
+#: ../admin/social_sharing.php:1067
+#: ../admin/like_buttons.php:369
+#: ../admin/like_buttons.php:642
+#, fuzzy
+msgid "Posts"
+msgstr "مقالات"
+
+#: ../admin/social_sharing.php:637
+#: ../admin/social_sharing.php:1069
+#: ../admin/like_buttons.php:371
+#: ../admin/like_buttons.php:644
+#, fuzzy
+msgid "Pages"
+msgstr "صفحات"
+
+#: ../admin/social_sharing.php:639
+#: ../admin/social_sharing.php:1071
+#: ../admin/like_buttons.php:373
+#: ../admin/like_buttons.php:646
+#, fuzzy
+msgid "Excerpts"
+msgstr "عرض المقتطفات لغير الأعضاء؟  Show Excerpts to Non-Members?"
+
+#: ../admin/social_sharing.php:641
+#: ../admin/social_sharing.php:1073
+#: ../admin/like_buttons.php:375
+#: ../admin/like_buttons.php:648
+#, fuzzy
+msgid "Category Archives"
+msgstr "الأرشيف"
+
+#: ../admin/social_sharing.php:643
+#: ../admin/social_sharing.php:1075
+#: ../admin/like_buttons.php:377
+#: ../admin/like_buttons.php:650
+#, fuzzy
+msgid "Archive Pages (Category, Tag, Author or Date based pages)"
+msgstr "أرشفة صفحات (الفئة والعلامة والمؤلف أو تاريخ بناء صفحات)"
+
+#: ../admin/social_sharing.php:659
+#: ../admin/like_buttons.php:393
+#, fuzzy
+msgid "BuddyPress activity and groups"
+msgstr "النشاط BuddyPress والمجموعات"
+
+#: ../admin/social_sharing.php:665
+#: ../admin/social_sharing.php:1090
+#: ../admin/like_buttons.php:400
+#: ../admin/like_buttons.php:665
+#, fuzzy
+msgid "BBPress forum"
+msgstr "المنتدى المستعمل  |  User Forum"
+
+#: ../admin/social_sharing.php:668
+#: ../admin/social_sharing.php:1093
+#: ../admin/like_buttons.php:403
+#: ../admin/like_buttons.php:668
+#, fuzzy
+msgid "BBPress topic"
+msgstr "إضافات الموضوع"
+
+#: ../admin/social_sharing.php:671
+#: ../admin/like_buttons.php:406
+#, fuzzy
+msgid "BBPress reply"
+msgstr "رد"
+
+#: ../admin/social_sharing.php:678
+#: ../admin/like_buttons.php:412
+msgid "After individual product at WooCommerce Shop page"
+msgstr "بعد كل منتج على حدة في WooCommerce متجر الصفحة"
+
+#: ../admin/social_sharing.php:681
+#: ../admin/like_buttons.php:415
+msgid "WooCommerce Product Page"
+msgstr "WooCommerce صفحة المنتج"
+
+#: ../admin/social_sharing.php:684
+#: ../admin/like_buttons.php:418
+msgid "WooCommerce Thankyou Page"
+msgstr "WooCommerce الشكر الصفحة"
+
+#: ../admin/social_sharing.php:695
+#, fuzzy
+msgid "Specify the pages where you want to enable Sharing interface"
+msgstr "تحديد الصفحات حيث تريد تمكين واجهة مشاركة"
+
+#: ../admin/social_sharing.php:703
+#: ../admin/social_sharing.php:1111
+#, fuzzy
+msgid "Show share counts"
+msgstr "عرض عدد المقالات"
+
+#: ../admin/social_sharing.php:713
+#: ../admin/social_sharing.php:1121
+#, fuzzy
+msgid "If enabled, share counts are displayed above sharing icons."
+msgstr "إذا تم تمكين، يتم عرض حساب حصة أعلاه تقاسم الرموز."
+
+#: ../admin/social_sharing.php:722
+#: ../admin/social_sharing.php:1130
+#, fuzzy
+msgid "Show total shares"
+msgstr "عرض عدد المقالات"
+
+#: ../admin/social_sharing.php:732
+#: ../admin/social_sharing.php:1140
+#, fuzzy
+msgid "If enabled, total shares will be displayed with sharing icons"
+msgstr "إذا تم تمكين، يتم عرض حساب حصة أعلاه تقاسم الرموز."
+
+#: ../admin/social_sharing.php:741
+#: ../admin/social_sharing.php:1149
+#, fuzzy
+msgid "Enable 'More' icon"
+msgstr "الرمز معاينة"
+
+#: ../admin/social_sharing.php:751
+#: ../admin/social_sharing.php:1159
+#, fuzzy
+msgid "If enabled, \"More\" icon will be displayed after selected sharing icons which shows additional sharing networks in popup"
+msgstr "إذا تم تمكين، \"مزيد\" سيتم عرض رمز بعد تحديد تقاسم الرموز التي يظهر شبكات مشاركة إضافية في المنبثقة"
+
+#: ../admin/social_sharing.php:761
+#, fuzzy
+msgid "Vertical (Floating) Sharing Interface Options"
+msgstr "عمودي (عائمة) تقاسم خيارات واجهة"
+
+#: ../admin/social_sharing.php:767
+#, fuzzy
+msgid "Enable vertical (floating) sharing interface"
+msgstr "تمكين واجهة المشاركة (عائمة) عمودي"
+
+#: ../admin/social_sharing.php:777
+#, fuzzy
+msgid "Master control to enable vertical (floating) sharing widget"
+msgstr "عنصر التحكم الرئيسي لتمكين القطعة المشاركة (عائمة) عمودي"
+
+#: ../admin/social_sharing.php:964
+#: ../admin/like_buttons.php:539
+#, fuzzy
+msgid "Background Color"
+msgstr "لون الخلفية"
+
+#: ../admin/social_sharing.php:974
+#, fuzzy
+msgid "Specify the color or hex code (example #cc78e0) for the background of vertical sharing bar. Leave empty for transparent. You can get the hex code of the required color from <a href=\"http://www.colorpicker.com/\" target=\"_blank\">this link</a>"
+msgstr "تحديد لون أو رمز ست عشري (على سبيل المثال، #cc78e0) لخلفية شريط عمودي تقاسم. اتركه فارغاً للشفافية. يمكنك الحصول على رمز ست عشري من اللون المطلوب من <a href=\"http://www.colorpicker.com/\" target=\"_blank\">هذا الرابط</a>"
+
+#: ../admin/social_sharing.php:1004
+#: ../admin/like_buttons.php:579
+#, fuzzy
+msgid "Left offset"
+msgstr "يسار"
+
+#: ../admin/social_sharing.php:1014
+#, fuzzy
+msgid "Specify a number. Increase in number will shift sharing interface towards right and decrease will shift it towards left. Number can be negative too."
+msgstr "تحديد رقم. الزيادة في عدد سيتحول واجهة مشاركة نحو اليمين ونقصان سيتحول نحو اليسار. يمكن أن يكون رقم سلبي جداً."
+
+#: ../admin/social_sharing.php:1024
+#: ../admin/like_buttons.php:599
+#, fuzzy
+msgid "Right offset"
+msgstr "يمين"
+
+#: ../admin/social_sharing.php:1034
+#, fuzzy
+msgid "Specify a number. Increase in number will shift sharing interface towards left and decrease will shift it towards right. Number can be negative too."
+msgstr "تحديد رقم. الزيادة في عدد سيتحول واجهة مشاركة نحو اليسار ونقصان سيتحول نحو اليمين. يمكن أن يكون رقم سلبي جداً."
+
+#: ../admin/social_sharing.php:1043
+#: ../admin/like_buttons.php:618
+#, fuzzy
+msgid "Top offset"
+msgstr "أعلى"
+
+#: ../admin/social_sharing.php:1053
+#, fuzzy
+msgid "Specify a number. Increase in number will shift sharing interface towards bottom and decrease will shift it towards top."
+msgstr "تحديد رقم. زيادة في عدد سيتحول واجهة مشاركة نحو الأسفل ونقصان سيتحول نحو الأعلى."
+
+#: ../admin/social_sharing.php:1103
+#, fuzzy
+msgid "Specify the pages where you want to enable vertical Sharing interface"
+msgstr "تحديد الصفحات حيث تريد تمكين واجهة مشاركة العمودي"
+
+#: ../admin/social_sharing.php:1167
+msgid "Hide sharing on mobile devices"
+msgstr "إخفاء تقاسم على الأجهزة النقالة"
+
+#: ../admin/social_sharing.php:1177
+msgid "If enabled, vertical sharing interface will not appear on mobile devices"
+msgstr "إذا تمكين، لن تظهر واجهة تقاسم عمودية على الأجهزة النقالة"
+
+#: ../admin/social_sharing.php:1194
+#, fuzzy
+msgid "Social Sharing Shortcode & Widget"
+msgstr "استخدم كود مختصر  |  Include the shortcode"
+
+#: ../admin/social_sharing.php:1204
+msgid "Facebook Sharing Troubleshooter"
+msgstr "مستكشف أخطاء مشاركة في ألفيس بوك"
+
+#: ../admin/social_sharing.php:1209
+msgid "If Facebook sharing is not working fine, click at the following link and enter the problematic url (where Facebook sharing is not working properly) of your website in the text field:"
+msgstr "إذا كان تقاسم بوك لا تعمل بشكل جيد، انقر على الرابط التالي وأدخل عنوان url إشكالية (حيث تقاسم بوك لا يعمل بشكل صحيح) من موقع الويب الخاص بك في حقل النص:"
+
+#: ../admin/social_sharing.php:1225
+#, fuzzy
+msgid "How can I show share counts of my website rather than of individual pages/posts?"
+msgstr "كيف يمكن إظهار التهم حصة من موقع الويب الخاص بي بدلاً من الصفحات الفردية/الوظائف؟"
+
+#: ../admin/social_sharing.php:1226
+#, fuzzy
+msgid "How can I disable sharing on particular page/post?"
+msgstr "كيف يمكن تعطيل مشاركة في الصفحة/وظيفة معينة؟"
+
+#: ../admin/social_sharing.php:1227
+#, fuzzy
+msgid "How can I specify minimum sharing count for sharing networks?"
+msgstr "كيف يمكن تحديد الحد الأدنى من عدد مرات مشاركة لشبكات تبادل؟"
+
+#: ../admin/social_sharing.php:1237
+#: ../admin/social_commenting.php:404
+#: ../admin/social_login.php:726
+#: ../admin/like_buttons.php:723
+#, fuzzy
+msgid "Save Changes"
+msgstr "حفظ"
+
+#: ../admin/social_commenting.php:10
+#, fuzzy
+msgid "Social Commenting"
+msgstr "تعطيل تعليقا الاجتماعي على هذا"
+
+#: ../admin/social_commenting.php:11
+#: ../admin/social_commenting.php:381
+#, fuzzy
+msgid "Shortcode"
+msgstr "استخدم كود مختصر  |  Include the shortcode"
+
+#: ../admin/social_commenting.php:18
+#: ../admin/social_commenting.php:24
+#: ../admin/social_commenting.php:147
+#, fuzzy
+msgid "Enable Social Commenting"
+msgstr "تعطيل تعليقا الاجتماعي على هذا"
+
+#: ../admin/social_commenting.php:34
+#, fuzzy
+msgid "Master control to enable Social Commenting"
+msgstr "عنصر التحكم الرئيسي لتمكين مشاركة أفقية"
+
+#: ../admin/social_commenting.php:42
+#, fuzzy
+msgid "Order of tabs in commenting interface"
+msgstr "ترتيب علامات التبويب في واجهة التعليق"
+
+#: ../admin/social_commenting.php:52
+msgid "Order of the tabs shown in social commenting interface. Defaults to wordpress,facebook,googleplus,disqus"
+msgstr "ترتيب علامات التبويب تظهر في الواجهة التعليق الاجتماعي. افتراضات إلى ووردبريس، فيسبوك، googleplus، من هارد"
+
+#: ../admin/social_commenting.php:60
+msgid "Comment area label"
+msgstr "تسمية منطقة التعليق"
+
+#: ../admin/social_commenting.php:70
+#, fuzzy
+msgid "Label for comment area"
+msgstr "التسمية للتبويب تعليقاً G+"
+
+#: ../admin/social_commenting.php:80
+#, fuzzy
+msgid "Labels"
+msgstr "وسوم"
+
+#: ../admin/social_commenting.php:85
+#, fuzzy
+msgid "Label for WordPress Commenting tab"
+msgstr "تعليقات فيسبوكيه"
+
+#: ../admin/social_commenting.php:94
+msgid "Label for Facebook Commenting tab"
+msgstr "تعليقات فيسبوكيه"
+
+#: ../admin/social_commenting.php:103
+msgid "Label for G+ Commenting tab"
+msgstr "التسمية للتبويب تعليقاً G+"
+
+#: ../admin/social_commenting.php:112
+#, fuzzy
+msgid "Label for Disqus Commenting tab"
+msgstr "التسمية للتبويب تعليقاً G+"
+
+#: ../admin/social_commenting.php:123
+#, fuzzy
+msgid "Facebook Commenting Options"
+msgstr "تعليقات فيسبوكيه"
+
+#: ../admin/social_commenting.php:129
+#, fuzzy
+msgid "Enable Facebook Comments notification and moderation"
+msgstr "تعليقات فيسبوكيه"
+
+#: ../admin/social_commenting.php:137
+#, fuzzy
+msgid "Enable Facebook Commenting"
+msgstr "تعليقات فيسبوكيه"
+
+#: ../admin/social_commenting.php:155
+#: ../admin/social_commenting.php:313
+msgid "Url to comment on"
+msgstr "عنوان Url للقيام بالتعليق على"
+
+#: ../admin/social_commenting.php:165
+#, fuzzy
+msgid "The absolute URL that comments posted will be permanently associated with. Stories on Facebook about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
+msgstr "سوف يكون عنوان URL المطلق الذي نشرت تعليقات المقترنة بشكل دائم. سيتم ربط القصص على ألفيس بوك حول التعليقات المنشورة، إلى URL هذا.<br>إذا ترك فارغاً <strong>(مستحسن)</strong>، سيتم استخدام عنوان url لصفحة ويب التعليق الذي تم تمكين."
+
+#: ../admin/social_commenting.php:173
+#: ../admin/social_commenting.php:295
+#, fuzzy
+msgid "Width"
+msgstr "عرض"
+
+#: ../admin/social_commenting.php:183
+#, fuzzy
+msgid "Leave empty to auto-adjust the width. The width (in pixels) of the Comments block."
+msgstr "ترك فارغاً لصناعة السيارات في ضبط العرض. العرض (بالبكسل) كتلة التعليقات."
+
+#: ../admin/social_commenting.php:191
+#, fuzzy
+msgid "Color Scheme"
+msgstr "بلا لون"
+
+#: ../admin/social_commenting.php:195
+#, fuzzy
+msgid "Light"
+msgstr "الفاتح"
+
+#: ../admin/social_commenting.php:196
+#, fuzzy
+msgid "Dark"
+msgstr "داكن"
+
+#: ../admin/social_commenting.php:204
+#, fuzzy
+msgid "The color scheme used by the plugin. Can be \"light\" or \"dark\"."
+msgstr "نظام الألوان المستخدمة من قبل البرنامج المساعد. يمكن أن يكون \"الخفيفة\" أو \"الظلام\"."
+
+#: ../admin/social_commenting.php:212
+#, fuzzy
+msgid "Number of comments"
+msgstr "عدد التعليقات:"
+
+#: ../admin/social_commenting.php:222
+#, fuzzy
+msgid "The number of comments to show by default. The minimum value is 1. Defaults to 10"
+msgstr "عدد التعليقات تظهر بشكل افتراضي. قيمة الحد الأدنى هو 1. افتراضات إلى 10"
+
+#: ../admin/social_commenting.php:230
+#, fuzzy
+msgid "Order by"
+msgstr "طلب  |  Order"
+
+#: ../admin/social_commenting.php:234
+#, fuzzy
+msgid "Social"
+msgstr "حددت كشبكة الإجتماعية اللأساسية"
+
+#: ../admin/social_commenting.php:235
+#, fuzzy
+msgid "Reverse Time"
+msgstr "اعكس الترتيب"
+
+#: ../admin/social_commenting.php:236
+#, fuzzy
+msgid "Time"
+msgstr "إدراج التاريخ/الوقت"
+
+#: ../admin/social_commenting.php:244
+#, fuzzy
+msgid "The order to use when displaying comments."
+msgstr "الترتيب استخدامها عند عرض التعليقات."
+
+#: ../admin/social_commenting.php:252
+#: ../admin/like_buttons.php:132
+#: ../admin/like_buttons.php:138
+#, fuzzy
+msgid "Language"
+msgstr "يمكنك استخدام أكواد <abbr title=\"HyperText Markup Language\">HTML</abbr> والخصائص التالية: %s"
+
+#: ../admin/social_commenting.php:262
+#, fuzzy, php-format
+msgid "Enter the code of the language you want to use to display commenting. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
+msgstr "أدخل التعليمة البرمجية للغة التي تريد استخدامها لعرض التعليق. يمكنك العثور على رموز اللغة على <a href=\"%s\" target=\"_blank\">هذا الرابط</a>. اتركه فارغاً ل language(English) الافتراضي"
+
+#: ../admin/social_commenting.php:271
+#, fuzzy
+msgid "Google Plus Commenting Options"
+msgstr "جوجل بالإضافة إلى خيارات التعليق"
+
+#: ../admin/social_commenting.php:277
+#: ../admin/social_commenting.php:287
+#, fuzzy
+msgid "Enable Google Plus Commenting"
+msgstr "تمكين المشاركة عبر Google."
+
+#: ../admin/social_commenting.php:305
+#, fuzzy
+msgid "Width of GooglePlus Commenting interface. Leave empty for auto adjust"
+msgstr "عرض واجهة GooglePlus تعليقه. اتركه فارغاً لضبط تلقائي"
+
+#: ../admin/social_commenting.php:323
+#, fuzzy
+msgid "The absolute URL that comments posted will be permanently associated with. Stories on Google Plus about comments posted, will link to this URL.<br/>If left empty <strong>(Recommended)</strong>, url of the webpage will be used at which commenting is enabled."
+msgstr "سوف يكون عنوان URL المطلق الذي نشرت تعليقات المقترنة بشكل دائم. قصص عن جوجل بلس حول التعليقات المنشورة، سيربط بعنوان URL هذا.<br>إذا ترك فارغاً <strong>(مستحسن)</strong>، سيتم استخدام عنوان url لصفحة ويب التعليق الذي تم تمكين."
+
+#: ../admin/social_commenting.php:332
+#, fuzzy
+msgid "Disqus Commenting Options"
+msgstr "الخيارات"
+
+#: ../admin/social_commenting.php:338
+#: ../admin/social_commenting.php:348
+#, fuzzy
+msgid "Enable Disqus Commenting"
+msgstr "إتاحة التعليق من هارد"
+
+#: ../admin/social_commenting.php:356
+#, fuzzy
+msgid "Disqus Shortname"
+msgstr "هارد Shortname"
+
+#: ../admin/social_commenting.php:366
+#, fuzzy
+msgid "<strong>Required to use Disqus commenting.</strong> For more info on shortname, visit following link."
+msgstr "<strong>مطلوب لاستخدام تعليقاً من هارد.</strong> لمزيد من المعلومات حول shortname، قم بزيارة الوصلة التالية."
+
+#: ../admin/social_commenting.php:383
+#, fuzzy
+msgid "Social Commenting Shortcode"
+msgstr "تعطيل تعليقا الاجتماعي على هذا"
+
+#: ../admin/social_commenting.php:395
+#, fuzzy
+msgid "How can I disable Social Commenting at individual page/post?"
+msgstr "كيف يمكنني تعطيل \"الاجتماعية وتعليقاً\" على صفحة فردية/الوظيفة؟"
+
+#: ../admin/social_commenting.php:396
+msgid "How to disable default comment form from Social Commenting?"
+msgstr "كيفية تعطيل شكل تعليق الافتراضي من وتعليقا الاجتماعي؟"
+
+#: ../admin/social_login.php:10
+#, fuzzy
+msgid "Social Login"
+msgstr "إذا تم تمكين هذا الخيار،التعليق القادمة من مستخدم الوردبريس الذي تم تسجيل دخوله  بالنظام عن طريق برامج التواصل الاجتماعي، سيتم الموافقة على التعليق فورا دون موافقة المشرف على النظام."
+
+#: ../admin/social_login.php:23
+#, fuzzy
+msgid "Enable Social Login"
+msgstr "تسجيل الدخول"
+
+#: ../admin/social_login.php:33
+#, fuzzy
+msgid "Master control for Social Login. It must be checked to enable Social Login functionality"
+msgstr "عنصر التحكم الرئيسي \"الدخول الاجتماعي\". يجب إيداعه لتمكين وظيفة \"تسجيل الدخول الاجتماعي\""
+
+#: ../admin/social_login.php:66
+#, fuzzy
+msgid "Instagram"
+msgstr "إنستاجرام"
+
+#: ../admin/social_login.php:78
+#, fuzzy
+msgid "Select Social ID provider to enable in Social Login"
+msgstr "حدد موفر \"معرف الاجتماعية\" لتمكين \"تسجيل الدخول الاجتماعي\""
+
+#: ../admin/social_login.php:86
+#, fuzzy
+msgid "Facebook App ID"
+msgstr "رقم التعريف الخالص بك |  ID"
+
+#: ../admin/social_login.php:96
+#, fuzzy, php-format
+msgid "Required for Facebook Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Facebook App ID"
+msgstr "المطلوبة \"دخول ألفيس بوك الاجتماعية\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على معرف التطبيق فيسبوك"
+
+#: ../admin/social_login.php:98
+#, fuzzy
+msgid "Paste following url in <strong>Site URL</strong> option at the link mentioned"
+msgstr "لصق التالية url في الخيار <strong>محدد موقع معلومات الموقع</strong> في الوصلة المذكورة"
+
+#: ../admin/social_login.php:108
+#, fuzzy
+msgid "Twitter API Key"
+msgstr "مفتاح API الخاص  |  API Private Key"
+
+#: ../admin/social_login.php:118
+#, fuzzy, php-format
+msgid "Required for Twitter Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Twitter API Key"
+msgstr "المطلوبة \"تسجيل الدخول الاجتماعي تويتر\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على \"مفتاح API التغريد\""
+
+#: ../admin/social_login.php:120
+#: ../admin/social_login.php:142
+#, fuzzy
+msgid "Paste following url in <strong>Website</strong> and <strong>Callback URL</strong> options at the link mentioned"
+msgstr "لصق التالية url في خيارات <strong>الموقع</strong> و <strong>رد عنوان URL</strong> في الارتباط المشار إليها"
+
+#: ../admin/social_login.php:130
+#, fuzzy
+msgid "Twitter API Secret"
+msgstr "شارك الأخرين عبر تويتر"
+
+#: ../admin/social_login.php:140
+#, fuzzy, php-format
+msgid "Required for Twitter Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Twitter API Secret"
+msgstr "المطلوبة \"تسجيل الدخول الاجتماعي تويتر\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على \"سر API التغريد\""
+
+#: ../admin/social_login.php:152
+#, fuzzy
+msgid "LinkedIn API Key"
+msgstr "مفتاح API الخاص  |  API Private Key"
+
+#: ../admin/social_login.php:162
+#, fuzzy, php-format
+msgid "Required for LinkedIn Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get LinkedIn API Key"
+msgstr "المطلوبة للدخول الاجتماعي LinkedIn للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على مفتاح API LinkedIn"
+
+#: ../admin/social_login.php:164
+#: ../admin/social_login.php:230
+#, fuzzy
+msgid "Paste following url in <strong>Website URL</strong> option at the link mentioned"
+msgstr "لصق التالية url في خيار <strong>URL الموقع</strong> في الوصلة المذكورة"
+
+#: ../admin/social_login.php:174
+#, fuzzy
+msgid "Google+ Client ID"
+msgstr "شارك الأخرين عبر جوجل"
+
+#: ../admin/social_login.php:184
+#, fuzzy, php-format
+msgid "Required for GooglePlus Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get GooglePlus Client ID"
+msgstr "المطلوبة \"دخول جوجليبلوس الاجتماعي\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على معرف العميل GooglePlus"
+
+#: ../admin/social_login.php:186
+#, fuzzy
+msgid "Paste following url in <strong>AUTHORIZED JAVASCRIPT ORIGINS</strong> and <strong>AUTHORIZED REDIRECT URI</strong> options at the link mentioned"
+msgstr "لصق التالية url في <strong>أصول سكريبت إذن</strong> و <strong>إذن URI توجيه</strong> خيارات في الوصلة المذكورة"
+
+#: ../admin/social_login.php:196
+#, fuzzy
+msgid "Vkontakte Application ID"
+msgstr "انشر عبر VKontakte"
+
+#: ../admin/social_login.php:206
+#, fuzzy, php-format
+msgid "Required for Vkontakte Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Vkontakte Application ID"
+msgstr "المطلوبة \"دخول Vkontakte الاجتماعي\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على معرف التطبيق Vkontakte"
+
+#: ../admin/social_login.php:208
+#, fuzzy
+msgid "Paste following url in <strong>Site address</strong> option at the link mentioned"
+msgstr "لصق التالية url في خيار <strong>عنوان الموقع</strong> في الوصلة المذكورة"
+
+#: ../admin/social_login.php:218
+#, fuzzy
+msgid "Instagram Client ID"
+msgstr "مفتاح التشفيرمن جانب العميل  |  Client-Side Encryption Key"
+
+#: ../admin/social_login.php:228
+#, fuzzy, php-format
+msgid "Required for Instagram Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Instagram Client ID"
+msgstr "المطلوبة \"دخول Instagram الاجتماعي\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على معرف العميل Instagram"
+
+#: ../admin/social_login.php:240
+#, fuzzy
+msgid "Xing Consumer Key"
+msgstr "مفتاح التفعيل:"
+
+#: ../admin/social_login.php:250
+#, fuzzy, php-format
+msgid "Required for Xing Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Xing Consumer Key"
+msgstr "المطلوبة \"دخول شينغ الاجتماعية\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على \"مفتاح المستهلك شينغ\""
+
+#: ../admin/social_login.php:252
+#: ../admin/social_login.php:274
+#, fuzzy
+msgid "Paste following url in <strong>Callback domain</strong> option at the link mentioned"
+msgstr "لصق التالية url في الخيار <strong>المجال رد الاتصال</strong> في الوصلة المذكورة"
+
+#: ../admin/social_login.php:262
+#, fuzzy
+msgid "Xing Consumer Secret"
+msgstr "كلمة السر  |  Secret Word"
+
+#: ../admin/social_login.php:272
+#, fuzzy, php-format
+msgid "Required for Xing Social Login to work. Please follow the documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get Xing Consumer Secret"
+msgstr "المطلوبة \"دخول شينغ الاجتماعية\" للعمل. الرجاء تتبع الوثائق الموجودة في <a href=\"%s\" target=\"_blank\">هذا الارتباط</a> للحصول على \"سر المستهلك شينغ\""
+
+#: ../admin/social_login.php:284
+#, fuzzy
+msgid "Include Javascript in website footer"
+msgstr "وتشمل جافا سكريبت في تذييل الصفحة في الموقع"
+
+#: ../admin/social_login.php:294
+#, fuzzy
+msgid "If enabled (recommended), Javascript files will be included in the footer of your website."
+msgstr "إذا تم تمكين (مستحسن)، سيتم تضمين ملفات Javascript في تذييل الصفحة في موقع الويب الخاص بك."
+
+#: ../admin/social_login.php:308
+#, fuzzy
+msgid "Login options"
+msgstr "الخيارات"
+
+#: ../admin/social_login.php:324
+#, fuzzy
+msgid "Text to display above the Social Login interface"
+msgstr "نص للعرض أعلاه واجهة \"تسجيل الدخول الاجتماعي\""
+
+#: ../admin/social_login.php:333
+#, fuzzy
+msgid "Enable at login page"
+msgstr "صفحة"
+
+#: ../admin/social_login.php:343
+#, fuzzy
+msgid "Social Login interface will get enabled at the login page of your website"
+msgstr "سوف تحصل على تمكين واجهة تسجيل الدخول الاجتماعي في النموذج الخاص بك وورد التعليق"
+
+#: ../admin/social_login.php:351
+#, fuzzy
+msgid "Enable at register page"
+msgstr "التسجيل العام"
+
+#: ../admin/social_login.php:361
+#, fuzzy
+msgid "Social Login interface will get enabled at the registration page of your website"
+msgstr "سوف تحصل على تمكين واجهة تسجيل الدخول الاجتماعي في صفحة التسجيل لموقع الويب الخاص بك"
+
+#: ../admin/social_login.php:369
+msgid "Enable at comment form"
+msgstr "تمكين هذا الشكل من تعليق"
+
+#: ../admin/social_login.php:379
+msgid "Social Login interface will get enabled at your Wordpress Comment form"
+msgstr "سوف تحصل على تمكين واجهة تسجيل الدخول الاجتماعي في النموذج الخاص بك وورد التعليق"
+
+#: ../admin/social_login.php:393
+msgid "Enable before WooCommerce Customer Login Form"
+msgstr "تمكين قبل WooCommerce نموذج تسجيل دخول العملاء"
+
+#: ../admin/social_login.php:403
+#, fuzzy
+msgid "Social Login Interface will get enabled before the customer login form at WooCommerce My Account page"
+msgstr "سوف تحصل على تمكين واجهة تسجيل الدخول الاجتماعي في النموذج الخاص بك وورد التعليق"
+
+#: ../admin/social_login.php:411
+msgid "Enable after WooCommerce Customer Login Form"
+msgstr "تمكن بعد WooCommerce نموذج تسجيل دخول العملاء"
+
+#: ../admin/social_login.php:421
+#, fuzzy
+msgid "Social Login Interface will get enabled after the customer login form at WooCommerce My Account page"
+msgstr "سوف تحصل على تمكين واجهة تسجيل الدخول الاجتماعي في النموذج الخاص بك وورد التعليق"
+
+#: ../admin/social_login.php:429
+#, fuzzy
+msgid "Enable at WooCommerce checkout page"
+msgstr "التسجيل العام"
+
+#: ../admin/social_login.php:439
+#, fuzzy
+msgid "Social Login Interface will get enabled at WooCommerce checkout page"
+msgstr "سوف تحصل على تمكين واجهة تسجيل الدخول الاجتماعي في النموذج الخاص بك وورد التعليق"
+
+#: ../admin/social_login.php:450
+#, fuzzy
+msgid "Auto-approve comments made by Social Login users"
+msgstr "السيارات--الموافقة على التعليقات التي أدلى بها المستخدمين \"تسجيل الدخول الاجتماعي\""
+
+#: ../admin/social_login.php:460
+msgid "If this option is enabled, and WordPress comment is made by Social Login user, comment will get approved immediately without keeping in moderation."
+msgstr "إذا تم تمكين هذا الخيار،التعليق القادمة من مستخدم الوردبريس الذي تم تسجيل دخوله  بالنظام عن طريق برامج التواصل الاجتماعي، سيتم الموافقة على التعليق فورا دون موافقة المشرف على النظام."
+
+#: ../admin/social_login.php:461
+#, fuzzy
+msgid "Note: This is not related to Facebook comments"
+msgstr "ملاحظة: هذا لا تتعلق بتعليقات ألفيس بوك"
+
+#: ../admin/social_login.php:471
+#, fuzzy
+msgid "Enable social avatar"
+msgstr "خدمة الشبكة الاجتماعية"
+
+#: ../admin/social_login.php:481
+#, fuzzy
+msgid "Social profile pictures of the logged in user will be displayed as profile avatar"
+msgstr "سيتم عرض الصور الشخصية الاجتماعية لمستخدم تم تسجيل دخوله كالصورة الرمزية الشخصية"
+
+#: ../admin/social_login.php:491
+#, fuzzy
+msgid "Avatar quality"
+msgstr "نوعية الصورة الرمزية"
+
+#: ../admin/social_login.php:494
+#, fuzzy
+msgid "Average"
+msgstr "المعدل"
+
+#: ../admin/social_login.php:495
+#, fuzzy
+msgid "Better"
+msgstr "أفضل، أحسن"
+
+#: ../admin/social_login.php:502
+#, fuzzy
+msgid "Choose avatar quality"
+msgstr "إختيار ملف"
+
+#: ../admin/social_login.php:521
+#, fuzzy
+msgid "If enabled and Social ID provider does not provide user's email address on login, user will be asked to provide his/her email address. Otherwise, a dummy email will be generated"
+msgstr "إذا لم توفر الاجتماعية وتمكين موفر معرف عنوان البريد الإلكتروني المستخدم في تسجيل الدخول، سيتم مطالبة المستخدم بتوفير عنوانه الإلكتروني. وإلا، سيتم إنشاء بريد إلكتروني وهمية"
+
+#: ../admin/social_login.php:530
+#, fuzzy
+msgid "Send username-password after user registration"
+msgstr "إرسال اسم المستخدم-كلمة المرور بعد تسجيل المستخدم"
+
+#: ../admin/social_login.php:540
+#, fuzzy
+msgid "If enabled, an email will be sent to user after registration through Social Login, regarding his/her login credentials (username-password to be able to login via traditional login form)"
+msgstr "إذا كان ممكناً، سيتم إرسال رسالة بريد إلكتروني إلى المستخدم بعد التسجيل من خلال \"الدخول الاجتماعي\"، فيما يتعلق بصفحته/صفحتها بيانات اعتماد تسجيل الدخول (اسم المستخدم-كلمة المرور لتكون قادراً على تسجيل الدخول عن طريق نموذج تسجيل الدخول التقليدية)"
+
+#: ../admin/social_login.php:549
+#, fuzzy
+msgid "Enable social account linking at BuddyPress profile page"
+msgstr "تمكين حساب الاجتماعية ربط الصفحة الشخصية BuddyPress"
+
+#: ../admin/social_login.php:559
+#, fuzzy
+msgid "Enable this option to show social account linking interface at BuddyPress profile page"
+msgstr "تمكين هذا الخيار لإظهار حساب الاجتماعية ربط واجهة الصفحة الشخصية BuddyPress"
+
+#: ../admin/social_login.php:568
+#, fuzzy
+msgid "Login redirection"
+msgstr "تسجيل الدخول"
+
+#: ../admin/social_login.php:572
+#, fuzzy
+msgid "Same page where user logged in"
+msgstr "حيث يتم تسجيل المستخدم في الصفحة نفسها"
+
+#: ../admin/social_login.php:576
+#: ../admin/social_login.php:606
+#, fuzzy
+msgid "Account dashboard"
+msgstr "  لوحتك الخاصة بالتحكم"
+
+#: ../admin/social_login.php:579
+#: ../admin/social_login.php:609
+#, fuzzy
+msgid "BuddyPress profile page"
+msgstr "تحرير ملفي الشخصي"
+
+#: ../admin/social_login.php:582
+#: ../admin/social_login.php:612
+#, fuzzy
+msgid "Custom Url"
+msgstr "رابط (URL) مخصّص"
+
+#: ../admin/social_login.php:590
+#, fuzzy
+msgid "User will be redirected to the selected page after Social Login"
+msgstr "ستتم إعادة توجيه المستخدم إلى الصفحة المحددة بعد \"الدخول الاجتماعي\""
+
+#: ../admin/social_login.php:598
+#, fuzzy
+msgid "Registration redirection"
+msgstr "نموذج التسجيل"
+
+#: ../admin/social_login.php:602
+#, fuzzy
+msgid "Same page from where user registered"
+msgstr "الصفحة نفسها من حيث تسجيل المستخدم"
+
+#: ../admin/social_login.php:620
+#, fuzzy
+msgid "User will be redirected to the selected page after registration (first Social Login) through Social Login"
+msgstr "ستتم إعادة توجيه المستخدم إلى الصفحة المحددة بعد التسجيل (تسجيل الدخول الاجتماعي الأول) من خلال \"تسجيل الدخول الاجتماعي\""
+
+#: ../admin/social_login.php:628
+#, fuzzy
+msgid "Email popup options"
+msgstr "الخيارات"
+
+#: ../admin/social_login.php:634
+#, fuzzy
+msgid "Text on 'Email required' popup"
+msgstr "البريد الإلكتروني (Email) - الإدخال إجباري"
+
+#: ../admin/social_login.php:644
+#, fuzzy
+msgid "This text will be displayed on email required popup. Leave empty if not required."
+msgstr "سيتم عرض هذا النص على البريد الإلكتروني المطلوب المنبثقة. ترك فارغاً إذا كان غير مطلوب."
+
+#: ../admin/social_login.php:653
+#, fuzzy
+msgid "Error message for 'Email required' popup"
+msgstr "رسالة الإعلام بالخطأ لانبثاق 'البريد الإلكتروني مطلوب'"
+
+#: ../admin/social_login.php:663
+#, fuzzy
+msgid "This message will be displayed to user if it provides invalid or already registered email"
+msgstr "سيتم عرض هذه الرسالة إلى المستخدم إذا كان يوفر البريد الإلكتروني غير صالح أو المسجلة مسبقاً"
+
+#: ../admin/social_login.php:672
+#, fuzzy
+msgid "Email popup height"
+msgstr "ارتفاع"
+
+#: ../admin/social_login.php:682
+#, fuzzy
+msgid "If you are seeing vertical scrollbar in the \"Email required\" popup, you can increase the height of popup by specifying in this option. Leave empty for default."
+msgstr "إذا كنت ترى شريط التمرير العمودي في منبثق \"البريد الإلكتروني المطلوبة\"، يمكنك زيادة ارتفاع المنبثقة عن طريق تحديد هذا الخيار. ترك فارغاً للافتراضي."
+
+#: ../admin/social_login.php:690
+#, fuzzy
+msgid "Enable email verification"
+msgstr "تمكين ايقونات المشاركة عبر البريد الإلكتروني "
+
+#: ../admin/social_login.php:700
+#, fuzzy
+msgid "If enabled, email provided by the user will be verified by sending a confirmation link to that email. User would not be able to login without verifying his/her email"
+msgstr "إذا تم تمكين، سيتم التحقق من البريد الإلكتروني التي يوفرها المستخدم بإرسال وصلة تأكيد لهذا البريد الإلكتروني. أن لا يكون المستخدم قادراً على تسجيل الدخول دون التحقق من البريد الإلكتروني صفحته/صفحتها"
+
+#: ../admin/social_login.php:716
+#, fuzzy
+msgid "Social Login Shortcode & Widget"
+msgstr "استخدم كود مختصر  |  Include the shortcode"
+
+#: ../admin/social_login.php:717
+msgid "Social Linking Shortcode"
+msgstr "الربط الاجتماعي رمز قصير"
+
+#: ../admin/admin.php:8
+#, fuzzy
+msgid "Welcome"
+msgstr "أهلاً وسهلاً"
+
+#: ../admin/admin.php:10
+#, fuzzy
+msgid "You are ready to Socialize your website."
+msgstr "كنت على استعداد للانخراط في المجتمع موقع الويب الخاص بك."
+
+#: ../admin/admin.php:11
+#, fuzzy
+msgid "Getting Started"
+msgstr "البدء"
+
+#: ../admin/admin.php:12
+#, fuzzy
+msgid "Start configuring the options in the sections below the <strong>Super Socializer</strong> menu in the left sidebar. <strong>Social Sharing</strong> is enabled at your website by default."
+msgstr "بدء تشغيل تكوين الخيارات الموجودة في المقاطع أدناه قائمة <strong>سوبر سسليزر</strong> في الشريط الجانبي الأيسر. يتم تمكين <strong>المشاركة الاجتماعية</strong> في موقع الويب الخاص بك بشكل افتراضي."
+
+#: ../admin/admin.php:13
+#, fuzzy
+msgid "In <strong>Social Commenting</strong> section, you can configure Social Commenting."
+msgstr "في المقطع <strong>التعليق الاجتماعي</strong> ، يمكنك تكوين \"التعليق الاجتماعية\"."
+
+#: ../admin/admin.php:14
+#, fuzzy
+msgid "In <strong>Social Login</strong> section, you can select Social ID provders and configure the Social Login options."
+msgstr "في المقطع <strong>تسجيل الدخول الاجتماعي</strong> ، يمكنك تحديد \"معرف الاجتماعية\" بروفديرس وتكوين خيارات \"تسجيل الدخول الاجتماعي\"."
+
+#: ../admin/admin.php:15
+#, fuzzy
+msgid "In <strong>Social Sharing</strong> section, you can choose the Social Networks for Sharing and configure the options for sharing."
+msgstr "في مقطع <strong>مشاركة اجتماعية</strong> ، يمكنك اختيار \"الشبكات الاجتماعية\" للمشاركة وتكوين خيارات لمشاركة."
+
+#: ../admin/admin.php:16
+#, fuzzy
+msgid "In <strong>Like Buttons</strong> section, you can choose the like/+1 buttons and configure the options for the same"
+msgstr "في المقطع <strong>مثل الأزرار</strong> ، يمكنك أن تختار ما شابه/+ 1 أزرار وتكوين خيارات لنفسه"
+
+#: ../admin/like_buttons.php:12
+#, fuzzy
+msgid "Like Buttons"
+msgstr "تعطيل زر الإعجاب الموجود عمودياً على هذا"
+
+#: ../admin/like_buttons.php:25
+#, fuzzy
+msgid "Enable Like Buttons"
+msgstr "تعطيل زر الإعجاب الموجود عمودياً على هذا"
+
+#: ../admin/like_buttons.php:35
+#, fuzzy
+msgid "Master control for like buttons. It must be checked to enable like buttons functionality"
+msgstr "عنصر التحكم الرئيسي لمثل الأزرار. يجب أن يتم التحقق من تمكين مثل وظائف الأزرار"
+
+#: ../admin/like_buttons.php:57
+#, fuzzy
+msgid "Use shortlinks already installed, for tweet button"
+msgstr "استخدام شورتلينكس مثبتة بالفعل، لزر سقسقة"
+
+#: ../admin/like_buttons.php:75
+#, fuzzy
+msgid "Enable bit.ly url shortener for tweet button"
+msgstr "تمكين bit.ly عنوان المنقص لزر سقسقة"
+
+#: ../admin/like_buttons.php:148
+#, fuzzy, php-format
+msgid "Enter the code of the language you want to use to render counters. You can find the language codes at <a href=\"%s\" target=\"_blank\">this link</a>. Leave it empty for default language(English)"
+msgstr "أدخل التعليمة البرمجية للغة التي تريد استخدامها لعرض عدادات. يمكنك العثور على رموز اللغة على <a href=\"%s\" target=\"_blank\">هذا الرابط</a>. اتركه فارغاً ل language(English) الافتراضي"
+
+#: ../admin/like_buttons.php:157
+#, fuzzy
+msgid "Twitter Username"
+msgstr "شارك الأخرين عبر تويتر"
+
+#: ../admin/like_buttons.php:163
+#, fuzzy
+msgid "Twitter username for Tweet (without @)"
+msgstr "قالب بدون %1$s"
+
+#: ../admin/like_buttons.php:173
+#, fuzzy
+msgid "Provided username will be appended after the content being tweeted as \"via @USERNAME\". Leave empty if you do not want any username."
+msgstr "سيتم إلحاق اسم المستخدم المقدمة بعد المحتوى يجري تويتد ك \"عبر @USERNAME\". ترك فارغاً إذا كنت لا تريد أي اسم مستخدم."
+
+#: ../admin/like_buttons.php:182
+#, fuzzy
+msgid "Twitter username for Buffer sharing (without @)"
+msgstr "قالب بدون %1$s"
+
+#: ../admin/like_buttons.php:192
+#, fuzzy
+msgid "Provided username will be appended after the content in Buffer sharing as \"via @USERNAME\". Leave empty if you do not want any username."
+msgstr "سيتم إلحاق اسم المستخدم المقدمة بعد المحتوى يجري تويتد ك \"عبر @USERNAME\". ترك فارغاً إذا كنت لا تريد أي اسم مستخدم."
+
+#: ../admin/like_buttons.php:201
+#, fuzzy
+msgid "Horizontal Interface Options"
+msgstr "المشاركات الأفقي"
+
+#: ../admin/like_buttons.php:207
+#, fuzzy
+msgid "Enable horizontal interface"
+msgstr "تعطيل الظهور الأفقي للمشاركة الاجتماعي على هذا"
+
+#: ../admin/like_buttons.php:217
+#, fuzzy
+msgid "Master control to enable horizontal like buttons"
+msgstr "عنصر التحكم الرئيسي لتمكين الأفقية مثل الأزرار"
+
+#: ../admin/like_buttons.php:242
+#: ../admin/like_buttons.php:480
+#, fuzzy
+msgid "Url to like/share/tweet and display like/share/tweet counts"
+msgstr "عنوان Url للتهم مثل/مشاركة/سقسقة مثل/مشاركة/سقسقة وعرض"
+
+#: ../admin/like_buttons.php:260
+#, fuzzy
+msgid "The text to display above the interface"
+msgstr "عرض اسم الموقع و سطر الوصف في الترويسة"
+
+#: ../admin/like_buttons.php:268
+#: ../admin/like_buttons.php:488
+#, fuzzy
+msgid "Select and rearrange providers"
+msgstr "اختر مقالة"
+
+#: ../admin/like_buttons.php:312
+#: ../admin/like_buttons.php:531
+#, fuzzy
+msgid "Select the providers for interface. Drag them to rearrange."
+msgstr "تحديد موفري للواجهة. اسحبها إلى إعادة ترتيب."
+
+#: ../admin/like_buttons.php:334
+#: ../admin/like_buttons.php:570
+#, fuzzy
+msgid "Horizontal alignment of the interface"
+msgstr "بلا محاذاة"
+
+#: ../admin/like_buttons.php:355
+#, fuzzy
+msgid "Specify position of the interface with respect to the content"
+msgstr "تحديد الموضع للواجهة فيما يتعلق بالمحتوى"
+
+#: ../admin/like_buttons.php:363
+#: ../admin/like_buttons.php:636
+#, fuzzy
+msgid "Interface location"
+msgstr "واجهة الموقع"
+
+#: ../admin/like_buttons.php:429
+#, fuzzy
+msgid "Specify the pages where you want to enable interface"
+msgstr "تحديد الصفحات التي تريد تمكين واجهة"
+
+#: ../admin/like_buttons.php:439
+#, fuzzy
+msgid "Vertical (Floating) like buttons Options"
+msgstr "تعطيل زر الإعجاب الموجود عمودياً على هذا"
+
+#: ../admin/like_buttons.php:445
+#, fuzzy
+msgid "Enable vertical (floating) like buttons"
+msgstr "تعطيل زر الإعجاب الموجود عمودياً على هذا"
+
+#: ../admin/like_buttons.php:455
+#, fuzzy
+msgid "Master control to enable vertical (floating) counter widget"
+msgstr "عنصر التحكم الرئيسي لتمكين القطعة العداد (عائمة) عمودي"
+
+#: ../admin/like_buttons.php:549
+#, fuzzy
+msgid "Specify the color or hex code (example #cc78e0) for the background of vertical interface. Leave empty for transparent. You can get the hex code of the required color from <a href=\"http://www.colorpicker.com/\" target=\"_blank\">this link</a>"
+msgstr "تعيين رمز اللون أو ست عشري (على سبيل المثال، #cc78e0) لخلفية واجهة الرأسي. اتركه فارغاً للشفافية. يمكنك الحصول على رمز ست عشري من اللون المطلوب من <a href=\"http://www.colorpicker.com/\" target=\"_blank\">هذا الرابط</a>"
+
+#: ../admin/like_buttons.php:589
+#, fuzzy
+msgid "Specify a number. Increase in number will shift interface towards right and decrease will shift it towards left. Number can be negative too."
+msgstr "تحديد رقم. زيادة في عدد سوف تحول واجهة نحو اليمين، ونقصان سيتحول نحو اليسار. يمكن أن يكون رقم سلبي جداً."
+
+#: ../admin/like_buttons.php:609
+#, fuzzy
+msgid "Specify a number. Increase in number will shift interface towards left and decrease will shift it towards right. Number can be negative too."
+msgstr "تحديد رقم. زيادة في عدد سيتحول واجهة نحو اليسار ونقصان سيتحول نحو اليمين. يمكن أن يكون رقم سلبي جداً."
+
+#: ../admin/like_buttons.php:628
+#, fuzzy
+msgid "Specify a number. Increase in number will shift interface towards bottom and decrease will shift it towards top."
+msgstr "تحديد رقم. زيادة في عدد سيتحول واجهة نحو الأسفل ونقصان سيتحول نحو الأعلى."
+
+#: ../admin/like_buttons.php:678
+#, fuzzy
+msgid "Specify the pages where you want to enable vertical interface"
+msgstr "تحديد الصفحات حيث تريد تمكين واجهة العمودي"
+
+#: ../admin/like_buttons.php:686
+msgid "Hide like buttons on mobile devices"
+msgstr "إخفاء مثل أزرار على الأجهزة المحمولة"
+
+#: ../admin/like_buttons.php:696
+msgid "If enabled, vertical like buttons will not appear on mobile devices"
+msgstr "إذا تمكين، وأزرار تشبه العمودية لا تظهر على الأجهزة المحمولة"
+
+#: ../admin/like_buttons.php:714
+#, fuzzy
+msgid "Like Buttons Shortcode & Widget"
+msgstr "استخدم كود مختصر  |  Include the shortcode"
+
+#: ../inc/shortcode.php:245
+#, fuzzy
+msgid "Enable Social Login from \"Basic Configuration\" section at \"Super Socializer > Social Login\" page in admin panel"
+msgstr "تأكد من أن يتم تمكين \"تسجيل الدخول الاجتماعي\" من \"سوبر سسليزر > الاجتماعية صفحة تسجيل الدخول\"."
+
+#: ../inc/social_sharing.php:628
+#, fuzzy
+msgid "Invalid request"
+msgstr "طلب غير صحيح"
+
+#: ../inc/social_sharing.php:635
+#, fuzzy
+msgid "Providers not selected"
+msgstr "محدد  |   selected"
+
+#: ../inc/widget.php:11
+#, fuzzy
+msgid "Super Socializer - Login"
+msgstr "آخر تسجيل دخول  |  Last Login"
+
+#: ../inc/widget.php:13
+#, fuzzy
+msgid "Let your website users login/register using their favorite Social ID Provider, such as Facebook, Twitter, Google+, LinkedIn"
+msgstr "السماح للمستخدمين تسجيل الدخول/تسجيل على \"موفر معرف الاجتماعية\" المفضلة لديك، مثل فيس بوك، تويتر، Google +، LinkedIn باستخدام موقع الويب الخاص بك"
+
+#: ../inc/widget.php:47
+#, fuzzy
+msgid "Log Out"
+msgstr " تسجيل الخروج"
+
+#: ../inc/widget.php:78
+#, fuzzy
+msgid "Make sure Social Login is enabled from \"Super Socializer > Social Login\" page."
+msgstr "تأكد من أن يتم تمكين \"تسجيل الدخول الاجتماعي\" من \"سوبر سسليزر > الاجتماعية صفحة تسجيل الدخول\"."
+
+#: ../inc/widget.php:79
+#: ../inc/widget.php:219
+#: ../inc/widget.php:524
+#, fuzzy
+msgid "Title:"
+msgstr "العنوان:"
+
+#: ../inc/widget.php:81
+#: ../inc/widget.php:233
+#: ../inc/widget.php:534
+#, fuzzy
+msgid "Before widget content:"
+msgstr "المحتوى "
+
+#: ../inc/widget.php:83
+#: ../inc/widget.php:235
+#: ../inc/widget.php:536
+#, fuzzy
+msgid "After widget content:"
+msgstr "أضف ودجت"
+
+#: ../inc/widget.php:86
+#: ../inc/widget.php:237
+#: ../inc/widget.php:401
+#: ../inc/widget.php:538
+#: ../inc/widget.php:688
+#, fuzzy
+msgid "Hide for logged in users:"
+msgstr "رسالة لمستخدمين الذين قاموا بتسجيل الخروج من البرنامج  |  Message for Logged-out Users"
+
+#: ../inc/widget.php:105
+#, fuzzy
+msgid "Horizontal sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
+msgstr "القطعة تقاسم الأفقي. مستخدمي موقع الويب الخاص بك مشاركة المحتوى في شعبية الشبكات الاجتماعية مثل فيسبوك، التغريد، نعرفكم، جوجل + والكثير"
+
+#: ../inc/widget.php:218
+#, fuzzy
+msgid "Make sure \"Horizontal Social Sharing\" is enabled from \"Super Socializer > Social Sharing\" page."
+msgstr "تأكد من تمكين \"مشاركة الاجتماعي الأفقي\" من صفحة \"سوبر سسليزر > تقاسم الاجتماعية\"."
+
+#: ../inc/widget.php:221
+#: ../inc/widget.php:370
+#, fuzzy
+msgid "Show individual share counts:"
+msgstr "عرض عدد المقالات"
+
+#: ../inc/widget.php:223
+#: ../inc/widget.php:372
+#, fuzzy
+msgid "Show total shares:"
+msgstr "عرض عدد المقالات"
+
+#: ../inc/widget.php:225
+#: ../inc/widget.php:374
+#: ../inc/widget.php:526
+#: ../inc/widget.php:661
+#, fuzzy
+msgid "Target Url:"
+msgstr "الرابط المصدر و الرابط الهدف لا يمكن أن يكونا متطابقين."
+
+#: ../inc/widget.php:227
+#: ../inc/widget.php:376
+#: ../inc/widget.php:528
+#: ../inc/widget.php:663
+#, fuzzy
+msgid "Select"
+msgstr "أختر ..."
+
+#: ../inc/widget.php:256
+#, fuzzy
+msgid "Vertical floating sharing widget. Let your website users share content on popular Social networks like Facebook, Twitter, Tumblr, Google+ and many more"
+msgstr "القطعة تقاسم العائمة الرأسية. مستخدمي موقع الويب الخاص بك مشاركة المحتوى في شعبية الشبكات الاجتماعية مثل فيسبوك، التغريد، نعرفكم، جوجل + والكثير"
+
+#: ../inc/widget.php:369
+#, fuzzy
+msgid "Make sure \"Vertical Social Sharing\" is enabled from \"Super Socializer > Social Sharing\" page."
+msgstr "تأكد من تمكين \"مشاركة اجتماعية عمودي\" من صفحة \"سوبر سسليزر > تقاسم الاجتماعية\"."
+
+#: ../inc/widget.php:382
+#: ../inc/widget.php:669
+#, fuzzy
+msgid "Alignment"
+msgstr "محاذاة"
+
+#: ../inc/widget.php:388
+#: ../inc/widget.php:675
+#, fuzzy
+msgid "Left Offset"
+msgstr "يسار"
+
+#: ../inc/widget.php:392
+#: ../inc/widget.php:679
+#, fuzzy
+msgid "Right Offset"
+msgstr "يمين"
+
+#: ../inc/widget.php:395
+#: ../inc/widget.php:682
+#, fuzzy
+msgid "Top Offset"
+msgstr "أعلى"
+
+#: ../inc/widget.php:420
+#, fuzzy
+msgid "Horizontal like buttons widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
+msgstr "أفقي مثل القطعة الأزرار. السماح للمستخدمين موقع المحتوى مثل حصة/في شعبية الشبكات الاجتماعية مثل فيس بوك، تويتر، Google + وغيرها الكثير"
+
+#: ../inc/widget.php:523
+#, fuzzy
+msgid "Make sure \"Horizontal Like Buttons\" are enabled from \"Super Socializer > Like Buttons\" page."
+msgstr "تأكد من تمكين \"الأفقية مثل أزرار\" من صفحة \"> سوبر سسليزر مثل أزرار\"."
+
+#: ../inc/widget.php:557
+#, fuzzy
+msgid "Vertical floating like buttons widget. Let your website users share/like content on popular Social networks like Facebook, Twitter, Google+ and many more"
+msgstr "العائم الرأسي مثل أزرار القطعة. السماح للمستخدمين موقع المحتوى مثل حصة/في شعبية الشبكات الاجتماعية مثل فيس بوك، تويتر، Google + وغيرها الكثير"
+
+#: ../inc/widget.php:660
+#, fuzzy
+msgid "Make sure \"Vertical Like Buttons\" are enabled from \"Super Socializer > Like Buttons\" page."
+msgstr "تأكد من تمكين \"عمودي مثل أزرار\" من صفحة \"> سوبر سسليزر مثل أزرار\"."
+
+#, fuzzy
+#~ msgid "You can see the plugin in action at following link"
+#~ msgstr "يمكنك مشاهدة البرنامج المساعد في العمل على الرابط التالي"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you like the plugin or have any query, drop an email at <a href="
+#~ "\"mailto:support@heateor.com\">support@heateor.com</a>, like our "
+#~ "<strong>Facebook</strong> page and follow us at <strong>Twitter</strong>."
+#~ msgstr ""
+#~ "إذا كنت أحب البرنامج المساعد أو أي استعلام، إسقاط رسالة بالبريد إلكتروني "
+#~ "في <a href=\"mailto:support@heateor.com\">support@heateor.com</a>، مثل "
+#~ "صفحة <strong>ألفيس بوك</strong> ومتابعة منا على <strong>التغريد</strong>."
+
+#, fuzzy
+#~ msgid "Want plugin customization?"
+#~ msgstr "تريد تخصيص البرنامج المساعد؟"
+
+#, fuzzy
+#~ msgid ""
+#~ "<strong>Note:</strong> Drop us an email at support@heateor.com to enable "
+#~ "Facebook Comments notification and moderation."
+#~ msgstr ""
+#~ "<strong>ملاحظة:</strong> ترك لنا رسالة بالبريد إلكتروني على "
+#~ "support@heateor.com لتمكين إعلام \"تعليقات ألفيس بوك\" والاعتدال."
+
+#, fuzzy
+#~ msgid "Mobile"
+#~ msgstr "رقم جوال:"
+
+#, fuzzy
+#~ msgid "Auto Detect"
+#~ msgstr "تلقائي"
+
+#, fuzzy
+#~ msgid "True"
+#~ msgstr "حقيقي"
+
+#, fuzzy
+#~ msgid "False"
+#~ msgstr ""
+#~ "الاستعلامات  الشرطية لا تعمل قبل تنفيذ الاستعلام. قبل ذلك، ستعيد لك دائماً "
+#~ "رسالة خطأ (FALSE)."
+
+#, fuzzy
+#~ msgid ""
+#~ "A boolean value that specifies whether to show the mobile-optimized "
+#~ "version or not."
+#~ msgstr "قيمة منطقية تحدد ما إذا كان سيتم عرض النسخة المحسنة للجوال أم لا."
+
+#, fuzzy
+#~ msgid "Sortcode & Widget"
+#~ msgstr "أضف ودجت"
+
+#, fuzzy
+#~ msgid "Twitter username in tweet button"
+#~ msgstr "تويتر اسم المستخدم في زر سقسقة"

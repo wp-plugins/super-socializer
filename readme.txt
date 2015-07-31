@@ -1,10 +1,10 @@
 ﻿=== Super Socializer ===
-Contributors: Heateor, the_champ, Spanish translator: Andrew Kurtis http://webhostinghub.com, French Translator: Patrick Mac Cann http://pixxi.es, German Translator: Maximilian Kops http://maxkops.de, Hungarian Translator: László Tavaszi http://kerekmese.hu
+Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://kerekmese.hu, Serbo-Croatian Translator: Andrijana Nikolic http://webhostinggeeks.com/, Spanish translator: Andrew Kurtis http://webhostinghub.com, German Translator: Maximilian Kops http://maxkops.de, Arabic Translator: http://www.ArabsSM.com
 Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
-Tested up to: 4.2.2
-Stable tag: 5.5.2
+Tested up to: 4.2.3
+Stable tag: 5.8.0
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -164,6 +164,25 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 5.8.0 =
+* [New] Added options to enable sharing, like buttons on custom posts and WooCommerce products
+* [New] Added option to enable social login at customer login form at WooCommerce My Account page
+* [New] Included shortcode for Social Account Linking [TheChamp-Social-Linking]
+* [New] Added Yummly and Buffer to sharing and like buttons
+* [New] Added option to show total shares with sharing icons
+* [New] Option to hide/show vertical sharing/like buttons interface on mobile devices
+* [New] Added option to update social avatar at user profile page
+* [New] Added option to prevent modernizr JS from loading
+* [New] Included "title" attribute in shortcodes
+* [New] Included Arabic Translation
+* [New] Included Serbo-Croatian Translation
+* [Improvement] Improved Print icon in sharing
+* [Improvement] Increased space between like buttons
+* [Improvement] Escaped output of add_query_arg and remove_query_arg functions 
+* [Improvement] Increased font size of share counts in vertical sharing bar 
+* [Bugfix] Tweet button was showing encoded characters for some content
+* [Bugfix] Support documentation links were redirecting to 404, "not found" page in websites with ssl enabled
+
 = 5.5.2 =
 * [Bugfix] Facebook Commenting interface was shrinked on mobile devices due to recent changes introduced in FB JS SDK by Facebook
 * [Bugfix] Facebook Login was unable to fetch email and some other profile data of user due to recent changes introduced in FB JS SDK by Facebook
@@ -529,3 +548,22 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 * [Bugfix] Facebook Commenting interface was shrinked on mobile devices due to recent changes introduced in FB JS SDK by Facebook
 * [Bugfix] Facebook Login was unable to fetch email and some other profile data of user due to recent changes introduced in FB JS SDK by Facebook
 * [Improvement] Updated FB JS SDK to latest version 2.4
+
+= 5.8.0 =
+* [New] Added options to enable sharing, like buttons on custom posts and WooCommerce products
+* [New] Added option to enable social login at customer login form at WooCommerce My Account page
+* [New] Included shortcode for Social Account Linking [TheChamp-Social-Linking]
+* [New] Added Yummly and Buffer to sharing and like buttons
+* [New] Added option to show total shares with sharing icons
+* [New] Option to hide/show vertical sharing/like buttons interface on mobile devices
+* [New] Added option to update social avatar at user profile page
+* [New] Added option to prevent modernizr JS from loading
+* [New] Included "title" attribute in shortcodes
+* [New] Included Arabic Translation
+* [New] Included Serbo-Croatian Translation
+* [Improvement] Improved Print icon in sharing
+* [Improvement] Increased space between like buttons
+* [Improvement] Escaped output of add_query_arg and remove_query_arg functions 
+* [Improvement] Increased font size of share counts in vertical sharing bar 
+* [Bugfix] Tweet button was showing encoded characters for some content
+* [Bugfix] Support documentation links were redirecting to 404, "not found" page in websites with ssl enabled

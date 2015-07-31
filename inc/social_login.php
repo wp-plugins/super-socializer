@@ -79,6 +79,12 @@ if(isset($theChampLoginOptions['enableAtComment']) && $theChampLoginOptions['ena
 		add_action('comment_form_top', 'the_champ_login_button');
 	}
 }
+if(isset($theChampLoginOptions['enable_before_wc']) && $theChampLoginOptions['enable_before_wc'] == 1){
+	add_action( 'woocommerce_before_customer_login_form', 'the_champ_login_button' );
+}
+if(isset($theChampLoginOptions['enable_after_wc']) && $theChampLoginOptions['enable_after_wc'] == 1){
+	add_action( 'woocommerce_after_customer_login_form', 'the_champ_login_button' );
+}
 
 /**
  * Login user to Wordpress.
@@ -361,7 +367,10 @@ function the_champ_format_profile_data($profileData, $provider){
 		$temp['bio'] = isset($profileData -> bio) ? $profileData -> bio : '';
 		$temp['link'] = isset($profileData -> website) ? $profileData -> website : '';
 		$temp['avatar'] = isset($profileData -> profile_picture) ? $profileData -> profile_picture : '';
+		$temp['large_avatar'] = '';
 	}
+	$temp['avatar'] = str_replace( 'http://', '//', $temp['avatar'] );
+	$temp['large_avatar'] = str_replace( 'http://', '//', $temp['large_avatar'] );
 	$temp = apply_filters('the_champ_hook_format_profile_data', $temp, $profileData, $provider);
 	$temp['name'] = isset($temp['name'][0]) && ctype_upper($temp['name'][0]) ? ucfirst(sanitize_user($temp['name'], true)) : sanitize_user($temp['name'], true);
 	$temp['username'] = isset($temp['username'][0]) && ctype_upper($temp['username'][0]) ? ucfirst(sanitize_user($temp['username'], true)) : sanitize_user($temp['username'], true);

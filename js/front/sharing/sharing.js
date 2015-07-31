@@ -169,13 +169,6 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle){
 		redirect_url: "http://www.amazon.co.jp/wishlist/add?u=" + postUrl + "&t=" + postTitle,
 		bookmarklet_url: "javascript:(function(){var w=window,l=w.location,d=w.document,s=d.createElement('script'),e=encodeURIComponent,o='object',n='AUWLBookfrFR',u='http://www.amazon.co.jp/wishlist/add',r='readyState',T=setTimeout,a='setAttribute',g=function(){d[r]&&d[r]!='complete'?T(g,200):!w[n]?(s[a]('charset','UTF-8'),s[a]('src',u+'.js?loc='+e(l)+'&b='+n),d.body.appendChild(s),f()):f()},f=function(){!w[n]?T(f,200):w[n].showPopover()};typeof s!=o?l.href=u+'?u='+e(l)+'&t='+e(d.title):g()}())"
 	  },
-	  quora: {
-		title: "Quora",
-		class: "quora",
-		locale: "en-US",
-		redirect_url: "http://www.quora.com/boardservices/bookmarklet?v=1&url=" + postUrl,
-		bookmarklet_url: "javascript:var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),f='http://www.quora.com/board/bookmarklet',l=d.location,e=encodeURIComponent,p='?v=1&url='+e(l.href),u=f+p;try{if(!/^(.*\\.)?quora[^.]*$/.test(l.host))throw(0);}catch(z){a =function(){if(!w.open(u,'_blank','toolbar=0,scrollbars=no,resizable=1,status=1,width=430,height=400'))l.href=u;};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else a();}void(0)"
-	  },
 	  mister_wong: {
 		title: "Mister-Wong",
 		class: "mister_wong",
@@ -566,69 +559,95 @@ function theChampGetSharingCounts(horizontalCounts, verticalCounts){
 		success: function(data, textStatus, XMLHttpRequest){
 			if(data.status == 1){
 				for(var i in data.message){
+					var totalCount = 0, sharingContainer;
+
+					if(!(verticalCounts) && !(horizontalCounts)){
+						sharingContainer = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing, .the_champ_horizontal_sharing)");
+					} else if (!(horizontalCounts)){
+						sharingContainer = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_horizontal_sharing)");
+					} else if (!(verticalCounts)){
+						sharingContainer = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing)");
+					} else {
+						sharingContainer = jQuery("div[super-socializer-data-href='"+i+"']");
+					}
+
 					for(var j in data.message[i]){
 						if(j == 'google'){
 							var sharingCount = data.message[i][j].match( /"(.*?)"/ )[1];
+							sharingCount = parseInt(sharingCount) || 0;
 						}else if(j == 'vkontakte'){
 							var sharingCount = parseInt(data.message[i][j].replace('VK.Share.count(0, ', '').replace(');', ''));
 						}else{
 							var sharingCount = data.message[i][j];
 						}
-						
+
 						if(!(verticalCounts) && !(horizontalCounts)){
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing, .the_champ_horizontal_sharing)").find('.the_champ_'+j+'_count');
+							var targetElement = jQuery(sharingContainer).find('.the_champ_'+j+'_count');
 						} else if (!(horizontalCounts)){
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_horizontal_sharing)").find('.the_champ_'+j+'_count');
+							var targetElement = jQuery(sharingContainer).find('.the_champ_'+j+'_count');
 						} else if (!(verticalCounts)){
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']:not(.the_champ_vertical_sharing)").find('.the_champ_'+j+'_count');
+							var targetElement = jQuery(sharingContainer).find('.the_champ_'+j+'_count');
 						} else {
-							var targetElement = jQuery("div[super-socializer-data-href='"+i+"']").find('.the_champ_'+j+'_count');
+							var targetElement = jQuery(sharingContainer).find('.the_champ_'+j+'_count');
 						}
 						if(jQuery(targetElement).attr('ss_st_count')){
 							sharingCount = parseInt(sharingCount) + parseInt(jQuery(targetElement).attr('ss_st_count'));
 						}
+						totalCount += parseInt(sharingCount);
 						if(sharingCount < 1){ continue; }
-						if(sharingCount > 9 && sharingCount < 100){
-							var width = '12px';
-						}else if(sharingCount > 99 && sharingCount < 1000){
-							var width = '20px';
-						}else if(sharingCount > 999 && sharingCount < 10000){
-							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							var width = '20px';
-						}else if(sharingCount > 9999 && sharingCount < 100000){
-							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							var width = '30px';
-						}else if(sharingCount > 99999 && sharingCount < 1000000){
-							sharingCount = Math.floor(sharingCount/1000) + 'K+';
-							var width = '42px';
-						}else if(sharingCount > 999999){
-							sharingCount = Math.floor(sharingCount/1000000) + 'M+';
-							var width = '30px';
-						}
+						var countNWidth = theChampCalculateCountWidth(sharingCount) . split(',');
+
 						if(!jQuery(targetElement).hasClass('the_champ_square_count')){
-							jQuery(targetElement).css('width', width);
+							jQuery(targetElement).css('width', countNWidth[1]);
 						}
-						jQuery(targetElement).html(sharingCount).css({'visibility': 'visible', 'display': 'block'});
+						jQuery(targetElement).html(countNWidth[0]).css({'visibility': 'visible', 'display': 'block'});
 					}
+					var totalCountNWidth = theChampCalculateCountWidth(totalCount) . split(',');
+					jQuery(sharingContainer).find('.theChampTCBackground, .theChampSharingTotalsharesButton').html('<div class="theChampTotalShareCount">' + totalCountNWidth[0] + '</div><div class="theChampTotalShareText">Share' + (totalCount > 1 ? 's' : '' ) + '</div>');
 				}
 			}
 		}
 	});
 }
 
+function theChampCalculateCountWidth(sharingCount){
+	var width = '12px';
+	if(sharingCount > 9 && sharingCount < 100){
+		width = '12px';
+	}else if(sharingCount > 99 && sharingCount < 1000){
+		width = '20px';
+	}else if(sharingCount > 999 && sharingCount < 10000){
+		sharingCount = Math.floor(sharingCount/1000) + 'K+';
+		width = '20px';
+	}else if(sharingCount > 9999 && sharingCount < 100000){
+		sharingCount = Math.floor(sharingCount/1000) + 'K+';
+		width = '30px';
+	}else if(sharingCount > 99999 && sharingCount < 1000000){
+		sharingCount = Math.floor(sharingCount/1000) + 'K+';
+		width = '42px';
+	}else if(sharingCount > 999999){
+		sharingCount = Math.floor(sharingCount/1000000) + 'M+';
+		width = '30px';
+	}
+	return sharingCount + "," + width;
+}
+
 function theChampCapitaliseFirstLetter(e) {
     return e.charAt(0).toUpperCase() + e.slice(1)
 }
-var theChampSVGCompatible = (typeof Modernizr.svg == 'undefined' || Modernizr.svg) ? true : false;
-if(!theChampSVGCompatible){
-	jQuery(function(){
-		if(jQuery('.the_champ_sharing_ul').length){
-			jQuery('.the_champ_sharing_ul i').each(function(){
-				var alt = theChampCapitaliseFirstLetter(jQuery(this).attr('alt').replace(" Plus", "").replace(" ", "").toLowerCase());
-				jQuery(this).attr('class', 'theChampSharingButton theChampSharing' + alt + 'Button').attr('style', 'width:32px;height:32px').find('div').remove();
-			});
-		}
-	});
+
+if(typeof Modernizr == 'defined'){
+	var theChampSVGCompatible = (typeof Modernizr.svg == 'undefined' || Modernizr.svg) ? true : false;
+	if(!theChampSVGCompatible){
+		jQuery(function(){
+			if(jQuery('.the_champ_sharing_ul').length){
+				jQuery('.the_champ_sharing_ul i').each(function(){
+					var alt = theChampCapitaliseFirstLetter(jQuery(this).attr('alt').replace(" Plus", "").replace(" ", "").toLowerCase());
+					jQuery(this).attr('class', 'theChampSharingButton theChampSharing' + alt + 'Button').attr('style', 'width:32px;height:32px').find('div').remove();
+				});
+			}
+		});
+	}
 }
 
 jQuery(function(){

@@ -13,18 +13,28 @@
 		</div>
 	</div>
 	
-	<div class="stuffbox">
-		<h3><label><?php _e('Plugin Demo', 'Super-Socializer');?></label></h3>
-		<div class="inside">
-		<p><?php _e('You can see the plugin in action at following link', 'Super-Socializer') ?></p>
-		<p><a target="_blank" href="//super-socializer-wordpress.heateor.com/">http://super-socializer-wordpress.heateor.com/</a></p>
+	<div style="margin-bottom: 21px">
+		<div class="inside" style="padding-top:10px">
+		<a target="_blank" href="http://super-socializer-wordpress.heateor.com/"><input type="button" class="ss_demo" value="<?php _e('Plugin Demo', 'Super-Socializer') ?>" /></a>
+		</div>
+	</div>
+
+	<div style="margin-bottom: 21px">
+		<div class="inside" style="padding-top:10px">
+		<a target="_blank" href="https://www.heateor.com/add-ons"><input type="button" class="ss_demo" value="<?php _e('Add-ons', 'Super-Socializer') ?>" /></a>
 		</div>
 	</div>
 	
 	<div class="stuffbox">
-		<h3><label><?php _e('Support', 'Super-Socializer');?></label></h3>
+		<h3><label><?php _e('Need Help?', 'Super-Socializer');?></label></h3>
 		<div class="inside">
-		<p><?php _e('If you like the plugin or have any query, drop an email at <a href="mailto:support@heateor.com">support@heateor.com</a>, like our <strong>Facebook</strong> page and follow us at <strong>Twitter</strong>.', 'Super-Socializer') ?></p>
+		<p><?php _e('If you <strong>have any query</strong>, need help regarding <strong>plugin setup</strong>, want <strong>custom features</strong> in the plugin or <strong>have any suggestion</strong> to improve the plugin, just drop an email at <a href="mailto:support@heateor.com">support@heateor.com</a>', 'Super-Socializer'); ?></p>
+		</div>
+	</div>
+
+	<div class="stuffbox">
+		<h3><label><?php _e('Support Us', 'Super-Socializer');?></label></h3>
+		<div class="inside" style="padding-top: 10px">
 		<div style="height: 24px;">
 			<div style="float: left;margin-right: 36px;"><strong><?php _e('Rate 5-star', 'Super-Socializer'); ?></strong></div>
 			<div style="float: left; margin-left: 28px;">
@@ -59,10 +69,4 @@
 		</div>
 	</div>
 	
-	<div class="stuffbox">
-		<h3><label><?php _e('Want plugin customization?', 'Super-Socializer');?></label></h3>
-		<div class="inside">
-		<p><?php _e('If you want custom features in the plugin, just drop an email at <a href="mailto:support@heateor.com">support@heateor.com</a>', 'Super-Socializer'); ?></p>
-		</div>
-	</div>
 </div>

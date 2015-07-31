@@ -125,7 +125,7 @@ class TheChampSharingWidget extends WP_Widget {
 				}elseif(get_permalink($post -> ID)){
 					$sharingUrl = get_permalink($post->ID);
 				}else{
-					$sharingUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$sharingUrl = site_url();
@@ -159,14 +159,14 @@ class TheChampSharingWidget extends WP_Widget {
 				$sharingUrl = $shortUrl;
 			}
 		}
-		echo the_champ_prepare_sharing_html($sharingUrl, 'horizontal', isset($instance['show_counts']));
+		echo the_champ_prepare_sharing_html($sharingUrl, 'horizontal', isset($instance['show_counts']), isset($instance['total_shares']));
 
 		if( !empty( $instance['after_widget_content'] ) ){ 
 			echo '<div>' . $instance['after_widget_content'] . '</div>'; 
 		}
 		
 		echo '</div>';
-		if(isset($instance['show_counts'])){
+		if(isset($instance['show_counts']) || isset($instance['total_shares'])){
 			echo '<script>theChampLoadEvent(
 		function(){
 			// sharing counts
@@ -183,7 +183,8 @@ class TheChampSharingWidget extends WP_Widget {
 	function update( $new_instance, $old_instance ) { 
 		$instance = $old_instance; 
 		$instance['title'] = strip_tags( $new_instance['title'] ); 
-		$instance['show_counts'] = $new_instance['show_counts']; 
+		$instance['show_counts'] = $new_instance['show_counts'];
+		$instance['total_shares'] = $new_instance['total_shares']; 
 		$instance['target_url'] = $new_instance['target_url'];
 		$instance['target_url_custom'] = $new_instance['target_url_custom'];  
 		$instance['before_widget_content'] = $new_instance['before_widget_content']; 
@@ -196,7 +197,7 @@ class TheChampSharingWidget extends WP_Widget {
 	/** Widget edit form at admin panel */ 
 	function form( $instance ) { 
 		/* Set up default widget settings. */ 
-		$defaults = array( 'title' => 'Share the joy', 'show_counts' => 0, 'target_url' => 'default', 'target_url_custom' => '', 'before_widget_content' => '', 'after_widget_content' => '' );
+		$defaults = array( 'title' => 'Share the joy', 'show_counts' => 0, 'total_shares' => 0, 'target_url' => 'default', 'target_url_custom' => '', 'before_widget_content' => '', 'after_widget_content' => '' );
 
 		foreach( $instance as $key => $value ){
 			$instance[ $key ] = esc_attr( $value );
@@ -216,9 +217,11 @@ class TheChampSharingWidget extends WP_Widget {
 		<p> 
 			<p><strong>Note:</strong> <?php _e('Make sure "Horizontal Social Sharing" is enabled from "Super Socializer > Social Sharing" page.', 'Super-Socializer') ?></p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'Super-Socializer' ); ?></label> 
-			<input style="width: 95%" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" /> <br/>
-			<label for="<?php echo $this->get_field_id( 'show_counts' ); ?>"><?php _e( 'Show share counts:', 'Super-Socializer' ); ?></label> 
-			<input id="<?php echo $this->get_field_id( 'show_counts' ); ?>" name="<?php echo $this->get_field_name( 'show_counts' ); ?>" type="checkbox" value="1" <?php echo isset($instance['show_counts']) && $instance['show_counts'] == 1 ? 'checked' : ''; ?> /><br/> 
+			<input style="width: 95%" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" /> <br/><br/>
+			<label for="<?php echo $this->get_field_id( 'show_counts' ); ?>"><?php _e( 'Show individual share counts:', 'Super-Socializer' ); ?></label> 
+			<input id="<?php echo $this->get_field_id( 'show_counts' ); ?>" name="<?php echo $this->get_field_name( 'show_counts' ); ?>" type="checkbox" value="1" <?php echo isset($instance['show_counts']) && $instance['show_counts'] == 1 ? 'checked' : ''; ?> /><br/><br/>
+			<label for="<?php echo $this->get_field_id( 'total_shares' ); ?>"><?php _e( 'Show total shares:', 'Super-Socializer' ); ?></label> 
+			<input id="<?php echo $this->get_field_id( 'total_shares' ); ?>" name="<?php echo $this->get_field_name( 'total_shares' ); ?>" type="checkbox" value="1" <?php echo isset($instance['total_shares']) && $instance['total_shares'] == 1 ? 'checked' : ''; ?> /><br/> <br/>
 			<label for="<?php echo $this->get_field_id( 'target_url' ); ?>"><?php _e( 'Target Url:', 'Super-Socializer' ); ?></label> 
 			<select style="width: 95%" onchange="theChampToggleHorSharingTargetUrl(this.value)" class="widefat" id="<?php echo $this->get_field_id( 'target_url' ); ?>" name="<?php echo $this->get_field_name( 'target_url' ); ?>">
 				<option value="">--<?php _e('Select', 'Super-Socializer') ?>--</option>
@@ -273,7 +276,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 				}elseif(get_permalink($post -> ID)){
 					$sharingUrl = get_permalink($post->ID);
 				}else{
-					$sharingUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$sharingUrl = site_url();
@@ -289,7 +292,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 		if(isset($instance['alignment']) && isset($instance[$instance['alignment'] . '_offset'])){
 			$ssOffset = $instance[$instance['alignment'] . '_offset'];
 		}
-		echo "<div class='the_champ_sharing_container the_champ_vertical_sharing' ss-offset='" . $ssOffset . "' style='width:" . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : 35) + 4) . "px;".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='". $sharingUrl ."'>";
+		echo "<div class='the_champ_sharing_container the_champ_vertical_sharing" . ( isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . "' ss-offset='" . $ssOffset . "' style='width:" . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : 35) + 4) . "px;".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='". $sharingUrl ."'>";
 		
 		if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
 			$sharingUrl = wp_get_shortlink();
@@ -301,9 +304,9 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 			}
 		}
 		//echo $before_widget;
-		echo the_champ_prepare_sharing_html($sharingUrl, 'vertical', isset($instance['show_counts']));
+		echo the_champ_prepare_sharing_html($sharingUrl, 'vertical', isset($instance['show_counts']), isset($instance['total_shares']));
 		echo '</div>';
-		if(isset($instance['show_counts'])){
+		if(isset($instance['show_counts']) || isset($instance['total_shares'])){
 			echo '<script>theChampLoadEvent(
 		function(){
 			// sharing counts
@@ -321,6 +324,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 		$instance = $old_instance; 
 		$instance['target_url'] = $new_instance['target_url'];
 		$instance['show_counts'] = $new_instance['show_counts']; 
+		$instance['total_shares'] = $new_instance['total_shares']; 
 		$instance['target_url_custom'] = $new_instance['target_url_custom'];
 		$instance['alignment'] = $new_instance['alignment'];
 		$instance['left_offset'] = $new_instance['left_offset'];
@@ -335,7 +339,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 	/** Widget edit form at admin panel */ 
 	function form( $instance ) { 
 		/* Set up default widget settings. */ 
-		$defaults = array('alignment' => 'left', 'show_counts' => 0, 'left_offset' => '40', 'right_offset' => '0', 'target_url' => 'default', 'target_url_custom' => '', 'top_offset' => '100', 'vertical_bg' => '');
+		$defaults = array('alignment' => 'left', 'show_counts' => 0, 'total_shares' => 0, 'left_offset' => '40', 'right_offset' => '0', 'target_url' => 'default', 'target_url_custom' => '', 'top_offset' => '100', 'vertical_bg' => '');
 
 		foreach( $instance as $key => $value ){
 			$instance[ $key ] = esc_attr( $value );
@@ -363,8 +367,10 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 			}
 			</script>
 			<p><strong>Note:</strong> <?php _e('Make sure "Vertical Social Sharing" is enabled from "Super Socializer > Social Sharing" page.', 'Super-Socializer') ?></p>
-			<label for="<?php echo $this->get_field_id( 'show_counts' ); ?>"><?php _e( 'Show share counts:', 'Super-Socializer' ); ?></label> 
-			<input id="<?php echo $this->get_field_id( 'show_counts' ); ?>" name="<?php echo $this->get_field_name( 'show_counts' ); ?>" type="checkbox" value="1" <?php echo isset($instance['show_counts']) && $instance['show_counts'] == 1 ? 'checked' : ''; ?> /><br/> 
+			<label for="<?php echo $this->get_field_id( 'show_counts' ); ?>"><?php _e( 'Show individual share counts:', 'Super-Socializer' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'show_counts' ); ?>" name="<?php echo $this->get_field_name( 'show_counts' ); ?>" type="checkbox" value="1" <?php echo isset($instance['show_counts']) && $instance['show_counts'] == 1 ? 'checked' : ''; ?> /><br/><br/> 
+			<label for="<?php echo $this->get_field_id( 'total_shares' ); ?>"><?php _e( 'Show total shares:', 'Super-Socializer' ); ?></label> 
+			<input id="<?php echo $this->get_field_id( 'total_shares' ); ?>" name="<?php echo $this->get_field_name( 'total_shares' ); ?>" type="checkbox" value="1" <?php echo isset($instance['total_shares']) && $instance['total_shares'] == 1 ? 'checked' : ''; ?> /><br/> <br/>
 			<label for="<?php echo $this->get_field_id( 'target_url' ); ?>"><?php _e( 'Target Url:', 'Super-Socializer' ); ?></label> 
 			<select style="width: 95%" onchange="theChampToggleVerticalSharingTargetUrl(this.value)" class="widefat" id="<?php echo $this->get_field_id( 'target_url' ); ?>" name="<?php echo $this->get_field_name( 'target_url' ); ?>">
 				<option value="">--<?php _e('Select', 'Super-Socializer') ?>--</option>
@@ -435,7 +441,7 @@ class TheChampCounterWidget extends WP_Widget {
 				}elseif(get_permalink($post -> ID)){
 					$counterUrl = get_permalink($post->ID);
 				}else{
-					$counterUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$counterUrl = site_url();
@@ -571,7 +577,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 				}elseif(get_permalink($post -> ID)){
 					$counterUrl = get_permalink($post->ID);
 				}else{
-					$counterUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
 				$counterUrl = site_url();
@@ -587,7 +593,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 		if(isset($instance['alignment']) && isset($instance[$instance['alignment'] . '_offset'])){
 			$ssOffset = $instance[$instance['alignment'] . '_offset'];
 		}
-		echo "<div class='the_champ_counter_container the_champ_vertical_counter' ss-offset='". $ssOffset ."' style='".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' >";
+		echo "<div class='the_champ_counter_container the_champ_vertical_counter" . ( isset( $theChampCounterOptions['hide_mobile_likeb'] ) ? ' the_champ_hide_sharing' : '' ) . "' ss-offset='". $ssOffset ."' style='".(isset($instance['alignment']) && $instance['alignment'] != '' && isset($instance[$instance['alignment'].'_offset']) ? $instance['alignment'].': '. ( $instance[$instance['alignment'].'_offset'] == '' ? 0 : $instance[$instance['alignment'].'_offset'] ) .'px;' : '').(isset($instance['top_offset']) ? 'top: '. ( $instance['top_offset'] == '' ? 0 : $instance['top_offset'] ) .'px;' : '') . (isset($instance['vertical_bg']) && $instance['vertical_bg'] != '' ? 'background-color: '.$instance['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' >";
 		// if bit.ly integration enabled, generate bit.ly short url
 		$shortUrl = $counterUrl;
 		if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){

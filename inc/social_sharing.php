@@ -7,7 +7,7 @@ defined('ABSPATH') or die("Cheating........Uh!!");
 /**
  * Render sharing interface html.
  */
-function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $displayCount){
+function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $displayCount, $totalShares){
 	global $theChampSharingOptions, $post;
 	$postUrl = (isset($theChampSharingOptions['use_shortlink']) && function_exists('wp_get_shortlink')) ? wp_get_shortlink() : $postUrl;
 	if(!isset($theChampSharingOptions['horizontal_sharing_size'])){
@@ -22,7 +22,7 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 	if(!isset($theChampSharingOptions['vertical_sharing_shape'])){
 		$theChampSharingOptions['vertical_sharing_shape'] = 'square';
 	}
-	$output = apply_filters('the_champ_sharing_interface_filter', '', $postUrl, $sharingType, $theChampSharingOptions, $post, $displayCount);
+	$output = apply_filters('the_champ_sharing_interface_filter', '', $postUrl, $sharingType, $theChampSharingOptions, $post, $displayCount, $totalShares);
 	if($output != ''){
 		return $output;
 	}
@@ -49,16 +49,17 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 			$liClass = '';
 		}
 		$style .= '"';
+		$liItems = '';
 		foreach($theChampSharingOptions[$sharingType.'_re_providers'] as $provider){
-			$html .= '<li class="' . ($liClass != '' ? $liClass : 'theChamp' . ucfirst(str_replace(' ', '', $provider)) .'Background theChamp' . ucfirst(str_replace(' ', '', $provider)) .'SquareBackground') . '">';
+			$liItems .= '<li class="' . ($liClass != '' ? $liClass : 'theChamp' . ucfirst(str_replace(' ', '', $provider)) .'Background theChamp' . ucfirst(str_replace(' ', '', $provider)) .'SquareBackground') . '">';
 			if($displayCount){
 				$startingCount = isset($sharingMeta[$provider . '_' . $sharingType . '_count']) && $sharingMeta[$provider . '_' . $sharingType . '_count'] != '' ? true : false;
-				$html .= $counterContainerInitHtml . ' the_champ_'.$provider.'_count" '. ($startingCount ? 'ss_st_count="'. $sharingMeta[$provider . '_' . $sharingType . '_count'] .'"' : '') .' >&nbsp;' . $counterContainerEndHtml;
+				$liItems .= $counterContainerInitHtml . ' the_champ_'.$provider.'_count" '. ($startingCount ? 'ss_st_count="'. $sharingMeta[$provider . '_' . $sharingType . '_count'] .'"' : '') .' >&nbsp;' . $counterContainerEndHtml;
 			}
 			if($provider == 'print'){
-				$html .= '<i ' .$style. ' alt="Print" Title="Print" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick=\'window.print()\'><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
+				$liItems .= '<i ' .$style. ' alt="Print" Title="Print" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick=\'window.print()\'><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
 			}elseif($provider == 'email'){
-				$html .= '<i ' .$style. ' alt="Email" Title="Email" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick="window.location.href = \'mailto:?subject=\' + escape(\''. urlencode($post->post_title) .'\') + \'&body=\' + escape(\''.$postUrl.'\')"><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
+				$liItems .= '<i ' .$style. ' alt="Email" Title="Email" class="theChampSharing theChamp'. ucfirst($provider) .'Background" onclick="window.location.href = \'mailto:?subject=\' + decodeURIComponent(\''. urlencode($post->post_title) .'\') + \'&body=\' + decodeURIComponent(\''.$postUrl.'\')"><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
 			}else{
 				if($provider == 'facebook'){
 					$sharingUrl = 'https://www.facebook.com/sharer/sharer.php?u=' . $postUrl;
@@ -88,25 +89,55 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 					$sharingUrl = 'https://www.xing-share.com/social_plugins/share?url='. urlencode($postUrl) .'&wtmc=XING&sc_p=xing-share';
 				}elseif($provider == 'whatsapp'){											
 					$sharingUrl = 'whatsapp://send?text=' . urlencode($post->post_title . ' ' . $postUrl);
+				}elseif($provider == 'yummly'){											
+					$sharingUrl = 'http://www.yummly.com/urb/verify?url=' . urlencode($post->post_title . ' ' . $postUrl) . '&title=' . urlencode($post->post_title);
+				}elseif($provider == 'buffer'){											
+					$sharingUrl = 'https://buffer.com/add?url=' . urlencode($post->post_title . ' ' . $postUrl) . '&title=' . urlencode($post->post_title);
 				}elseif($provider == 'pinterest'){
 					$sharingUrl = "javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
 				}
-				$html .= '<i ' .$style. ' alt="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" Title="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" class="theChampSharing theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Background" ';
+				$liItems .= '<i ' .$style. ' alt="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" Title="'.($provider == 'google' ? 'Google Plus' : ucfirst($provider)).'" class="theChampSharing theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Background" ';
 				if($provider == 'pinterest'){
-					$html .= 'onclick="'.$sharingUrl.'"><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
+					$liItems .= 'onclick="'.$sharingUrl.'"><ss style="display:block" class="theChampSharingSvg theChamp'. ucfirst($provider) .'Svg"></ss></i>';
 				}else{
-					$html .= 'onclick=\' theChampPopup("'.$sharingUrl.'")\'><ss style="'. $innerStyle .'" class="theChampSharingSvg theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Svg"></ss></i>';
+					$liItems .= 'onclick=\' theChampPopup("'.$sharingUrl.'")\'><ss style="'. $innerStyle .'" class="theChampSharingSvg theChamp'. ucfirst( str_replace(' ', '', $provider) ) .'Svg"></ss></i>';
 				}
 			}
-			$html .= '</li>';
+			$liItems .= '</li>';
 		}
 		if(isset($theChampSharingOptions[$sharingType . '_more'])){
-			$html .= '<li class="' . ($liClass != '' ? $liClass : 'theChampMoreBackground') . '">';
+			$liItems .= '<li class="' . ($liClass != '' ? $liClass : 'theChampMoreBackground') . '">';
 			if($displayCount){
-				$html .= $counterContainerInitHtml . '">&nbsp;' . $counterContainerEndHtml;
+				$liItems .= $counterContainerInitHtml . '">&nbsp;' . $counterContainerEndHtml;
 			}
-			$html .= '<i ' .$style. ' title="More" alt="More" class="theChampSharing theChampMoreBackground" onclick="theChampMoreSharingPopup(this, \''.$postUrl.'\', \''.urlencode($post->post_title).'\')" ><ss style="display:block" class="theChampSharingSvg theChampMoreSvg"></ss></i></li>';
+			$liItems .= '<i ' .$style. ' title="More" alt="More" class="theChampSharing theChampMoreBackground" onclick="theChampMoreSharingPopup(this, \''.$postUrl.'\', \''.urlencode($post->post_title).'\')" ><ss style="display:block" class="theChampSharingSvg theChampMoreSvg"></ss></i></li>';
 		}
+		
+		$totalSharesHtml = '';
+		if($totalShares){
+			$totalSharesHtml = '<li class="' . $liClass . '">';
+			if($displayCount){
+				$totalSharesHtml .= $counterContainerInitHtml . '">&nbsp;' . $counterContainerEndHtml;
+			}
+			$fontSize = $theChampSharingOptions[$sharingType . '_sharing_size'] - 13;
+			$fontSize = $fontSize < 10 ? 10 : $fontSize;
+			$addStyle = ';font-size:' . $fontSize . 'px;';
+			if($sharingType == 'horizontal'){
+				$addStyle .= 'margin-left:9px !important;';
+			}else{
+				$addStyle .= 'margin-bottom:9px !important;';
+			}
+			$addStyle .= '"';
+			$style = str_replace(';"', $addStyle, $style);
+			$totalSharesHtml .= '<i ' . $style . ' title="Total Shares" alt="Total Shares" class="theChampSharing theChampTCBackground"></i></li>';
+		}
+
+		if($sharingType == 'vertical'){
+			$html .= $totalSharesHtml . $liItems;
+		}else{
+			$html .= $liItems . $totalSharesHtml;
+		}
+
 		$html .= '</ul><div style="clear:both"></div>';
 	}
 	return $html;
@@ -144,7 +175,7 @@ function the_champ_prepare_counter_html($postUrl, $sharingType = 'horizontal', $
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script><li class="the_champ_facebook_recommend"><div class="fb-like" data-href="'. $postUrl .'" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="false"></div></li>';
 			}elseif($provider == 'twitter_tweet'){
-				$html .= '<li class="the_champ_twitter_tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'. $shortUrl .'" data-counturl="'. $postUrl .'" data-text="'. urlencode($post->post_title) .'" data-via="'. (isset($theChampCounterOptions['twitter_username']) && $theChampCounterOptions['twitter_username'] != '' ? $theChampCounterOptions['twitter_username'] : '') .'" data-lang="'. $language .'" >Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>';
+				$html .= '<li class="the_champ_twitter_tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'. $shortUrl .'" data-counturl="'. $postUrl .'" data-text="'. html_entity_decode($post->post_title, ENT_COMPAT, 'UTF-8') .'" data-via="'. (isset($theChampCounterOptions['twitter_username']) && $theChampCounterOptions['twitter_username'] != '' ? $theChampCounterOptions['twitter_username'] : '') .'" data-lang="'. $language .'" >Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>';
 			}elseif($provider == 'linkedin_share'){
 				$html .= '<li class="the_champ_linkedin_share"><script src="//platform.linkedin.com/in.js" type="text/javascript">lang: '. $language .'</script><script type="IN/Share" data-url="' . $postUrl . '" data-counter="right"></script></li>';
 			}elseif($provider == 'google_plusone'){
@@ -155,6 +186,10 @@ function the_champ_prepare_counter_html($postUrl, $sharingType = 'horizontal', $
 				$html .= '<li class="the_champ_gp_share"><script type="text/javascript" src="https://apis.google.com/js/platform.js">{lang: "'. $language .'"}</script><div class="g-plus" data-action="share" data-annotation="bubble" data-href="'. $postUrl .'"></div></li>';
 			}elseif($provider == 'reddit'){
 				$html .= '<li class="the_champ_reddit"><script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script></li>';
+			}elseif($provider == 'yummly'){
+				$html .= '<li class="the_champ_yummly"><a href="//yummly.com" class="YUMMLY-YUM-BUTTON">Yum</a><script src="https://www.yummly.com/js/widget.js?general"></script></li>';
+			}elseif($provider == 'buffer'){
+				$html .= '<li class="the_champ_buffer"><a href="http://bufferapp.com/add" class="buffer-add-button" data-text="' . html_entity_decode($post->post_title, ENT_COMPAT, 'UTF-8') . '" data-url="' . $postUrl . '" data-count="horizontal" data-via="'. (isset($theChampCounterOptions['buffer_username']) && $theChampCounterOptions['buffer_username'] != '' ? $theChampCounterOptions['buffer_username'] : '') .'" ></a><script type="text/javascript" src="https://d389zggrogs7qo.cloudfront.net/js/button.js"></script></li>';
 			}elseif($provider == 'xing'){
 				$html .= '<li class="the_champ_xing"><div data-type="XING/Share" data-counter="right" data-url="'. $postUrl .'" data-lang="'. $language .'"></div>
 				<script>
@@ -245,6 +280,10 @@ function the_champ_render_sharing($content){
 			$counterBpActivity = true;
 		}
 	}
+	
+	$post_types = get_post_types( array( 'public' => true ), 'names', 'and' );
+	$post_types = array_diff( $post_types, array( 'post', 'page' ) );
+	
 	if(isset($theChampCounterOptions['enable'])){
 		//counter interface
 		if(isset($theChampCounterOptions['hor_enable']) && !(isset($sharingMeta['counter']) && $sharingMeta['counter'] == 1 && (!is_front_page() || (is_front_page() && 'page' == get_option('show_on_front'))) )){
@@ -292,8 +331,8 @@ function the_champ_render_sharing($content){
 				echo $horizontalDiv;
 			}
 			// show horizontal counter		
-			if((isset( $theChampCounterOptions['home']) && is_front_page()) || (isset( $theChampCounterOptions['category']) && is_category()) || (isset( $theChampCounterOptions['archive']) && is_archive()) || ( isset( $theChampCounterOptions['post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampCounterOptions['page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampCounterOptions['excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampCounterOptions['bb_reply'] ) && current_filter() == 'bbp_get_reply_content' ) || ( isset( $theChampCounterOptions['bb_forum'] ) && (isset( $theChampCounterOptions['top'] ) && current_filter() == 'bbp_template_before_single_forum' || isset( $theChampCounterOptions['bottom'] ) && current_filter() == 'bbp_template_after_single_forum' )) || ( isset( $theChampCounterOptions['bb_topic'] ) && (isset( $theChampCounterOptions['top'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic')) || isset( $theChampCounterOptions['bottom'] ) && in_array(current_filter(), array('bbp_template_after_single_topic', 'bbp_template_after_lead_topic')) )) ){	
-				if( in_array( current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic', 'bbp_template_before_single_forum', 'bbp_template_after_single_topic', 'bbp_template_after_lead_topic', 'bbp_template_after_single_forum') ) ){
+			if((isset( $theChampCounterOptions['home']) && is_front_page()) || (isset( $theChampCounterOptions['category']) && is_category()) || (isset( $theChampCounterOptions['archive']) && is_archive()) || ( isset( $theChampCounterOptions['post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampCounterOptions['page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampCounterOptions['excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampCounterOptions['bb_reply'] ) && current_filter() == 'bbp_get_reply_content' ) || ( isset( $theChampCounterOptions['bb_forum'] ) && (isset( $theChampCounterOptions['top'] ) && current_filter() == 'bbp_template_before_single_forum' || isset( $theChampCounterOptions['bottom'] ) && current_filter() == 'bbp_template_after_single_forum' )) || ( isset( $theChampCounterOptions['bb_topic'] ) && (isset( $theChampCounterOptions['top'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic')) || isset( $theChampCounterOptions['bottom'] ) && in_array(current_filter(), array('bbp_template_after_single_topic', 'bbp_template_after_lead_topic')) )) || (isset( $theChampCounterOptions['woocom_shop'] ) && current_filter() == 'woocommerce_after_shop_loop_item') || (isset( $theChampCounterOptions['woocom_product'] ) && current_filter() == 'woocommerce_share') || (isset( $theChampCounterOptions['woocom_thankyou'] ) && current_filter() == 'woocommerce_thankyou') ) {	
+				if( in_array( current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic', 'bbp_template_before_single_forum', 'bbp_template_after_single_topic', 'bbp_template_after_lead_topic', 'bbp_template_after_single_forum','woocommerce_after_shop_loop_item', 'woocommerce_share', 'woocommerce_thankyou') ) ){
 					echo '<div style="clear:both"></div>'.$horizontalDiv.'<div style="clear:both"></div>';
 				}else{
 					if(isset($theChampCounterOptions['top'] ) && isset($theChampCounterOptions['bottom'])){
@@ -303,6 +342,20 @@ function the_champ_render_sharing($content){
 							$content = $horizontalDiv.$content;
 						}elseif(isset($theChampCounterOptions['bottom'])){
 							$content = $content.$horizontalDiv;
+						}
+					}
+				}
+			} elseif( count( $post_types ) ) {
+				foreach ( $post_types as $post_type ) {
+					if( isset( $theChampCounterOptions[$post_type] ) && ( is_single() || is_page() ) && isset($post -> post_type) && $post -> post_type == $post_type ) {
+						if(isset($theChampCounterOptions['top'] ) && isset($theChampCounterOptions['bottom'])){
+							$content = $horizontalDiv.'<br/>'.$content.'<br/>'.$horizontalDiv;
+						}else{
+							if(isset($theChampCounterOptions['top'])){
+								$content = $horizontalDiv.$content;
+							}elseif(isset($theChampCounterOptions['bottom'])){
+								$content = $content.$horizontalDiv;
+							}
 						}
 					}
 				}
@@ -337,7 +390,7 @@ function the_champ_render_sharing($content){
 			
 			$sharingDiv = the_champ_prepare_counter_html($counterPostUrl, 'vertical', $counterUrl);
 			$offset = (isset($theChampCounterOptions['alignment']) && $theChampCounterOptions['alignment'] != '' && isset($theChampCounterOptions[$theChampCounterOptions['alignment'].'_offset']) ? $theChampCounterOptions['alignment'].': '. ( $theChampCounterOptions[$theChampCounterOptions['alignment'].'_offset'] == '' ? 0 : $theChampCounterOptions[$theChampCounterOptions['alignment'].'_offset'] ) .'px;' : '').(isset($theChampCounterOptions['top_offset']) ? 'top: '. ( $theChampCounterOptions['top_offset'] == '' ? 0 : $theChampCounterOptions['top_offset'] ) .'px;' : '');
-			$verticalDiv = "<div class='the_champ_counter_container the_champ_vertical_counter' style='". $offset . (isset($theChampCounterOptions['vertical_bg']) && $theChampCounterOptions['vertical_bg'] != '' ? 'background-color: '.$theChampCounterOptions['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "'>".$sharingDiv."</div>";
+			$verticalDiv = "<div class='the_champ_counter_container the_champ_vertical_counter" . ( isset( $theChampCounterOptions['hide_mobile_likeb'] ) ? ' the_champ_hide_sharing' : '' ) . "' style='". $offset . (isset($theChampCounterOptions['vertical_bg']) && $theChampCounterOptions['vertical_bg'] != '' ? 'background-color: '.$theChampCounterOptions['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "'>".$sharingDiv."</div>";
 			// show vertical counter
 			if((isset( $theChampCounterOptions['vertical_home']) && is_front_page()) || (isset( $theChampCounterOptions['vertical_category']) && is_category()) || (isset( $theChampCounterOptions['vertical_archive']) && is_archive()) || ( isset( $theChampCounterOptions['vertical_post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampCounterOptions['vertical_page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampCounterOptions['vertical_excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampCounterOptions['vertical_bb_forum'] ) && current_filter() == 'bbp_template_before_single_forum') || ( isset( $theChampCounterOptions['vertical_bb_topic'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic'))) ){
 				if( in_array( current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic', 'bbp_template_before_single_forum') ) ){
@@ -365,13 +418,19 @@ function the_champ_render_sharing($content){
 								}
 								
 								$sharingDiv = the_champ_prepare_counter_html($counterPostUrl, 'vertical', $counterUrl);
-								$verticalDiv = "<div class='the_champ_counter_container the_champ_vertical_counter' style='". $offset . (isset($theChampCounterOptions['vertical_bg']) && $theChampCounterOptions['vertical_bg'] != '' ? 'background-color: '.$theChampCounterOptions['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "'>".$sharingDiv."</div>";
+								$verticalDiv = "<div class='the_champ_counter_container the_champ_vertical_counter" . ( isset( $theChampCounterOptions['hide_mobile_likeb'] ) ? ' the_champ_hide_sharing' : '' ) . "' style='". $offset . (isset($theChampCounterOptions['vertical_bg']) && $theChampCounterOptions['vertical_bg'] != '' ? 'background-color: '.$theChampCounterOptions['vertical_bg'] . ';' : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "'>".$sharingDiv."</div>";
 							}
 							$content = $content.$verticalDiv;
 							$$var++;
 						}
 					}else{
 						$content = $content.$verticalDiv;
+					}
+				}
+			} elseif( count( $post_types ) ) {
+				foreach ( $post_types as $post_type ) {
+					if( isset( $theChampCounterOptions['vertical_' . $post_type] ) && ( is_single() || is_page() ) && isset($post -> post_type) && $post -> post_type == $post_type ) {
+						$content = $content . $verticalDiv;
 					}
 				}
 			}
@@ -410,7 +469,7 @@ function the_champ_render_sharing($content){
 				}
 			}
 			
-			$sharingDiv = the_champ_prepare_sharing_html($sharingUrl, 'horizontal', isset($theChampSharingOptions['horizontal_counts']));
+			$sharingDiv = the_champ_prepare_sharing_html($sharingUrl, 'horizontal', isset($theChampSharingOptions['horizontal_counts']), isset($theChampSharingOptions['horizontal_total_shares']));
 			$sharingContainerStyle = '';
 			$sharingTitleStyle = 'style="font-weight:bold"';
 			if(isset($theChampSharingOptions['hor_sharing_alignment'])){
@@ -425,9 +484,9 @@ function the_champ_render_sharing($content){
 			if($sharingBpActivity){
 				echo $horizontalDiv;
 			}
-			// show horizontal sharing		
-			if((isset( $theChampSharingOptions['home']) && is_front_page()) || (isset( $theChampSharingOptions['category']) && is_category()) || (isset( $theChampSharingOptions['archive']) && is_archive()) || ( isset( $theChampSharingOptions['post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampSharingOptions['page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampSharingOptions['excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampSharingOptions['bb_reply'] ) && current_filter() == 'bbp_get_reply_content' ) || ( isset( $theChampSharingOptions['bb_forum'] ) && (isset( $theChampSharingOptions['top'] ) && current_filter() == 'bbp_template_before_single_forum' || isset( $theChampSharingOptions['bottom'] ) && current_filter() == 'bbp_template_after_single_forum' )) || ( isset( $theChampSharingOptions['bb_topic'] ) && (isset( $theChampSharingOptions['top'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic')) || isset( $theChampSharingOptions['bottom'] ) && in_array(current_filter(), array('bbp_template_after_single_topic', 'bbp_template_after_lead_topic')) ))){
-				if( in_array( current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic', 'bbp_template_before_single_forum', 'bbp_template_after_single_topic', 'bbp_template_after_lead_topic', 'bbp_template_after_single_forum') ) ){
+			// show horizontal sharing
+			if((isset( $theChampSharingOptions['home']) && is_front_page()) || (isset( $theChampSharingOptions['category']) && is_category()) || (isset( $theChampSharingOptions['archive']) && is_archive()) || ( isset( $theChampSharingOptions['post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampSharingOptions['page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampSharingOptions['excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampSharingOptions['bb_reply'] ) && current_filter() == 'bbp_get_reply_content' ) || ( isset( $theChampSharingOptions['bb_forum'] ) && (isset( $theChampSharingOptions['top'] ) && current_filter() == 'bbp_template_before_single_forum' || isset( $theChampSharingOptions['bottom'] ) && current_filter() == 'bbp_template_after_single_forum' )) || ( isset( $theChampSharingOptions['bb_topic'] ) && (isset( $theChampSharingOptions['top'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic')) || isset( $theChampSharingOptions['bottom'] ) && in_array(current_filter(), array('bbp_template_after_single_topic', 'bbp_template_after_lead_topic')) )) || (isset( $theChampSharingOptions['woocom_shop'] ) && current_filter() == 'woocommerce_after_shop_loop_item') || (isset( $theChampSharingOptions['woocom_product'] ) && current_filter() == 'woocommerce_share') || (isset( $theChampSharingOptions['woocom_thankyou'] ) && current_filter() == 'woocommerce_thankyou') ) {
+				if( in_array( current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic', 'bbp_template_before_single_forum', 'bbp_template_after_single_topic', 'bbp_template_after_lead_topic', 'bbp_template_after_single_forum', 'woocommerce_after_shop_loop_item', 'woocommerce_share', 'woocommerce_thankyou') ) ){
 					echo '<div style="clear:both"></div>'.$horizontalDiv.'<div style="clear:both"></div>';
 				}else{
 					if(isset($theChampSharingOptions['top'] ) && isset($theChampSharingOptions['bottom'])){
@@ -437,6 +496,20 @@ function the_champ_render_sharing($content){
 							$content = $horizontalDiv.$content;
 						}elseif(isset($theChampSharingOptions['bottom'])){
 							$content = $content.$horizontalDiv;
+						}
+					}
+				}
+			} elseif( count( $post_types ) ) {
+				foreach ( $post_types as $post_type ) {
+					if( isset( $theChampSharingOptions[$post_type] ) && ( is_single() || is_page() ) && isset($post -> post_type) && $post -> post_type == $post_type ) {
+						if(isset($theChampSharingOptions['top'] ) && isset($theChampSharingOptions['bottom'])){
+							$content = $horizontalDiv.'<br/>'.$content.'<br/>'.$horizontalDiv;
+						}else{
+							if(isset($theChampSharingOptions['top'])){
+								$content = $horizontalDiv.$content;
+							}elseif(isset($theChampSharingOptions['bottom'])){
+								$content = $content.$horizontalDiv;
+							}
 						}
 					}
 				}
@@ -469,11 +542,11 @@ function the_champ_render_sharing($content){
 				}
 			}
 			
-			$sharingDiv = the_champ_prepare_sharing_html($sharingUrl, 'vertical', isset($theChampSharingOptions['vertical_counts']));
+			$sharingDiv = the_champ_prepare_sharing_html($sharingUrl, 'vertical', isset($theChampSharingOptions['vertical_counts']), isset($theChampSharingOptions['vertical_total_shares']));
 			$offset = (isset($theChampSharingOptions['alignment']) && $theChampSharingOptions['alignment'] != '' && isset($theChampSharingOptions[$theChampSharingOptions['alignment'].'_offset']) && $theChampSharingOptions[$theChampSharingOptions['alignment'].'_offset'] != '' ? $theChampSharingOptions['alignment'].': '.$theChampSharingOptions[$theChampSharingOptions['alignment'].'_offset'].'px;' : '').(isset($theChampSharingOptions['top_offset']) && $theChampSharingOptions['top_offset'] != '' ? 'top: '.$theChampSharingOptions['top_offset'].'px;' : '');
-			$verticalDiv = "<div class='the_champ_sharing_container the_champ_vertical_sharing' style='width:" . ($theChampSharingOptions['vertical_sharing_size'] + 4) . "px;" . $offset . (isset($theChampSharingOptions['vertical_bg']) && $theChampSharingOptions['vertical_bg'] != '' ? 'background-color: '.$theChampSharingOptions['vertical_bg'] : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='".$postUrl."'>".$sharingDiv."</div>";
+			$verticalDiv = "<div class='the_champ_sharing_container the_champ_vertical_sharing" . ( isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . "' style='width:" . ($theChampSharingOptions['vertical_sharing_size'] + 4) . "px;" . $offset . (isset($theChampSharingOptions['vertical_bg']) && $theChampSharingOptions['vertical_bg'] != '' ? 'background-color: '.$theChampSharingOptions['vertical_bg'] : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='".$postUrl."'>".$sharingDiv."</div>";
 			// show vertical sharing
-			if((isset( $theChampSharingOptions['vertical_home']) && is_front_page()) || (isset( $theChampSharingOptions['vertical_category']) && is_category()) || (isset( $theChampSharingOptions['vertical_archive']) && is_archive()) || ( isset( $theChampSharingOptions['vertical_post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampSharingOptions['vertical_page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampSharingOptions['vertical_excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampSharingOptions['vertical_bb_forum'] ) && current_filter() == 'bbp_template_before_single_forum') || ( isset( $theChampSharingOptions['vertical_bb_topic'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic')))){
+			if((isset( $theChampSharingOptions['vertical_home']) && is_front_page()) || (isset( $theChampSharingOptions['vertical_category']) && is_category()) || (isset( $theChampSharingOptions['vertical_archive']) && is_archive()) || ( isset( $theChampSharingOptions['vertical_post'] ) && is_single() && isset($post -> post_type) && $post -> post_type == 'post' ) || ( isset( $theChampSharingOptions['vertical_page'] ) && is_page() && isset($post -> post_type) && $post -> post_type == 'page' ) || ( isset( $theChampSharingOptions['vertical_excerpt'] ) && is_front_page() && current_filter() == 'get_the_excerpt' ) || ( isset( $theChampSharingOptions['vertical_bb_forum'] ) && current_filter() == 'bbp_template_before_single_forum') || ( isset( $theChampSharingOptions['vertical_bb_topic'] ) && in_array(current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic')))) {
 				if( in_array( current_filter(), array('bbp_template_before_single_topic', 'bbp_template_before_lead_topic', 'bbp_template_before_single_forum') ) ){
 					echo $verticalDiv;
 				}else{
@@ -498,14 +571,20 @@ function the_champ_render_sharing($content){
 									}
 								}
 								
-								$sharingDiv = the_champ_prepare_sharing_html($sharingUrl, 'vertical', isset($theChampSharingOptions['vertical_counts']));
-								$verticalDiv = "<div class='the_champ_sharing_container the_champ_vertical_sharing' style='width:" . ($theChampSharingOptions['vertical_sharing_size'] + 4) . "px;" . $offset . (isset($theChampSharingOptions['vertical_bg']) && $theChampSharingOptions['vertical_bg'] != '' ? 'background-color: '.$theChampSharingOptions['vertical_bg'] : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='".$postUrl."'>".$sharingDiv."</div>";
+								$sharingDiv = the_champ_prepare_sharing_html($sharingUrl, 'vertical', isset($theChampSharingOptions['vertical_counts']), isset($theChampSharingOptions['vertical_total_shares']));
+								$verticalDiv = "<div class='the_champ_sharing_container the_champ_vertical_sharing" . ( isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . "' style='width:" . ($theChampSharingOptions['vertical_sharing_size'] + 4) . "px;" . $offset . (isset($theChampSharingOptions['vertical_bg']) && $theChampSharingOptions['vertical_bg'] != '' ? 'background-color: '.$theChampSharingOptions['vertical_bg'] : '-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;') . "' super-socializer-data-href='".$postUrl."'>".$sharingDiv."</div>";
 							}
 							$content = $content.$verticalDiv;
 							$$var++;
 						}
 					}else{
 						$content = $content.$verticalDiv;
+					}
+				}
+			} elseif( count( $post_types ) ) {
+				foreach ( $post_types as $post_type ) {
+					if( isset( $theChampSharingOptions['vertical_' . $post_type] ) && ( is_single() || is_page() ) && isset($post -> post_type) && $post -> post_type == $post_type ) {
+						$content = $content . $verticalDiv;
 					}
 				}
 			}
@@ -525,6 +604,16 @@ add_filter( 'bbp_template_before_lead_topic', 'the_champ_render_sharing' );
 add_filter( 'bbp_template_after_single_forum', 'the_champ_render_sharing' );
 add_filter( 'bbp_template_after_single_topic', 'the_champ_render_sharing' );
 add_filter( 'bbp_template_after_lead_topic', 'the_champ_render_sharing' );
+// Sharing at WooCommerce pages
+if(isset($theChampSharingOptions['woocom_shop']) || isset($theChampCounterOptions['woocom_shop'])){
+	add_action('woocommerce_after_shop_loop_item', 'the_champ_render_sharing');
+}
+if(isset($theChampSharingOptions['woocom_product']) || isset($theChampCounterOptions['woocom_product'])){
+	add_action('woocommerce_share', 'the_champ_render_sharing');
+}
+if(isset($theChampSharingOptions['woocom_thankyou']) || isset($theChampCounterOptions['woocom_thankyou'])){
+	add_action('woocommerce_thankyou', 'the_champ_render_sharing');
+}
 
 /**
  * Get sharing count for providers
@@ -566,6 +655,9 @@ function the_champ_sharing_count(){
 					break;
 				case 'pinterest':
 					$url = 'http://api.pinterest.com/v1/urls/count.json?callback=theChamp&url='. $targetUrl;
+					break;
+				case 'buffer':
+					$url = 'https://api.bufferapp.com/1/links/shares.json?url='. $targetUrl;
 					break;
 				case 'stumbleupon':
 					$url = 'http://www.stumbleupon.com/services/1.01/badge.getinfo?url='. $targetUrl;
@@ -632,6 +724,13 @@ function the_champ_sharing_count(){
 							$responseData[$targetUrl]['pinterest'] = $body -> count;
 						}else{
 							$responseData[$targetUrl]['pinterest'] = 0;
+						}
+						break;
+					case 'buffer':
+						if(!empty($body -> shares)){
+							$responseData[$targetUrl]['buffer'] = $body -> shares;
+						}else{
+							$responseData[$targetUrl]['buffer'] = 0;
 						}
 						break;
 					case 'stumbleupon':

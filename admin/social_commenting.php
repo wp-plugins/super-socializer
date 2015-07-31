@@ -31,7 +31,7 @@
 								<tr class="the_champ_help_content" id="the_champ_enable_commenting_help_cont">
 									<td colspan="2">
 									<div>
-									<?php _e('Enable Social Commenting', 'Super-Socializer') ?>
+									<?php _e('Master control to enable Social Commenting', 'Super-Socializer') ?>
 									</div>
 									</td>
 								</tr>
@@ -63,6 +63,15 @@
 									<input id="the_champ_commenting_title" name="the_champ_facebook[commenting_label]" type="text" value="<?php echo isset($theChampFacebookOptions['commenting_label']) ? $theChampFacebookOptions['commenting_label'] : '';?>" />
 									</td>
 								</tr>
+
+								<tr class="the_champ_help_content" id="the_champ_commenting_title_help_cont">
+									<td colspan="2">
+									<div>
+									<?php _e('Label for comment area', 'Super-Socializer') ?>
+									<img width="550" src="<?php echo plugins_url('../images/snaps/sc_commenting_label.png', __FILE__); ?>" />
+									</div>
+									</td>
+								</tr>
 							</table>
 							</div>
 						</div>
@@ -73,7 +82,6 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 								<tr>
 									<th>
-									<img id="the_champ_wp_comment_label_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 									<label for="the_champ_wp_comment_label"><?php _e("Label for WordPress Commenting tab", 'Super-Socializer'); ?></label>
 									</th>
 									<td>
@@ -83,7 +91,6 @@
 
 								<tr>
 									<th>
-									<img id="the_champ_fb_comment_label_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 									<label for="the_champ_fb_comment_label"><?php _e("Label for Facebook Commenting tab", 'Super-Socializer'); ?></label>
 									</th>
 									<td>
@@ -93,7 +100,6 @@
 
 								<tr>
 									<th>
-									<img id="the_champ_gp_comment_label_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 									<label for="the_champ_gp_comment_label"><?php _e("Label for G+ Commenting tab", 'Super-Socializer'); ?></label>
 									</th>
 									<td>
@@ -103,7 +109,6 @@
 
 								<tr>
 									<th>
-									<img id="the_champ_dq_comment_label_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 									<label for="the_champ_dq_comment_label"><?php _e("Label for Disqus Commenting tab", 'Super-Socializer'); ?></label>
 									</th>
 									<td>
@@ -121,7 +126,7 @@
 								<tr>
 									<td colspan="2">
 									<div>
-									<?php _e('<strong>Note:</strong> Drop us an email at support@heateor.com to enable Facebook Comments notification and moderation.', 'Super-Socializer') ?>
+									<a href="https://www.heateor.com/add-ons" target="_blank"><input type="button" value="<?php _e('Enable Facebook Comments notification and moderation', 'Super-Socializer') ?>" class="ss_demo" /></a>
 									</div>
 									</td>
 								</tr>
@@ -237,28 +242,6 @@
 									<td colspan="2">
 									<div>
 									<?php _e('The order to use when displaying comments.', 'Super-Socializer') ?>
-									</div>
-									</td>
-								</tr>
-								
-								<tr>
-									<th>
-									<img id="the_champ_fb_comment_mobile_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-									<label for="the_champ_fbcomment_mobile"><?php _e('Mobile', 'Super-Socializer'); ?></label>
-									</th>
-									<td>
-									<select id="the_champ_fbcomment_mobile" name="the_champ_facebook[comment_mobile]">
-										<option value="auto-detect" <?php echo isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] == 'auto-detect' ? 'selected="selected"' : '' ?>><?php _e('Auto Detect', 'Super-Socializer') ?></option>
-										<option value="true" <?php echo isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] == 'true' ? 'selected="selected"' : '' ?>><?php _e('True', 'Super-Socializer') ?></option>
-										<option value="false" <?php echo isset($theChampFacebookOptions['comment_mobile']) && $theChampFacebookOptions['comment_mobile'] == 'false' ? 'selected="selected"' : '' ?>><?php _e('False', 'Super-Socializer') ?></option>
-									</select>
-									</td>
-								</tr>
-								
-								<tr class="the_champ_help_content" id="the_champ_fb_comment_mobile_help_cont">
-									<td colspan="2">
-									<div>
-									<?php _e('A boolean value that specifies whether to show the mobile-optimized version or not.', 'Super-Socializer') ?>
 									</div>
 									</td>
 								</tr>
@@ -397,7 +380,7 @@
 						<div class="stuffbox">
 							<h3><label><?php _e('Shortcode', 'Super-Socializer');?></label></h3>
 							<div class="inside">
-								<p><a href="//support.heateor.com/social-commenting-shortcode/" target="_blank"><?php _e('Shortcode', 'Super-Socializer') ?></a></p>
+								<p><a href="http://support.heateor.com/social-commenting-shortcode/" target="_blank"><?php _e('Social Commenting Shortcode', 'Super-Socializer') ?></a></p>
 							</div>
 						</div>
 						</div>
@@ -409,7 +392,8 @@
 						<div class="stuffbox">
 							<h3><label><?php _e('FAQ', 'Super-Socializer') ?></label></h3>
 							<div class="inside">
-								<p><a href="//support.heateor.com/how-can-i-disable-social-commenting-at-individual-pagepost/" target="_blank"><?php _e('How can I disable Social Commenting at individual page/post?', 'Super-Socializer') ?></a></p>
+								<p><a href="http://support.heateor.com/how-can-i-disable-social-commenting-at-individual-pagepost/" target="_blank"><?php _e('How can I disable Social Commenting at individual page/post?', 'Super-Socializer') ?></a></p>
+								<p><a href="http://support.heateor.com/how-to-disable-default-comment-form-from-social-commenting/" target="_blank"><?php _e('How to disable default comment form from Social Commenting?', 'Super-Socializer') ?></a></p>
 							</div>
 						</div>
 						</div>

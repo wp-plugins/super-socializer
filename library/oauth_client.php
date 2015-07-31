@@ -1075,7 +1075,7 @@ class oauth_client_class
 		if(strlen($this->redirect_uri))
 			$redirect_uri = $this->redirect_uri;
 		else
-			$redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+			$redirect_uri = html_entity_decode(esc_url('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
 		return true;
 	}
 
@@ -2551,7 +2551,7 @@ class oauth_client_class
 						return $this->SetError($this->grant_type.' is not yet a supported OAuth 2 grant type');
 				}
 				if($this->debug)
-					$this->OutputDebug('Checking the authentication state in URI '.$_SERVER['REQUEST_URI']);
+					$this->OutputDebug('Checking the authentication state in URI '.esc_url($_SERVER['REQUEST_URI']));
 				if(!$this->GetStoredState($stored_state))
 					return false;
 				if(strlen($stored_state) == 0)

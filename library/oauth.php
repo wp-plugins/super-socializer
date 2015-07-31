@@ -261,7 +261,7 @@ if (!class_exists('OAuthRequest')) {
 								  '://' . $_SERVER['HTTP_HOST'] .
 								  ':' .
 								  $_SERVER['SERVER_PORT'] .
-								  $_SERVER['REQUEST_URI'];
+								  html_entity_decode(esc_url($_SERVER['REQUEST_URI']));
 		@$http_method or $http_method = $_SERVER['REQUEST_METHOD'];
 
 		// We weren't handed any parameters, so let's find the ones relevant to

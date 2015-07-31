@@ -15,7 +15,9 @@ function the_champ_sharing_shortcode($params){
 			'top' => '100',
 			'url' => '',
 			'count' => 0,
-			'align' => 'left'
+			'align' => 'left',
+			'title' => '',
+			'total_shares' => 'OFF'
 		), $params));
 		if(($type == 'horizontal' && !the_champ_horizontal_sharing_enabled()) || ($type == 'vertical' && !the_champ_vertical_sharing_enabled())){
 			return;
@@ -28,7 +30,7 @@ function the_champ_sharing_shortcode($params){
 			$targetUrl = get_permalink($post -> ID);
 			$postId = $post -> ID;
 		}else{
-			$targetUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 			$postId = 0;
 		}
 		// if bit.ly url shortener enabled, generate bit.ly short url
@@ -45,7 +47,7 @@ function the_champ_sharing_shortcode($params){
 		}elseif($right){
 			$alignmentOffset = $right;
 		}
-		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing" ss-offset="' . $alignmentOffset . '" super-socializer-data-href="'.$targetUrl.'" ';
+		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing' . ( $type == 'vertical' && isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . '" ss-offset="' . $alignmentOffset . '" super-socializer-data-href="'.$targetUrl.'" ';
 		$verticalOffsets = '';
 		if($type == 'vertical'){
 			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;width:' . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : '35') + 4) . "px;";
@@ -59,9 +61,12 @@ function the_champ_sharing_shortcode($params){
 			$html .= '"';
 		}
 		$html .= '>';
-		$html .= the_champ_prepare_sharing_html($shortUrl == '' ? $targetUrl : $shortUrl, $type, $count);
+		if( $type == 'horizontal' && $title != '' ) {
+			$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+		}
+		$html .= the_champ_prepare_sharing_html($shortUrl == '' ? $targetUrl : $shortUrl, $type, $count, $total_shares == 'ON' ? 1 : 0);
 		$html .= '</div>';
-		if($count){
+		if($count || $total_shares == 'ON'){
 			$html .= '<script>theChampLoadEvent(
 		function(){
 			// sharing counts
@@ -89,7 +94,8 @@ function the_champ_counter_shortcode($params){
 			'right' => '0',
 			'top' => '100',
 			'url' => '',
-			'align' => 'left'
+			'align' => 'left',
+			'title' => ''
 		), $params));
 		if(($type == 'horizontal' && !the_champ_horizontal_counter_enabled()) || ($type == 'vertical' && !the_champ_vertical_counter_enabled())){
 			return;
@@ -102,7 +108,7 @@ function the_champ_counter_shortcode($params){
 			$targetUrl = get_permalink($post -> ID);
 			$postId = $post -> ID;
 		}else{
-			$targetUrl = the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 			$postId = 0;
 		}
 		$alignmentOffset = 0;
@@ -111,7 +117,8 @@ function the_champ_counter_shortcode($params){
 		}elseif($right){
 			$alignmentOffset = $right;
 		}
-		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter" ss-offset="' . $alignmentOffset . '" ';
+		global $theChampCounterOptions;
+		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter' . ( $type == 'vertical' && isset( $theChampCounterOptions['hide_mobile_likeb'] ) ? ' the_champ_hide_sharing' : '' ) . '" ss-offset="' . $alignmentOffset . '" ';
 		$verticalOffsets = '';
 		if($type == 'vertical'){
 			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;';
@@ -125,7 +132,9 @@ function the_champ_counter_shortcode($params){
 			$html .= '"';
 		}
 		$html .= '>';
-		global $theChampCounterOptions;
+		if( $type == 'horizontal' && $title != '' ) {
+			$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+		}
 		$counterUrl = $targetUrl;
 		if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
 			$counterUrl = wp_get_shortlink();
@@ -149,7 +158,8 @@ add_shortcode('TheChamp-Counter', 'the_champ_counter_shortcode');
 function the_champ_login_shortcode($params){
 	if(the_champ_social_login_enabled()){
 		extract(shortcode_atts(array(
-			'style' => ''
+			'style' => '',
+			'title' => ''
 		), $params));
 		$html = '<div ';
 		// style 
@@ -160,6 +170,9 @@ function the_champ_login_shortcode($params){
 			$html .= 'style="'.$style.'"';
 		}
 		$html .= '>';
+		if( $title != '' ) {
+			$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+		}
 		$html .= the_champ_login_button(true);
 		$html .= '</div><div style="clear:both"></div>';
 		return $html;
@@ -176,9 +189,14 @@ function the_champ_fb_commenting_shortcode($params){
 		'url' => get_permalink(),
 		'num_posts' => '',
 		'width' => '',
-		'language' => 'en_US'
+		'language' => 'en_US',
+		'title' => ''
 	), $params));
-	$html = '<div style="'. $style .'" id="the_champ_fb_commenting"> <div class="fb-comments" data-href="' .($url == '' ? the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] : $url). '"';
+	$html = '<div style="'. $style .'" id="the_champ_fb_commenting">';
+	if( $title != '' ) {
+		$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+	}
+	$html .= '<div class="fb-comments" data-href="' .($url == '' ? html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])) : $url). '"';
     $html .= ' data-numposts="' . $num_posts . '"';
     $html .= ' data-width="' . ($width == '' ? '100%' : $width) . '"';
     $html .= ' ></div></div><script type="text/javascript" src="//connect.facebook.net/' . $language . '/sdk.js
@@ -195,10 +213,35 @@ function the_champ_gp_commenting_shortcode($params){
 		'style' => '',
 		'url' => get_permalink(),
 		'width' => '',
+		'title' => ''
 	), $params));
 	$html = '<div style="'. $style .'" id="the_champ_gp_commenting">';
-    $html .= "<div class='g-comments' data-href='" . ($url == '' ? the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] : $url) . "' ". ($width ? "data-width='" .$width. "'" : "" ) ." data-first_party_property='BLOGGER' data-view_type='FILTERED_POSTMOD' ></div>";
+	if( $title != '' ) {
+		$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+	}
+    $html .= "<div class='g-comments' data-href='" . ($url == '' ? html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])) : $url) . "' ". ($width ? "data-width='" .$width. "'" : "" ) ." data-first_party_property='BLOGGER' data-view_type='FILTERED_POSTMOD' ></div>";
     $html .= '</div><script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>';
 	return $html;
 }
 add_shortcode('TheChamp-GP-Comments', 'the_champ_gp_commenting_shortcode');
+
+/** 
+ * Shortcode for Social account linking
+ */ 
+function the_champ_social_linking_shortcode($params){
+	if(the_champ_social_login_enabled()){
+		extract(shortcode_atts(array(
+			'style' => '',
+			'title' => ''
+		), $params));
+		$html = '<div style="'. $style .'">';
+		if( $title != '' ) {
+			$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+		}
+		$html .= the_champ_account_linking();
+		$html .= '</div>';
+		return $html;
+	}
+	return '<h3>' . __('Enable Social Login from "Basic Configuration" section at "Super Socializer > Social Login" page in admin panel', 'Super-Socializer') . '</h3>';
+}
+add_shortcode('TheChamp-Social-Linking', 'the_champ_social_linking_shortcode');

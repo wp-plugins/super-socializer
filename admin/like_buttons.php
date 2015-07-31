@@ -154,13 +154,13 @@
 				</div>
 						
 				<div class="stuffbox">
-					<h3><label><?php _e('Twitter username in tweet button', 'Super-Socializer');?></label></h3>
+					<h3><label><?php _e('Twitter Username', 'Super-Socializer');?></label></h3>
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 						<tr>
 							<th>
 							<img id="the_champ_sc_twitter_username_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
-							<label for="the_champ_sc_twitter_username"><?php _e("Twitter username (without @)", 'Super-Socializer'); ?></label>
+							<label for="the_champ_sc_twitter_username"><?php _e("Twitter username for Tweet (without @)", 'Super-Socializer'); ?></label>
 							</th>
 							<td>
 							<input id="the_champ_sc_twitter_username" name="the_champ_counter[twitter_username]" type="text" value="<?php echo isset($theChampCounterOptions['twitter_username']) ? $theChampCounterOptions['twitter_username'] : '' ?>" />
@@ -172,6 +172,24 @@
 							<div>
 							<?php _e('Provided username will be appended after the content being tweeted as "via @USERNAME". Leave empty if you do not want any username.', 'Super-Socializer') ?>
 							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_twitter_username.png', __FILE__); ?>" />
+							</div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>
+							<img id="the_champ_sc_buffer_username_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sc_buffer_username"><?php _e("Twitter username for Buffer sharing (without @)", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_sc_buffer_username" name="the_champ_counter[buffer_username]" type="text" value="<?php echo isset($theChampCounterOptions['buffer_username']) ? $theChampCounterOptions['buffer_username'] : '' ?>" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_sc_buffer_username_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Provided username will be appended after the content in Buffer sharing as "via @USERNAME". Leave empty if you do not want any username.', 'Super-Socializer') ?>
 							</div>
 							</td>
 						</tr>
@@ -252,7 +270,7 @@
 							<td>
 							<ul id="the_champ_sc_rearrange">
 							<?php
-							$counterProviders = array('facebook_like', 'facebook_recommend', 'twitter_tweet', 'linkedin_share', 'google_plusone', 'googleplus_share', 'pinterest_pin_it', 'xing', 'reddit', 'stumbleupon_badge');
+							$counterProviders = array('facebook_like', 'facebook_recommend', 'twitter_tweet', 'linkedin_share', 'google_plusone', 'googleplus_share', 'pinterest_pin_it', 'xing', 'reddit', 'stumbleupon_badge', 'yummly', 'buffer');
 							// show selected providers
 							if(isset($theChampCounterOptions['horizontal_providers']) && is_array($theChampCounterOptions['horizontal_providers'])){
 								foreach($theChampCounterOptions['horizontal_providers'] as $selected){
@@ -356,8 +374,18 @@
 							<input id="the_champ_counter_category" name="the_champ_counter[category]" type="checkbox" <?php echo isset($theChampCounterOptions['category']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_counter_category"><?php _e('Category Archives', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_counter_archive" name="the_champ_counter[archive]" type="checkbox" <?php echo isset($theChampCounterOptions['archive']) ? 'checked = "checked"' : '';?> value="1" />
-							<label for="the_champ_counter_archive"><?php _e('Archive Pages (Category, Tag, Author or Date based pages)', 'Super-Socializer') ?></label>
+							<label for="the_champ_counter_archive"><?php _e('Archive Pages (Category, Tag, Author or Date based pages)', 'Super-Socializer') ?></label><br/>
 							<?php
+							$post_types = get_post_types( array( 'public' => true ), 'names', 'and' );
+							$post_types = array_diff( $post_types, array( 'post', 'page' ) );
+							if( count( $post_types ) ) {
+								foreach ( $post_types as $post_type ) {
+									?>
+									<input id="the_champ_counter_<?php echo $post_type ?>" name="the_champ_counter[<?php echo $post_type ?>]" type="checkbox" <?php echo isset($theChampCounterOptions[$post_type]) ? 'checked = "checked"' : '';?> value="1" />
+									<label for="the_champ_counter_<?php echo $post_type ?>"><?php echo ucfirst( $post_type ) . 's'; ?></label><br/>
+									<?php
+								}
+							}
 							if($theChampIsBpActive){
 								?>
 								<br/>
@@ -376,6 +404,19 @@
 								<br/>
 								<input id="the_champ_counter_bb_reply" name="the_champ_counter[bb_reply]" type="checkbox" <?php echo isset($theChampCounterOptions['bb_reply']) ? 'checked = "checked"' : '';?> value="1" />
 								<label for="the_champ_counter_bb_reply"><?php _e('BBPress reply', 'Super-Socializer') ?></label>
+								<?php
+							}
+							if(the_champ_ss_woocom_is_active()){
+								?>
+								<input id="the_champ_counter_woocom_shop" name="the_champ_counter[woocom_shop]" type="checkbox" <?php echo isset($theChampCounterOptions['woocom_shop']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_woocom_shop"><?php _e('After individual product at WooCommerce Shop page', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_counter_woocom_product" name="the_champ_counter[woocom_product]" type="checkbox" <?php echo isset($theChampCounterOptions['woocom_product']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_woocom_product"><?php _e('WooCommerce Product Page', 'Super-Socializer') ?></label>
+								<br/>
+								<input id="the_champ_counter_woocom_thankyou" name="the_champ_counter[woocom_thankyou]" type="checkbox" <?php echo isset($theChampCounterOptions['woocom_thankyou']) ? 'checked = "checked"' : '';?> value="1" />
+								<label for="the_champ_counter_woocom_thankyou"><?php _e('WooCommerce Thankyou Page', 'Super-Socializer') ?></label>
+								<br/>
 								<?php
 							}
 							?>
@@ -606,8 +647,17 @@
 							<input id="the_champ_counter_vertical_category" name="the_champ_counter[vertical_category]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_category']) ? 'checked = "checked"' : '';?> value="1" />
 							<label for="the_champ_counter_vertical_category"><?php _e('Category Archives', 'Super-Socializer') ?></label><br/>
 							<input id="the_champ_counter_vertical_archive" name="the_champ_counter[vertical_archive]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_archive']) ? 'checked = "checked"' : '';?> value="1" />
-							<label for="the_champ_counter_vertical_archive"><?php _e('Archive Pages (Category, Tag, Author or Date based pages)', 'Super-Socializer') ?></label>
+							<label for="the_champ_counter_vertical_archive"><?php _e('Archive Pages (Category, Tag, Author or Date based pages)', 'Super-Socializer') ?></label><br/>
 							<?php
+							if( count( $post_types ) ) {
+								foreach ( $post_types as $post_type ) {
+									?>
+									<input id="the_champ_counter_vertical_<?php echo $post_type ?>" name="the_champ_counter[vertical_<?php echo $post_type ?>]" type="checkbox" <?php echo isset($theChampCounterOptions['vertical_' . $post_type]) ? 'checked = "checked"' : '';?> value="1" />
+									<label for="the_champ_counter_vertical_<?php echo $post_type ?>"><?php echo ucfirst( $post_type ) . 's'; ?></label><br/>
+									<?php
+								}
+							}
+
 							if(function_exists('is_bbpress')){
 								?>
 								<br/>
@@ -629,6 +679,24 @@
 							</div>
 							</td>
 						</tr>
+
+						<tr>
+							<th>
+							<img id="the_champ_ss_mobile_likeb_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_ss_mobile_likeb"><?php _e("Hide like buttons on mobile devices", 'Super-Socializer'); ?></label>
+							</th>
+							<td>
+							<input id="the_champ_ss_mobile_likeb" name="the_champ_counter[hide_mobile_likeb]" type="checkbox" <?php echo isset($theChampCounterOptions['hide_mobile_likeb']) ? 'checked = "checked"' : '';?> value="1" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_ss_mobile_likeb_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('If enabled, vertical like buttons will not appear on mobile devices', 'Super-Socializer') ?>
+							</div>
+							</td>
+						</tr>
 						</tbody>
 					</table>
 					</div>
@@ -643,7 +711,7 @@
 				<div class="stuffbox">
 					<h3><label><?php _e('Shortcode & Widget', 'Super-Socializer');?></label></h3>
 					<div class="inside">
-						<p><a href="//support.heateor.com/like-buttons-shortcode-and-widget/" target="_blank"><?php _e('Shortcode & Widget', 'Super-Socializer') ?></a></p>
+						<p><a href="http://support.heateor.com/like-buttons-shortcode-and-widget/" target="_blank"><?php _e('Like Buttons Shortcode & Widget', 'Super-Socializer') ?></a></p>
 					</div>
 				</div>
 				</div>
