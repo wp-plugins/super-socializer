@@ -4,7 +4,7 @@ Donate link: hello@heateor.com
 Tags: super socializer, thechamp, champ, social login, social sharing, social commenting, wordpress plugin, buddypress, bbpress, social share, feed, multisite, comments, share post, openid integration, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, plug-in, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, wordpress, social sign-in, signin, sign up, signup, social plugins, social connect, facebook, twitter, google, google+, googleplus, google plus, linkedin, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, widget, social network
 Requires at least: 2.5.0
 Tested up to: 4.2.4
-Stable tag: 5.8.0
+Stable tag: 5.8.1
 License: GPLv2 or later
 
 A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more
@@ -164,6 +164,9 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 5.8.1 =
+* [Bugfix] Yummly and Buffer sharing were not working
+
 = 5.8.0 =
 * [New] Added options to enable sharing, like buttons on custom posts and WooCommerce products
 * [New] Added option to enable social login at customer login form at WooCommerce My Account page
@@ -567,3 +570,6 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 * [Improvement] Increased font size of share counts in vertical sharing bar 
 * [Bugfix] Tweet button was showing encoded characters for some content
 * [Bugfix] Support documentation links were redirecting to 404, "not found" page in websites with ssl enabled
+
+= 5.8.1 =
+* [Bugfix] Yummly and Buffer sharing were not working

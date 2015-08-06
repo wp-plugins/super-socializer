@@ -90,9 +90,9 @@ function the_champ_prepare_sharing_html($postUrl, $sharingType = 'horizontal', $
 				}elseif($provider == 'whatsapp'){											
 					$sharingUrl = 'whatsapp://send?text=' . urlencode($post->post_title . ' ' . $postUrl);
 				}elseif($provider == 'yummly'){											
-					$sharingUrl = 'http://www.yummly.com/urb/verify?url=' . urlencode($post->post_title . ' ' . $postUrl) . '&title=' . urlencode($post->post_title);
+					$sharingUrl = 'http://www.yummly.com/urb/verify?url=' . urlencode($postUrl) . '&title=' . urlencode($post->post_title);
 				}elseif($provider == 'buffer'){											
-					$sharingUrl = 'https://buffer.com/add?url=' . urlencode($post->post_title . ' ' . $postUrl) . '&title=' . urlencode($post->post_title);
+					$sharingUrl = 'https://buffer.com/add?url=' . urlencode($postUrl) . '&title=' . urlencode($post->post_title);
 				}elseif($provider == 'pinterest'){
 					$sharingUrl = "javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
 				}
